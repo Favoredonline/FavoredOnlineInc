@@ -935,57 +935,6 @@ const toolsOptions = useMemo(() => [
               </div>
             )}
 
-            {/* AI Assistant */}
-            <div className="mb-8 sm:mb-12">
-              <button 
-                onClick={toggleAiAssistant}
-                className="flex items-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-4 px-8 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-                style={{boxShadow: '0 0 40px rgba(59, 130, 246, 0.3)'}}
-              >
-                <div className="text-left">
-                  <div className="font-black text-lg">
-                    {showAiAssistant ? 'Hide AI Assistant' : 'Use AI Assistant'}
-                  </div>
-                  <div className="text-sm text-blue-100 font-light">
-                    Auto-fill form with intelligent suggestions
-                  </div>
-                </div>
-                <svg className={`w-6 h-6 ml-4 transform transition-transform duration-300 ${showAiAssistant ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {showAiAssistant && (
-                <div className="mt-6 bg-gradient-to-br from-blue-500/20 via-blue-500/20 to-orange-500/20 backdrop-blur-2xl p-8 rounded-3xl border border-blue-500/30 shadow-2xl animate-fadeIn">
-                  <div className="flex items-start">
-                    <div className="text-5xl mr-6 animate-bounce" style={{filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8))'}}></div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-black text-white mb-3" 
-                          style={{
-                            textShadow: '0 0 15px rgba(255,255,255,0.3), 2px 2px 4px rgba(0,0,0,0.8)',
-                            fontFamily: '"Inter", sans-serif'
-                          }}>
-                        AI-Powered Career Assistant
-                      </h3>
-                      <p className="text-gray-200 mb-6 text-lg leading-relaxed" 
-                         style={{
-                           textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
-                           fontFamily: '"Inter", sans-serif'
-                         }}>
-                        Let our advanced AI analyze your background and automatically fill out the form with personalized suggestions based on your career goals.
-                      </p>
-                      <button 
-                        onClick={handleAiFillForm}
-                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-4 px-8 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300 font-bold text-lg flex items-center"
-                      >
-                        Generate AI Suggestions
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            
             {/* Progress Indicator */}
             <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 sm:mb-12 border border-white/20 shadow-2xl">
               <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">

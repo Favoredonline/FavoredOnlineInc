@@ -1,4 +1,4 @@
-// CareerDashboard.jsx 
+// CareerDashboard.jsx - COMPLETE VERSION WITH BLUE/ORANGE COLOR SCHEME
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';

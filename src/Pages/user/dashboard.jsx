@@ -443,8 +443,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     { id: 'hub', label: 'Hub' },
     { id: 'events', label: 'Events' },
     { id: 'projects', label: 'Projects' },
-    { id: 'community', label: 'Community' },
-    { id: 'innovation-expo', label: 'Innovation Expo' }
+    { id: 'community', label: 'Community' }
   ], []);
 
   const badgeCategories = useMemo(() => ({
@@ -781,114 +780,6 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     navigate('/');
   }, [navigate]);
 
-  const InnovationExpoSection = () => (
-    <div className="space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-8">
-      <SectionHeader 
-        title="INNOVATION EXPO"
-        description=""
-        gradientColors="from-orange-300 via-orange-400 to-blue-500"
-      />
-
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 md:p-8 lg:p-10 border border-white/20 shadow-2xl">
-          <div className="text-center mb-4 xs:mb-5 sm:mb-6 md:mb-8">
-            <div className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-orange-500 to-blue-600 rounded-xl xs:rounded-2xl flex items-center justify-center mx-auto mb-3 xs:mb-4 sm:mb-6 shadow-lg">
-              <svg className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 xs:mb-4" 
-                style={{textShadow: '0 0 15px rgba(255,255,255,0.3), 1px 1px 2px rgba(0,0,0,0.8)'}}>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500">
-                Calling All Innovators!
-              </span>
-            </h3>
-          </div>
-
-          <div className="space-y-3 xs:space-y-4 sm:space-y-6 text-center">
-            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed px-2" 
-               style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-              Are you ready to revolutionize the tech world? It's time to turn your ideas into reality and showcase your brilliance at our Innovation Expo!
-            </p>
-
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed px-2" 
-               style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-              Whether you're passionate about coding, engineering, or conducting groundbreaking research, this is your chance to shine. Start building your projects, conducting research, and preparing to blow minds!
-            </p>
-
-            <div className="bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-lg xs:rounded-xl p-3 xs:p-4 sm:p-6 border border-blue-500/30 my-4 xs:my-5 sm:my-6">
-              <h4 className="text-sm xs:text-base sm:text-lg md:text-xl font-bold text-white mb-2 xs:mb-3" 
-                  style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-                Submit Your Favorite Projects
-              </h4>
-              <p className="text-xs xs:text-sm sm:text-base text-gray-200 mb-2 xs:mb-3">
-                Choose your best work from the platform to present at the Innovation Expo! Your project must have the consent or agreement of your group members before submission.
-              </p>
-              <div className="bg-black/20 rounded-lg p-2 xs:p-3 sm:p-4 text-left space-y-2">
-                <div className="flex items-start gap-2">
-                  <svg className="w-4 h-4 xs:w-5 xs:h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-[10px] xs:text-xs sm:text-sm text-gray-300">
-                    <strong className="text-blue-400">Team Projects:</strong> The same project must be presented as a team with all interested members
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <svg className="w-4 h-4 xs:w-5 xs:h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-[10px] xs:text-xs sm:text-sm text-gray-300">
-                    <strong className="text-orange-400">Solo Presentation:</strong> If no other team member is interested, you can present alone with their consent
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <svg className="w-4 h-4 xs:w-5 xs:h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-[10px] xs:text-xs sm:text-sm text-gray-300">
-                    <strong className="text-blue-400">Group Agreement:</strong> All submissions require approval from your project group members
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-lg xs:rounded-xl p-3 xs:p-4 sm:p-6 border border-orange-500/30 my-4 xs:my-5 sm:my-6">
-              <p className="text-base xs:text-lg sm:text-xl font-bold text-white mb-2" 
-                 style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-                We are excited to see your work and celebrate you!
-              </p>
-              <p className="text-lg xs:text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500">
-                Cash and prizes to be won!
-              </p>
-            </div>
-
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed px-2" 
-               style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-              If you are interested in presenting your project, let us know by filling out the interest form below.
-            </p>
-
-            <div className="pt-3 xs:pt-4 sm:pt-6">
-              <a href="https://form.jotform.com/241518319102145"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-orange-500 to-blue-600 text-white font-bold text-sm xs:text-base sm:text-lg px-6 xs:px-8 sm:px-12 py-3 xs:py-4 sm:py-5 rounded-lg xs:rounded-xl shadow-2xl hover:from-orange-600 hover:to-blue-700 active:from-orange-700 active:to-blue-800 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[56px] flex items-center justify-center gap-2"
-                aria-label="Submit your project for Innovation Expo"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-                Submit Your Project
-              </a>
-            </div>
-            <p className="text-xs xs:text-sm sm:text-base text-gray-400 mt-3 xs:mt-4 italic">
-              Don't miss this opportunity to showcase your innovation and compete for amazing prizes!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   const renderContent = () => {
     const sections = {
       achievements: {
@@ -928,10 +819,6 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         cards: dashboardCards.companies
       }
     };
-
-    if (activeSection === 'innovation-expo') {
-      return <InnovationExpoSection />;
-    }
 
     if (activeSection === 'community') {
       return (
