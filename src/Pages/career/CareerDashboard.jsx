@@ -614,7 +614,7 @@ ${interviewQuestions.commonMistakes.map(mistake => `
   const callClaudeAPI = async (prompt, maxTokens = 1000) => {
     try {
       const requestBody = {
-        model: 'claude-sonnet-4-5-20250929',
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: maxTokens,
         temperature: 0.7,
         messages: [

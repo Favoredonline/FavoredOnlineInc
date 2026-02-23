@@ -578,7 +578,7 @@ const CareerTest = () => {
         // Add timeout to Claude API call
         const analysisPromise = claudeApiService.analyzeCareerPath(formData);
         const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Analysis timeout - please try again')), 90000)
+          setTimeout(() => reject(new Error('Analysis timeout - please try again')), 180000)
         );
         
         const analysis = await Promise.race([analysisPromise, timeoutPromise]);

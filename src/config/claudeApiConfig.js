@@ -2,9 +2,9 @@
 
 const CLAUDE_API_CONFIG = {
   models: {
-    default: 'claude-sonnet-4-5-20250929',
+    default: 'claude-haiku-4-5-20251001',
     faster: 'claude-haiku-4-5-20251001',
-    premium: 'claude-sonnet-4-5-20250929'
+    premium: 'claude-haiku-4-5-20251001'
   },
   maxTokens: {
     formSuggestions: 1024,
