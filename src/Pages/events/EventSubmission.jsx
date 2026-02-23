@@ -1,16 +1,18 @@
 // src/Pages/events/EventSubmission.jsx - FULLY RESPONSIVE WITH BLUE/ORANGE THEME
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { toast } from 'react-toastify';
 
 const EventSubmission = () => {
   const navigate = useNavigate();
+  const { eventId } = useParams();
   const { currentUser, loading: authLoading } = useAuth();
+  const isEditMode = Boolean(eventId);
   
   const [formData, setFormData] = useState({
     eventTitle: '',
@@ -36,12 +38,71 @@ const EventSubmission = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [urlError, setUrlError] = useState('');
   const [dateError, setDateError] = useState('');
+  const [loadingEvent, setLoadingEvent] = useState(false);
+
+  // Load existing event data when in edit mode
+  useEffect(() => {
+    if (!isEditMode || !currentUser || !eventId) return;
+
+    const loadEvent = async () => {
+      setLoadingEvent(true);
+      try {
+        const eventDoc = await getDoc(doc(db, 'tech_events', eventId));
+        if (!eventDoc.exists()) {
+          toast.error('Event not found');
+          navigate('/events/my-events');
+          return;
+        }
+
+        const data = eventDoc.data();
+
+        // Verify ownership
+        if (data.submitterEmail !== currentUser.email && data.submitterId !== currentUser.uid) {
+          toast.error('You do not have permission to edit this event');
+          navigate('/events/my-events');
+          return;
+        }
+
+        // Parse dates from Firestore Timestamp
+        const startDate = data.startDate?.toDate?.() || new Date(data.startDate);
+        const endDate = data.endDate?.toDate?.() || new Date(data.endDate);
+
+        setFormData({
+          eventTitle: data.eventTitle || '',
+          eventDescription: data.eventDescription || '',
+          eventType: data.eventType || '',
+          format: data.format || '',
+          startDate: startDate.toISOString().split('T')[0],
+          startTime: data.startTime || startDate.toTimeString().slice(0, 5),
+          endDate: endDate.toISOString().split('T')[0],
+          endTime: data.endTime || endDate.toTimeString().slice(0, 5),
+          requirements: data.requirements || '',
+          learningObjectives: data.learningObjectives || '',
+          organizerName: data.organizerName || '',
+          organizerEmail: data.organizerEmail || '',
+          organizerBio: data.organizerBio || '',
+          meetingUrl: data.meetingUrl || '',
+          tags: Array.isArray(data.tags) ? data.tags.join(', ') : (data.tags || ''),
+          additionalInfo: data.additionalInfo || '',
+          maxAttendees: data.maxAttendees ? String(data.maxAttendees) : ''
+        });
+      } catch (error) {
+        console.error('Error loading event:', error);
+        toast.error('Failed to load event data');
+        navigate('/events/my-events');
+      } finally {
+        setLoadingEvent(false);
+      }
+    };
+
+    loadEvent();
+  }, [isEditMode, eventId, currentUser, navigate]);
 
   useEffect(() => {
     if (!authLoading && !currentUser) {
       navigate('/login', { 
         replace: true,
-        state: { from: '/events/submit', message: 'Please sign in to submit an event' }
+        state: { from: isEditMode ? `/events/edit/${eventId}` : '/events/submit', message: 'Please sign in to submit an event' }
       });
     }
   }, [currentUser, authLoading, navigate]);
@@ -237,66 +298,80 @@ const EventSubmission = () => {
         tags: formData.tags.trim() ? formData.tags.trim().split(',').map(tag => tag.trim()) : [],
         
         maxAttendees: formData.maxAttendees ? parseInt(formData.maxAttendees) : null,
-        attendees: [],
-        attendeeCount: 0,
         
-        submissionDate: serverTimestamp(),
-        createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
-        publishedAt: serverTimestamp(),
         
-        status: 'approved',
-        workflowStage: 'published',
-        
-        submitterId: currentUser.uid,
-        submitterEmail: currentUser.email,
-        submitterName: currentUser.displayName || currentUser.email,
-        submitterPhoto: currentUser.photoURL || null,
-        
-        isActive: true,
-        
-        submissionSource: 'web_form',
         isMultiDay: formData.startDate !== formData.endDate
       };
 
-      const docRef = await addDoc(collection(db, 'tech_events'), submissionData);
+      if (isEditMode) {
+        // UPDATE existing event
+        await updateDoc(doc(db, 'tech_events', eventId), submissionData);
 
-      setSubmitStatus('success');
-      
-      toast.success(
-        'Event published successfully!\n\n' +
-        'Your event is now live\n' +
-        'Attendees can register immediately\n' +
-        'Check the events page to see your event'
-      );
+        setSubmitStatus('success');
+        toast.success('Event updated successfully!');
 
-      setFormData({
-        eventTitle: '',
-        eventDescription: '',
-        eventType: '',
-        format: '',
-        startDate: '',
-        startTime: '',
-        endDate: '',
-        endTime: '',
-        requirements: '',
-        learningObjectives: '',
-        organizerName: currentUser?.displayName || '',
-        organizerEmail: currentUser?.email || '',
-        organizerBio: '',
-        meetingUrl: '',
-        tags: '',
-        additionalInfo: '',
-        maxAttendees: ''
-      });
+        setTimeout(() => {
+          navigate('/events/my-events');
+        }, 1500);
+      } else {
+        // CREATE new event
+        const createData = {
+          ...submissionData,
+          attendees: [],
+          attendeeCount: 0,
+          submissionDate: serverTimestamp(),
+          createdAt: serverTimestamp(),
+          publishedAt: serverTimestamp(),
+          status: 'approved',
+          workflowStage: 'published',
+          submitterId: currentUser.uid,
+          submitterEmail: currentUser.email,
+          submitterName: currentUser.displayName || currentUser.email,
+          submitterPhoto: currentUser.photoURL || null,
+          isActive: true,
+          submissionSource: 'web_form'
+        };
 
-      setTimeout(() => {
-        navigate('/events');
-      }, 2000);
+        const docRef = await addDoc(collection(db, 'tech_events'), createData);
+
+        setSubmitStatus('success');
+        
+        toast.success(
+          'Event published successfully!\n\n' +
+          'Your event is now live\n' +
+          'Attendees can register immediately\n' +
+          'Check the events page to see your event'
+        );
+
+        setFormData({
+          eventTitle: '',
+          eventDescription: '',
+          eventType: '',
+          format: '',
+          startDate: '',
+          startTime: '',
+          endDate: '',
+          endTime: '',
+          requirements: '',
+          learningObjectives: '',
+          organizerName: currentUser?.displayName || '',
+          organizerEmail: currentUser?.email || '',
+          organizerBio: '',
+          meetingUrl: '',
+          tags: '',
+          additionalInfo: '',
+          maxAttendees: ''
+        });
+
+        setTimeout(() => {
+          navigate('/events');
+        }, 2000);
+      }
 
     } catch (error) {
       console.error('Firebase submission error:', error);
-      toast.error('Error creating event: ' + error.message);
+      toast.error(`Error ${isEditMode ? 'updating' : 'creating'} event: ` + error.message);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -349,6 +424,20 @@ const EventSubmission = () => {
     return null;
   }
 
+  if (loadingEvent) {
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-3 xs:px-4">
+          <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <p className="text-white text-base xs:text-lg">Loading event data...</p>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
@@ -362,7 +451,9 @@ const EventSubmission = () => {
                 
                 <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg xs:rounded-xl border border-blue-500/20">
                   <p className="text-blue-300 font-semibold text-xs xs:text-sm sm:text-base">
-                    Welcome, {currentUser.displayName || currentUser.email}! Create your event - it will be published instantly!
+                    {isEditMode 
+                      ? `Editing your event - make your changes and save!`
+                      : `Welcome, ${currentUser.displayName || currentUser.email}! Create your event - it will be published instantly!`}
                   </p>
                 </div>
                 
@@ -390,7 +481,7 @@ const EventSubmission = () => {
                       textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(59, 130, 246, 0.2)',
                       filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))'
                     }}>
-                  Submit Your{' '}
+                  {isEditMode ? 'Edit Your' : 'Submit Your'}{' '}
                   <span className="block mt-1 xs:mt-2 sm:mt-3 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-500"
                         style={{
                           textShadow: 'none',
@@ -885,14 +976,14 @@ const EventSubmission = () => {
                         {isSubmitting ? (
                           <>
                             <div className="animate-spin rounded-full h-5 w-5 xs:h-6 xs:w-6 border-b-2 border-white"></div>
-                            Publishing Event...
+                            {isEditMode ? 'Updating Event...' : 'Publishing Event...'}
                           </>
                         ) : (
                           <>
                             <svg className="w-5 h-5 xs:w-6 xs:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
-                            Publish Event Instantly
+                            {isEditMode ? 'Save Changes' : 'Publish Event Instantly'}
                           </>
                         )}
                       </span>

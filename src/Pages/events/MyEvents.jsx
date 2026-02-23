@@ -143,14 +143,23 @@ const MyEvents = () => {
     }
   };
 
-  const handleCancelEvent = async (eventId, currentStatus) => {
+  const handleCloseEvent = async (eventId, currentStatus) => {
+    const isClosed = currentStatus === 'closed';
+    const action = isClosed ? 'reopen' : 'close registration for';
+    
+    if (!window.confirm(`Are you sure you want to ${action} this event?`)) {
+      return;
+    }
+
     try {
-      const newStatus = currentStatus === 'cancelled' ? 'active' : 'cancelled';
+      const newStatus = isClosed ? 'approved' : 'closed';
       await updateDoc(doc(db, 'tech_events', eventId), {
         status: newStatus,
-        cancelledAt: newStatus === 'cancelled' ? new Date() : null
+        isActive: newStatus === 'approved',
+        closedAt: newStatus === 'closed' ? new Date() : null,
+        updatedAt: new Date()
       });
-      toast.success(`Event ${newStatus === 'cancelled' ? 'cancelled' : 'reactivated'} successfully`);
+      toast.success(`Event ${isClosed ? 'reopened' : 'registration closed'} successfully`);
     } catch (error) {
       console.error('Error updating event:', error);
       toast.error('Failed to update event');
@@ -197,6 +206,10 @@ const MyEvents = () => {
     
     if (event.status === 'cancelled') {
       return { label: 'Cancelled', color: 'bg-red-500', textColor: 'text-white' };
+    }
+
+    if (event.status === 'closed') {
+      return { label: 'Registration Closed', color: 'bg-orange-500', textColor: 'text-white' };
     }
     
     if (event.eventDate && event.eventDate < now) {
@@ -459,21 +472,30 @@ const MyEvents = () => {
                               Edit
                             </Link>
                             <button
-                              onClick={() => handleCancelEvent(event.id, event.status)}
-                              className="flex-1 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold transition-all min-h-[44px] flex items-center justify-center gap-1.5 text-xs xs:text-sm"
+                              onClick={() => handleCloseEvent(event.id, event.status)}
+                              className={`flex-1 ${
+                                event.status === 'closed' 
+                                  ? 'bg-green-500 hover:bg-green-600 active:bg-green-700' 
+                                  : 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700'
+                              } text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold transition-all min-h-[44px] flex items-center justify-center gap-1.5 text-xs xs:text-sm`}
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                {event.status === 'closed' ? (
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                                ) : (
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                )}
                               </svg>
-                              {event.status === 'cancelled' ? 'Reactivate' : 'Cancel'}
+                              {event.status === 'closed' ? 'Reopen' : 'Close'}
                             </button>
                             <button
                               onClick={() => handleDeleteEvent(event.id)}
-                              className="bg-red-500 hover:bg-red-600 active:bg-red-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold transition-all min-h-[44px] flex items-center justify-center text-xs xs:text-sm"
+                              className="bg-red-500 hover:bg-red-600 active:bg-red-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold transition-all min-h-[44px] flex items-center justify-center gap-1.5 text-xs xs:text-sm"
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                               </svg>
+                              Delete
                             </button>
                           </div>
                         ) : (

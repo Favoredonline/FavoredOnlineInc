@@ -2,9 +2,9 @@
 // Claude API configuration 
 const CLAUDE_API_CONFIG = {
   models: {
-    default: 'claude-3-7-sonnet-20250219',  // Changed from 4.5 to 3.5 (Oct 2024)
-    faster: 'claude-3-haiku-20240307',
-    premium: 'claude-sonnet-4-5-20250929'   // Keep 4.5 as option if needed
+    default: 'claude-sonnet-4-5-20250929',
+    faster: 'claude-haiku-4-5-20251001',
+    premium: 'claude-sonnet-4-5-20250929'
   },
   maxTokens: {
     formSuggestions: 1024,
