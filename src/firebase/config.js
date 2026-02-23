@@ -13,15 +13,15 @@ import {
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration for Favored Online
+// Your web app's Firebase configuration for Favored Online Inc
 const firebaseConfig = {
-  apiKey: "AIzaSyDCN-o5xEj_DvAeVxfpNxgsNePk00jt_6Q",
-  authDomain: "morgan-techfest-db.firebaseapp.com",
-  projectId: "morgan-techfest-db",
-  storageBucket: "morgan-techfest-db.firebasestorage.app",
-  messagingSenderId: "239483781107",
-  appId: "1:239483781107:web:edfa01d9be68640dc45c86",
-  measurementId: "G-KEJYZX71MD"
+  apiKey: "AIzaSyBPOoTs7x6yOGpHzG2aE32eTaJN1Ejc0bU",
+  authDomain: "favoredonlineinc.firebaseapp.com",
+  projectId: "favoredonlineinc",
+  storageBucket: "favoredonlineinc.firebasestorage.app",
+  messagingSenderId: "467283350104",
+  appId: "1:467283350104:web:3d82fbeee092bfef32b02d",
+  measurementId: "G-2MML1ZGSGN"
 };
 
 // Initialize Firebase
