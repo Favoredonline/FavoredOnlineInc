@@ -1,5 +1,5 @@
 // src/config/claudeApiConfig.js
-// Claude API configuration 
+
 const CLAUDE_API_CONFIG = {
   models: {
     default: 'claude-haiku-4-5-20251001',
