@@ -1,5 +1,5 @@
 // src/components/ResponsiveLayout.jsx
-// Responsive layout wrapper component for Favored Online Careers
+// Responsive layout wrapper component for Favored Online
 
 import React from 'react';
 import PropTypes from 'prop-types';

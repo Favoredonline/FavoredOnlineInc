@@ -186,7 +186,7 @@ const ProjectEnrollmentPage = () => {
                 </p>
                 <div className="text-center">
                   <a
-                    href="https://github.com/FavoredOnlineInc"
+                    href="https://github.com/Favored Online"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
@@ -567,15 +567,15 @@ const ProjectEnrollmentPage = () => {
           <div className="flex items-center justify-center mb-4 sm:mb-6">
             <img
               src="/Images/512X512.png"
-              alt="Favored Online Careers Logo"
+              alt="Favored Online Logo"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mr-2 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
             />
             <span className="text-xl sm:text-2xl md:text-3xl font-black">
-              Favored Online Careers
+              Favored Online
             </span>
           </div>
           <p className="text-gray-400 text-sm sm:text-base">
-            © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+            © {new Date().getFullYear()} Favored Online. All rights reserved.
           </p>
         </div>
       </footer>

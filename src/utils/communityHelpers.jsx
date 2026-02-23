@@ -1,4 +1,4 @@
-// src/utils/communityHelpers.js - Favored Online Careers Utility Functions (Updated for Vercel Blob with Server-Side API)
+// src/utils/communityHelpers.js - Favored Online Utility Functions (Updated for Vercel Blob with Server-Side API)
 
 import {
   deleteImageFromBlob,

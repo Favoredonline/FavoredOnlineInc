@@ -149,11 +149,11 @@ module.exports = async function handler(req, res) {
               </div>
               
               <p style="color: #666; font-size: 14px;">
-                Welcome to Favored Online Careers ProjectX! This is where your projects power your career. We're excited to see what amazing things you'll build together.
+                Welcome to Favored Online ProjectX! This is where your projects power your career. We're excited to see what amazing things you'll build together.
               </p>
             </div>
             <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} Favored Online Careers ProjectX. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} Favored Online ProjectX. All rights reserved.</p>
               <p><em>Where Projects Power Careers</em></p>
               <p style="font-size: 12px; margin-top: 10px; color: #999;">
                 Empowering students with real-world, project-driven learning
@@ -196,16 +196,16 @@ GETTING STARTED TIPS:
 - Review the project documentation
 - Be proactive and communicate regularly
 
-Welcome to Favored Online Careers ProjectX - Where Projects Power Careers!
+Welcome to Favored Online ProjectX - Where Projects Power Careers!
 
 Best regards,
-The Favored Online Careers ProjectX Team
+The Favored Online ProjectX Team
     `;
 
     console.log('📧 About to send email...');
     const result = await transporter.sendMail({
       from: { 
-        name: 'Favored Online Careers ProjectX', 
+        name: 'Favored Online ProjectX', 
         address: envVars.EMAIL_USER 
       },
       to: applicationData.applicantEmail,

@@ -400,7 +400,7 @@ const ProjectApplicationForm = () => {
             <Link to="/" className="flex items-center">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers" 
+                alt="Favored Online" 
                 className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12"
               />
             </Link>

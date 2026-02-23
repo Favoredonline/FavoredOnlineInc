@@ -302,7 +302,7 @@ const Hub = () => {
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-white">
-                Favored Online Careers Hub
+                Favored Online Hub
               </h1>
 
               <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 px-4">

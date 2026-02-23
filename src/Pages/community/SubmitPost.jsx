@@ -1,4 +1,4 @@
-// src/Pages/community/SubmitPost.jsx - Favored Online Careers Submit Post (Complete - Responsive)
+// src/Pages/community/SubmitPost.jsx - Favored Online Submit Post (Complete - Responsive)
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -34,7 +34,7 @@ import { TaggedUsersSmall } from '../../components/community/UserComponents';
 import LinkInsertModal from '../../components/community/LinkInsertModal';
 
 /**
- * Favored Online Careers - Submit Post Page
+ * Favored Online - Submit Post Page
  * Create new community posts with images, links, and mentions
  * Uses Vercel Blob for image storage
  * FULLY RESPONSIVE for mobile, tablet, and desktop
@@ -457,7 +457,7 @@ const SubmitPost = () => {
             <Link to="/community" className="flex items-center space-x-2 sm:space-x-3 group">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers" 
+                alt="Favored Online" 
                 className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg group-hover:scale-110 transition-transform duration-300"
               />
               <div>

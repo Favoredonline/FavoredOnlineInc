@@ -1,4 +1,4 @@
-// src/components/community/LinkRendering.jsx - Favored Online Careers Link Components - FULLY RESPONSIVE
+// src/components/community/LinkRendering.jsx - Favored Online Link Components - FULLY RESPONSIVE
 
 import React from 'react';
 

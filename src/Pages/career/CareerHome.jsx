@@ -38,7 +38,7 @@ const INDUSTRY_TRACKS = [
 
 const FAQs = [
   {
-    question: "Can I showcase my project at the Favored Online Careers?",
+    question: "Can I showcase my project at the Favored Online?",
     answer: "Yes, but it must be with the consent or agreement of your group members."
   },
   {
@@ -112,7 +112,7 @@ const CareerHome = () => {
             <Link to="/" className="flex items-center">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers" 
+                alt="Favored Online" 
                 className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12"
               />
             </Link>
@@ -259,7 +259,7 @@ const CareerHome = () => {
                 
                 {/* Description */}
                 <p className="text-base sm:text-lg md:text-xl text-blue-50 leading-relaxed">
-                  Join <span className="font-semibold text-blue-200">ProjectX</span> by Favored Online Careers — 
+                  Join <span className="font-semibold text-blue-200">ProjectX</span> by Favored Online — 
                   build industry-ready skills through hands-on collaboration, 
                   earn <span className="font-semibold text-orange-300">TechTalent Badges</span>, 
                   and get AI-powered career guidance tailored to your goals.
@@ -568,7 +568,7 @@ const CareerHome = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Favored Online Careers ProjectX. Transforming careers through real-world experience.
+              © {new Date().getFullYear()} Favored Online ProjectX. Transforming careers through real-world experience.
             </p>
           </div>
         </div>

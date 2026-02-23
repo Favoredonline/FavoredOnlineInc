@@ -91,7 +91,7 @@ module.exports = async (req, res) => {
                 </p>
                 <ul style="color: #333333; font-size: 14px; line-height: 1.6; margin: 10px 0 0 0; padding-left: 20px;">
                   <li>Repository must be public and accessible</li>
-                  <li>FavoredOnlineCareers must be added as a collaborator</li>
+                  <li>Favored Online must be added as a collaborator</li>
                   <li>All team member names should be visible in the project</li>
                   <li>Repository URL should be valid and working</li>
                   <li>Project should be complete and functional</li>
@@ -141,7 +141,7 @@ module.exports = async (req, res) => {
                 Need help? Contact us at <a href="mailto:info.favoredonline@gmail.com" style="color: #FF9800; text-decoration: none;">info.favoredonline@gmail.com</a>
               </p>
               <p style="color: #999999; font-size: 12px; margin: 0;">
-                Favored Online Careers ProjectX | Building Tomorrow's Tech Leaders
+                Favored Online ProjectX | Building Tomorrow's Tech Leaders
               </p>
             </td>
           </tr>
@@ -154,7 +154,7 @@ module.exports = async (req, res) => {
     `;
 
     const mailOptions = {
-      from: `"Favored Online Careers" <${process.env.EMAIL_USER}>`,
+      from: `"Favored Online" <${process.env.EMAIL_USER}>`,
       to: projectOwnerEmail,
       subject: `Project Review Update: "${projectTitle}" - Revision Required`,
       html: emailHtml

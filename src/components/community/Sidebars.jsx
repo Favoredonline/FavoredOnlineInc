@@ -1,4 +1,4 @@
-// src/components/community/Sidebars.jsx - Favored Online Careers Sidebar Components - FULLY RESPONSIVE
+// src/components/community/Sidebars.jsx - Favored Online Sidebar Components - FULLY RESPONSIVE
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -450,11 +450,11 @@ export const CompanyInfoSidebar = ({ isMobile = false }) => {
           <div className="text-center">
             <img 
               src="/Images/512X512.png" 
-              alt="Favored Online Careers Logo" 
+              alt="Favored Online Logo" 
               className="w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 mx-auto mb-2 xs:mb-2 sm:mb-3 rounded-xl shadow-lg"
             />
             <h3 className="text-white font-bold text-sm xs:text-base sm:text-lg">
-              Favored Online Careers
+              Favored Online
             </h3>
           </div>
         </div>

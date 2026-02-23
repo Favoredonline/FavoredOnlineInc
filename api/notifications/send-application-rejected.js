@@ -177,7 +177,7 @@ module.exports = async function handler(req, res) {
               </p>
             </div>
             <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} Favored Online Careers ProjectX. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} Favored Online ProjectX. All rights reserved.</p>
               <p><em>Where Projects Power Careers</em></p>
               <p style="font-size: 12px; margin-top: 10px; color: #999;">
                 Empowering students with real-world, project-driven learning
@@ -230,14 +230,14 @@ ${projectOwnerName}
 ${companyName}
 
 ---
-Favored Online Careers ProjectX - Where Projects Power Careers
+Favored Online ProjectX - Where Projects Power Careers
 Empowering students with real-world, project-driven learning
     `;
 
     console.log('📧 About to send rejection email...');
     const result = await transporter.sendMail({
       from: { 
-        name: 'Favored Online Careers ProjectX', 
+        name: 'Favored Online ProjectX', 
         address: envVars.EMAIL_USER 
       },
       to: applicantEmail,

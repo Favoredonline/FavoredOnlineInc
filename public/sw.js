@@ -4,7 +4,7 @@
 
 console.log('🔧 Service Worker: Loading...');
 
-const CACHE_NAME = 'FavoredOnlineCareers-v1';
+const CACHE_NAME = 'Favored Online-v1';
 
 // Install event
 self.addEventListener('install', (event) => {

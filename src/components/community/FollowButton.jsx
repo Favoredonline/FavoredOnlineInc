@@ -1,4 +1,4 @@
-// src/components/community/FollowButton.jsx - Favored Online Careers Follow System - FULLY RESPONSIVE
+// src/components/community/FollowButton.jsx - Favored Online Follow System - FULLY RESPONSIVE
 
 import React, { useState, useEffect } from 'react';
 import { 
@@ -8,7 +8,7 @@ import {
 import { showSuccessMessage, showWarningMessage } from '../../utils/errorHandler';
 
 /**
- * Follow/Unfollow Button Component for Favored Online Careers
+ * Follow/Unfollow Button Component for Favored Online
  * Allows users to follow/unfollow other community members
  * Fully responsive for all screen sizes
  */

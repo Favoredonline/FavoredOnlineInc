@@ -75,7 +75,7 @@ const TermsService = () => {
                       fontFamily: '"Inter", sans-serif'
                     }}>
                   <span className="text-orange-600">
-                    Favored Online Careers  
+                    Favored Online  
                   </span>
                 </h2>
                 <p className="text-lg sm:text-xl text-gray-700 font-medium">
@@ -86,7 +86,7 @@ const TermsService = () => {
               {/* Introduction */}
               <div className="mb-8 sm:mb-10">
                 <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6">
-                  Welcome to Favored Online Careers, a tech skills development platform designed to empower individuals through hands-on, team-based projects and structured learning journeys. By accessing or using our platform, you agree to abide by these Terms of Service. These Terms govern your use of the services, resources, and content provided by Favored Online Careers for educational and portfolio development purposes.
+                  Welcome to Favored Online, a tech skills development platform designed to empower individuals through hands-on, team-based projects and structured learning journeys. By accessing or using our platform, you agree to abide by these Terms of Service. These Terms govern your use of the services, resources, and content provided by Favored Online for educational and portfolio development purposes.
                 </p>
                 
                 <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6">
@@ -103,7 +103,7 @@ const TermsService = () => {
                     1. Eligibility
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
-                    To use Favored Online Careers, you must be at least 13 years old or the age of digital consent in your jurisdiction. By using the platform, you confirm that you meet this requirement and understand that participation is voluntary and focused on tech skills development through hands-on learning experiences.
+                    To use Favored Online, you must be at least 13 years old or the age of digital consent in your jurisdiction. By using the platform, you confirm that you meet this requirement and understand that participation is voluntary and focused on tech skills development through hands-on learning experiences.
                   </p>
                 </div>
 
@@ -168,7 +168,7 @@ const TermsService = () => {
                     4. Intellectual Property
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
-                    All content, tools, and materials provided by Favored Online Careers are the intellectual property of Favored Online Careers unless otherwise stated. You may not reproduce, distribute, or use any part of the platform's content for commercial use without written permission. Educational and personal use for learning purposes is encouraged.
+                    All content, tools, and materials provided by Favored Online are the intellectual property of Favored Online unless otherwise stated. You may not reproduce, distribute, or use any part of the platform's content for commercial use without written permission. Educational and personal use for learning purposes is encouraged.
                   </p>
                 </div>
 
@@ -178,7 +178,7 @@ const TermsService = () => {
                     5. Platform Services
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
-                    Favored Online Careers provides tech skills development through hands-on, team-based projects and structured learning journeys. Our services include:
+                    Favored Online provides tech skills development through hands-on, team-based projects and structured learning journeys. Our services include:
                   </p>
                   <ul className="space-y-2 sm:space-y-3 text-gray-800 text-sm sm:text-base mb-4">
                     {[
@@ -211,7 +211,7 @@ const TermsService = () => {
                     <div>
                       <h4 className="text-lg font-semibold text-orange-600 mb-3">A. Educational Nature of All Projects:</h4>
                       <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
-                        All projects on Favored Online Careers are volunteer opportunities designed for educational purposes, tech skills development, and portfolio building through hands-on, team-based learning experiences. No monetary compensation is provided for any project participation. Projects are intended as structured learning journeys and should not be used directly in production environments without proper review, additional development, and security considerations.
+                        All projects on Favored Online are volunteer opportunities designed for educational purposes, tech skills development, and portfolio building through hands-on, team-based learning experiences. No monetary compensation is provided for any project participation. Projects are intended as structured learning journeys and should not be used directly in production environments without proper review, additional development, and security considerations.
                       </p>
                     </div>
                     
@@ -225,7 +225,7 @@ const TermsService = () => {
                     <div>
                       <h4 className="text-lg font-semibold text-orange-600 mb-3">C. Project Ownership and Usage:</h4>
                       <p className="text-gray-800 text-sm sm:text-base leading-relaxed">
-                        Unless otherwise specified in a project agreement, volunteer projects are collaborative learning exercises designed to develop tech skills through hands-on experience. Project creators who submit ideas to the platform understand that the resulting work is primarily for educational benefit. Favored Online Careers facilitates these learning opportunities but does not claim ownership of volunteer project outputs. Any commercial use of project results should be discussed and agreed upon by all project participants.
+                        Unless otherwise specified in a project agreement, volunteer projects are collaborative learning exercises designed to develop tech skills through hands-on experience. Project creators who submit ideas to the platform understand that the resulting work is primarily for educational benefit. Favored Online facilitates these learning opportunities but does not claim ownership of volunteer project outputs. Any commercial use of project results should be discussed and agreed upon by all project participants.
                       </p>
                     </div>
                     
@@ -243,7 +243,7 @@ const TermsService = () => {
                   {
                     number: 7,
                     title: "Third-Party Services",
-                    content: "Our platform may link to third-party websites or services for educational purposes. Favored Online Careers is not responsible for the content or privacy practices of those external platforms. Users engage with them at their own discretion and should review their respective terms of service."
+                    content: "Our platform may link to third-party websites or services for educational purposes. Favored Online is not responsible for the content or privacy practices of those external platforms. Users engage with them at their own discretion and should review their respective terms of service."
                   },
                   {
                     number: 8,
@@ -258,7 +258,7 @@ const TermsService = () => {
                   {
                     number: 10,
                     title: "General Disclaimers",
-                    content: "Favored Online Careers is provided as a tech skills development service without warranties or guarantees of any kind. We make no guarantees regarding uninterrupted access, error-free performance, or specific learning outcomes. We are not liable for any damages resulting from your use of the platform, and users participate at their own risk and discretion."
+                    content: "Favored Online is provided as a tech skills development service without warranties or guarantees of any kind. We make no guarantees regarding uninterrupted access, error-free performance, or specific learning outcomes. We are not liable for any damages resulting from your use of the platform, and users participate at their own risk and discretion."
                   }
                 ].map((section) => (
                   <div key={section.number} className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
@@ -297,14 +297,14 @@ const TermsService = () => {
               <div className="flex items-center justify-center md:justify-start mb-4 sm:mb-6">
                 <img 
                   src="/Images/512X512.png" 
-                  alt="Favored Online Careers Logo" 
+                  alt="Favored Online Logo" 
                   className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mr-2 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-xl sm:text-2xl md:text-3xl font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif'
                       }}>
-                  Favored Online Careers  
+                  Favored Online  
                 </span>
               </div>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-sm mx-auto md:mx-0"
@@ -379,7 +379,7 @@ const TermsService = () => {
                  style={{
                    fontFamily: '"Inter", sans-serif'
                  }}>
-                © {new Date().getFullYear()} Favored Online Careers All rights reserved.
+                © {new Date().getFullYear()} Favored Online All rights reserved.
               </p>
 
               {/* Social or Additional Info */}

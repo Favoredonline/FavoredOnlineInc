@@ -1,4 +1,4 @@
-// src/components/community/MobileSidebar.jsx - Favored Online Careers Mobile Navigation - FULLY RESPONSIVE
+// src/components/community/MobileSidebar.jsx - Favored Online Mobile Navigation - FULLY RESPONSIVE
 
 import React, { useEffect } from 'react';
 

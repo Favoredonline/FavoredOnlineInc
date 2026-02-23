@@ -1,4 +1,4 @@
-// src/Pages/community/SinglePost.jsx - Favored Online Careers Single Post View
+// src/Pages/community/SinglePost.jsx - Favored Online Single Post View
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
@@ -44,7 +44,7 @@ import { ReactionAvatars, ReactionsModal } from '../../components/community/Reac
 import FollowButton from '../../components/community/FollowButton';
 
 /**
- * Favored Online Careers - Single Post View
+ * Favored Online - Single Post View
  * Display individual post with full details and replies
  */
 const SinglePost = () => {
@@ -271,7 +271,7 @@ const SinglePost = () => {
         uid: id,
         firstName: '',
         lastName: '',
-        displayName: 'TechFest Member',
+        displayName: 'Favored Online Member',
         photoURL: null,
         initials: 'TM',
         profile: {}

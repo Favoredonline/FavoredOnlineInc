@@ -13,7 +13,7 @@ import {
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration for Favored Online Careers
+// Your web app's Firebase configuration for Favored Online
 const firebaseConfig = {
   apiKey: "AIzaSyDCN-o5xEj_DvAeVxfpNxgsNePk00jt_6Q",
   authDomain: "morgan-techfest-db.firebaseapp.com",

@@ -168,7 +168,7 @@ module.exports = async function handler(req, res) {
                 </p>
               </div>
               
-              <p>Amazing work! Your project owner <strong>${projectData.contactName || 'Project Team'}</strong> has recognized your outstanding contribution and awarded you this prestigious TechTalent badge through Favored Online Careers ProjectX.</p>
+              <p>Amazing work! Your project owner <strong>${projectData.contactName || 'Project Team'}</strong> has recognized your outstanding contribution and awarded you this prestigious TechTalent badge through Favored Online ProjectX.</p>
               
               <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #E5E7EB;">
                 <div style="display: flex; align-items: center; margin-bottom: 15px;">
@@ -244,7 +244,7 @@ module.exports = async function handler(req, res) {
               </p>
             </div>
             <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} Favored Online Careers ProjectX. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} Favored Online ProjectX. All rights reserved.</p>
               <p><em>Where Projects Power Careers</em></p>
               <p style="font-size: 12px; margin-top: 10px; color: #999;">
                 This badge has been verified and is permanently recorded in your TechTalent profile.
@@ -260,7 +260,7 @@ Congratulations! You've Earned a ${badgeInfo.name}
 
 Dear ${memberData.memberName || 'Team Member'},
 
-Congratulations! Your project owner has recognized your outstanding contribution and awarded you a prestigious TechTalent badge through Favored Online Careers ProjectX.
+Congratulations! Your project owner has recognized your outstanding contribution and awarded you a prestigious TechTalent badge through Favored Online ProjectX.
 
 BADGE DETAILS:
 Badge: ${badgeInfo.name}
@@ -301,17 +301,17 @@ View your complete badge collection: https://careers.favoredonline.com/
 Congratulations on this well-deserved recognition! Keep building your skills and earning more badges to advance your tech career.
 
 Best regards,
-The Favored Online Careers ProjectX Team
+The Favored Online ProjectX Team
 
 ---
-Favored Online Careers ProjectX - Where Projects Power Careers
+Favored Online ProjectX - Where Projects Power Careers
 This badge has been verified and is permanently recorded in your TechTalent profile.
     `;
 
     console.log('📧 About to send badge award email...');
     const result = await transporter.sendMail({
       from: { 
-        name: 'Favored Online Careers ProjectX', 
+        name: 'Favored Online ProjectX', 
         address: envVars.EMAIL_USER 
       },
       to: memberData.memberEmail,

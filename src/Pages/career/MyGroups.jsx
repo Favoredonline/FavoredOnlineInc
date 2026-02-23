@@ -369,7 +369,7 @@ const MyGroups = () => {
               </span>
             </div>
             <p className="text-gray-500 text-xs sm:text-sm">
-              © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+              © {new Date().getFullYear()} Favored Online. All rights reserved.
             </p>
           </div>
         </div>

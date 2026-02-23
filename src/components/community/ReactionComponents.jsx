@@ -1,4 +1,4 @@
-// src/components/community/ReactionComponents.jsx - Favored Online Careers Reactions - FULLY RESPONSIVE
+// src/components/community/ReactionComponents.jsx - Favored Online Reactions - FULLY RESPONSIVE
 
 import React, { useState, useEffect } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -59,7 +59,7 @@ export const ReactionAvatars = ({ postId, userIds = [], reactionCount, onClick }
           uid: id,
           firstName: '',
           lastName: '',
-          displayName: 'TechFest Member',
+          displayName: 'Favored Online Member',
           photoURL: null,
           initials: 'TM',
           profile: {}
@@ -119,7 +119,7 @@ export const ReactionAvatars = ({ postId, userIds = [], reactionCount, onClick }
                 <div className="truncate">
                   {user.firstName && user.lastName 
                     ? `${user.firstName} ${user.lastName}`
-                    : user.displayName || 'TechFest Member'
+                    : user.displayName || 'Favored Online Member'
                   }
                 </div>
                 {user.profile?.title && (
@@ -242,7 +242,7 @@ export const ReactionsModal = ({ isOpen, onClose, postId, reactions, reactionCou
                     <p className="font-medium text-white truncate text-sm xs:text-base">
                       {user.firstName && user.lastName 
                         ? `${user.firstName} ${user.lastName}`
-                        : user.displayName || 'TechFest Member'
+                        : user.displayName || 'Favored Online Member'
                       }
                     </p>
                     {user.profile?.title && (
@@ -265,7 +265,7 @@ export const ReactionsModal = ({ isOpen, onClose, postId, reactions, reactionCou
         {/* Footer */}
         <div className="p-3 xs:p-3.5 sm:p-4 border-t border-orange-500/10 bg-black/20">
           <p className="text-gray-400 text-[10px] xs:text-xs text-center">
-            Favored Online Careers Community
+            Favored Online Community
           </p>
         </div>
       </div>

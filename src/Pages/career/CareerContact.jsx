@@ -681,14 +681,14 @@ const CareerContact = () => {
               <div className="flex items-center justify-center md:justify-start mb-4 sm:mb-6">
                 <img 
                   src="/Images/512X512.png" 
-                  alt="Favored Online Careers Logo" 
+                  alt="Favored Online Logo" 
                   className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mr-2 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-xl sm:text-2xl md:text-3xl font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif'
                       }}>
-                  Favored Online Careers
+                  Favored Online
                 </span>
               </div>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-sm mx-auto md:mx-0"
@@ -763,7 +763,7 @@ const CareerContact = () => {
                  style={{
                    fontFamily: '"Inter", sans-serif'
                  }}>
-                © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+                © {new Date().getFullYear()} Favored Online. All rights reserved.
               </p>
 
               {/* Social or Additional Info */}

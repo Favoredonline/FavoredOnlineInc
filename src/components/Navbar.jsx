@@ -93,7 +93,7 @@ const Navbar = () => {
             <Link to="/" className="flex-shrink-0 group">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers" 
+                alt="Favored Online" 
                 className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 transform group-hover:scale-110 transition-transform duration-300"
               />
             </Link>

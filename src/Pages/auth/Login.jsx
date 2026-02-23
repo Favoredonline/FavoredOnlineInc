@@ -147,7 +147,7 @@ const Login = () => {
                         filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))',
                         animation: 'glow 2s ease-in-out infinite alternate'
                       }}>
-                  Favored Online Careers
+                  Favored Online
                 </span>
               </h1>
               
@@ -279,7 +279,7 @@ const Login = () => {
             <div className="flex items-center justify-center space-x-2 mb-3 sm:mb-4">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers Logo" 
+                alt="Favored Online Logo" 
                 className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transform hover:scale-110 transition-transform duration-300 flex-shrink-0"
               />
               <span className="text-base sm:text-lg md:text-xl font-black" 
@@ -287,7 +287,7 @@ const Login = () => {
                       textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 2px 2px 4px rgba(0,0,0,0.8)',
                       fontFamily: '"Inter", sans-serif'
                     }}>
-                Favored Online Careers
+                Favored Online
               </span>
             </div>
             <div className="flex items-center justify-center mb-3 sm:mb-4 px-4">
@@ -298,7 +298,7 @@ const Login = () => {
             </div>
             <p className="text-gray-400 text-xs sm:text-sm" 
                style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-              © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+              © {new Date().getFullYear()} Favored Online. All rights reserved.
             </p>
           </div>
         </div>

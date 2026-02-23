@@ -1,9 +1,9 @@
-// src/components/community/LinkInsertModal.jsx - Favored Online Careers Link Insertion - FULLY RESPONSIVE
+// src/components/community/LinkInsertModal.jsx - Favored Online Link Insertion - FULLY RESPONSIVE
 
 import React, { useState } from 'react';
 
 /**
- * Link Insert Modal Component for Favored Online Careers
+ * Link Insert Modal Component for Favored Online
  * Allows users to insert markdown-formatted links into posts
  * Fully responsive for all screen sizes
  */

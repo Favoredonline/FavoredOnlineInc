@@ -561,7 +561,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     community: [
       {
         title: 'Community Feed',
-        description: 'Share ideas, ask questions, and engage with fellow TechFest members',
+        description: 'Share ideas, ask questions, and engage with fellow Favored Online members',
         path: '/community',
         stats: 'Join Discussion',
         gradient: 'from-blue-500 to-blue-600'
@@ -575,7 +575,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
       },
       {
         title: 'Member Directory',
-        description: 'Discover and connect with TechFest members in your field',
+        description: 'Discover and connect with Favored Online members in your field',
         path: '/members-directory',
         stats: 'Browse Members',
         gradient: 'from-purple-500 to-purple-600'
@@ -938,7 +938,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         <div className="space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-8">
           <SectionHeader 
             title="Community Hub"
-            description="Connect, collaborate, and grow with the Favored Online Careers community."
+            description="Connect, collaborate, and grow with the Favored Online community."
             gradientColors="from-blue-300 via-purple-400 to-blue-500"
           />
           
@@ -1037,7 +1037,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         >
           <div className="flex items-center justify-between h-14 xs:h-16 sm:h-18 px-3 xs:px-4 sm:px-6 border-b border-gray-200">
             <Link to="/" className="flex items-center" aria-label="Go to homepage">
-              <img src="/Images/512X512.png" alt="Favored Online Careers Logo" className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10" />
+              <img src="/Images/512X512.png" alt="Favored Online Logo" className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10" />
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}

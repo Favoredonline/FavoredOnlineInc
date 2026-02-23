@@ -483,7 +483,7 @@ const ProjectCompletionForm = () => {
                       <div className="text-orange-700 text-sm space-y-1">
                         <p>• GitHub repository URL is REQUIRED</p>
                         <p>• Repository must be PUBLIC</p>
-                        <p>• Add "FavoredOnlineInc" as collaborator</p>
+                        <p>• Add "Favored Online" as collaborator</p>
                         <p>• All team members must be credited</p>
                       </div>
                     </div>

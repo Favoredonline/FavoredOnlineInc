@@ -999,12 +999,12 @@ const ProjectGroupView = () => {
 
       <div className="mb-3 sm:mb-4">
         <a
-          href="https://github.com/mtechfest/"
+          href="https://github.com/favoredonline/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center bg-gray-900 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 shadow-md text-sm sm:text-base w-full sm:w-auto justify-center sm:justify-start min-h-[44px]"
         >
-          View Favored Online Careers Repository
+          View Favored Online Repository
           <span className="ml-2">&#8599;</span>
         </a>
       </div>
@@ -1014,7 +1014,7 @@ const ProjectGroupView = () => {
           <div className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4">
             <h4 className="text-blue-700 font-semibold mb-2 text-sm sm:text-base">Repository Requirements</h4>
             <ul className="text-gray-600 space-y-1 sm:space-y-2 text-xs sm:text-sm">
-              <li>All project code must be submitted to the Favored Online Careers repository</li>
+              <li>All project code must be submitted to the Favored Online repository</li>
               <li>Code must be well-documented with clear README files</li>
               <li>Include setup instructions and dependencies</li>
               <li>Follow proper Git commit practices</li>
@@ -1047,7 +1047,7 @@ const ProjectGroupView = () => {
           <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
             <h4 className="text-blue-700 font-semibold mb-2 text-sm sm:text-base">Repository Setup</h4>
             <p className="text-blue-600 text-xs sm:text-sm">
-              A Favored Online Careers representative will contact you within 2-3 business days after receiving your 
+              A Favored Online representative will contact you within 2-3 business days after receiving your 
               submission to set up your project repository and provide access credentials.
             </p>
           </div>

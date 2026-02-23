@@ -1,4 +1,4 @@
-// src/components/community/MentionTextarea.jsx - Favored Online Careers Mention System - FULLY RESPONSIVE
+// src/components/community/MentionTextarea.jsx - Favored Online Mention System - FULLY RESPONSIVE
 
 import React, { useState, useRef } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -7,7 +7,7 @@ import LinkInsertModal from './LinkInsertModal';
 
 /**
  * Enhanced Textarea with @mention autocomplete and link insertion
- * Favored Online Careers Community
+ * Favored Online Community
  * Fully responsive for all screen sizes
  */
 const MentionTextarea = ({ 

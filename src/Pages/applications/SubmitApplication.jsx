@@ -465,7 +465,7 @@ const SubmitApplication = () => {
               <div className="flex items-center justify-center sm:justify-start mb-3 xs:mb-4 sm:mb-5 md:mb-6">
                 <img 
                   src="/Images/512X512.png" 
-                  alt="Favored Online Careers Logo" 
+                  alt="Favored Online Logo" 
                   className="w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 mr-2 xs:mr-2.5 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-black" 
@@ -473,7 +473,7 @@ const SubmitApplication = () => {
                         textShadow: '0 0 20px rgba(59,130,246,0.45), 2px 2px 4px rgba(0,0,0,0.8)',
                         fontFamily: '"Inter", sans-serif'
                       }}>
-                  Favored Online Careers
+                  Favored Online
                 </span>
               </div>
               <p className="text-gray-300 text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm mx-auto sm:mx-0"
@@ -565,7 +565,7 @@ const SubmitApplication = () => {
                    textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
                    fontFamily: '"Inter", sans-serif'
                  }}>
-                © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+                © {new Date().getFullYear()} Favored Online. All rights reserved.
               </p>
 
               <div className="flex items-center">

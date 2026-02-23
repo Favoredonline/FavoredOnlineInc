@@ -1052,7 +1052,7 @@ const ProjectCompletionPage = () => {
                       <h4 className="text-blue-700 font-bold text-lg mb-3">Common Issues to Check</h4>
                       <div className="text-gray-700 space-y-2">
                         <p>✓ Repository must be public and accessible</p>
-                        <p>✓ FavoredOnlineCareers must be added as a collaborator</p>
+                        <p>✓ Favored Online must be added as a collaborator</p>
                         <p>✓ All team member names should be visible</p>
                         <p>✓ Repository URL should be valid and working</p>
                         <p>✓ Project should be complete and functional</p>
@@ -1483,7 +1483,7 @@ const ProjectCompletionPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-gray-600 text-sm">
-              © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+              © {new Date().getFullYear()} Favored Online. All rights reserved.
             </p>
           </div>
         </div>

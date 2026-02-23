@@ -48,7 +48,7 @@ const PWAInstallPrompt = () => {
           {/* Content */}
           <div className="flex-1 min-w-0">
             <h3 className="text-white font-bold text-sm sm:text-base mb-1">
-              Install Favored Online Careers
+              Install Favored Online
             </h3>
             <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
               Get quick access to your career dashboard, projects, and community from your home screen.

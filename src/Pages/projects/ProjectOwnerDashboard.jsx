@@ -611,7 +611,7 @@ const ProjectApplicationManager = ({ projectId, groupData, currentUser }) => {
         await addDoc(collection(db, 'group_posts'), {
           groupId: groupData.id,
           authorId: 'system',
-          authorName: 'Favored Online Careers',
+          authorName: 'Favored Online',
           authorEmail: 'info.favoredonline@gmail.com',
           authorPhoto: '/Images/512X512.png',
           title: 'New Team Member Joined!',

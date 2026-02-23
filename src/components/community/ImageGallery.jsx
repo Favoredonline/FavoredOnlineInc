@@ -1,9 +1,9 @@
-// src/components/community/ImageGallery.jsx - Favored Online Careers Image Gallery - FULLY RESPONSIVE
+// src/components/community/ImageGallery.jsx - Favored Online Image Gallery - FULLY RESPONSIVE
 
 import React, { useState, useEffect } from 'react';
 
 /**
- * Image Gallery Component for Favored Online Careers
+ * Image Gallery Component for Favored Online
  * Displays up to 4 images in a grid, with lightbox for full-size viewing
  * NO VIDEO SUPPORT - Images only
  * Fully responsive for all screen sizes

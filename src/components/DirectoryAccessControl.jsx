@@ -230,7 +230,7 @@ const DirectoryAccessControl = () => {
             <div className="flex items-center group cursor-pointer" onClick={() => window.location.href = '/'}>
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers Logo" 
+                alt="Favored Online Logo" 
                 className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 mr-2 sm:mr-3 md:mr-4 transform group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
               />
               <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-wide truncate" 
@@ -238,7 +238,7 @@ const DirectoryAccessControl = () => {
                       textShadow: '0 0 20px rgba(76, 175, 80, 0.5), 2px 2px 4px rgba(0,0,0,0.8)',
                       fontFamily: '"Inter", sans-serif'
                     }}>
-                <span className="hidden xs:inline">Favored Online Careers</span>
+                <span className="hidden xs:inline">Favored Online</span>
                 <span className="xs:hidden">MTF</span>
               </span>
             </div>

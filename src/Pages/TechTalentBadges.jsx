@@ -170,7 +170,7 @@ const TechTalentBadges = () => {
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
                 <div className="h-2 w-2 sm:h-3 sm:w-3 bg-blue-500 rounded-full"></div>
                 <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black">
-                  🚀 Favored Online Careers ProjectX
+                  🚀 Favored Online ProjectX
                 </span>
                 <div className="h-2 w-2 sm:h-3 sm:w-3 bg-orange-500 rounded-full"></div>
               </div>
@@ -364,7 +364,7 @@ const TechTalentBadges = () => {
                       {[
                         'A Product Owner submits a project. They can be a developer or anyone with an idea—tech badges or niche categories are not required at this stage.',
                         'People apply to join the project.',
-                        'Favored Online Careers will review and approve collaborators, create the project channel, and add both you and the accepted team members.',
+                        'Favored Online will review and approve collaborators, create the project channel, and add both you and the accepted team members.',
                         'The Product Owner leads the team and ensures that the Project Manager (or themselves, if acting as both) delivers the project within the given timeline.'
                       ].map((step, index) => (
                         <li key={index} className="flex items-start">
@@ -386,7 +386,7 @@ const TechTalentBadges = () => {
                         'You own and lead the project',
                         'You choose the direction and vision for the work',
                         'If your project gains interest or attracts potential buyers, you will be the primary point of contact',
-                        'You receive a Certificate of Ownership from Favored Online Careers'
+                        'You receive a Certificate of Ownership from Favored Online'
                       ].map((benefit, index) => (
                         <li key={index} className="flex items-start">
                           <span className="text-orange-500 mr-3 text-lg flex-shrink-0 mt-1">✓</span>
@@ -404,10 +404,10 @@ const TechTalentBadges = () => {
                   </h3>
                   <ul className="space-y-4 text-gray-700">
                     {[
-                      'While Favored Online Careers promotes your project, you are also responsible for sharing and speaking about your idea across your personal platforms',
+                      'While Favored Online promotes your project, you are also responsible for sharing and speaking about your idea across your personal platforms',
                       'Projects are for educational purposes only and must not be used for commercial or business activities. If a project demonstrates potential for commercialization, all team members will be contacted and involved, and appropriate legal processes will be carried out to ensure fair recognition and protection of contributions',
-                      'Favored Online Careers reserves the right to host project files in its repository to protect the interests of all contributors and to maintain transparent project records',
-                      'Favored Online Careers will also monitor your project timeline, provide light oversight, and may periodically check in to ensure steady progress and team alignment'
+                      'Favored Online reserves the right to host project files in its repository to protect the interests of all contributors and to maintain transparent project records',
+                      'Favored Online will also monitor your project timeline, provide light oversight, and may periodically check in to ensure steady progress and team alignment'
                     ].map((responsibility, index) => (
                       <li key={index} className="flex items-start">
                         <span className="text-blue-600 mr-3 text-lg flex-shrink-0 mt-1">•</span>
@@ -425,8 +425,8 @@ const TechTalentBadges = () => {
                     </h4>
                     <ul className="space-y-3 text-gray-700 text-sm sm:text-base">
                       {[
-                        'All projects must be executed within Favored Online Careers\'s approved repositories and communication channels',
-                        'Favored Online Careers provides access to private GitHub repositories and dedicated discussion channels for each project',
+                        'All projects must be executed within Favored Online\'s approved repositories and communication channels',
+                        'Favored Online provides access to private GitHub repositories and dedicated discussion channels for each project',
                         'Product Owners and teams may use Google Meet or Zoom for virtual meetings',
                         'Final project submissions must be made to the assigned repository following provided instructions',
                         'External tools may not be used for project tracking or submissions unless explicitly approved'
@@ -897,11 +897,11 @@ const TechTalentBadges = () => {
               <div className="flex items-center justify-center md:justify-start mb-4 sm:mb-6">
                 <img 
                   src="/Images/512X512.png" 
-                  alt="Favored Online Careers Logo" 
+                  alt="Favored Online Logo" 
                   className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mr-2 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-xl sm:text-2xl md:text-3xl font-black">
-                  Favored Online Careers
+                  Favored Online
                 </span>
               </div>
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm mx-auto md:mx-0">
@@ -937,7 +937,7 @@ const TechTalentBadges = () => {
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
             <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
               <p className="text-gray-400 text-sm sm:text-base">
-                © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+                © {new Date().getFullYear()} Favored Online. All rights reserved.
               </p>
               <div className="flex items-center space-x-2 sm:space-x-4">
                 <span className="text-blue-400 text-lg sm:text-xl">•</span>

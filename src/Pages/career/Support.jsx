@@ -205,7 +205,7 @@ const Support = () => {
               
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 md:mb-16 text-gray-600 max-w-5xl mx-auto leading-relaxed font-light px-4">
                 We value your feedback and are here to help with any issues you encounter on 
-                <span className="text-orange-600 font-semibold"> Favored Online Careers ProjectX</span>. Whether you need technical assistance with 
+                <span className="text-orange-600 font-semibold"> Favored Online ProjectX</span>. Whether you need technical assistance with 
                 <span className="text-blue-600 font-semibold"> project-driven learning</span>, have questions about 
                 <span className="text-orange-600 font-semibold"> TechTalent Badges</span>, or want guidance with our 
                 <span className="text-blue-600 font-semibold"> Smart Career Navigator</span>, our team is ready to assist.
@@ -221,7 +221,7 @@ const Support = () => {
                   Email Communications
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-green-100">
-                  Important information about emails from Favored Online Careers ProjectX
+                  Important information about emails from Favored Online ProjectX
                 </p>
               </div>
 
@@ -342,7 +342,7 @@ const Support = () => {
                       <li>• Navigate to your project group</li>
                       <li>• Click "Submit Project for Completion"</li>
                       <li>• Provide GitHub repository URL (must be public)</li>
-                      <li>• Add FavoredOnlineCareers as collaborator</li>
+                      <li>• Add Favored Online as collaborator</li>
                       <li>• Include project summary and technologies used</li>
                       <li>• Submit for admin review</li>
                       <li>• Once approved, assign badges to team members</li>
@@ -752,11 +752,11 @@ const Support = () => {
               <div className="flex items-center justify-center md:justify-start mb-4 sm:mb-6">
                 <img 
                   src="/Images/512X512.png" 
-                  alt="Favored Online Careers Logo" 
+                  alt="Favored Online Logo" 
                   className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mr-2 sm:mr-3 md:mr-4 transform hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-xl sm:text-2xl md:text-3xl font-black">
-                  Favored Online Careers
+                  Favored Online
                 </span>
               </div>
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm mx-auto md:mx-0">
@@ -815,7 +815,7 @@ const Support = () => {
             <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
               
               <p className="text-gray-400 text-sm sm:text-base">
-                © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+                © {new Date().getFullYear()} Favored Online. All rights reserved.
               </p>
 
               <div className="flex items-center space-x-2 sm:space-x-4">

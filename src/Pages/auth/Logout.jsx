@@ -200,7 +200,7 @@ const Logout = () => {
                     </div>
                   </div>
                   <p className="font-bold text-base xs:text-lg sm:text-xl text-blue-300 mb-1 xs:mb-2">Successfully Logged Out!</p>
-                  <p className="text-xs xs:text-sm text-blue-200">Thank you for using Favored Online Careers</p>
+                  <p className="text-xs xs:text-sm text-blue-200">Thank you for using Favored Online</p>
                 </div>
                 
                 <div className="bg-gradient-to-br from-orange-900/30 via-orange-800/30 to-orange-900/30 backdrop-blur-xl border border-orange-500/20 text-orange-300 px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg xs:rounded-xl">
@@ -307,7 +307,7 @@ const Logout = () => {
             <div className="flex items-center justify-center space-x-1.5 xs:space-x-2 mb-3 xs:mb-4">
               <img 
                 src="/Images/512X512.png" 
-                alt="Favored Online Careers Logo" 
+                alt="Favored Online Logo" 
                 className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 transform hover:scale-110 transition-transform duration-300"
               />
               <span className="text-base xs:text-lg sm:text-xl font-black" 
@@ -315,7 +315,7 @@ const Logout = () => {
                       textShadow: '0 0 20px rgba(59, 130, 246, 0.5), 2px 2px 4px rgba(0,0,0,0.8)',
                       fontFamily: '"Inter", sans-serif'
                     }}>
-                Favored Online Careers
+                Favored Online
               </span>
             </div>
             <div className="flex items-center justify-center mb-2 xs:mb-3 sm:mb-4 px-4">
@@ -326,7 +326,7 @@ const Logout = () => {
             </div>
             <p className="text-gray-400 text-[10px] xs:text-xs sm:text-sm" 
                style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
-              © {new Date().getFullYear()} Favored Online Careers. All rights reserved.
+              © {new Date().getFullYear()} Favored Online. All rights reserved.
             </p>
           </div>
         </div>

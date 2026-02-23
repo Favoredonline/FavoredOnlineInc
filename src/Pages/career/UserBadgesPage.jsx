@@ -180,7 +180,7 @@ const UserBadgesPage = () => {
 </head>
 <body>
   <div class="certificate">
-    <div class="header"><div class="logo"><img src="${logoUrl}" alt="Favored Online Careers" /></div><div class="medal">🏅</div></div>
+    <div class="header"><div class="logo"><img src="${logoUrl}" alt="Favored Online" /></div><div class="medal">🏅</div></div>
     <div class="category"><h2>${categoryInfo.name}</h2></div>
     <div class="level"><h3>${levelInfo.name} Level</h3></div>
     <div class="awarded-to">This badge is awarded to</div>
@@ -221,7 +221,7 @@ const UserBadgesPage = () => {
 </head>
 <body>
   <div class="certificate">
-    <div class="header"><div class="logo"><img src="${logoUrl}" alt="Favored Online Careers" /></div></div>
+    <div class="header"><div class="logo"><img src="${logoUrl}" alt="Favored Online" /></div></div>
     <div class="title"><h1>Certificate of Completion</h1></div>
     <div class="subtitle">Project Leadership Excellence</div>
     <div style="text-align: center; margin-bottom: 20px;"><div class="recipient"><h2>${certificate.recipientName || certificate.recipientEmail}</h2></div></div>
@@ -280,7 +280,7 @@ const UserBadgesPage = () => {
               My <span className="text-blue-600">Badges</span> & <span className="text-orange-600">Certificates</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              Your professional achievements from Favored Online Careers ProjectX - where projects power careers
+              Your professional achievements from Favored Online ProjectX - where projects power careers
             </p>
           </section>
 
