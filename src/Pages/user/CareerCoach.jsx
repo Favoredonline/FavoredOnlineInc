@@ -5,17 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 
-// ─── CONVERSATION STEPS ───────────────────────────────────────────────────────
+// ─── CONVERSATION STEPS (matched to actual Google Form fields) ────────────────
 const STEPS = [
   {
     id: 'welcome',
     type: 'info',
-    message: "👋 Welcome to **Career Coaching** at Favored Online! I'm here to help you apply for personalized 1-on-1 coaching with our experienced tech career professionals.\n\nBefore we begin, here's what to expect:\n• A short application (takes ~3 minutes)\n• A **$50 non-refundable application fee** credited toward your sessions\n• A coaching document sent to you with full session pricing\n\nReady to get started?",
+    message: "👋 Welcome to **Career Coaching** at Favored Online! I'm here to help you apply for personalized 1-on-1 coaching with our experienced tech career professionals.\n\nBefore we begin, here's what to expect:\n• A short application (takes ~2 minutes)\n• A **$50 non-refundable application fee** credited toward your sessions\n• A coaching document sent to you with full session pricing\n\nReady to get started?",
   },
   {
     id: 'firstName',
     type: 'input',
     field: 'firstName',
+    formEntry: 'entry.2005620554',
     message: "Great! Let's start with the basics.\n\nWhat's your **first name**?",
     placeholder: 'Your first name...',
     validate: (v) => v.trim().length >= 2 ? null : 'Please enter at least 2 characters.',
@@ -24,6 +25,7 @@ const STEPS = [
     id: 'lastName',
     type: 'input',
     field: 'lastName',
+    formEntry: 'entry.1934638032',
     message: (data) => `Nice to meet you, **${data.firstName}**! 👋\n\nAnd your **last name**?`,
     placeholder: 'Your last name...',
     validate: (v) => v.trim().length >= 2 ? null : 'Please enter at least 2 characters.',
@@ -32,6 +34,7 @@ const STEPS = [
     id: 'email',
     type: 'input',
     field: 'email',
+    formEntry: 'entry.1045781291',
     inputType: 'email',
     message: "Perfect. What **email address** should we use to send your coaching document?",
     placeholder: 'your@email.com',
@@ -41,79 +44,31 @@ const STEPS = [
     id: 'phone',
     type: 'input',
     field: 'phone',
+    formEntry: 'entry.1166974658',
     inputType: 'tel',
     message: "Got it! What's the best **phone number** to reach you?",
     placeholder: '+1 (555) 000-0000',
     validate: (v) => v.trim().length >= 7 ? null : 'Please enter a valid phone number.',
   },
   {
-    id: 'currentRole',
+    id: 'lookingForward',
     type: 'input',
-    field: 'currentRole',
-    message: "Now let's talk about where you are today.\n\nWhat is your **current job title or role**?\n(e.g. \"Software Engineer\", \"Recent Graduate\", \"Product Manager\")",
-    placeholder: 'Your current role...',
-    validate: (v) => v.trim().length >= 2 ? null : 'Please describe your current role.',
-  },
-  {
-    id: 'experience',
-    type: 'choice',
-    field: 'experience',
-    message: "How many **years of experience** do you have in tech?",
-    choices: [
-      { value: '0-1 years', label: '0–1 years', sub: 'Just starting out' },
-      { value: '1-3 years', label: '1–3 years', sub: 'Building experience' },
-      { value: '3-5 years', label: '3–5 years', sub: 'Mid-level' },
-      { value: '5-10 years', label: '5–10 years', sub: 'Senior level' },
-      { value: '10+ years', label: '10+ years', sub: 'Veteran' },
-    ],
-  },
-  {
-    id: 'goal',
-    type: 'choice',
-    field: 'goal',
-    message: "What is your **primary coaching goal**?",
-    choices: [
-      { value: 'Land my first tech job', label: '🚀 Land my first tech job', sub: 'Breaking into the industry' },
-      { value: 'Get a promotion or raise', label: '📈 Get a promotion or raise', sub: 'Level up at current company' },
-      { value: 'Switch tech roles', label: '🔄 Switch tech roles', sub: 'Change specialization' },
-      { value: 'Move to a top company', label: '🏢 Move to a top company', sub: 'FAANG / top-tier employer' },
-      { value: 'Build leadership skills', label: '🎯 Build leadership skills', sub: 'Grow into management' },
-      { value: 'Start a tech business', label: '💡 Start a tech business', sub: 'Entrepreneurship path' },
-    ],
-  },
-  {
-    id: 'challenge',
-    type: 'input',
-    field: 'challenge',
-    message: (data) => `Understood — **"${data.goal}"** is a great goal!\n\nWhat is the **biggest challenge** holding you back right now? Be as specific as you like.`,
-    placeholder: "e.g. I keep failing technical interviews, I don't know how to negotiate salary...",
+    field: 'lookingForward',
+    formEntry: 'entry.839337160',
+    message: "Now let's talk about your goals.\n\n**What are you looking forward to in our conversation?**\n\nShare what you'd like to get out of coaching — career goals, challenges, or anything on your mind.",
+    placeholder: "e.g. I want help navigating my career transition, preparing for interviews, building leadership skills...",
     multiline: true,
-    validate: (v) => v.trim().length >= 10 ? null : 'Please share a bit more (at least 10 characters).',
+    validate: (v) => v.trim().length >= 5 ? null : 'Please share a bit more (at least 5 characters).',
   },
   {
-    id: 'availability',
+    id: 'willingToPay',
     type: 'choice',
-    field: 'availability',
-    message: "When are you typically **available for coaching sessions**?",
+    field: 'willingToPay',
+    formEntry: 'entry.1735599415',
+    message: "Last question — are you willing to pay a **$50 non-refundable coaching application fee**?\n\nThis amount is credited toward your coaching sessions when you attend.",
     choices: [
-      { value: 'Weekday mornings', label: '🌅 Weekday mornings', sub: '7am – 12pm' },
-      { value: 'Weekday afternoons', label: '☀️ Weekday afternoons', sub: '12pm – 5pm' },
-      { value: 'Weekday evenings', label: '🌆 Weekday evenings', sub: '5pm – 9pm' },
-      { value: 'Weekends', label: '📅 Weekends', sub: 'Saturday or Sunday' },
-      { value: 'Flexible', label: '🔄 Flexible', sub: 'I can work around the coach' },
-    ],
-  },
-  {
-    id: 'howHeard',
-    type: 'choice',
-    field: 'howHeard',
-    message: "Last question — how did you **hear about our coaching program**?",
-    choices: [
-      { value: 'Favored Online dashboard', label: '🖥️ Favored Online dashboard', sub: 'Found it while browsing' },
-      { value: 'Referred by a friend', label: '👥 Referred by a friend', sub: 'Word of mouth' },
-      { value: 'Social media', label: '📱 Social media', sub: 'LinkedIn, Twitter, etc.' },
-      { value: 'Community post', label: '💬 Community post', sub: 'Saw it in the community' },
-      { value: 'Other', label: '🔍 Other', sub: '' },
+      { value: 'Yes', label: '✅ Yes', sub: "I'm ready to invest in my career" },
+      { value: 'No', label: '❌ No', sub: 'Not at this time' },
     ],
   },
   {
@@ -127,6 +82,18 @@ const STEPS = [
     message: (data) => `🎉 **Application submitted, ${data.firstName}!**\n\nThank you for applying to Favored Online Career Coaching. Here's what happens next:\n\n**1.** Check your email at **${data.email}** for a confirmation\n**2.** Complete the **$50 application fee** to reserve your spot\n**3.** Receive your personalized **coaching document** with session pricing\n**4.** Book your first session!\n\nWe're excited to help you reach your goals. 🚀`,
   },
 ];
+
+// ─── FORM ENTRY MAPPING (Google Form field IDs) ──────────────────────────────
+const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
+
+const FORM_FIELD_MAP = {
+  firstName: 'entry.2005620554',
+  lastName: 'entry.1934638032',
+  email: 'entry.1045781291',
+  phone: 'entry.1166974658',
+  lookingForward: 'entry.839337160',
+  willingToPay: 'entry.1735599415',
+};
 
 // ─── STYLES (all explicit rgba — no Tailwind opacity utilities) ───────────────
 const S = {
@@ -275,12 +242,8 @@ const ReviewCard = ({ data }) => {
     { label: 'Full Name', value: `${data.firstName || ''} ${data.lastName || ''}`.trim() },
     { label: 'Email', value: data.email },
     { label: 'Phone', value: data.phone },
-    { label: 'Current Role', value: data.currentRole },
-    { label: 'Experience', value: data.experience },
-    { label: 'Primary Goal', value: data.goal },
-    { label: 'Challenge', value: data.challenge },
-    { label: 'Availability', value: data.availability },
-    { label: 'How You Heard', value: data.howHeard },
+    { label: 'Looking Forward To', value: data.lookingForward },
+    { label: 'Willing to Pay $50', value: data.willingToPay },
   ].filter(f => f.value);
 
   return (
@@ -293,7 +256,7 @@ const ReviewCard = ({ data }) => {
         </div>
         {fields.map(({ label, value }, i) => (
           <div key={label} style={{ ...S.reviewRow, display: 'flex', gap: 12, padding: '9px 14px', borderBottom: i < fields.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-            <span style={{ color: '#6b7280', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', width: 90, flexShrink: 0, paddingTop: 2 }}>{label}</span>
+            <span style={{ color: '#6b7280', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', width: 110, flexShrink: 0, paddingTop: 2 }}>{label}</span>
             <span style={{ color: '#e5e7eb', fontSize: 'clamp(12px, 1.8vw, 14px)', lineHeight: 1.5, flex: 1, wordBreak: 'break-word' }}>{value}</span>
           </div>
         ))}
@@ -419,20 +382,21 @@ const CareerCoach = () => {
   const submitForm = useCallback(async () => {
     setIsSubmitting(true);
     try {
-      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
-      const b = new URLSearchParams();
-      b.append('entry.2005620554', formData.firstName || '');
-      b.append('entry.1934638032', formData.lastName || '');
-      b.append('entry.1045781291', formData.email || '');
-      b.append('entry.1166974658', formData.phone || '');
-      b.append('entry.839337160', formData.currentRole || '');
-      b.append('entry.1824927963', formData.experience || '');
-      b.append('entry.1037378329', formData.goal || '');
-      b.append('entry.301428969', formData.challenge || '');
-      b.append('entry.123456789', formData.availability || '');
-      b.append('entry.987654321', formData.howHeard || '');
-      await fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: b.toString() });
-    } catch (_) { /* no-cors — response unreadable but submission goes through */ }
+      const body = new URLSearchParams();
+      // Map form data to Google Form entry IDs
+      Object.entries(FORM_FIELD_MAP).forEach(([field, entryId]) => {
+        body.append(entryId, formData[field] || '');
+      });
+
+      await fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+    } catch (_) {
+      /* no-cors — response is opaque but submission goes through */
+    }
     setIsSubmitting(false);
     setSubmitted(true);
     setShowReviewCard(false);
@@ -619,7 +583,7 @@ const CareerCoach = () => {
           ...S.page,
           display: 'flex',
           flexDirection: 'column',
-          height: 'calc(100dvh - 64px)',  /* dynamic viewport height minus navbar */
+          height: 'calc(100dvh - 64px)',
           overflow: 'hidden',
           position: 'relative',
         }}
