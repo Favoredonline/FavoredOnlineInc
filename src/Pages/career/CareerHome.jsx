@@ -9,82 +9,68 @@ const PROJECT_BENEFITS = [
   {
     title: "Build Your Portfolio",
     subtitle: "Real Projects, Real Impact",
-    description: "Work on actual industry projects that matter. Create solutions, collaborate with teams, and build a portfolio that stands out to employers.",
-    icon: "🗂️"
+    description: "Work on actual industry projects that matter. Create solutions, collaborate with teams, and build a portfolio that stands out to employers."
   },
   {
     title: "Industry-Ready Skills",
     subtitle: "Learn by Doing",
-    description: "Experience real workplace collaboration. Develop communication, problem-solving, and technical skills through hands-on project work.",
-    icon: "⚡"
+    description: "Experience real workplace collaboration. Develop communication, problem-solving, and technical skills through hands-on project work."
   },
   {
     title: "Track Your Growth",
     subtitle: "From Beginner to Expert",
-    description: "Earn badges as you progress. Our structured system recognizes your achievements and guides your learning journey.",
-    icon: "📈"
+    description: "Earn badges as you progress. Our structured system recognizes your achievements and guides your learning journey."
   },
   {
     title: "Career Coach Support",
     subtitle: "Real Human Guidance",
-    description: "Request a dedicated career coach for one-on-one mentorship, personalized advice, and hands-on support as you navigate your tech journey.",
-    icon: "🧑‍💼"
+    description: "Request a dedicated career coach for one-on-one mentorship, personalized advice, and hands-on support as you navigate your tech journey."
   },
   {
     title: "AI Career Navigator",
     subtitle: "Personalized Pathways",
-    description: "Our AI analyzes your background, skills, and goals to create a personalized tech career roadmap with match scores and learning plans.",
-    icon: "🤖"
+    description: "Our AI analyzes your background, skills, and goals to create a personalized tech career roadmap with match scores and learning plans."
   },
   {
     title: "Global Community",
     subtitle: "Learn Together, Grow Together",
-    description: "Connect with peers, mentors, and industry professionals from around the world who share your passion for tech.",
-    icon: "🌍"
+    description: "Connect with peers, mentors, and industry professionals from around the world who share your passion for tech."
   },
   {
     title: "Flexible Learning",
     subtitle: "Your Schedule, Your Pace",
-    description: "Work on projects and access resources at any time. Our platform is built for busy people balancing learning with life.",
-    icon: "🕐"
+    description: "Work on projects and access resources at any time. Our platform is built for busy people balancing learning with life."
   },
   {
     title: "Presentation Opportunities",
     subtitle: "Showcase Your Work",
-    description: "Present your projects to the Favored Online community, gain visibility, and attract the attention of collaborators and employers.",
-    icon: "🎤"
+    description: "Present your projects to the Favored Online community, gain visibility, and attract the attention of collaborators and employers."
   }
 ];
 
 const OPPORTUNITY_TYPES = [
   {
     type: "Jobs",
-    icon: "💼",
     description: "Full-time, part-time, and contract positions from companies actively hiring tech talent."
   },
   {
     type: "Paid Opportunities",
-    icon: "💵",
     description: "Freelance gigs, consulting work, and paid projects you can take on while building your skills."
   },
   {
     type: "Projects",
-    icon: "🛠️",
     description: "Collaborate on open projects, build your portfolio, and gain real-world experience."
   },
   {
     type: "Scholarships",
-    icon: "🎓",
     description: "Funding opportunities for bootcamps, courses, and degree programs in tech."
   },
   {
     type: "Events",
-    icon: "📅",
     description: "Hackathons, workshops, networking meetups, webinars, and career fairs — virtual and in-person."
   },
   {
     type: "Internships",
-    icon: "🏢",
     description: "Short-term placements with companies looking for emerging tech talent to train and hire."
   }
 ];
@@ -440,9 +426,6 @@ const CareerHome = () => {
                     className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 rounded-2xl p-6 transition-all group cursor-pointer"
                     onClick={handleOpportunityHub}
                   >
-                    <div className="mb-4">
-                      <div className="text-4xl">{opp.icon}</div>
-                    </div>
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
                       {opp.type}
                     </h3>
@@ -525,7 +508,6 @@ const CareerHome = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
               {PROJECT_BENEFITS.map((benefit, index) => (
                 <div key={index} className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all">
-                  <div className="text-3xl mb-3">{benefit.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
                   <p className="text-orange-600 text-sm font-semibold mb-3">{benefit.subtitle}</p>
                   <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
