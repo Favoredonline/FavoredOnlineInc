@@ -5,14 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 
-// ─── CONVERSATION FLOW STEPS ───────────────────────────────────────────────
+// ─── CONVERSATION STEPS ───────────────────────────────────────────────────────
 const STEPS = [
   {
     id: 'welcome',
     type: 'info',
     message: "👋 Welcome to **Career Coaching** at Favored Online! I'm here to help you apply for personalized 1-on-1 coaching with our experienced tech career professionals.\n\nBefore we begin, here's what to expect:\n• A short application (takes ~3 minutes)\n• A **$50 non-refundable application fee** credited toward your sessions\n• A coaching document sent to you with full session pricing\n\nReady to get started?",
-    action: 'start',
-    actionLabel: "Let's go! →",
   },
   {
     id: 'firstName',
@@ -52,7 +50,7 @@ const STEPS = [
     id: 'currentRole',
     type: 'input',
     field: 'currentRole',
-    message: "Now let's talk about where you are today.\n\nWhat is your **current job title or role**? (e.g. \"Software Engineer\", \"Recent Graduate\", \"Product Manager\")",
+    message: "Now let's talk about where you are today.\n\nWhat is your **current job title or role**?\n(e.g. \"Software Engineer\", \"Recent Graduate\", \"Product Manager\")",
     placeholder: 'Your current role...',
     validate: (v) => v.trim().length >= 2 ? null : 'Please describe your current role.',
   },
@@ -90,7 +88,7 @@ const STEPS = [
     message: (data) => `Understood — **"${data.goal}"** is a great goal!\n\nWhat is the **biggest challenge** holding you back right now? Be as specific as you like.`,
     placeholder: "e.g. I keep failing technical interviews, I don't know how to negotiate salary...",
     multiline: true,
-    validate: (v) => v.trim().length >= 10 ? null : 'Please share a bit more detail (at least 10 characters).',
+    validate: (v) => v.trim().length >= 10 ? null : 'Please share a bit more (at least 10 characters).',
   },
   {
     id: 'availability',
@@ -121,7 +119,7 @@ const STEPS = [
   {
     id: 'review',
     type: 'review',
-    message: "Almost done! Here's a **summary of your application**. Please review everything below and hit submit when you're ready:",
+    message: "Almost done! Here's a **summary of your application**. Please review everything and hit submit when ready:",
   },
   {
     id: 'submitted',
@@ -130,7 +128,71 @@ const STEPS = [
   },
 ];
 
-// ─── PARSE BOLD MARKDOWN ──────────────────────────────────────────────────
+// ─── STYLES (all explicit rgba — no Tailwind opacity utilities) ───────────────
+const S = {
+  page: {
+    background: 'linear-gradient(160deg, #09090f 0%, #0f0f1c 50%, #09090f 100%)',
+    fontFamily: "'DM Sans', system-ui, -apple-system, sans-serif",
+  },
+  botBubble: {
+    backgroundColor: 'rgba(255,255,255,0.07)',
+    border: '1px solid rgba(255,255,255,0.10)',
+  },
+  inputField: {
+    backgroundColor: '#141420',
+    border: '1.5px solid rgba(255,255,255,0.14)',
+    color: '#f3f4f6',
+    outline: 'none',
+    transition: 'border-color 0.2s',
+  },
+  inputFieldFocus: {
+    borderColor: 'rgba(249,115,22,0.6)',
+  },
+  choiceBtn: {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.10)',
+    transition: 'all 0.15s ease',
+  },
+  choiceBtnHover: {
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    border: '1px solid rgba(249,115,22,0.45)',
+  },
+  reviewCard: {
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    border: '1px solid rgba(255,255,255,0.11)',
+  },
+  reviewHeader: {
+    backgroundColor: 'rgba(249,115,22,0.10)',
+    borderBottom: '1px solid rgba(255,255,255,0.08)',
+  },
+  reviewRow: {
+    borderBottom: '1px solid rgba(255,255,255,0.06)',
+  },
+  feeNotice: {
+    backgroundColor: 'rgba(249,115,22,0.09)',
+    border: '1px solid rgba(249,115,22,0.30)',
+  },
+  onlinePill: {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.10)',
+  },
+  progressTrack: {
+    backgroundColor: 'rgba(255,255,255,0.07)',
+  },
+  divider: {
+    borderTop: '1px solid rgba(255,255,255,0.07)',
+  },
+  inputZone: {
+    borderTop: '1px solid rgba(255,255,255,0.07)',
+    background: 'linear-gradient(to top, #09090f 55%, transparent)',
+  },
+  secondaryBtn: {
+    backgroundColor: 'rgba(255,255,255,0.07)',
+    border: '1px solid rgba(255,255,255,0.12)',
+  },
+};
+
+// ─── PARSED TEXT (bold markdown) ─────────────────────────────────────────────
 const ParsedText = ({ text }) => {
   if (!text) return null;
   const parts = text.split(/\*\*(.*?)\*\*/g);
@@ -138,34 +200,45 @@ const ParsedText = ({ text }) => {
     <>
       {parts.map((part, i) =>
         i % 2 === 1
-          ? <strong key={i} className="text-white font-semibold">{part}</strong>
-          : <span key={i}>{part.split('\n').map((line, j, arr) => (
-              <React.Fragment key={j}>{line}{j < arr.length - 1 && <br />}</React.Fragment>
-            ))}</span>
+          ? <strong key={i} style={{ color: '#fff', fontWeight: 600 }}>{part}</strong>
+          : <span key={i}>
+              {part.split('\n').map((line, j, arr) => (
+                <React.Fragment key={j}>{line}{j < arr.length - 1 && <br />}</React.Fragment>
+              ))}
+            </span>
       )}
     </>
   );
 };
 
-// ─── CHAT BUBBLE ─────────────────────────────────────────────────────────
-const BotBubble = ({ text, animate = true }) => {
+// ─── BOT AVATAR ───────────────────────────────────────────────────────────────
+const BotAvatar = ({ size = 32 }) => (
+  <div
+    style={{
+      width: size, height: size, borderRadius: '50%', flexShrink: 0,
+      background: 'linear-gradient(135deg, #fb923c, #ea580c)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      boxShadow: '0 4px 12px rgba(249,115,22,0.35)',
+    }}
+  >
+    <svg width={size * 0.44} height={size * 0.44} fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>
+  </div>
+);
+
+// ─── BOT BUBBLE ───────────────────────────────────────────────────────────────
+const BotBubble = ({ text, animate }) => {
   const [visible, setVisible] = useState(!animate);
   useEffect(() => {
-    if (animate) {
-      const t = setTimeout(() => setVisible(true), 80);
-      return () => clearTimeout(t);
-    }
+    if (animate) { const t = setTimeout(() => setVisible(true), 60); return () => clearTimeout(t); }
   }, [animate]);
 
   return (
-    <div className={`flex items-start gap-2 xs:gap-3 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-      <div className="flex-shrink-0 w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 mt-0.5">
-        <svg className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      </div>
-      <div className="max-w-[85%] xs:max-w-[80%] sm:max-w-[75%] bg-white/8 border border-white/12 rounded-2xl rounded-tl-sm px-3 xs:px-4 py-2.5 xs:py-3 shadow-lg">
-        <p className="text-gray-200 text-xs xs:text-sm sm:text-base leading-relaxed">
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(8px)', transition: 'opacity 0.4s ease, transform 0.4s ease' }}>
+      <BotAvatar size={34} />
+      <div style={{ ...S.botBubble, borderRadius: '0 16px 16px 16px', padding: '10px 14px', maxWidth: 'min(80%, 420px)', lineHeight: 1.6 }}>
+        <p style={{ color: '#d1d5db', fontSize: 'clamp(13px, 2vw, 15px)', margin: 0 }}>
           <ParsedText text={text} />
         </p>
       </div>
@@ -173,37 +246,30 @@ const BotBubble = ({ text, animate = true }) => {
   );
 };
 
+// ─── USER BUBBLE ──────────────────────────────────────────────────────────────
 const UserBubble = ({ text }) => (
-  <div className="flex justify-end">
-    <div className="max-w-[75%] xs:max-w-[70%] bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl rounded-tr-sm px-3 xs:px-4 py-2 xs:py-2.5 shadow-lg shadow-orange-500/20">
-      <p className="text-white text-xs xs:text-sm sm:text-base leading-relaxed font-medium">{text}</p>
+  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <div style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)', borderRadius: '16px 0 16px 16px', padding: '9px 14px', maxWidth: 'min(75%, 380px)', boxShadow: '0 4px 14px rgba(249,115,22,0.25)' }}>
+      <p style={{ color: '#fff', fontSize: 'clamp(13px, 2vw, 15px)', margin: 0, fontWeight: 500, lineHeight: 1.5, wordBreak: 'break-word' }}>{text}</p>
     </div>
   </div>
 );
 
-// ─── TYPING INDICATOR ─────────────────────────────────────────────────────
+// ─── TYPING DOTS ──────────────────────────────────────────────────────────────
 const TypingIndicator = () => (
-  <div className="flex items-start gap-2 xs:gap-3">
-    <div className="flex-shrink-0 w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 mt-0.5">
-      <svg className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    </div>
-    <div className="bg-white/8 border border-white/12 rounded-2xl rounded-tl-sm px-4 py-3 shadow-lg">
-      <div className="flex gap-1.5 items-center h-4">
+  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+    <BotAvatar size={34} />
+    <div style={{ ...S.botBubble, borderRadius: '0 16px 16px 16px', padding: '12px 16px' }}>
+      <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
         {[0, 1, 2].map(i => (
-          <div
-            key={i}
-            className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-bounce"
-            style={{ animationDelay: `${i * 150}ms`, animationDuration: '0.8s' }}
-          />
+          <div key={i} style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#f97316', animation: 'ccBounce 0.8s ease infinite', animationDelay: `${i * 160}ms` }} />
         ))}
       </div>
     </div>
   </div>
 );
 
-// ─── REVIEW CARD ──────────────────────────────────────────────────────────
+// ─── REVIEW CARD ──────────────────────────────────────────────────────────────
 const ReviewCard = ({ data }) => {
   const fields = [
     { label: 'Full Name', value: `${data.firstName || ''} ${data.lastName || ''}`.trim() },
@@ -212,46 +278,45 @@ const ReviewCard = ({ data }) => {
     { label: 'Current Role', value: data.currentRole },
     { label: 'Experience', value: data.experience },
     { label: 'Primary Goal', value: data.goal },
-    { label: 'Main Challenge', value: data.challenge },
+    { label: 'Challenge', value: data.challenge },
     { label: 'Availability', value: data.availability },
     { label: 'How You Heard', value: data.howHeard },
   ].filter(f => f.value);
 
   return (
-    <div className="w-full mt-2">
-      <div className="bg-white/5 border border-white/15 rounded-2xl overflow-hidden">
-        <div className="px-3 xs:px-4 py-2.5 border-b border-white/10 bg-orange-500/10">
-          <p className="text-orange-400 font-semibold text-[10px] xs:text-xs uppercase tracking-widest">Application Summary</p>
-        </div>
-        <div className="divide-y divide-white/8">
-          {fields.map(({ label, value }) => (
-            <div key={label} className="px-3 xs:px-4 py-2 xs:py-2.5 flex gap-2 xs:gap-3">
-              <span className="text-gray-500 text-[10px] xs:text-xs font-medium uppercase tracking-wide w-20 xs:w-28 flex-shrink-0 mt-0.5">{label}</span>
-              <span className="text-gray-200 text-xs xs:text-sm leading-relaxed flex-1 break-words">{value}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="mt-3 bg-orange-500/10 border border-orange-500/30 rounded-xl px-3 xs:px-4 py-2.5 xs:py-3">
-        <div className="flex items-start gap-2">
-          <svg className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <p className="text-gray-300 text-[11px] xs:text-xs leading-relaxed">
-            By submitting, you agree to the <span className="text-orange-400 font-semibold">$50 non-refundable application fee</span>. This amount is credited toward your coaching sessions when you attend.
+    <div style={{ width: '100%', marginTop: 8 }}>
+      <div style={{ ...S.reviewCard, borderRadius: 16, overflow: 'hidden' }}>
+        <div style={S.reviewHeader}>
+          <p style={{ color: '#fb923c', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', padding: '10px 14px', margin: 0 }}>
+            Application Summary
           </p>
         </div>
+        {fields.map(({ label, value }, i) => (
+          <div key={label} style={{ ...S.reviewRow, display: 'flex', gap: 12, padding: '9px 14px', borderBottom: i < fields.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+            <span style={{ color: '#6b7280', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', width: 90, flexShrink: 0, paddingTop: 2 }}>{label}</span>
+            <span style={{ color: '#e5e7eb', fontSize: 'clamp(12px, 1.8vw, 14px)', lineHeight: 1.5, flex: 1, wordBreak: 'break-word' }}>{value}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ ...S.feeNotice, borderRadius: 12, padding: '10px 14px', marginTop: 10, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+        <svg width={16} height={16} style={{ flexShrink: 0, marginTop: 1 }} fill="none" viewBox="0 0 24 24" stroke="#fb923c" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p style={{ color: '#d1d5db', fontSize: 'clamp(11px, 1.6vw, 13px)', margin: 0, lineHeight: 1.6 }}>
+          By submitting, you agree to the <strong style={{ color: '#fb923c' }}>$50 non-refundable application fee</strong>. This amount is credited toward your coaching sessions when you attend.
+        </p>
       </div>
     </div>
   );
 };
 
-// ─── MAIN COMPONENT ───────────────────────────────────────────────────────
+// ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 const CareerCoach = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
+  const chatRef = useRef(null);
 
   const [stepIndex, setStepIndex] = useState(0);
   const [messages, setMessages] = useState([]);
@@ -263,12 +328,12 @@ const CareerCoach = () => {
   const [submitted, setSubmitted] = useState(false);
   const [started, setStarted] = useState(false);
   const [showReviewCard, setShowReviewCard] = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
 
   // Pre-fill from auth
   useEffect(() => {
     if (currentUser) {
-      const displayName = currentUser.displayName || '';
-      const parts = displayName.trim().split(' ');
+      const parts = (currentUser.displayName || '').trim().split(' ');
       const pre = {};
       if (parts[0]) pre.firstName = parts[0];
       if (parts.slice(1).join(' ')) pre.lastName = parts.slice(1).join(' ');
@@ -277,153 +342,126 @@ const CareerCoach = () => {
     }
   }, [currentUser]);
 
-  // Initial welcome message
+  // Welcome message on mount
   useEffect(() => {
-    const welcome = STEPS[0];
-    setMessages([{ role: 'bot', text: welcome.message, id: 'welcome-0' }]);
+    setMessages([{ role: 'bot', text: STEPS[0].message, id: 'welcome' }]);
   }, []);
 
   // Scroll to bottom
   useEffect(() => {
-    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+    const timer = setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 80);
+    return () => clearTimeout(timer);
   }, [messages, isTyping, showReviewCard]);
 
-  // Focus input
+  // Auto-focus input
   useEffect(() => {
-    const step = STEPS[stepIndex];
-    if (step?.type === 'input') {
-      setTimeout(() => inputRef.current?.focus(), 500);
+    if (STEPS[stepIndex]?.type === 'input') {
+      setTimeout(() => inputRef.current?.focus(), 450);
     }
   }, [stepIndex]);
 
-  const resolveMessage = (step, data) =>
+  const resolveMsg = (step, data) =>
     typeof step.message === 'function' ? step.message(data) : step.message;
 
-  const pushBotMessage = useCallback((text, delay = 650) => {
-    return new Promise(resolve => {
+  const pushBot = useCallback((text, delay = 700) =>
+    new Promise(resolve => {
       setIsTyping(true);
       setTimeout(() => {
         setIsTyping(false);
-        setMessages(prev => [...prev, { role: 'bot', text, id: `bot-${Date.now()}-${Math.random()}` }]);
+        setMessages(prev => [...prev, { role: 'bot', text, id: `b-${Date.now()}-${Math.random()}` }]);
         resolve();
       }, delay);
-    });
-  }, []);
+    }), []);
 
-  const advanceToStep = useCallback(async (nextIndex, currentData) => {
-    if (nextIndex >= STEPS.length) return;
-    const step = STEPS[nextIndex];
-    const msg = resolveMessage(step, currentData);
-    setStepIndex(nextIndex);
-    if (step.id === 'review') setShowReviewCard(false);
-    await pushBotMessage(msg, 700);
-    if (step.id === 'review') {
-      setTimeout(() => setShowReviewCard(true), 200);
-    }
-  }, [pushBotMessage]);
+  const goToStep = useCallback(async (idx, data) => {
+    if (idx >= STEPS.length) return;
+    const step = STEPS[idx];
+    setStepIndex(idx);
+    setShowReviewCard(false);
+    await pushBot(resolveMsg(step, data), idx <= 1 ? 500 : 700);
+    if (step.id === 'review') setTimeout(() => setShowReviewCard(true), 150);
+  }, [pushBot]);
 
   const handleStart = useCallback(async () => {
     setStarted(true);
-    const newData = { ...formData };
-    let nextIdx = 1;
-
-    // Skip prefilled steps silently
-    while (nextIdx < STEPS.length) {
-      const s = STEPS[nextIdx];
-      if (s.type === 'input' && s.field && newData[s.field]) {
-        nextIdx++;
-      } else {
-        break;
-      }
+    const data = { ...formData };
+    let idx = 1;
+    // Skip steps already prefilled from auth
+    while (idx < STEPS.length && STEPS[idx].type === 'input' && STEPS[idx].field && data[STEPS[idx].field]) {
+      idx++;
     }
+    await goToStep(idx, data);
+  }, [formData, goToStep]);
 
-    await advanceToStep(nextIdx, newData);
-    setStepIndex(nextIdx);
-  }, [formData, advanceToStep]);
-
-  const handleInputSubmit = useCallback(async () => {
+  const submitInput = useCallback(async () => {
     const step = STEPS[stepIndex];
     const val = inputValue.trim();
-    const error = step.validate ? step.validate(val) : null;
-    if (error) { setInputError(error); return; }
-
+    const err = step.validate?.(val);
+    if (err) { setInputError(err); return; }
     setInputError('');
-    const newData = { ...formData, [step.field]: val };
-    setFormData(newData);
-    setMessages(prev => [...prev, { role: 'user', text: val, id: `user-${Date.now()}` }]);
+    const data = { ...formData, [step.field]: val };
+    setFormData(data);
+    setMessages(prev => [...prev, { role: 'user', text: val, id: `u-${Date.now()}` }]);
     setInputValue('');
+    await goToStep(stepIndex + 1, data);
+  }, [stepIndex, inputValue, formData, goToStep]);
 
-    const nextIdx = stepIndex + 1;
-    await advanceToStep(nextIdx, newData);
-    setStepIndex(nextIdx);
-  }, [stepIndex, inputValue, formData, advanceToStep]);
-
-  const handleChoice = useCallback(async (choice) => {
+  const pickChoice = useCallback(async (choice) => {
     const step = STEPS[stepIndex];
-    const newData = { ...formData, [step.field]: choice.value };
-    setFormData(newData);
-    setMessages(prev => [...prev, { role: 'user', text: choice.label, id: `user-${Date.now()}` }]);
+    const data = { ...formData, [step.field]: choice.value };
+    setFormData(data);
+    setMessages(prev => [...prev, { role: 'user', text: choice.label, id: `u-${Date.now()}` }]);
+    await goToStep(stepIndex + 1, data);
+  }, [stepIndex, formData, goToStep]);
 
-    const nextIdx = stepIndex + 1;
-    await advanceToStep(nextIdx, newData);
-    setStepIndex(nextIdx);
-  }, [stepIndex, formData, advanceToStep]);
-
-  const handleSubmit = useCallback(async () => {
+  const submitForm = useCallback(async () => {
     setIsSubmitting(true);
     try {
-      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
-      const body = new URLSearchParams();
-      body.append('entry.2005620554', formData.firstName || '');
-      body.append('entry.1934638032', formData.lastName || '');
-      body.append('entry.1045781291', formData.email || '');
-      body.append('entry.1166974658', formData.phone || '');
-      body.append('entry.839337160', formData.currentRole || '');
-      body.append('entry.1824927963', formData.experience || '');
-      body.append('entry.1037378329', formData.goal || '');
-      body.append('entry.301428969', formData.challenge || '');
-      body.append('entry.123456789', formData.availability || '');
-      body.append('entry.987654321', formData.howHeard || '');
-      await fetch(formUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-    } catch (e) {
-      // no-cors — submission still goes through
-    }
-
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
+      const b = new URLSearchParams();
+      b.append('entry.2005620554', formData.firstName || '');
+      b.append('entry.1934638032', formData.lastName || '');
+      b.append('entry.1045781291', formData.email || '');
+      b.append('entry.1166974658', formData.phone || '');
+      b.append('entry.839337160', formData.currentRole || '');
+      b.append('entry.1824927963', formData.experience || '');
+      b.append('entry.1037378329', formData.goal || '');
+      b.append('entry.301428969', formData.challenge || '');
+      b.append('entry.123456789', formData.availability || '');
+      b.append('entry.987654321', formData.howHeard || '');
+      await fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: b.toString() });
+    } catch (_) { /* no-cors — response unreadable but submission goes through */ }
     setIsSubmitting(false);
     setSubmitted(true);
     setShowReviewCard(false);
-
+    setMessages(prev => [...prev, { role: 'user', text: '✅ Submit my application', id: `u-${Date.now()}` }]);
     const successStep = STEPS.find(s => s.id === 'submitted');
-    const msg = resolveMessage(successStep, formData);
-    setMessages(prev => [...prev, { role: 'user', text: '✅ Submit my application', id: `user-${Date.now()}` }]);
-    await pushBotMessage(msg, 900);
+    await pushBot(resolveMsg(successStep, formData), 900);
     setStepIndex(STEPS.findIndex(s => s.id === 'submitted'));
-  }, [formData, pushBotMessage]);
+  }, [formData, pushBot]);
 
-  // Progress
-  const totalInputSteps = STEPS.filter(s => s.type === 'input' || s.type === 'choice').length;
-  const completedSteps = Object.keys(formData).length;
-  const progress = Math.min((completedSteps / totalInputSteps) * 100, 100);
-
+  const totalFields = STEPS.filter(s => s.type === 'input' || s.type === 'choice').length;
+  const progress = Math.min((Object.keys(formData).length / totalFields) * 100, 100);
   const currentStep = STEPS[stepIndex];
 
-  // ─── INPUT AREA ────────────────────────────────────────────────────────
-  const renderInputArea = () => {
+  // ─── INPUT AREA ─────────────────────────────────────────────────────────────
+  const renderInput = () => {
     if (!started) {
       return (
-        <div className="flex justify-center py-2">
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0' }}>
           <button
             onClick={handleStart}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 active:scale-95 text-white font-bold px-6 xs:px-8 py-3 xs:py-3.5 rounded-2xl shadow-lg shadow-orange-500/30 transition-all duration-200 text-sm xs:text-base"
+            style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 2.2vw, 16px)', padding: '13px 32px', borderRadius: 16, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 6px 20px rgba(249,115,22,0.35)', transition: 'transform 0.15s, box-shadow 0.15s', fontFamily: 'inherit' }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}
+            onMouseDown={e => { e.currentTarget.style.transform = 'scale(0.97)'; }}
+            onMouseUp={e => { e.currentTarget.style.transform = 'scale(1)'; }}
           >
             Let's go!
-            <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg width={18} height={18} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
         </div>
@@ -432,28 +470,40 @@ const CareerCoach = () => {
 
     if (isTyping || !currentStep) return null;
 
-    // Text / email / tel input
+    // ── Text input ──
     if (currentStep.type === 'input') {
+      const sharedInputStyle = {
+        ...S.inputField,
+        flex: 1,
+        borderRadius: 14,
+        padding: '12px 16px',
+        fontSize: 'clamp(13px, 2vw, 15px)',
+        fontFamily: 'inherit',
+        borderColor: inputFocused ? 'rgba(249,115,22,0.55)' : 'rgba(255,255,255,0.14)',
+        boxShadow: inputFocused ? '0 0 0 3px rgba(249,115,22,0.12)' : 'none',
+      };
       return (
-        <div className="space-y-2">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {inputError && (
-            <p className="text-red-400 text-[11px] xs:text-xs px-1 flex items-center gap-1.5">
-              <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#f87171', fontSize: 12 }}>
+              <svg width={13} height={13} fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               {inputError}
-            </p>
+            </div>
           )}
-          <div className="flex gap-2 xs:gap-2.5 items-end">
+          <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end' }}>
             {currentStep.multiline ? (
               <textarea
                 ref={inputRef}
                 value={inputValue}
                 onChange={e => { setInputValue(e.target.value); setInputError(''); }}
-                onKeyDown={e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) handleInputSubmit(); }}
+                onKeyDown={e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) submitInput(); }}
+                onFocus={() => setInputFocused(true)}
+                onBlur={() => setInputFocused(false)}
                 placeholder={currentStep.placeholder}
                 rows={3}
-                className="flex-1 bg-white/8 border border-white/15 focus:border-orange-400/60 focus:ring-2 focus:ring-orange-400/15 rounded-2xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-600 text-xs xs:text-sm resize-none outline-none transition-all duration-200 leading-relaxed"
+                style={{ ...sharedInputStyle, resize: 'none', lineHeight: 1.6 }}
               />
             ) : (
               <input
@@ -461,64 +511,59 @@ const CareerCoach = () => {
                 type={currentStep.inputType || 'text'}
                 value={inputValue}
                 onChange={e => { setInputValue(e.target.value); setInputError(''); }}
-                onKeyDown={e => { if (e.key === 'Enter') handleInputSubmit(); }}
+                onKeyDown={e => { if (e.key === 'Enter') submitInput(); }}
+                onFocus={() => setInputFocused(true)}
+                onBlur={() => setInputFocused(false)}
                 placeholder={currentStep.placeholder}
-                className="flex-1 bg-white/8 border border-white/15 focus:border-orange-400/60 focus:ring-2 focus:ring-orange-400/15 rounded-2xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-600 text-xs xs:text-sm outline-none transition-all duration-200"
+                style={{ ...sharedInputStyle, height: 48 }}
               />
             )}
             <button
-              onClick={handleInputSubmit}
+              onClick={submitInput}
               disabled={!inputValue.trim()}
-              className="flex-shrink-0 w-10 h-10 xs:w-11 xs:h-11 bg-gradient-to-br from-orange-500 to-orange-600 disabled:opacity-35 disabled:cursor-not-allowed rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20 hover:from-orange-600 hover:to-orange-700 active:scale-95 transition-all duration-200"
+              style={{ width: 48, height: 48, borderRadius: 14, border: 'none', cursor: inputValue.trim() ? 'pointer' : 'not-allowed', flexShrink: 0, background: inputValue.trim() ? 'linear-gradient(135deg, #f97316, #ea580c)' : 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: inputValue.trim() ? '0 4px 12px rgba(249,115,22,0.3)' : 'none', transition: 'all 0.15s', opacity: inputValue.trim() ? 1 : 0.4 }}
               aria-label="Send"
             >
-              <svg className="w-4 h-4 xs:w-5 xs:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </button>
           </div>
           {currentStep.multiline && (
-            <p className="text-gray-600 text-[10px] xs:text-xs px-1">Press Ctrl+Enter or click → to continue</p>
+            <p style={{ color: '#4b5563', fontSize: 11, margin: 0, paddingLeft: 4 }}>Press Ctrl+Enter or click → to continue</p>
           )}
         </div>
       );
     }
 
-    // Multiple choice
+    // ── Multiple choice ──
     if (currentStep.type === 'choice') {
       return (
-        <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 200px), 1fr))', gap: 8 }}>
           {currentStep.choices.map((choice) => (
-            <button
-              key={choice.value}
-              onClick={() => handleChoice(choice)}
-              className="text-left bg-white/5 hover:bg-white/10 active:scale-[0.97] border border-white/10 hover:border-orange-400/40 rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 transition-all duration-150 group"
-            >
-              <p className="text-white text-xs xs:text-sm font-medium group-hover:text-orange-300 transition-colors leading-snug">{choice.label}</p>
-              {choice.sub && <p className="text-gray-600 text-[10px] xs:text-xs mt-0.5">{choice.sub}</p>}
-            </button>
+            <ChoiceButton key={choice.value} choice={choice} onClick={() => pickChoice(choice)} />
           ))}
         </div>
       );
     }
 
-    // Review + submit
+    // ── Review submit ──
     if (currentStep.type === 'review') {
       return (
         <button
-          onClick={handleSubmit}
+          onClick={submitForm}
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:opacity-60 text-white font-bold py-3 xs:py-3.5 rounded-2xl shadow-lg shadow-orange-500/25 transition-all duration-200 active:scale-[0.99] flex items-center justify-center gap-2 text-sm xs:text-base"
+          style={{ width: '100%', background: isSubmitting ? 'rgba(249,115,22,0.5)' : 'linear-gradient(135deg, #f97316, #ea580c)', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 2.2vw, 16px)', padding: '14px 20px', borderRadius: 16, border: 'none', cursor: isSubmitting ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, boxShadow: '0 6px 20px rgba(249,115,22,0.3)', fontFamily: 'inherit', transition: 'opacity 0.2s' }}
         >
           {isSubmitting ? (
             <>
-              <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+              <div style={{ width: 18, height: 18, borderRadius: '50%', border: '2.5px solid rgba(255,255,255,0.35)', borderTopColor: '#fff', animation: 'ccSpin 0.7s linear infinite' }} />
               Submitting...
             </>
           ) : (
             <>
-              <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Submit My Application
             </>
@@ -527,13 +572,13 @@ const CareerCoach = () => {
       );
     }
 
-    // Success actions
+    // ── Success ──
     if (currentStep.type === 'success') {
       return (
-        <div className="flex flex-col xs:flex-row gap-2 xs:gap-3">
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <button
             onClick={() => navigate('/dashboard')}
-            className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 rounded-2xl shadow-lg transition-all duration-200 active:scale-[0.99] text-sm xs:text-base"
+            style={{ flex: '1 1 140px', background: 'linear-gradient(135deg, #f97316, #ea580c)', color: '#fff', fontWeight: 700, fontSize: 'clamp(13px, 2vw, 15px)', padding: '13px 16px', borderRadius: 14, border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
           >
             Back to Dashboard
           </button>
@@ -541,7 +586,7 @@ const CareerCoach = () => {
             href="https://careers.favoredonline.com/career/support"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-white/8 hover:bg-white/12 border border-white/15 text-gray-300 hover:text-white font-medium py-3 rounded-2xl transition-all duration-200 text-sm xs:text-base text-center"
+            style={{ flex: '1 1 120px', ...S.secondaryBtn, color: '#9ca3af', fontWeight: 500, fontSize: 'clamp(13px, 2vw, 15px)', padding: '13px 16px', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontFamily: 'inherit' }}
           >
             Contact Support
           </a>
@@ -552,109 +597,150 @@ const CareerCoach = () => {
     return null;
   };
 
+  // ── Navbar height: ~64px, use CSS var for safety ──────────────────────────
   return (
     <>
       <Navbar />
-      <div
-        className="min-h-screen flex flex-col"
-        style={{ background: 'linear-gradient(135deg, #09090f 0%, #0f0f1c 50%, #09090f 100%)' }}
-      >
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
-          .career-coach-wrap * { font-family: 'DM Sans', system-ui, sans-serif !important; }
-          .career-coach-wrap ::-webkit-scrollbar { width: 3px; }
-          .career-coach-wrap ::-webkit-scrollbar-track { background: transparent; }
-          .career-coach-wrap ::-webkit-scrollbar-thumb { background: rgba(249,115,22,0.35); border-radius: 3px; }
-        `}</style>
 
-        {/* Ambient blobs */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-32 -left-32 w-72 h-72 xs:w-96 xs:h-96 bg-orange-500/7 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 -right-24 w-60 h-60 xs:w-80 xs:h-80 bg-orange-600/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-16 left-1/3 w-64 h-64 bg-amber-500/4 rounded-full blur-3xl" />
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+        @keyframes ccBounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+        @keyframes ccSpin   { to{transform:rotate(360deg)} }
+        .cc-chat::-webkit-scrollbar { width: 3px; }
+        .cc-chat::-webkit-scrollbar-track { background: transparent; }
+        .cc-chat::-webkit-scrollbar-thumb { background: rgba(249,115,22,0.3); border-radius: 3px; }
+        .cc-placeholder::placeholder { color: #4b5563; }
+        @media (max-width: 380px) { .cc-online-label { display: none; } }
+      `}</style>
+
+      {/* Full page wrapper — fills remaining viewport below navbar */}
+      <div
+        style={{
+          ...S.page,
+          display: 'flex',
+          flexDirection: 'column',
+          height: 'calc(100dvh - 64px)',  /* dynamic viewport height minus navbar */
+          overflow: 'hidden',
+          position: 'relative',
+        }}
+      >
+        {/* Ambient blobs — purely decorative */}
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }} aria-hidden="true">
+          <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '45vw', height: '45vw', background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+          <div style={{ position: 'absolute', bottom: '-10%', right: '-8%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%)', borderRadius: '50%' }} />
         </div>
 
-        <div className="career-coach-wrap relative z-10 flex flex-col flex-1 max-w-2xl w-full mx-auto px-3 xs:px-4 sm:px-6" style={{ minHeight: 0 }}>
-
-          {/* ── TOP HEADER ── */}
-          <div className="flex-shrink-0 pt-4 xs:pt-5 sm:pt-6 pb-3 xs:pb-4">
+        {/* Center column — max 680px, full width on mobile */}
+        <div
+          style={{
+            position: 'relative', zIndex: 1,
+            display: 'flex', flexDirection: 'column',
+            flex: 1, overflow: 'hidden',
+            width: '100%', maxWidth: 680,
+            margin: '0 auto',
+            padding: '0 clamp(12px, 4vw, 24px)',
+            boxSizing: 'border-box',
+          }}
+        >
+          {/* ─ HEADER ─ */}
+          <div style={{ flexShrink: 0, paddingTop: 'clamp(12px, 3vw, 20px)', paddingBottom: 12 }}>
+            {/* Back button */}
             <button
               onClick={() => navigate('/dashboard')}
-              className="inline-flex items-center gap-1.5 text-gray-600 hover:text-gray-300 transition-colors mb-3 xs:mb-4 min-h-[40px] text-xs xs:text-sm"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer', fontSize: 'clamp(12px, 1.8vw, 14px)', fontFamily: 'inherit', padding: '4px 0', marginBottom: 12 }}
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg width={16} height={16} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
               Back to Dashboard
             </button>
 
-            <div className="flex items-center gap-3 xs:gap-4">
-              <div className="w-10 h-10 xs:w-12 xs:h-12 flex-shrink-0 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-xl shadow-orange-500/25">
-                <svg className="w-5 h-5 xs:w-6 xs:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            {/* Title row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px, 2.5vw, 16px)' }}>
+              <div style={{ width: 'clamp(40px, 6vw, 50px)', height: 'clamp(40px, 6vw, 50px)', borderRadius: 14, background: 'linear-gradient(135deg, #fb923c, #ea580c)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 6px 20px rgba(249,115,22,0.30)' }}>
+                <svg width={22} height={22} fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <div>
-                <h1 className="text-lg xs:text-xl sm:text-2xl font-black text-white" style={{ textShadow: '0 0 24px rgba(249,115,22,0.2)' }}>
-                  Career Coaching
-                </h1>
-                <p className="text-gray-600 text-[11px] xs:text-xs mt-0.5">1-on-1 with experienced tech coaches</p>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h1 style={{ color: '#fff', fontSize: 'clamp(16px, 3.5vw, 22px)', fontWeight: 800, margin: 0, lineHeight: 1.2, textShadow: '0 0 20px rgba(249,115,22,0.2)' }}>Career Coaching</h1>
+                <p style={{ color: '#6b7280', fontSize: 'clamp(11px, 1.6vw, 13px)', margin: 0, marginTop: 2 }}>1-on-1 with experienced tech coaches</p>
               </div>
-
-              {/* Online indicator */}
-              <div className="ml-auto flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-2.5 xs:px-3 py-1 xs:py-1.5">
-                <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-gray-400 text-[10px] xs:text-xs font-medium">Online</span>
+              {/* Online pill */}
+              <div style={{ ...S.onlinePill, display: 'flex', alignItems: 'center', gap: 6, borderRadius: 999, padding: '5px 10px', flexShrink: 0 }}>
+                <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: '#4ade80', animation: 'ccBounce 2s ease infinite' }} />
+                <span className="cc-online-label" style={{ color: '#9ca3af', fontSize: 11, fontWeight: 500 }}>Online</span>
               </div>
             </div>
 
-            {/* Progress bar */}
+            {/* Progress */}
             {started && !submitted && (
-              <div className="mt-3 xs:mt-4">
-                <div className="flex justify-between mb-1">
-                  <span className="text-gray-700 text-[10px] xs:text-xs">Progress</span>
-                  <span className="text-orange-500 text-[10px] xs:text-xs font-semibold">{Math.round(progress)}%</span>
+              <div style={{ marginTop: 14 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
+                  <span style={{ color: '#4b5563', fontSize: 11 }}>Progress</span>
+                  <span style={{ color: '#f97316', fontSize: 11, fontWeight: 600 }}>{Math.round(progress)}%</span>
                 </div>
-                <div className="h-1 bg-white/6 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-orange-400 to-orange-500 rounded-full transition-all duration-700 ease-out"
-                    style={{ width: `${progress}%` }}
-                  />
+                <div style={{ ...S.progressTrack, height: 5, borderRadius: 999, overflow: 'hidden' }}>
+                  <div style={{ height: '100%', width: `${progress}%`, background: 'linear-gradient(90deg, #fb923c, #f97316)', borderRadius: 999, transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)' }} />
                 </div>
               </div>
             )}
 
-            <div className="border-t border-white/6 mt-3 xs:mt-4" />
+            <div style={{ ...S.divider, marginTop: 14 }} />
           </div>
 
-          {/* ── MESSAGE AREA ── */}
-          <div className="flex-1 overflow-y-auto py-3 xs:py-4 space-y-3 xs:space-y-4" style={{ minHeight: 0 }}>
+          {/* ─ MESSAGES ─ */}
+          <div
+            ref={chatRef}
+            className="cc-chat"
+            style={{ flex: 1, overflowY: 'auto', paddingTop: 16, paddingBottom: 8, display: 'flex', flexDirection: 'column', gap: 14 }}
+          >
             {messages.map((msg, i) =>
               msg.role === 'bot'
                 ? <BotBubble key={msg.id} text={msg.text} animate={i > 0} />
                 : <UserBubble key={msg.id} text={msg.text} />
             )}
-
             {isTyping && <TypingIndicator />}
-
-            {/* Inline review card */}
             {showReviewCard && !isTyping && currentStep?.type === 'review' && (
               <ReviewCard data={formData} />
             )}
-
-            <div ref={bottomRef} className="h-2" />
+            <div ref={bottomRef} style={{ height: 4 }} />
           </div>
 
-          {/* ── INPUT ZONE ── */}
-          <div
-            className="flex-shrink-0 pt-2 xs:pt-3 pb-4 xs:pb-5 sm:pb-6 border-t border-white/6"
-            style={{ background: 'linear-gradient(to top, #09090f 60%, transparent)' }}
-          >
-            {renderInputArea()}
+          {/* ─ INPUT ZONE ─ */}
+          <div style={{ ...S.inputZone, flexShrink: 0, paddingTop: 12, paddingBottom: 'clamp(12px, 4vw, 24px)' }}>
+            {renderInput()}
           </div>
         </div>
       </div>
     </>
+  );
+};
+
+// Extracted to avoid re-render jitter on choice hover
+const ChoiceButton = ({ choice, onClick }) => {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        ...( hovered ? S.choiceBtnHover : S.choiceBtn ),
+        borderRadius: 12,
+        padding: 'clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 16px)',
+        textAlign: 'left',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 3,
+        transform: hovered ? 'translateY(-1px)' : 'none',
+      }}
+    >
+      <span style={{ color: hovered ? '#fdba74' : '#f3f4f6', fontSize: 'clamp(12px, 1.9vw, 14px)', fontWeight: 600, lineHeight: 1.35 }}>{choice.label}</span>
+      {choice.sub && <span style={{ color: '#6b7280', fontSize: 'clamp(10px, 1.5vw, 12px)', lineHeight: 1.3 }}>{choice.sub}</span>}
+    </button>
   );
 };
 
