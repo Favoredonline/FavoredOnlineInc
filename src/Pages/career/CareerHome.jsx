@@ -166,7 +166,7 @@ const CareerHome = () => {
 
   const handleOpportunityHub = () => {
     if (currentUser) {
-      navigate('/opportunity-hub');
+      navigate('/hub');
     } else {
       navigate('/login');
     }
@@ -216,7 +216,7 @@ const CareerHome = () => {
                     Dashboard
                   </Link>
                   <Link
-                    to="/opportunity-hub"
+                    to="/hub"
                     className="text-gray-700 hover:text-blue-600 font-semibold text-sm lg:text-base transition-colors"
                   >
                     Opportunity Hub
@@ -422,9 +422,6 @@ const CareerHome = () => {
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center mb-10 sm:mb-14">
-              <span className="inline-block text-orange-300 font-semibold text-sm px-4 py-2 bg-orange-500/20 rounded-full border border-orange-400/30 mb-4">
-                🆕 New Feature
-              </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
                 The <span className="bg-gradient-to-r from-orange-400 to-yellow-300 text-transparent bg-clip-text">Opportunity Hub</span>
               </h2>
