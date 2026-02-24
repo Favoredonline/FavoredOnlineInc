@@ -447,10 +447,12 @@ const ReviewCard = ({ data }) => {
   );
 };
 
-// ─── GOOGLE FORM SUBMISSION (FIXED - uses multiple methods for reliability) ──
+// ─── RELIABLE GOOGLE FORM SUBMISSION ──────────────────────────────────────────
+// Uses fetch with no-cors (fire-and-forget) + hidden iframe as backup.
+// Same pattern as Support.jsx for consistency across the app.
 function submitToGoogleForm(data) {
   return new Promise((resolve) => {
-    // Build the URL-encoded form body
+    // Build URL-encoded body
     const formBody = new URLSearchParams();
     formBody.append(FORM_FIELD_MAP.firstName,      data.firstName      || '');
     formBody.append(FORM_FIELD_MAP.lastName,       data.lastName       || '');
@@ -459,26 +461,19 @@ function submitToGoogleForm(data) {
     formBody.append(FORM_FIELD_MAP.lookingForward, data.lookingForward || '');
     formBody.append(FORM_FIELD_MAP.willingToPay,   data.willingToPay   || '');
 
-    // ── METHOD 1: fetch with no-cors (fire-and-forget, most reliable) ──
-    // Google Forms accepts POST with URL-encoded body.
-    // no-cors means we can't read the response, but the request still goes through.
+    // METHOD 1: fetch with no-cors (most reliable for cross-origin Google Forms)
     fetch(FORM_ACTION_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formBody.toString(),
     }).catch((err) => {
-      console.warn('fetch submission failed, falling back to iframe:', err);
+      console.warn('fetch submission attempt completed (no-cors):', err);
     });
 
-    // ── METHOD 2: hidden iframe + form (backup) ──
-    // This runs in parallel as a fallback.
+    // METHOD 2: hidden iframe + form POST (backup, runs in parallel)
     try {
-      // Create a unique iframe name to avoid collisions
-      const iframeName = `hidden_iframe_${Date.now()}`;
-
+      const iframeName = 'hidden_iframe_' + Date.now();
       const iframe = document.createElement('iframe');
       iframe.name = iframeName;
       iframe.id = iframeName;
@@ -489,10 +484,8 @@ function submitToGoogleForm(data) {
       form.action = FORM_ACTION_URL;
       form.method = 'POST';
       form.target = iframeName;
-      // Ensure the form does not navigate the page
       form.style.display = 'none';
 
-      // Add all fields as hidden inputs
       const fields = {
         [FORM_FIELD_MAP.firstName]:      data.firstName      || '',
         [FORM_FIELD_MAP.lastName]:       data.lastName       || '',
@@ -513,7 +506,6 @@ function submitToGoogleForm(data) {
       document.body.appendChild(form);
       form.submit();
 
-      // Clean up after a delay
       setTimeout(() => {
         try {
           document.body.removeChild(form);
@@ -521,10 +513,10 @@ function submitToGoogleForm(data) {
         } catch (_) { /* already removed */ }
       }, 3000);
     } catch (err) {
-      console.warn('iframe submission failed:', err);
+      console.warn('iframe submission fallback error:', err);
     }
 
-    // Resolve after a short delay to allow submission to complete
+    // Resolve after delay to allow submission to complete
     setTimeout(() => resolve(true), 1500);
   });
 }
@@ -662,7 +654,7 @@ const CareerCoach = () => {
     [stepIndex, formData, goToStep],
   );
 
-  // ── Submit via fetch + hidden iframe (dual approach for reliability) ──
+  // ── Submit via fetch + hidden iframe ──
   const submitForm = useCallback(async () => {
     setIsSubmitting(true);
     try {
