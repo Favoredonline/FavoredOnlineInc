@@ -11,6 +11,7 @@ import Logout from './Pages/auth/Logout';
 import UserDashboard from './Pages/user/dashboard';
 import UserProfile from './Pages/user/UserProfile';
 import FollowersFollowing from './Pages/user/FollowersFollowing';
+import CareerCoach from './Pages/user/CareerCoach';
 import CareerHome from './Pages/career/CareerHome';
 import CareerTest from './Pages/career/CareerTest';
 import CareerDashboard from './Pages/career/CareerDashboard';
@@ -213,6 +214,9 @@ function App() {
                 
                 <Route path="/dashboard" element={<BasicProtectedRoute><UserDashboard /></BasicProtectedRoute>} />
                 <Route path="/user/dashboard" element={<BasicProtectedRoute><UserDashboard /></BasicProtectedRoute>} />
+
+                {/* Career Coach */}
+                <Route path="/career-coach" element={<BasicProtectedRoute><CareerCoach /></BasicProtectedRoute>} />
                 
                 <Route path="/profile/:userEmail" element={<BasicProtectedRoute><UserProfile /></BasicProtectedRoute>} />
                 <Route path="/profile/:userId" element={<BasicProtectedRoute><UserProfile /></BasicProtectedRoute>} />
