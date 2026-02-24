@@ -20,6 +20,11 @@ const PROJECT_BENEFITS = [
     title: "Track Your Growth",
     subtitle: "From Beginner to Expert",
     description: "Earn badges as you progress. Our structured system recognizes your achievements and guides your learning journey."
+  },
+  {
+    title: "Career Coach Support",
+    subtitle: "Real Human Guidance",
+    description: "Request a dedicated career coach for one-on-one mentorship, personalized advice, and hands-on support as you navigate your tech journey."
   }
 ];
 
@@ -60,6 +65,10 @@ const FAQs = [
   {
     question: "What if I don't have any tech experience?",
     answer: "Perfect! Our AI specializes in identifying transferable skills from any background. Many successful users started with zero tech experience and used our personalized transition plans and real projects to advance their learning."
+  },
+  {
+    question: "Can I get a career coach for one-on-one guidance?",
+    answer: "Yes! You can request a dedicated career coach for personalized mentorship, career planning, and one-on-one support. Your coach will help you set goals, navigate challenges, and stay on track throughout your tech journey."
   }
 ];
 
@@ -279,6 +288,10 @@ const CareerHome = () => {
                     <div className="font-bold text-white text-sm">AI Guidance</div>
                     <div className="text-blue-100 text-xs">Personalized pathways</div>
                   </div>
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 border border-white/20">
+                    <div className="font-bold text-white text-sm">Career Coach</div>
+                    <div className="text-blue-100 text-xs">1-on-1 mentorship</div>
+                  </div>
                 </div>
 
                 {/* CTA Buttons */}
@@ -310,6 +323,10 @@ const CareerHome = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-blue-300">✓</span>
                     <span>AI Career Navigator</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-300">✓</span>
+                    <span>Career Coach Available</span>
                   </div>
                 </div>
               </div>
@@ -443,7 +460,7 @@ const CareerHome = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
               {PROJECT_BENEFITS.map((benefit, index) => (
                 <div key={index} className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
