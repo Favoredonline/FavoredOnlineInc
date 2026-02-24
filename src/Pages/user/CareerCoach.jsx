@@ -44,15 +44,7 @@ const CareerCoach = () => {
     isSuccess: false,
   });
 
-  // Pre-fill from auth
-  useEffect(() => {
-    if (currentUser) {
-      const parts = (currentUser.displayName || '').trim().split(' ');
-      if (parts[0]) setFirstName(parts[0]);
-      if (parts.slice(1).join(' ')) setLastName(parts.slice(1).join(' '));
-      if (currentUser.email) setEmail(currentUser.email);
-    }
-  }, [currentUser]);
+
 
   // Captcha
   const generateCaptcha = () => {
