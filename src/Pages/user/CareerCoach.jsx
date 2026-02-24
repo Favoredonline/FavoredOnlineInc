@@ -6,16 +6,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 
+// ─── GOOGLE FORM CONFIG ───────────────────────────────────────────────────────
+// Form action URL (from the actual Google Form HTML source)
 const FORM_URL =
-  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
+  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJOTuBNLF5O0tWip8nH1XfqXhoKVDuk4j4pzCM1kDMGHmdWw/formResponse';
 
+// Entry IDs extracted from the actual Google Form HTML source
 const FIELD_IDS = {
-  firstName:      'entry.2005620554',
-  lastName:       'entry.1934638032',
-  email:          'entry.1045781291',
-  phone:          'entry.1166974658',
-  lookingForward: 'entry.839337160',
-  willingToPay:   'entry.1735599415',
+  firstName:      'entry.640877948',
+  lastName:       'entry.708138434',
+  email:          'entry.64027578',
+  phone:          'entry.1300524080',
+  lookingForward: 'entry.1092093939',
+  willingToPay:   'entry.133740837',
 };
 
 const CareerCoach = () => {
@@ -107,7 +110,7 @@ const CareerCoach = () => {
         [FIELD_IDS.willingToPay]:   willingToPay,
       };
 
-      // METHOD 1: fetch with no-cors
+      // METHOD 1: fetch with no-cors (primary - most reliable)
       const formBody = new URLSearchParams();
       Object.entries(fields).forEach(([k, v]) => formBody.append(k, v));
 
@@ -118,7 +121,7 @@ const CareerCoach = () => {
         body: formBody.toString(),
       }).catch(() => {});
 
-      // METHOD 2: hidden iframe backup
+      // METHOD 2: hidden iframe backup (runs in parallel)
       const iframeName = 'hidden_iframe_' + Date.now();
       const iframe = document.createElement('iframe');
       iframe.name = iframeName;
@@ -390,7 +393,7 @@ const CareerCoach = () => {
 
                   <div className="group">
                     <label htmlFor="phone" className="block text-gray-900 font-bold mb-2 sm:mb-3 text-base sm:text-lg">
-                      Phone Number (Optional)
+                      Contact Number (Optional)
                     </label>
                     <input
                       type="tel"
@@ -424,7 +427,7 @@ const CareerCoach = () => {
                   {/* Willing to Pay */}
                   <div className="group">
                     <label className="block text-gray-900 font-bold mb-2 sm:mb-3 text-base sm:text-lg">
-                      Are you willing to pay a <strong className="text-orange-600">$50 non-refundable</strong> coaching application fee? <span className="text-red-500">*</span>
+                      Are you willing to pay a <span className="text-orange-600">$50 non-refundable</span> coaching application fee? <span className="text-red-500">*</span>
                     </label>
                     <p className="text-gray-500 text-sm mb-3">This amount is credited toward your coaching sessions when you attend.</p>
                     <div className="flex gap-4">
