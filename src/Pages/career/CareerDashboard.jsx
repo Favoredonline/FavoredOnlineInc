@@ -10,6 +10,7 @@ import enhancedStorageService from '../../services/enhancedStorageService';
 import firebaseCareerService from '../../services/firebaseCareerService';
 import Navbar from '../../components/Navbar';
 import { toast } from 'react-toastify';
+import { throttle } from '../../utils/throttle';
 
 const CareerDashboard = () => {
   const location = useLocation();
@@ -115,9 +116,9 @@ const CareerDashboard = () => {
 
   // Mouse position tracking for animated background
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = throttle((e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    }, 50);
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -232,8 +233,8 @@ const saveAllData = async () => {
               color: #333;
             }
             h1 {
-              color: #2563eb;
-              border-bottom: 3px solid #2563eb;
+              color: #16a34a;
+              border-bottom: 3px solid #16a34a;
               padding-bottom: 10px;
               font-size: 24px;
             }
@@ -289,7 +290,7 @@ const saveAllData = async () => {
         <body>
           ${formatContentForPDF(content)}
           <div class="no-print" style="margin-top: 30px; text-align: center;">
-            <button onclick="window.print()" style="background: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">
+            <button onclick="window.print()" style="background: #16a34a; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">
               Download as PDF
             </button>
             <button onclick="window.close()" style="background: #6b7280; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; margin-left: 10px;">
@@ -1302,8 +1303,8 @@ useEffect(() => {
   // ============================================================================
 
   const CareerRecommendationCard = ({ career, index, isTop }) => (
-    <div className={`bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-white/20 ${
-      isTop ? 'ring-2 ring-blue-500/50' : ''
+    <div className={`bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-green-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-white/20 ${
+      isTop ? 'ring-2 ring-green-500/50' : ''
     }`}>
       <div className="flex flex-col sm:flex-row justify-between items-start mb-4 sm:mb-6">
         <div className="flex items-center mb-4 sm:mb-0">
@@ -1317,15 +1318,15 @@ useEffect(() => {
                 }}>
               {career.title}
             </h3>
-            <p className="text-sm sm:text-base text-blue-300 font-semibold" 
-               style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-sm sm:text-base text-green-300 font-semibold" 
+               style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
               {career.demandLevel} Demand
             </p>
           </div>
         </div>
         <div className="text-center sm:text-right">
-          <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-blue-400 mb-1"
-               style={{textShadow: '0 0 20px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-green-400 mb-1"
+               style={{textShadow: '0 0 20px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             {career.match}%
           </div>
           <div className="text-xs sm:text-sm text-gray-300" 
@@ -1367,7 +1368,7 @@ useEffect(() => {
         </h4>
         <div className="flex flex-wrap gap-2 sm:gap-3">
           {career.keySkills.map((skill, idx) => (
-            <span key={idx} className="px-2 sm:px-3 lg:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 text-blue-300 rounded-full text-xs sm:text-sm border border-blue-500/30 font-medium backdrop-blur-sm">
+            <span key={idx} className="px-2 sm:px-3 lg:px-4 py-1 sm:py-2 bg-gradient-to-r from-green-500/20 to-orange-500/20 text-green-300 rounded-full text-xs sm:text-sm border border-green-500/30 font-medium backdrop-blur-sm">
               {skill}
             </span>
           ))}
@@ -1376,8 +1377,8 @@ useEffect(() => {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-sm">
         <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
-          <span className="font-bold text-blue-300 block mb-1 sm:mb-2" 
-                style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          <span className="font-bold text-green-300 block mb-1 sm:mb-2" 
+                style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             Salary Range:
           </span>
           <div className="text-white font-bold text-sm sm:text-base lg:text-lg" 
@@ -1386,8 +1387,8 @@ useEffect(() => {
           </div>
         </div>
         <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
-          <span className="font-bold text-blue-300 block mb-1 sm:mb-2" 
-                style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          <span className="font-bold text-green-300 block mb-1 sm:mb-2" 
+                style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             Entry Path:
           </span>
           <div className="text-gray-200 text-sm sm:text-base" 
@@ -1398,14 +1399,14 @@ useEffect(() => {
       </div>
       
       {isTop && (
-        <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-xl sm:rounded-2xl border border-blue-500/30 backdrop-blur-sm">
+        <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl sm:rounded-2xl border border-green-500/30 backdrop-blur-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center">
-            <span className="text-blue-400 mr-0 sm:mr-3 text-xl sm:text-2xl mb-2 sm:mb-0"
-                  style={{filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))'}}>
+            <span className="text-green-400 mr-0 sm:mr-3 text-xl sm:text-2xl mb-2 sm:mb-0"
+                  style={{filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.8))'}}>
             </span>
-            <span className="text-blue-300 font-bold text-sm sm:text-base lg:text-lg" 
+            <span className="text-green-300 font-bold text-sm sm:text-base lg:text-lg" 
                   style={{
-                    textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)',
+                    textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)',
                     fontFamily: '"Inter", sans-serif'
                   }}>
               Top Recommendation - Generate roadmap below!
@@ -1419,24 +1420,24 @@ useEffect(() => {
   const ActionCard = ({ step, index }) => {
     const priorityColors = {
       high: 'from-red-500/20 to-pink-500/20 border-red-500/30',
-      medium: 'from-blue-500/20 to-orange-500/20 border-blue-500/30',
+      medium: 'from-green-500/20 to-orange-500/20 border-green-500/30',
       low: 'from-gray-500/20 to-gray-600/20 border-gray-500/30'
     };
 
     const priorityTextColors = {
       high: 'text-red-300',
-      medium: 'text-blue-300',
+      medium: 'text-green-300',
       low: 'text-gray-300'
     };
 
     return (
-      <div className={`bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-white/20 ${
-        step.personalized ? 'ring-2 ring-blue-500/50' : ''
+      <div className={`bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-green-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-white/20 ${
+        step.personalized ? 'ring-2 ring-green-500/50' : ''
       }`}>
         <div className="flex flex-col sm:flex-row items-start justify-between mb-4 sm:mb-6">
           <div className="flex items-start sm:items-center mb-4 sm:mb-0 w-full sm:w-auto">
             <span className="text-2xl sm:text-3xl lg:text-4xl mr-3 sm:mr-4 flex-shrink-0" 
-                  style={{filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))'}}>
+                  style={{filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.6))'}}>
               {step.icon}
             </span>
             <div className="flex-1 sm:flex-none">
@@ -1475,15 +1476,15 @@ useEffect(() => {
         
         {step.resources && (
           <div className="p-3 sm:p-4 bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20">
-            <h5 className="font-bold text-blue-300 mb-2 sm:mb-3 text-sm sm:text-base" 
-                style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <h5 className="font-bold text-green-300 mb-2 sm:mb-3 text-sm sm:text-base" 
+                style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
               Recommended Resources:
             </h5>
             <ul className="text-gray-200 space-y-1 sm:space-y-2">
               {step.resources.slice(0, 2).map((resource, idx) => (
                 <li key={idx} className="flex items-start text-sm sm:text-base">
-                  <span className="text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" 
-                        style={{filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))'}}>
+                  <span className="text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" 
+                        style={{filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.8))'}}>
                     •
                   </span>
                   <span style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
@@ -1511,9 +1512,9 @@ useEffect(() => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
         <div className="text-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
           <div className={`text-xl sm:text-2xl lg:text-3xl font-black mb-1 sm:mb-2 ${
-            overview. demandLevel === 'Very High' ? 'text-blue-400' : 
+            overview. demandLevel === 'Very High' ? 'text-green-400' : 
             overview.demandLevel === 'High' ? 'text-orange-400' : 'text-yellow-400'
-          }`} style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          }`} style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             {overview.demandLevel}
           </div>
           <div className="text-xs sm:text-sm text-gray-300" 
@@ -1522,8 +1523,8 @@ useEffect(() => {
           </div>
         </div>
         <div className="text-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
-          <div className="text-xl sm:text-2xl lg:text-3xl font-black mb-1 sm:mb-2 text-blue-400" 
-               style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          <div className="text-xl sm:text-2xl lg:text-3xl font-black mb-1 sm:mb-2 text-green-400" 
+               style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             {overview.growthProjection}
           </div>
           <div className="text-xs sm:text-sm text-gray-300" 
@@ -1534,7 +1535,7 @@ useEffect(() => {
         <div className="text-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
           <div className={`text-xl sm:text-2xl lg:text-3xl font-black mb-1 sm:mb-2 ${
             overview.competitionLevel === 'High' ? 'text-orange-400' : 
-            overview.competitionLevel === 'Medium' ? 'text-yellow-400' : 'text-blue-400'
+            overview.competitionLevel === 'Medium' ? 'text-yellow-400' : 'text-green-400'
           }`} style={{textShadow: '0 0 15px rgba(255, 193, 7, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             {overview.competitionLevel}
           </div>
@@ -1546,8 +1547,8 @@ useEffect(() => {
         <div className="text-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/20">
           <div className={`text-xl sm:text-2xl lg:text-3xl font-black mb-1 sm:mb-2 ${
             overview.entryBarrier === 'High' ? 'text-red-400' : 
-            overview.entryBarrier === 'Medium' ? 'text-yellow-400' : 'text-blue-400'
-          }`} style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+            overview.entryBarrier === 'Medium' ? 'text-yellow-400' : 'text-green-400'
+          }`} style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             {overview.entryBarrier}
           </div>
           <div className="text-xs sm:text-sm text-gray-300" 
@@ -1640,7 +1641,7 @@ const submitFeedback = (e) => {
       <div 
         className="fixed inset-0 opacity-30 pointer-events-none"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), transparent 40%)`
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1), transparent 40%)`
         }}
       />
 
@@ -1648,8 +1649,8 @@ const submitFeedback = (e) => {
         <Navbar />
     
       {/* WELCOME HEADER */}
-      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-orange-600 text-white relative overflow-hidden mt-16 sm:mt-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-orange-400/20 to-blue-400/20 animate-pulse"></div>
+      <div className="bg-gradient-to-r from-green-600 via-green-700 to-orange-600 text-white relative overflow-hidden mt-16 sm:mt-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-orange-400/20 to-green-400/20 animate-pulse"></div>
         <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16 relative">
           <div className="text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6 leading-tight" 
@@ -1721,13 +1722,13 @@ const submitFeedback = (e) => {
                   onClick={() => tab.action ? tab.action() : setActiveTab(tab.id)}
                   className={`flex items-center px-4 sm:px-4 lg:px-6 xl:px-8 py-4 sm:py-4 lg:py-5 font-bold transition-all duration-300 border-b-2 whitespace-nowrap text-base sm:text-base lg:text-lg ${
                     tab.id === 'retake' || tab.id === 'restore'
-                      ? 'border-transparent text-gray-300 hover:text-blue-400 hover:bg-white/10'
+                      ? 'border-transparent text-gray-300 hover:text-green-400 hover:bg-white/10'
                       : activeTab === tab.id
-                      ? 'border-blue-500 text-blue-400 bg-white/10'
-                      : 'border-transparent text-gray-300 hover:text-blue-400 hover:bg-white/5'
+                      ? 'border-green-500 text-green-400 bg-white/10'
+                      : 'border-transparent text-gray-300 hover:text-green-400 hover:bg-white/5'
                   }`}
                   style={{
-                    textShadow: activeTab === tab.id ? '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)' : '2px 2px 4px rgba(0,0,0,0.8)',
+                    textShadow: activeTab === tab.id ? '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)' : '2px 2px 4px rgba(0,0,0,0.8)',
                     fontFamily: '"Inter", sans-serif'
                   }}
                 >
@@ -1769,7 +1770,7 @@ const submitFeedback = (e) => {
                 {showDataSource && (
                   <button 
                     onClick={saveAllData}
-                    className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full hover:bg-blue-500/30 border border-blue-500/30"
+                    className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full hover:bg-green-500/30 border border-green-500/30"
                   >
                     Manual Save
                   </button>
@@ -1778,9 +1779,9 @@ const submitFeedback = (e) => {
               
               {generatingRecommendations && (
                 <div className="mt-4 sm:mt-6 flex items-center justify-center space-x-3">
-                  <div className="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-blue-400"></div>
-                  <span className="text-blue-400 text-base sm:text-lg font-medium" 
-                        style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                  <div className="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-green-400"></div>
+                  <span className="text-green-400 text-base sm:text-lg font-medium" 
+                        style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                     AI is analyzing your profile...
                   </span>
                 </div>
@@ -1803,9 +1804,9 @@ const submitFeedback = (e) => {
                 <div className="text-center mt-6 lg:mt-8 px-4">
                   <button
                     onClick={downloadCareerRecommendations}
-                    className="bg-gradient-to-r from-blue-500 via-blue-600 to-orange-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-blue-600 hover:to-orange-600 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-green-500 via-green-600 to-orange-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-orange-600 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -1830,9 +1831,9 @@ const submitFeedback = (e) => {
                   {!generatingRecommendations && userData.email && (
                     <button
                       onClick={() => generateCareerRecommendations(userData)}
-                      className="bg-gradient-to-r from-blue-500 via-blue-600 to-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-2xl"
+                      className="bg-gradient-to-r from-green-500 via-green-600 to-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-2xl"
                       style={{
-                        boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                        boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                         fontFamily: '"Inter", sans-serif'
                       }}
                     >
@@ -1885,8 +1886,8 @@ const submitFeedback = (e) => {
                        fontFamily: '"Inter", sans-serif'
                      }}>
                     AI will create a detailed, personalized roadmap for your career transition to{' '}
-                    <span className="font-bold text-blue-400" 
-                          style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                    <span className="font-bold text-green-400" 
+                          style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                       {careerRecommendations[0]?.title || 'your selected career'}
                     </span>.
                   </p>
@@ -1894,9 +1895,9 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generatePersonalizedRoadmap}
                     disabled={generatingRoadmap || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-blue-500 via-blue-600 to-orange-500 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-blue-600 hover:to-orange-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-green-500 via-green-600 to-orange-500 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-green-600 hover:to-orange-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -1918,8 +1919,8 @@ const submitFeedback = (e) => {
             ) : (
               <div className="space-y-6 lg:space-y-8">
                 {/* Roadmap Header */}
-                <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-orange-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-8 mb-8 lg:mb-12 shadow-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-orange-400/20 to-blue-400/20 animate-pulse"></div>
+                <div className="bg-gradient-to-r from-green-600 via-green-700 to-orange-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-8 mb-8 lg:mb-12 shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-orange-400/20 to-green-400/20 animate-pulse"></div>
                   <div className="relative text-center">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4" 
                         style={{
@@ -1928,7 +1929,7 @@ const submitFeedback = (e) => {
                         }}>
                       Your AI Roadmap: {personalizedRoadmap.careerTitle}
                     </h2>
-                    <p className="text-blue-100 mb-4 sm:mb-6 text-base sm:text-lg lg:text-xl font-light" 
+                    <p className="text-green-100 mb-4 sm:mb-6 text-base sm:text-lg lg:text-xl font-light" 
                        style={{
                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
                          fontFamily: '"Inter", sans-serif'
@@ -1942,7 +1943,7 @@ const submitFeedback = (e) => {
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           {personalizedRoadmap.matchScore}%
                         </div>
-                        <div className="text-xs sm:text-sm text-blue-100 font-medium" 
+                        <div className="text-xs sm:text-sm text-green-100 font-medium" 
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           Career Match
                         </div>
@@ -1952,7 +1953,7 @@ const submitFeedback = (e) => {
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           {personalizedRoadmap.totalDuration}
                         </div>
-                        <div className="text-xs sm:text-sm text-blue-100 font-medium" 
+                        <div className="text-xs sm:text-sm text-green-100 font-medium" 
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           Timeline
                         </div>
@@ -1962,7 +1963,7 @@ const submitFeedback = (e) => {
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           {personalizedRoadmap.weeklyCommitment}
                         </div>
-                        <div className="text-xs sm:text-sm text-blue-100 font-medium" 
+                        <div className="text-xs sm:text-sm text-green-100 font-medium" 
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                           Weekly Time
                         </div>
@@ -1984,16 +1985,16 @@ const submitFeedback = (e) => {
                     {personalizedRoadmap.phases.map((phase, index) => (
                       <div key={index} className="relative">
                         {index < personalizedRoadmap.phases.length - 1 && (
-                          <div className="absolute left-6 sm:left-8 top-16 sm:top-20 w-0.5 sm:w-1 h-full bg-gradient-to-b from-blue-500 to-orange-500 opacity-30 rounded-full hidden sm:block"></div>
+                          <div className="absolute left-6 sm:left-8 top-16 sm:top-20 w-0.5 sm:w-1 h-full bg-gradient-to-b from-green-500 to-orange-500 opacity-30 rounded-full hidden sm:block"></div>
                         )}
                         
                         <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-6 mb-6 sm:mb-8">
-                          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-r from-blue-500 to-orange-600 text-white rounded-full flex items-center justify-center font-black text-lg sm:text-xl lg:text-2xl shadow-2xl" 
-                               style={{boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)'}}>
+                          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-r from-green-500 to-orange-600 text-white rounded-full flex items-center justify-center font-black text-lg sm:text-xl lg:text-2xl shadow-2xl" 
+                               style={{boxShadow: '0 0 30px rgba(34, 197, 94, 0.6)'}}>
                             {index + 1}
                           </div>
                           
-                          <div className="flex-grow bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 border border-white/20 w-full">
+                          <div className="flex-grow bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl hover:shadow-green-500/25 transition-all duration-500 border border-white/20 w-full">
                             <div className="flex flex-col sm:flex-row justify-between items-start mb-4 sm:mb-6">
                               <div>
                                 <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-white mb-2 sm:mb-3" 
@@ -2003,8 +2004,8 @@ const submitFeedback = (e) => {
                                     }}>
                                   {phase.title}
                                 </h3>
-                                <p className="text-blue-400 font-bold text-sm sm:text-base lg:text-lg" 
-                                   style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                                <p className="text-green-400 font-bold text-sm sm:text-base lg:text-lg" 
+                                   style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                                   {phase.timeline}
                                 </p>
                               </div>
@@ -2032,8 +2033,8 @@ const submitFeedback = (e) => {
                               <div className="space-y-2 sm:space-y-3">
                                 {phase.milestones.map((milestone, idx) => (
                                   <div key={idx} className="flex items-start space-x-3 sm:space-x-4">
-                                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full mt-1 sm:mt-2 flex-shrink-0" 
-                                         style={{boxShadow: '0 0 10px rgba(59, 130, 246, 0.8)'}}></div>
+                                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full mt-1 sm:mt-2 flex-shrink-0" 
+                                         style={{boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)'}}></div>
                                     <span className="text-gray-200 text-sm sm:text-base lg:text-lg" 
                                           style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                                       {milestone}
@@ -2057,12 +2058,12 @@ const submitFeedback = (e) => {
                                   {phase.skills.map((skill, idx) => (
                                     <div 
                                       key={idx}
-                                      className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-xl sm:rounded-2xl border border-blue-500/30 backdrop-blur-sm"
+                                      className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gradient-to-r from-green-500/20 to-orange-500/20 rounded-xl sm:rounded-2xl border border-green-500/30 backdrop-blur-sm"
                                     >
-                                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full flex-shrink-0" 
-                                           style={{boxShadow: '0 0 10px rgba(59, 130, 246, 0.8)'}}></div>
-                                      <span className="text-blue-300 font-bold text-xs sm:text-sm lg:text-base" 
-                                            style={{textShadow: '0 0 10px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full flex-shrink-0" 
+                                           style={{boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)'}}></div>
+                                      <span className="text-green-300 font-bold text-xs sm:text-sm lg:text-base" 
+                                            style={{textShadow: '0 0 10px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                                         {skill}
                                       </span>
                                     </div>
@@ -2080,9 +2081,9 @@ const submitFeedback = (e) => {
                   <div className="text-center mt-8 lg:mt-10 px-4">
                     <button
                       onClick={downloadRoadmap}
-                      className="bg-gradient-to-r from-blue-500 via-blue-600 to-orange-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-blue-600 hover:to-orange-600 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                      className="bg-gradient-to-r from-green-500 via-green-600 to-orange-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-orange-600 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                       style={{
-                        boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                        boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                         fontFamily: '"Inter", sans-serif'
                       }}
                     >
@@ -2135,8 +2136,8 @@ const submitFeedback = (e) => {
                        fontFamily: '"Inter", sans-serif'
                      }}>
                     AI will analyze current market trends, salary data, and opportunities for{' '}
-                    <span className="font-bold text-blue-400" 
-                          style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                    <span className="font-bold text-green-400" 
+                          style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                       {careerRecommendations[0]?.title || 'your selected career'}
                     </span>.
                   </p>
@@ -2144,9 +2145,9 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generateMarketInsights}
                     disabled={generatingInsights || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-green-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2168,8 +2169,8 @@ const submitFeedback = (e) => {
             ) : (
               <div className="space-y-6 lg:space-y-8">
                 {/* Market insights header */}
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-blue-400/20 animate-pulse"></div>
+                <div className="bg-gradient-to-r from-green-500 to-purple-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-purple-400/20 to-green-400/20 animate-pulse"></div>
                   <div className="relative text-center">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4" 
                         style={{
@@ -2178,7 +2179,7 @@ const submitFeedback = (e) => {
                         }}>
                       AI Market Analysis: {marketInsights.careerTitle}
                     </h2>
-                    <p className="text-blue-100 mb-4 text-base sm:text-lg lg:text-xl" 
+                    <p className="text-green-100 mb-4 text-base sm:text-lg lg:text-xl" 
                        style={{
                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
                          fontFamily: '"Inter", sans-serif'
@@ -2194,9 +2195,9 @@ const submitFeedback = (e) => {
                 <div className="text-center mt-6 lg:mt-8 px-4">
                   <button
                     onClick={downloadMarketInsights}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2347,8 +2348,8 @@ const submitFeedback = (e) => {
                        fontFamily: '"Inter", sans-serif'
                      }}>
                     Get a detailed learning roadmap with specific courses, books, certifications, and projects for{' '}
-                    <span className="font-bold text-blue-400" 
-                          style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                    <span className="font-bold text-green-400" 
+                          style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                       {careerRecommendations[0]?.title || 'your career goal'}
                     </span>.
                   </p>
@@ -2356,9 +2357,9 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generateCareerLearningPlan}
                     disabled={generatingLearning || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base lg:text-lg hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base lg:text-lg hover:from-green-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2403,11 +2404,11 @@ const submitFeedback = (e) => {
                           <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold ${
                             track.priority === 'High' ? 'bg-red-500/20 text-red-300 border border-red-500/30' :
                             track.priority === 'Medium' ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30' :
-                            'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                            'bg-green-500/20 text-green-300 border border-green-500/30'
                           } backdrop-blur-sm`}>
                             {track.priority} Priority
                           </span>
-                          <span className="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs sm:text-sm font-bold border border-blue-500/30 backdrop-blur-sm">
+                          <span className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs sm:text-sm font-bold border border-green-500/30 backdrop-blur-sm">
                             {track.timeframe}
                           </span>
                         </div>
@@ -2422,7 +2423,7 @@ const submitFeedback = (e) => {
                                 {resource.title}
                               </h5>
                               <span className={`px-2 py-1 rounded-full text-xs font-bold ${
-                                resource.cost === 'Free' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-orange-500/20 text-orange-300 border border-orange-500/30'
+                                resource.cost === 'Free' ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-orange-500/20 text-orange-300 border border-orange-500/30'
                               } backdrop-blur-sm flex-shrink-0`}>
                                 {resource.cost}
                               </span>
@@ -2451,7 +2452,7 @@ const submitFeedback = (e) => {
 
                 {/* Practice Projects */}
                 {learningPlan.practiceProjects && learningPlan.practiceProjects.length > 0 && (
-                  <div className="mt-6 sm:mt-8 border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 bg-gradient-to-r from-blue-500/10 to-orange-500/10 backdrop-blur-sm">
+                  <div className="mt-6 sm:mt-8 border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 bg-gradient-to-r from-green-500/10 to-orange-500/10 backdrop-blur-sm">
                     <h4 className="font-black text-lg sm:text-xl text-white mb-3 sm:mb-4" 
                         style={{
                           textShadow: '0 0 15px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.9)',
@@ -2484,9 +2485,9 @@ const submitFeedback = (e) => {
                 <div className="text-center mt-6 sm:mt-8">
                   <button
                     onClick={downloadLearningPlan}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2519,7 +2520,7 @@ const submitFeedback = (e) => {
                             <span className={`px-2 py-1 rounded-full text-xs font-bold ${
                               cert.priority === 'High' ? 'bg-red-500/20 text-red-300 border border-red-500/30' :
                               cert.priority === 'Medium' ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30' :
-                              'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                              'bg-green-500/20 text-green-300 border border-green-500/30'
                             } backdrop-blur-sm flex-shrink-0`}>
                               {cert.priority}
                             </span>
@@ -2564,8 +2565,8 @@ const submitFeedback = (e) => {
                        fontFamily: '"Inter", sans-serif'
                      }}>
                     Get comprehensive interview questions and answers specifically for{' '}
-                    <span className="font-bold text-blue-400" 
-                          style={{textShadow: '0 0 15px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+                    <span className="font-bold text-green-400" 
+                          style={{textShadow: '0 0 15px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'}}>
                       {careerRecommendations[0]?.title || 'your career goal'}
                     </span>{' '}
                     positions, including technical, behavioral, and transition-specific questions.
@@ -2574,7 +2575,7 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generateInterviewQuestions}
                     disabled={generatingInterviews || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-black text-lg hover:from-orange-600 hover:to-blue-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-8 py-4 rounded-2xl font-black text-lg hover:from-orange-600 hover:to-green-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
                       boxShadow: '0 0 40px rgba(249, 115, 22, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2626,7 +2627,7 @@ const submitFeedback = (e) => {
                                 {q.question}
                               </h5>
                               <span className={`px-2 py-1 rounded-full text-xs flex-shrink-0 font-bold ${
-                                q.difficulty === 'Entry' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
+                                q.difficulty === 'Entry' ? 'bg-green-500/20 text-green-300 border border-green-500/30' :
                                 q.difficulty === 'Mid' ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30' :
                                 'bg-red-500/20 text-red-300 border border-red-500/30'
                               } backdrop-blur-sm`}>
@@ -2635,7 +2636,7 @@ const submitFeedback = (e) => {
                             </div>
                             <p className="text-sm text-gray-200 mb-2" 
                                style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
-                              <strong className="text-blue-300">Approach:</strong> {q.sampleAnswer}
+                              <strong className="text-green-300">Approach:</strong> {q.sampleAnswer}
                             </p>
                             <div className="text-xs text-gray-400" 
                                  style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
@@ -2658,7 +2659,7 @@ const submitFeedback = (e) => {
 
                 {/* Preparation Tips */}
                 {interviewQuestions.preparationTips && (
-                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-blue-500/20 backdrop-blur-sm">
+                  <div className="mt-8 p-6 bg-gradient-to-r from-green-500/10 to-purple-500/10 rounded-2xl border border-green-500/20 backdrop-blur-sm">
                     <h4 className="font-black text-white mb-4" 
                         style={{
                           textShadow: '0 0 15px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.9)',
@@ -2670,8 +2671,8 @@ const submitFeedback = (e) => {
                       {interviewQuestions.preparationTips.map((tip, idx) => (
                         <div key={idx} className="text-sm text-gray-200 flex items-start" 
                              style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
-                          <span className="text-blue-400 mr-3 mt-1" 
-                                style={{filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))'}}>
+                          <span className="text-green-400 mr-3 mt-1" 
+                                style={{filter: 'drop-shadow(0 0 10px rgba(34, 197, 94, 0.8))'}}>
                             •
                           </span>
                           {tip.tip}
@@ -2698,7 +2699,7 @@ const submitFeedback = (e) => {
                                style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                             {mistake.mistake}
                           </div>
-                          <div className="text-blue-300" 
+                          <div className="text-green-300" 
                                style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                             {mistake.correction}
                           </div>
@@ -2712,7 +2713,7 @@ const submitFeedback = (e) => {
                 <div className="mt-10 text-center">
                   <button
                     onClick={downloadInterviewQuestions}
-                    className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-12 py-5 rounded-2xl hover:from-orange-600 hover:to-blue-700 transition-all font-black text-xl inline-flex items-center space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-12 py-5 rounded-2xl hover:from-orange-600 hover:to-green-700 transition-all font-black text-xl inline-flex items-center space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
                       boxShadow: '0 0 40px rgba(249, 115, 22, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2733,8 +2734,8 @@ const submitFeedback = (e) => {
       {/* Floating Feedback Button */}
       <button
         onClick={() => setShowFeedbackForm(true)}
-        className="fixed bottom-4 sm:bottom-6 lg:bottom-8 right-4 sm:right-6 lg:right-8 bg-gradient-to-r from-blue-500 to-orange-500 text-white p-3 sm:p-4 lg:p-5 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-110 group z-50"
-        style={{boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)'}}
+        className="fixed bottom-4 sm:bottom-6 lg:bottom-8 right-4 sm:right-6 lg:right-8 bg-gradient-to-r from-green-500 to-orange-500 text-white p-3 sm:p-4 lg:p-5 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 group z-50"
+        style={{boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)'}}
         aria-label="Give Feedback"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -2786,11 +2787,11 @@ const submitFeedback = (e) => {
                         onClick={() => handleFeedbackChange({ target: { name: 'rating', value: value.toString() } })}
                         className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full border-2 transition-all transform hover:scale-110 text-lg sm:text-xl font-bold ${
                           feedbackData.rating === value.toString()
-                            ? 'bg-gradient-to-r from-blue-500 to-orange-500 text-white border-blue-500 shadow-2xl'
-                            : 'border-white/30 text-white hover:border-blue-500 hover:shadow-lg backdrop-blur-sm'
+                            ? 'bg-gradient-to-r from-green-500 to-orange-500 text-white border-green-500 shadow-2xl'
+                            : 'border-white/30 text-white hover:border-green-500 hover:shadow-lg backdrop-blur-sm'
                         }`}
                         style={{
-                          boxShadow: feedbackData.rating === value.toString() ? '0 0 30px rgba(59, 130, 246, 0.6)' : 'none'
+                          boxShadow: feedbackData.rating === value.toString() ? '0 0 30px rgba(34, 197, 94, 0.6)' : 'none'
                         }}
                       >
                         {value}
@@ -2812,7 +2813,7 @@ const submitFeedback = (e) => {
                     value={feedbackData.improvements}
                     onChange={handleFeedbackChange}
                     rows="4"
-                    className="w-full p-3 sm:p-4 border-2 border-white/20 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 text-sm sm:text-base lg:text-lg"
+                    className="w-full p-3 sm:p-4 border-2 border-white/20 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 text-sm sm:text-base lg:text-lg"
                     style={{
                       textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
                       fontFamily: '"Inter", sans-serif'
@@ -2826,9 +2827,9 @@ const submitFeedback = (e) => {
                   <button
                     type="submit"
                     disabled={submittingFeedback || !feedbackData.rating || !feedbackData.improvements}
-                    className="w-full sm:flex-1 bg-gradient-to-r from-blue-500 to-orange-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl hover:from-blue-600 hover:to-orange-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none font-bold text-sm sm:text-base lg:text-lg shadow-2xl"
+                    className="w-full sm:flex-1 bg-gradient-to-r from-green-500 to-orange-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-orange-600 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none font-bold text-sm sm:text-base lg:text-lg shadow-2xl"
                     style={{
-                      boxShadow: '0 0 30px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 30px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2879,7 +2880,7 @@ const submitFeedback = (e) => {
       )}
 
       {/* Floating Elements for Enhanced Visual Appeal */}
-      <div className="fixed top-1/4 left-2 sm:left-4 lg:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-blue-400/10 rounded-full blur-xl animate-bounce opacity-60 pointer-events-none"></div>
+      <div className="fixed top-1/4 left-2 sm:left-4 lg:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-green-400/10 rounded-full blur-xl animate-bounce opacity-60 pointer-events-none"></div>
       <div className="fixed bottom-1/4 right-2 sm:right-4 lg:right-10 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-orange-400/10 rounded-full blur-xl animate-pulse opacity-60 pointer-events-none"></div>
       <div className="fixed top-1/2 left-1/4 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-purple-400/10 rounded-full blur-xl animate-ping opacity-60 pointer-events-none"></div>
 
@@ -2888,8 +2889,8 @@ const submitFeedback = (e) => {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
         
         @keyframes glow {
-          0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
-          50% { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
+          0%, 100% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5)); }
+          50% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.8)); }
         }
         
         @keyframes float {
@@ -2945,12 +2946,12 @@ const submitFeedback = (e) => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 3px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
         
         @media (max-width: 640px) {

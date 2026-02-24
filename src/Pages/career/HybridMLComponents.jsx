@@ -29,7 +29,7 @@ export const MLEnhancedCareerCard = ({
   
   const colorClasses = [
     'from-purple-500 to-pink-500',
-    'from-blue-500 to-cyan-500', 
+    'from-green-500 to-cyan-500', 
     'from-green-500 to-teal-500',
     'from-orange-500 to-red-500',
     'from-indigo-500 to-purple-500'
@@ -39,7 +39,7 @@ export const MLEnhancedCareerCard = ({
   const getBadgeStyle = (badgeColor) => {
     const badgeStyles = {
       green: 'bg-green-100 text-green-800 border-green-200',
-      blue: 'bg-blue-100 text-blue-800 border-blue-200',
+      blue: 'bg-green-100 text-green-800 border-green-200',
       purple: 'bg-purple-100 text-purple-800 border-purple-200',
       orange: 'bg-orange-100 text-orange-800 border-orange-200',
       teal: 'bg-teal-100 text-teal-800 border-teal-200'
@@ -193,7 +193,7 @@ export const MLEnhancedCareerCard = ({
             
             {/* Inference reason for smart matches */}
             {path.recommendationType === 'inferred' && path.inferenceReason && (
-              <p className="text-sm text-blue-600 mb-2 italic">
+              <p className="text-sm text-green-600 mb-2 italic">
                 💡 {path.inferenceReason}
               </p>
             )}
@@ -205,7 +205,7 @@ export const MLEnhancedCareerCard = ({
             {/* Expand/Collapse button for long descriptions */}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-xs text-blue-600 hover:text-blue-800 mb-2"
+              className="text-xs text-green-600 hover:text-green-800 mb-2"
               aria-expanded={isExpanded}
             >
               {isExpanded ? 'Show less' : 'Read more'}
@@ -218,7 +218,7 @@ export const MLEnhancedCareerCard = ({
             {/* Confidence score for inferred recommendations */}
             {path.confidenceScore && (
               <div className="mt-2">
-                <span className="text-xs text-blue-600 font-medium">
+                <span className="text-xs text-green-600 font-medium">
                   Confidence: {path.confidenceScore}%
                 </span>
               </div>
@@ -247,7 +247,7 @@ export const MLEnhancedCareerCard = ({
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={path.originalScore || path.match} aria-valuemin="0" aria-valuemax="100">
               <div
-                className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-1000"
+                className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000"
                 style={{ width: `${path.originalScore || path.match}%` }}
               />
             </div>
@@ -303,14 +303,14 @@ export const MLEnhancedCareerCard = ({
               </span>
             )}
             {path.authenticated && (
-              <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+              <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                 Personalized
               </span>
             )}
             {onLearnMore && (
               <button
                 onClick={() => onLearnMore(path)}
-                className="px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-medium hover:bg-blue-600 transition-colors"
+                className="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-medium hover:bg-green-600 transition-colors"
                 aria-label={`Learn more about ${path.title}`}
               >
                 Learn More
@@ -436,7 +436,7 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
             <h4 className="font-semibold text-gray-800">Best Fit Cluster</h4>
           </div>
           <p className="text-sm text-gray-600 mb-2">Your profile aligns with:</p>
-          <p className="font-medium text-blue-700">
+          <p className="font-medium text-green-700">
             {mlInsights.topCluster?.replace('_', ' ').toUpperCase() || 'Multi-Disciplinary'}
           </p>
           <p className="text-xs text-gray-500 mt-2">
@@ -587,9 +587,9 @@ export const HybridRecommendationsDisplay = ({
         
         {/* Method indicator with improved accessibility */}
         <div className="flex flex-wrap justify-center gap-4 mb-6" role="group" aria-label="Recommendation methodology">
-          <div className="flex items-center px-4 py-2 bg-blue-100 rounded-full">
-            <span className="w-3 h-3 bg-blue-500 rounded-full mr-2" aria-hidden="true"></span>
-            <span className="text-sm font-medium text-blue-700">Rule-Based Analysis</span>
+          <div className="flex items-center px-4 py-2 bg-green-100 rounded-full">
+            <span className="w-3 h-3 bg-green-500 rounded-full mr-2" aria-hidden="true"></span>
+            <span className="text-sm font-medium text-green-700">Rule-Based Analysis</span>
           </div>
           <div className="text-gray-400" aria-hidden="true">+</div>
           <div className="flex items-center px-4 py-2 bg-purple-100 rounded-full">
@@ -597,8 +597,8 @@ export const HybridRecommendationsDisplay = ({
             <span className="text-sm font-medium text-purple-700">Machine Learning</span>
           </div>
           <div className="text-gray-400" aria-hidden="true">=</div>
-          <div className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full">
-            <span className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2" aria-hidden="true"></span>
+          <div className="flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-purple-100 rounded-full">
+            <span className="w-3 h-3 bg-gradient-to-r from-green-500 to-purple-500 rounded-full mr-2" aria-hidden="true"></span>
             <span className="text-sm font-medium text-gray-700">Hybrid Intelligence</span>
           </div>
         </div>
@@ -611,11 +611,11 @@ export const HybridRecommendationsDisplay = ({
             </div>
             <div className="text-sm text-green-700">Your Interests</div>
           </div>
-          <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-            <div className="text-2xl font-bold text-blue-600" aria-label={`${inferred.length} smart matches`}>
+          <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+            <div className="text-2xl font-bold text-green-600" aria-label={`${inferred.length} smart matches`}>
               {inferred.length}
             </div>
-            <div className="text-sm text-blue-700">Smart Matches</div>
+            <div className="text-sm text-green-700">Smart Matches</div>
           </div>
           <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
             <div className="text-2xl font-bold text-purple-600" aria-label={`${adjacent.length} related options`}>
@@ -651,7 +651,7 @@ export const HybridRecommendationsDisplay = ({
             onClick={() => setActiveSection(section.id)}
             className={`px-4 py-2 mx-2 rounded-lg transition-colors ${
               activeSection === section.id 
-                ? 'bg-blue-500 text-white' 
+                ? 'bg-green-500 text-white' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -726,9 +726,9 @@ export const HybridRecommendationsDisplay = ({
                 </p>
               </div>
             </div>
-            <div className="mb-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-              <h4 className="font-medium text-blue-800 mb-2">🔍 How we found these matches:</h4>
-              <ul className="text-sm text-blue-700 space-y-1" role="list">
+            <div className="mb-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+              <h4 className="font-medium text-green-800 mb-2">🔍 How we found these matches:</h4>
+              <ul className="text-sm text-green-700 space-y-1" role="list">
                 {userData.studyField !== 'Not specified' && (
                   <li role="listitem">• Your {userData.studyField} education background</li>
                 )}
@@ -804,7 +804,7 @@ export const HybridRecommendationsDisplay = ({
           </p>
           <button 
             onClick={() => navigate('/career/test')}
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-lg hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 py-3 rounded-lg hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             aria-label="Complete career assessment to get recommendations"
           >
             Complete Career Assessment
@@ -820,7 +820,7 @@ export const HybridRecommendationsDisplay = ({
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-blue-600 mb-2">Rule-Based Analysis (60%)</h4>
+            <h4 className="font-semibold text-green-600 mb-2">Rule-Based Analysis (60%)</h4>
             <ul className="text-sm text-gray-600 space-y-1" role="list">
               <li role="listitem">• Your explicitly stated career interests</li>
               <li role="listitem">• Education and experience alignment</li>
@@ -837,8 +837,8 @@ export const HybridRecommendationsDisplay = ({
             </ul>
           </div>
         </div>
-        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-          <p className="text-sm text-blue-700">
+        <div className="mt-4 p-3 bg-green-50 rounded-lg">
+          <p className="text-sm text-green-700">
             <strong>Result:</strong> More accurate recommendations that combine human expertise 
             with data-driven insights for better career guidance.
           </p>

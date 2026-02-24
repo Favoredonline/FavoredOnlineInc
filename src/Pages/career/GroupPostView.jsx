@@ -39,7 +39,7 @@ const LikesModal = ({ isOpen, onClose, likesData, likeCount }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
           <h3 className="text-base sm:text-lg font-bold text-gray-900 flex items-center">
-            <span className="text-blue-600 mr-2">Likes</span>
+            <span className="text-green-600 mr-2">Likes</span>
             {likeCount} {likeCount === 1 ? 'person' : 'people'}
           </h3>
           <button
@@ -56,14 +56,14 @@ const LikesModal = ({ isOpen, onClose, likesData, likeCount }) => {
         <div className="overflow-y-auto max-h-80">
           {likesData.length === 0 ? (
             <div className="p-6 text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
               <p className="text-gray-600 text-sm sm:text-base">Loading users...</p>
             </div>
           ) : (
             <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
               {likesData.map((user, index) => (
                 <div key={user.uid || index} className="flex items-center space-x-3 p-2 sm:p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gradient-to-r from-green-600 to-orange-600 flex items-center justify-center flex-shrink-0">
                     {user.photoURL ? (
                       <img 
                         src={user.photoURL} 
@@ -404,7 +404,7 @@ const GroupPostView = () => {
 
   const getPostTypeColor = (type) => {
     switch (type) {
-      case 'announcement': return 'bg-blue-50 text-blue-700 border-blue-200';
+      case 'announcement': return 'bg-green-50 text-green-700 border-green-200';
       case 'task': return 'bg-orange-50 text-orange-700 border-orange-200';
       case 'update': return 'bg-green-50 text-green-700 border-green-200';
       default: return 'bg-gray-50 text-gray-700 border-gray-200';
@@ -415,7 +415,7 @@ const GroupPostView = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-base sm:text-lg">Loading discussion...</p>
         </div>
       </div>
@@ -431,7 +431,7 @@ const GroupPostView = () => {
           <p className="text-gray-600 mb-6 text-sm sm:text-base">This post may have been deleted or you don't have access to it.</p>
           <Link 
             to={`/groups/${groupId}`} 
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors shadow-sm text-sm sm:text-base"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors shadow-sm text-sm sm:text-base"
           >
             ← Back to Group
           </Link>
@@ -454,7 +454,7 @@ const GroupPostView = () => {
           <div className="mb-6 sm:mb-8">
             <button 
               onClick={() => navigate(`/groups/${groupId}`)}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to {group?.projectTitle}
@@ -467,7 +467,7 @@ const GroupPostView = () => {
             {/* Post Header */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 gap-4">
               <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-orange-600 flex-shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-orange-600 flex-shrink-0">
                   {post.authorPhoto ? (
                     <img src={post.authorPhoto} alt="" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" />
                   ) : (
@@ -514,7 +514,7 @@ const GroupPostView = () => {
                   Edited {post.updatedAt?.toLocaleDateString()}
                 </span>
               )}
-              <span className="text-blue-600 font-medium">
+              <span className="text-green-600 font-medium">
                 Discussion
               </span>
             </div>
@@ -526,7 +526,7 @@ const GroupPostView = () => {
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-4">Add a Reply</h3>
               <form onSubmit={handleSubmitReply} className="space-y-4">
                 <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-orange-600 flex-shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-orange-600 flex-shrink-0">
                     {currentUser?.photoURL ? (
                       <img src={currentUser.photoURL} alt="" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                     ) : (
@@ -539,7 +539,7 @@ const GroupPostView = () => {
                     <textarea
                       value={newReply}
                       onChange={(e) => setNewReply(e.target.value)}
-                      className="w-full bg-white border border-gray-300 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300 min-h-[80px] sm:min-h-[100px] resize-vertical text-sm sm:text-base"
+                      className="w-full bg-white border border-gray-300 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all duration-300 min-h-[80px] sm:min-h-[100px] resize-vertical text-sm sm:text-base"
                       placeholder="Write your reply..."
                       maxLength={1000}
                       required
@@ -551,7 +551,7 @@ const GroupPostView = () => {
                       <button
                         type="submit"
                         disabled={!newReply.trim() || submittingReply || newReply.length > 1000}
-                        className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold transition-colors duration-300 shadow-sm text-sm sm:text-base w-full sm:w-auto"
+                        className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold transition-colors duration-300 shadow-sm text-sm sm:text-base w-full sm:w-auto"
                       >
                         {submittingReply ? (
                           <span className="flex items-center justify-center">
@@ -573,7 +573,7 @@ const GroupPostView = () => {
           <div className="space-y-4 sm:space-y-6">
             {repliesLoading ? (
               <div className="text-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
                 <p className="text-gray-600 text-sm sm:text-base">Loading replies...</p>
               </div>
             ) : replies.length === 0 ? (
@@ -594,7 +594,7 @@ const GroupPostView = () => {
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3 sm:gap-4">
                       <div className="flex items-center space-x-3 sm:space-x-4">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-600 flex-shrink-0">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-green-600 flex-shrink-0">
                           {reply.authorPhoto ? (
                             <img src={reply.authorPhoto} alt="" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
                           ) : (
@@ -614,7 +614,7 @@ const GroupPostView = () => {
                               )}
                             </p>
                             {reply.authorEmail === post.authorEmail && (
-                              <span className="bg-blue-50 text-blue-700 px-2 py-0.5 sm:py-1 rounded text-xs font-semibold border border-blue-200">
+                              <span className="bg-green-50 text-green-700 px-2 py-0.5 sm:py-1 rounded text-xs font-semibold border border-green-200">
                                 OP
                               </span>
                             )}
@@ -633,7 +633,7 @@ const GroupPostView = () => {
                       {canEditReply(reply) && editingReply !== reply.id && (
                         <button
                           onClick={() => startEditingReply(reply)}
-                          className="bg-blue-50 hover:bg-blue-100 text-blue-600 hover:text-blue-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 border border-blue-200 whitespace-nowrap self-start sm:self-auto"
+                          className="bg-green-50 hover:bg-green-100 text-green-600 hover:text-green-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 border border-green-200 whitespace-nowrap self-start sm:self-auto"
                           title="Edit this reply"
                         >
                           Edit
@@ -644,11 +644,11 @@ const GroupPostView = () => {
                     {editingReply === reply.id ? (
                       <div className="space-y-4">
                         <div>
-                          <label className="block text-blue-600 font-semibold mb-2 text-xs sm:text-sm md:text-base">Edit Reply</label>
+                          <label className="block text-green-600 font-semibold mb-2 text-xs sm:text-sm md:text-base">Edit Reply</label>
                           <textarea
                             value={editReplyContent}
                             onChange={(e) => setEditReplyContent(e.target.value)}
-                            className="w-full bg-white border border-gray-300 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300 h-24 sm:h-32 resize-vertical text-sm sm:text-base"
+                            className="w-full bg-white border border-gray-300 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all duration-300 h-24 sm:h-32 resize-vertical text-sm sm:text-base"
                             placeholder="Edit your reply..."
                             maxLength={1000}
                           />
@@ -664,7 +664,7 @@ const GroupPostView = () => {
                             <button
                               onClick={() => handleEditReply(reply.id)}
                               disabled={!editReplyContent.trim() || editReplyContent === reply.content}
-                              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300 shadow-sm"
+                              className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300 shadow-sm"
                             >
                               Save Changes
                             </button>
@@ -688,7 +688,7 @@ const GroupPostView = () => {
                           <div className="flex items-center justify-end mt-4 pt-3 border-t border-gray-200">
                             <button
                               onClick={() => startEditingReply(reply)}
-                              className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium transition-colors duration-300"
+                              className="text-green-600 hover:text-green-700 text-xs sm:text-sm font-medium transition-colors duration-300"
                             >
                               Edit Reply
                             </button>

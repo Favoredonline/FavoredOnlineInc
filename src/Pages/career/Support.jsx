@@ -187,8 +187,8 @@ const Support = () => {
           <section className="relative mb-16 sm:mb-24 md:mb-32 pt-8 sm:pt-12 md:pt-20">
             <div className="max-w-6xl mx-auto text-center">
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-blue-500 rounded-full"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black">
+                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-green-500 rounded-full"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black">
                   We're Here to Help You Succeed
                 </span>
                 <div className="h-2 w-2 sm:h-3 sm:w-3 bg-orange-500 rounded-full"></div>
@@ -196,19 +196,19 @@ const Support = () => {
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 md:mb-12 leading-[0.9] tracking-tight text-gray-900">
                 Get the{' '}
-                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500">
+                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-orange-500">
                   Support You Need
                 </span>
               </h1>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full mb-8 sm:mb-12 md:mb-16"></div>
               
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 md:mb-16 text-gray-600 max-w-5xl mx-auto leading-relaxed font-light px-4">
                 We value your feedback and are here to help with any issues you encounter on 
                 <span className="text-orange-600 font-semibold"> Favored Online ProjectX</span>. Whether you need technical assistance with 
-                <span className="text-blue-600 font-semibold"> project-driven learning</span>, have questions about 
+                <span className="text-green-600 font-semibold"> project-driven learning</span>, have questions about 
                 <span className="text-orange-600 font-semibold"> TechTalent Badges</span>, or want guidance with our 
-                <span className="text-blue-600 font-semibold"> Smart Career Navigator</span>, our team is ready to assist.
+                <span className="text-green-600 font-semibold"> Smart Career Navigator</span>, our team is ready to assist.
               </p>
             </div>
           </section>
@@ -255,8 +255,8 @@ const Support = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                    <h4 className="text-lg font-bold text-blue-700 mb-3">Emails You'll Receive</h4>
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                    <h4 className="text-lg font-bold text-green-700 mb-3">Emails You'll Receive</h4>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li>• Application status updates (approved/rejected)</li>
                       <li>• Project completion notifications</li>
@@ -286,7 +286,7 @@ const Support = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
                 Quick Start{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                   Guides
                 </span>
               </h2>
@@ -353,17 +353,17 @@ const Support = () => {
 
               {/* COLLABORATOR GUIDE */}
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-6 text-white">
+                <div className="bg-gradient-to-r from-green-500 to-cyan-600 p-6 text-white">
                   <h3 className="text-2xl font-black mb-2">
                     For Collaborators
                   </h3>
-                  <p className="text-blue-100">Joining and contributing to projects</p>
+                  <p className="text-green-100">Joining and contributing to projects</p>
                 </div>
 
                 <div className="p-6 space-y-4">
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                      <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">1</span>
+                    <h4 className="text-lg font-bold text-green-600 mb-3 flex items-center">
+                      <span className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">1</span>
                       Find a Project
                     </h4>
                     <ul className="space-y-2 text-gray-700 text-sm ml-11">
@@ -375,8 +375,8 @@ const Support = () => {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                      <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">2</span>
+                    <h4 className="text-lg font-bold text-green-600 mb-3 flex items-center">
+                      <span className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">2</span>
                       Submit Application
                     </h4>
                     <ul className="space-y-2 text-gray-700 text-sm ml-11">
@@ -390,8 +390,8 @@ const Support = () => {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <h4 className="text-lg font-bold text-blue-600 mb-3 flex items-center">
-                      <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">3</span>
+                    <h4 className="text-lg font-bold text-green-600 mb-3 flex items-center">
+                      <span className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-black">3</span>
                       Join & Contribute
                     </h4>
                     <ul className="space-y-2 text-gray-700 text-sm ml-11">
@@ -413,7 +413,7 @@ const Support = () => {
             <div className="text-center mb-12 sm:mb-16 md:mb-20">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8">
                 How Can We{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                   Help You Today?
                 </span>
               </h2>
@@ -430,13 +430,13 @@ const Support = () => {
                 {
                   title: "General Questions",
                   description: "Have questions about our platform, badge system, or how to get started? We're here to guide you.",
-                  gradient: "from-blue-500 to-blue-600",
-                  bgHover: "hover:bg-blue-50"
+                  gradient: "from-green-500 to-green-600",
+                  bgHover: "hover:bg-green-50"
                 },
                 {
                   title: "Project Assistance",
                   description: "Need help with project submissions, team collaboration, or understanding project requirements? We've got you covered.",
-                  gradient: "from-blue-500 to-cyan-500",
+                  gradient: "from-green-500 to-cyan-500",
                   bgHover: "hover:bg-cyan-50"
                 },
                 {
@@ -448,13 +448,13 @@ const Support = () => {
                 {
                   title: "Technical Issues",
                   description: "Experiencing login problems, dashboard issues, or other technical difficulties? We'll troubleshoot with you.",
-                  gradient: "from-cyan-500 to-blue-500",
-                  bgHover: "hover:bg-blue-50"
+                  gradient: "from-cyan-500 to-green-500",
+                  bgHover: "hover:bg-green-50"
                 },
                 {
                   title: "Feature Requests",
                   description: "Have ideas for new features or improvements? Share your suggestions to help us build a better platform.",
-                  gradient: "from-indigo-500 to-blue-500",
+                  gradient: "from-indigo-500 to-green-500",
                   bgHover: "hover:bg-indigo-50"
                 }
               ].map((category, index) => (
@@ -474,7 +474,7 @@ const Support = () => {
                       </div>
                     </div>
                     
-                    <h3 className="text-xl sm:text-2xl font-black mb-4 sm:mb-6 text-gray-900 group-hover:text-blue-600 transition-colors duration-500 text-center">
+                    <h3 className="text-xl sm:text-2xl font-black mb-4 sm:mb-6 text-gray-900 group-hover:text-green-600 transition-colors duration-500 text-center">
                       {category.title}
                     </h3>
                     
@@ -493,12 +493,12 @@ const Support = () => {
           <section className="mb-16 sm:mb-24 md:mb-32">
             <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500">
               
-              <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-orange-500 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
                 <div className="relative">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6">
                     Our Commitment to You
                   </h2>
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 font-light leading-relaxed">
                     We understand that timely support is crucial for your learning journey:
                   </p>
                 </div>
@@ -507,9 +507,9 @@ const Support = () => {
               <div className="p-6 sm:p-8 md:p-12">
                 <div className="max-w-2xl mx-auto">
                   <div className="group">
-                    <div className="bg-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-blue-100 h-full">
+                    <div className="bg-green-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-green-100 h-full">
                       <div className="flex items-center mb-4 sm:mb-6 md:mb-8 justify-center">
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4 md:mr-6 shadow-md">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4 md:mr-6 shadow-md">
                           TIME
                         </div>
                         <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
@@ -518,12 +518,12 @@ const Support = () => {
                       </div>
                       
                       <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 sm:mb-5 md:mb-6 leading-relaxed font-light text-center">
-                        We aim to respond to all support queries within <span className="text-blue-600 font-bold">5 business days</span>.
+                        We aim to respond to all support queries within <span className="text-green-600 font-bold">5 business days</span>.
                       </p>
                       
                       <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl border border-gray-200">
                         <p className="text-gray-700 text-sm sm:text-base md:text-lg text-center">
-                          <span className="font-bold text-blue-600">Priority Support:</span> Critical issues and bugs are addressed within 24-48 hours
+                          <span className="font-bold text-green-600">Priority Support:</span> Critical issues and bugs are addressed within 24-48 hours
                         </p>
                       </div>
                     </div>
@@ -540,7 +540,7 @@ const Support = () => {
               <div className="text-center mb-8 sm:mb-10 md:mb-12">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 sm:mb-6 md:mb-8">
                   Submit Your{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                     Support Request
                   </span>
                 </h2>
@@ -553,7 +553,7 @@ const Support = () => {
                 <div className={`mb-6 sm:mb-8 p-4 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-500 ${
                   formStatus.isError 
                     ? 'bg-red-50 text-red-700 border-red-200' 
-                    : 'bg-blue-50 text-blue-700 border-blue-200'
+                    : 'bg-green-50 text-green-700 border-green-200'
                 }`}>
                   <p className="text-base sm:text-lg md:text-xl font-medium">
                     {formStatus.message}
@@ -589,7 +589,7 @@ const Support = () => {
                       id="firstName"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium"
                       placeholder="Your first name"
                       required
                     />
@@ -604,7 +604,7 @@ const Support = () => {
                       id="lastName"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium"
                       placeholder="Your last name"
                       required
                     />
@@ -619,7 +619,7 @@ const Support = () => {
                       id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium"
                       placeholder="your.email@example.com"
                       required
                     />
@@ -634,7 +634,7 @@ const Support = () => {
                       id="contactNo"
                       value={contactNo}
                       onChange={(e) => setContactNo(e.target.value)}
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium"
                       placeholder="Your contact number"
                     />
                   </div>
@@ -650,7 +650,7 @@ const Support = () => {
                       id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium resize-none"
+                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium resize-none"
                       placeholder="Please provide as much detail as possible about the issue you're experiencing, the steps you've taken, what you expected to happen, and what actually happened. If it's a bug, include any error messages you've seen."
                       required
                     ></textarea>
@@ -661,18 +661,18 @@ const Support = () => {
                       Verify you are human <span className="text-red-500">*</span>
                     </label>
                     
-                    <div className="bg-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-blue-100 mb-3 sm:mb-4">
+                    <div className="bg-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-green-100 mb-3 sm:mb-4">
                       <div className="flex items-center justify-center space-x-2 sm:space-x-4 flex-wrap">
                         <span className="text-2xl sm:text-3xl font-black text-gray-900">
                           {captcha.num1}
                         </span>
-                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-600">
+                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-green-600">
                           {captcha.operation}
                         </span>
                         <span className="text-2xl sm:text-3xl font-black text-gray-900">
                           {captcha.num2}
                         </span>
-                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-600">
+                        <span className="text-2xl sm:text-3xl md:text-4xl font-black text-green-600">
                           =
                         </span>
                         <span className="text-2xl sm:text-3xl font-black text-gray-400">
@@ -689,7 +689,7 @@ const Support = () => {
                         id="captcha"
                         value={userAnswer}
                         onChange={(e) => setUserAnswer(e.target.value)}
-                        className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-base sm:text-lg font-medium text-center"
+                        className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-base sm:text-lg font-medium text-center"
                         placeholder="Your answer"
                         maxLength="4"
                         autoComplete="off"
@@ -715,11 +715,11 @@ const Support = () => {
                   <button
                     type="submit"
                     disabled={formStatus.isSubmitting}
-                    className={`group relative bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto ${
+                    className={`group relative bg-gradient-to-r from-green-600 via-green-500 to-orange-500 text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto ${
                       formStatus.isSubmitting ? 'opacity-50 cursor-not-allowed hover:scale-100' : ''
                     }`}
                   >
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-green-700 via-green-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                     <span className="relative flex items-center justify-center">
                       {formStatus.isSubmitting ? (
                         <>
@@ -765,22 +765,22 @@ const Support = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6">
                 Quick Links
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/about" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/about" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/contact" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/contact" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Contact
                   </Link>
                 </li>
@@ -788,22 +788,22 @@ const Support = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6">
                 Support & Legal
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/career/support" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/support" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     Support
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/terms" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/terms" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/privacy" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/privacy" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Privacy Policy
                   </Link>
                 </li>
@@ -819,7 +819,7 @@ const Support = () => {
               </p>
 
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl">•</span>
+                <span className="text-green-400 text-lg sm:text-xl">•</span>
                 <span className="text-gray-400 text-sm font-medium">
                   Tech Support & Guidance
                 </span>
@@ -865,7 +865,7 @@ const Support = () => {
         }
 
         select option:hover {
-          background-color: #eff6ff;
+          background-color: #f0fdf4;
         }
 
         @media (max-width: 768px) {

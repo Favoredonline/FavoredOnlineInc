@@ -233,7 +233,7 @@ const ProjectsListing = () => {
                   placeholder="Search projects by title, description, skills..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                 />
               </div>
 
@@ -242,7 +242,7 @@ const ProjectsListing = () => {
                 <select
                   value={selectedFilters.industryTrack}
                   onChange={(e) => handleFilterChange('industryTrack', e.target.value)}
-                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm"
+                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm"
                 >
                   <option value="">All Industries</option>
                   {industryTracks.map(track => (
@@ -255,7 +255,7 @@ const ProjectsListing = () => {
                 <select
                   value={selectedFilters.timeline}
                   onChange={(e) => handleFilterChange('timeline', e.target.value)}
-                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm"
+                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm"
                 >
                   <option value="">All Timelines</option>
                   <option value="1-week">1 Week</option>
@@ -270,7 +270,7 @@ const ProjectsListing = () => {
                 <select
                   value={selectedFilters.status}
                   onChange={(e) => handleFilterChange('status', e.target.value)}
-                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm"
+                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm"
                 >
                   <option value="">All Statuses</option>
                   <option value="active">Active</option>
@@ -280,7 +280,7 @@ const ProjectsListing = () => {
                 <select
                   value={selectedFilters.experienceLevel}
                   onChange={(e) => handleFilterChange('experienceLevel', e.target.value)}
-                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm"
+                  className="bg-white border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm"
                 >
                   <option value="">All Experience Levels</option>
                   <option value="junior-level">Junior Level</option>
@@ -311,7 +311,7 @@ const ProjectsListing = () => {
           <section>
             {loading ? (
               <div className="text-center py-16 sm:py-20">
-                <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
                 <p className="text-gray-600 text-base sm:text-lg">Loading projects...</p>
               </div>
             ) : filteredProjects.length === 0 ? (
@@ -335,7 +335,7 @@ const ProjectsListing = () => {
                     )}
                     <button 
                       onClick={() => navigate('/submit-project')}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base"
+                      className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base"
                     >
                       Submit Project
                     </button>
@@ -351,11 +351,11 @@ const ProjectsListing = () => {
                   return (
                     <div 
                       key={project.id} 
-                      className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-blue-400 hover:shadow-lg transition-all"
+                      className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-green-400 hover:shadow-lg transition-all"
                     >
                       
                       {/* Project Banner */}
-                      <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                      <div className="relative h-40 sm:h-48 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
                         <div className="text-4xl sm:text-5xl">
                           {getIndustryIcon(project.industryTrack)}
                         </div>
@@ -372,7 +372,7 @@ const ProjectsListing = () => {
                         </div>
 
                         {isOwner && (
-                          <div className="absolute top-3 left-3 bg-blue-100 text-blue-700 px-2.5 py-1 rounded-lg text-xs font-bold border border-blue-200">
+                          <div className="absolute top-3 left-3 bg-green-100 text-green-700 px-2.5 py-1 rounded-lg text-xs font-bold border border-green-200">
                             YOUR PROJECT
                           </div>
                         )}
@@ -423,7 +423,7 @@ const ProjectsListing = () => {
                         {/* Skills */}
                         {project.requiredSkills && (
                           <div className="mb-5">
-                            <p className="text-blue-600 text-xs sm:text-sm font-semibold mb-1.5">Required Skills:</p>
+                            <p className="text-green-600 text-xs sm:text-sm font-semibold mb-1.5">Required Skills:</p>
                             <p className="text-gray-700 text-xs sm:text-sm line-clamp-2">{project.requiredSkills}</p>
                           </div>
                         )}
@@ -440,7 +440,7 @@ const ProjectsListing = () => {
                           {isOwner ? (
                             <Link
                               to="/projects/owner-dashboard"
-                              className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-4 py-2.5 sm:py-3 rounded-lg font-bold transition-colors text-sm"
+                              className="block w-full bg-green-600 hover:bg-green-700 text-white text-center px-4 py-2.5 sm:py-3 rounded-lg font-bold transition-colors text-sm"
                             >
                               Manage Project
                             </Link>
@@ -451,7 +451,7 @@ const ProjectsListing = () => {
                               className={`w-full text-center px-4 py-2.5 sm:py-3 rounded-lg font-bold transition-colors text-sm ${
                                 hasApplied 
                                   ? 'bg-gray-300 text-gray-600 cursor-not-allowed' 
-                                  : 'bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white'
+                                  : 'bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white'
                               }`}
                             >
                               {hasApplied ? '✓ Already Applied' : !currentUser ? 'Login to Apply →' : 'Apply to Join →'}
@@ -468,7 +468,7 @@ const ProjectsListing = () => {
 
           {/* Submit Project CTA */}
           <section className="mt-12 sm:mt-16 text-center">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 sm:p-12 border border-blue-200">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 sm:p-12 border border-green-200">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 sm:mb-4">
                 Ready to Lead a Project?
               </h2>
@@ -477,7 +477,7 @@ const ProjectsListing = () => {
               </p>
               <button 
                 onClick={() => navigate('/submit-project')}
-                className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
               >
                 Submit Your Project
               </button>

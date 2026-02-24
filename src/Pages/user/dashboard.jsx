@@ -147,7 +147,7 @@ const CommunityStats = () => (
 
 const CommunityGuidelines = () => {
   const guidelines = [
-    { color: 'blue-400', title: 'Be Respectful', description: 'Treat all members with kindness and professionalism' },
+    { color: 'green-400', title: 'Be Respectful', description: 'Treat all members with kindness and professionalism' },
     { color: 'orange-400', title: 'Share Knowledge', description: 'Help others learn and grow in their tech journey' },
     { color: 'purple-400', title: 'Stay On Topic', description: 'Keep discussions relevant to tech and career development' },
     { color: 'green-400', title: 'Build Together', description: 'Collaborate and support each other\'s success' }
@@ -449,7 +449,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
 
   const badgeCategories = useMemo(() => ({
     'mentorship': { name: 'TechMO', color: 'text-yellow-400' },
-    'quality-assurance': { name: 'TechQA', color: 'text-blue-400' },
+    'quality-assurance': { name: 'TechQA', color: 'text-green-400' },
     'development': { name: 'TechDev', color: 'text-green-400' },
     'leadership': { name: 'TechLeads', color: 'text-purple-400' },
     'design': { name: 'TechArchs', color: 'text-orange-400' },
@@ -471,7 +471,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Discover all available tech badges and learn how to earn them',
         path: '/tech-badges',
         stats: '6 Categories',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       }
     ],
     learning: [
@@ -480,7 +480,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Access 200+ free courses, tutorials, and certifications for every tech career',
         path: '/career/resources',
         stats: '12+ Career Tracks',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       },
       {
         title: 'AI Career Recommendations',
@@ -510,7 +510,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Manage your posted opportunities and track engagement',
         path: '/hub/my-posts',
         stats: 'View All',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       }
     ],
     events: [
@@ -533,7 +533,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'View events you\'re hosting or attending',
         path: '/events/my-events',
         stats: `${userProfile.eventsHosted} Hosted`,
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       }
     ],
     projects: [
@@ -549,14 +549,14 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Discover and apply to exciting opportunities',
         path: '/projects',
         stats: 'Browse All',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       },
       {
         title: 'Ongoing Projects',
         description: 'Manage your active project groups and track progress',
         path: '/my-groups',
         stats: `${userProfile.ongoingProjects} Active`,
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       }
     ],
     community: [
@@ -565,7 +565,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Share ideas, ask questions, and engage with fellow Favored Online members',
         path: '/community',
         stats: 'Join Discussion',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       },
       {
         title: 'Create Post',
@@ -588,7 +588,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Explore all companies and discover opportunities',
         path: '/companies',
         stats: 'Explore All',
-        gradient: 'from-blue-500 to-blue-600'
+        gradient: 'from-green-500 to-green-600'
       },
       {
         title: 'Create Company',
@@ -608,6 +608,8 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
   }), [userProfile.badgesEarned, userProfile.ongoingProjects, userProfile.companiesOwned, userProfile.eventsHosted]);
 
   useEffect(() => {
+    const unsubscribers = [];
+
     const fetchUserProfile = async () => {
       try {
         if (!currentUser) {
@@ -622,12 +624,12 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           limit(3)
         );
 
-        const badgesUnsubscribe = onSnapshot(badgesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(badgesQuery, (snapshot) => {
           const badges = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setRecentBadges(badges);
         }, (error) => {
           console.error('Error fetching badges:', error);
-        });
+        }));
 
         const certificatesQuery = query(
           collection(db, 'certificates'),
@@ -636,12 +638,12 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           limit(2)
         );
 
-        const certificatesUnsubscribe = onSnapshot(certificatesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(certificatesQuery, (snapshot) => {
           const certificates = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setRecentCertificates(certificates);
         }, (error) => {
           console.error('Error fetching certificates:', error);
-        });
+        }));
 
         const eventsQuery = query(
           collection(db, 'tech_events'),
@@ -650,7 +652,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           limit(3)
         );
 
-        const eventsUnsubscribe = onSnapshot(eventsQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(eventsQuery, (snapshot) => {
           const events = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setRecentEvents(events);
           
@@ -660,28 +662,28 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           }));
         }, (error) => {
           console.error('Error fetching events:', error);
-        });
+        }));
 
         const eventAttendeesQuery = query(
           collection(db, 'event_attendees'),
           where('userEmail', '==', currentUser.email)
         );
 
-        const eventAttendeesUnsubscribe = onSnapshot(eventAttendeesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(eventAttendeesQuery, (snapshot) => {
           setUserProfile(prev => ({
             ...prev,
             eventsAttended: snapshot.docs.length
           }));
         }, (error) => {
           console.error('Error fetching event attendees:', error);
-        });
+        }));
 
         const allBadgesQuery = query(
           collection(db, 'member_badges'),
           where('memberEmail', '==', currentUser.email)
         );
 
-        const allBadgesUnsubscribe = onSnapshot(allBadgesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(allBadgesQuery, (snapshot) => {
           const totalBadges = snapshot.docs.length;
           const completedProjects = new Set(snapshot.docs.map(doc => doc.data().groupId)).size;
           
@@ -692,21 +694,21 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           }));
         }, (error) => {
           console.error('Error fetching all badges:', error);
-        });
+        }));
 
         const allCertificatesQuery = query(
           collection(db, 'certificates'),
           where('recipientEmail', '==', currentUser.email)
         );
 
-        const allCertificatesUnsubscribe = onSnapshot(allCertificatesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(allCertificatesQuery, (snapshot) => {
           setUserProfile(prev => ({
             ...prev,
             certificatesEarned: snapshot.docs.length
           }));
         }, (error) => {
           console.error('Error fetching all certificates:', error);
-        });
+        }));
 
         const groupMembersQuery = query(
           collection(db, 'group_members'),
@@ -714,28 +716,28 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           where('status', '==', 'active')
         );
 
-        const groupMembersUnsubscribe = onSnapshot(groupMembersQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(groupMembersQuery, (snapshot) => {
           setUserProfile(prev => ({
             ...prev,
             ongoingProjects: snapshot.docs.length
           }));
         }, (error) => {
           console.error('Error fetching group members:', error);
-        });
+        }));
 
         const userCompaniesQuery = query(
           collection(db, 'companies'),
           where('ownerId', '==', currentUser.uid)
         );
 
-        const userCompaniesUnsubscribe = onSnapshot(userCompaniesQuery, (snapshot) => {
+        unsubscribers.push(onSnapshot(userCompaniesQuery, (snapshot) => {
           setUserProfile(prev => ({
             ...prev,
             companiesOwned: snapshot.docs.length
           }));
         }, (error) => {
           console.error('Error fetching user companies:', error);
-        });
+        }));
         
         setUserProfile(prev => ({
           ...prev,
@@ -745,17 +747,6 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         }));
         
         setLoading(false);
-
-        return () => {
-          badgesUnsubscribe();
-          certificatesUnsubscribe();
-          eventsUnsubscribe();
-          eventAttendeesUnsubscribe();
-          allBadgesUnsubscribe();
-          allCertificatesUnsubscribe();
-          groupMembersUnsubscribe();
-          userCompaniesUnsubscribe();
-        };
       } catch (error) {
         console.error('Error fetching user profile:', error);
         setLoading(false);
@@ -763,6 +754,10 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     };
 
     fetchUserProfile();
+
+    return () => {
+      unsubscribers.forEach(unsub => unsub());
+    };
   }, [currentUser]);
 
   const handleCardClick = useCallback((path) => {
@@ -798,7 +793,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
       learning: {
         title: 'My Career Hub',
         description: 'Access career resources and AI-powered guidance for your professional growth.',
-        gradientColors: 'from-blue-300 via-blue-400 to-blue-500',
+        gradientColors: 'from-green-300 via-green-400 to-green-500',
         cards: dashboardCards.learning
       },
       hub: {
@@ -816,7 +811,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
       projects: {
         title: 'Project Management',
         description: 'Submit, join, and manage your collaborative projects and build your portfolio.',
-        gradientColors: 'from-blue-300 via-blue-400 to-blue-500',
+        gradientColors: 'from-green-300 via-green-400 to-green-500',
         cards: dashboardCards.projects
       },
       companies: {
@@ -833,7 +828,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           <SectionHeader 
             title="Community Hub"
             description="Connect, collaborate, and grow with the Favored Online community."
-            gradientColors="from-blue-300 via-purple-400 to-blue-500"
+            gradientColors="from-green-300 via-purple-400 to-green-500"
           />
           
           <CommunityStats />
@@ -846,7 +841,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
 
           <CommunityGuidelines />
 
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-blue-500/30 text-center">
+          <div className="bg-gradient-to-r from-green-500/10 to-purple-500/10 rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-green-500/30 text-center">
             <p className="text-base xs:text-lg sm:text-xl font-bold text-white mb-3 xs:mb-4" 
                style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
               Ready to join the conversation?
@@ -854,7 +849,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
             <div className="flex flex-col sm:flex-row gap-2 xs:gap-3 justify-center">
               <button
                 onClick={() => handleCardClick('/community')}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 active:from-blue-700 active:to-blue-800 text-white font-semibold px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[48px] text-sm xs:text-base"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 active:from-green-700 active:to-green-800 text-white font-semibold px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[48px] text-sm xs:text-base"
                 aria-label="View community feed"
               >
                 <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

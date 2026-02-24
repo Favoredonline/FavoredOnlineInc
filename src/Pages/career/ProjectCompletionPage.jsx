@@ -94,11 +94,11 @@ const ProjectCompletionPage = () => {
   // Badge categories mapping
   const badgeCategories = {
     'mentorship': { id: 'techmo', name: 'TechMO Badges', color: 'from-orange-500 to-orange-600', image: '/Images/TechMO.png' },
-    'quality-assurance': { id: 'techqa', name: 'TechQA Badges', color: 'from-blue-500 to-blue-600', image: '/Images/TechQA.png' },
+    'quality-assurance': { id: 'techqa', name: 'TechQA Badges', color: 'from-green-500 to-green-600', image: '/Images/TechQA.png' },
     'development': { id: 'techdev', name: 'TechDev Badges', color: 'from-orange-500 to-orange-600', image: '/Images/TechDev.png' },
-    'leadership': { id: 'techleads', name: 'TechLeads Badges', color: 'from-blue-500 to-blue-600', image: '/Images/TechLeads.png' },
+    'leadership': { id: 'techleads', name: 'TechLeads Badges', color: 'from-green-500 to-green-600', image: '/Images/TechLeads.png' },
     'design': { id: 'techarchs', name: 'TechArchs Badges', color: 'from-orange-500 to-orange-600', image: '/Images/TechArchs.png' },
-    'security': { id: 'techguard', name: 'TechGuard Badges', color: 'from-blue-500 to-blue-600', image: '/Images/TechGuard.png' }
+    'security': { id: 'techguard', name: 'TechGuard Badges', color: 'from-green-500 to-green-600', image: '/Images/TechGuard.png' }
   };
 
   const badgeLevels = ['novice', 'beginners', 'intermediate', 'expert'];
@@ -876,7 +876,7 @@ const ProjectCompletionPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-base sm:text-lg">Loading completion data...</p>
         </div>
       </div>
@@ -898,7 +898,7 @@ const ProjectCompletionPage = () => {
           <div className="mb-6 sm:mb-8">
             <button 
               onClick={() => navigate(`/groups/${groupId}`)}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to Group
@@ -911,7 +911,7 @@ const ProjectCompletionPage = () => {
               <span className="text-6xl sm:text-7xl">🎯</span>
               <div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900">
-                  Project <span className="text-blue-600">Completion</span>
+                  Project <span className="text-green-600">Completion</span>
                 </h1>
                 <p className="text-base sm:text-lg text-gray-600 mt-2">
                   {group?.projectTitle}
@@ -923,8 +923,8 @@ const ProjectCompletionPage = () => {
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Project Status</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                  <div className="text-blue-600 text-sm font-semibold mb-1">Current Step</div>
+                <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                  <div className="text-green-600 text-sm font-semibold mb-1">Current Step</div>
                   <div className="text-2xl font-black text-gray-900">{currentStep}/3</div>
                 </div>
                 <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
@@ -957,7 +957,7 @@ const ProjectCompletionPage = () => {
                   <div key={item.step} className="flex items-center bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-2 flex-shrink-0 ${
                       currentStep >= item.step 
-                        ? 'bg-blue-600 border-blue-600 text-white' 
+                        ? 'bg-green-600 border-green-600 text-white' 
                         : 'bg-gray-200 border-gray-300 text-gray-500'
                     }`}>
                       {currentStep > item.step ? '✓' : item.icon}
@@ -972,7 +972,7 @@ const ProjectCompletionPage = () => {
                       </div>
                     </div>
                     {currentStep >= item.step && (
-                      <div className="text-blue-600 text-2xl flex-shrink-0">✓</div>
+                      <div className="text-green-600 text-2xl flex-shrink-0">✓</div>
                     )}
                   </div>
                 ))}
@@ -989,7 +989,7 @@ const ProjectCompletionPage = () => {
                     <div className="flex flex-col items-center">
                       <div className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold border-2 transition-all duration-300 ${
                         currentStep >= item.step 
-                          ? 'bg-blue-600 border-blue-600 text-white shadow-lg' 
+                          ? 'bg-green-600 border-green-600 text-white shadow-lg' 
                           : 'bg-gray-200 border-gray-300 text-gray-500'
                       }`}>
                         {currentStep > item.step ? '✓' : item.icon}
@@ -999,7 +999,7 @@ const ProjectCompletionPage = () => {
                           {item.title}
                         </div>
                         <div className={`text-xs mt-1 ${
-                          currentStep >= item.step ? 'text-blue-600' :
+                          currentStep >= item.step ? 'text-green-600' :
                           currentStep === item.step ? 'text-orange-600' : 'text-gray-500'
                         }`}>
                           {currentStep >= item.step ? 'Completed' : 
@@ -1010,7 +1010,7 @@ const ProjectCompletionPage = () => {
                     
                     {item.step < 3 && (
                       <div className={`h-0.5 w-24 mx-6 transition-all duration-500 ${
-                        currentStep > item.step ? 'bg-blue-600' : 'bg-gray-300'
+                        currentStep > item.step ? 'bg-green-600' : 'bg-gray-300'
                       }`}></div>
                     )}
                   </div>
@@ -1048,8 +1048,8 @@ const ProjectCompletionPage = () => {
                       </div>
                     </div>
 
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                      <h4 className="text-blue-700 font-bold text-lg mb-3">Common Issues to Check</h4>
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
+                      <h4 className="text-green-700 font-bold text-lg mb-3">Common Issues to Check</h4>
                       <div className="text-gray-700 space-y-2">
                         <p>✓ Repository must be public and accessible</p>
                         <p>✓ Favored Online must be added as a collaborator</p>
@@ -1074,7 +1074,7 @@ const ProjectCompletionPage = () => {
                       <button
                         onClick={resubmitForReview}
                         disabled={submitting}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50"
+                        className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50"
                       >
                         {submitting ? (
                           <>
@@ -1098,7 +1098,7 @@ const ProjectCompletionPage = () => {
                   <>
                     <div className="text-center mb-8">
                       <div className="text-6xl mb-6">⏳</div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-green-600 mb-4">
                         Waiting for Project Approval
                       </h3>
                       <p className="text-gray-600 mb-6">
@@ -1106,8 +1106,8 @@ const ProjectCompletionPage = () => {
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                      <h4 className="text-blue-700 font-bold text-lg mb-3">Project Review Status</h4>
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
+                      <h4 className="text-green-700 font-bold text-lg mb-3">Project Review Status</h4>
                       <div className="text-gray-700 space-y-2">
                         <p>• Project submitted for admin review</p>
                         <p>• Admin verifying repository and quality</p>
@@ -1145,7 +1145,7 @@ const ProjectCompletionPage = () => {
             <section className="max-w-6xl mx-auto">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">Project Approved!</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-green-600 mb-4">Project Approved!</h3>
                   <p className="text-gray-600 mb-2">
                     Your project has been approved. Badge levels are automatically assigned based on member project history and CANNOT be changed manually.
                   </p>
@@ -1185,7 +1185,7 @@ const ProjectCompletionPage = () => {
                         <button
                           onClick={completeSoloProject}
                           disabled={submitting}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50"
+                          className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50"
                         >
                           {submitting ? (
                             <>
@@ -1210,8 +1210,8 @@ const ProjectCompletionPage = () => {
                   <>
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Assign Team Member Badges</h3>
                     
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 text-center">
-                      <p className="text-blue-700 text-sm">
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-center">
+                      <p className="text-green-700 text-sm">
                         Badge levels are automatically assigned and locked:
                         <span className="block mt-2 text-gray-900 font-semibold">
                           Novice (1st) • Beginner (2-5) • Intermediate (6-10) • Expert (11+)
@@ -1223,7 +1223,7 @@ const ProjectCompletionPage = () => {
                       {evaluationForm.map((member, index) => (
                         <div key={index} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                           <div className="flex items-center mb-4">
-                            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">
+                            <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">
                               {member.memberName.charAt(0).toUpperCase()}
                             </div>
                             <div className="min-w-0 flex-1">
@@ -1238,7 +1238,7 @@ const ProjectCompletionPage = () => {
                               <select
                                 value={member.badgeCategory}
                                 onChange={(e) => updateEvaluation(index, 'badgeCategory', e.target.value)}
-                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                               >
                                 {Object.entries(badgeCategories).map(([key, category]) => (
                                   <option key={key} value={key}>{category.name}</option>
@@ -1277,7 +1277,7 @@ const ProjectCompletionPage = () => {
                               <select
                                 value={member.contribution}
                                 onChange={(e) => updateEvaluation(index, 'contribution', e.target.value)}
-                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                               >
                                 {contributionLevels.map(level => (
                                   <option key={level} value={level}>
@@ -1293,7 +1293,7 @@ const ProjectCompletionPage = () => {
                                 <input
                                   type="text"
                                   placeholder="Add a skill (press Enter)"
-                                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                                   onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
                                       e.preventDefault();
@@ -1327,12 +1327,12 @@ const ProjectCompletionPage = () => {
                                 value={member.adminNotes}
                                 onChange={(e) => updateEvaluation(index, 'adminNotes', e.target.value)}
                                 placeholder="Additional notes..."
-                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none"
+                                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-none"
                                 rows={2}
                               />
                             </div>
 
-                            <div className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-lg p-3 border border-gray-200">
+                            <div className="bg-gradient-to-r from-green-50 to-orange-50 rounded-lg p-3 border border-gray-200">
                               <div className="flex items-center">
                                 <img 
                                   src={badgeCategories[member.badgeCategory].image} 
@@ -1358,7 +1358,7 @@ const ProjectCompletionPage = () => {
                       <button
                         onClick={finalizeProjectCompletion}
                         disabled={submitting}
-                        className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-12 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-12 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {submitting ? (
                           <>
@@ -1385,8 +1385,8 @@ const ProjectCompletionPage = () => {
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">Project Completed Successfully!</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                      <h4 className="text-blue-600 font-semibold">
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                      <h4 className="text-green-600 font-semibold">
                         {evaluationForm.length > 0 ? 'Badges Awarded' : 'Solo Project'}
                       </h4>
                       <p className="text-gray-700 text-sm">
@@ -1423,7 +1423,7 @@ const ProjectCompletionPage = () => {
                               className="w-6 h-6 mr-2 flex-shrink-0"
                             />
                             <div className="min-w-0 flex-1">
-                              <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs block mb-1 truncate border border-blue-200">
+                              <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs block mb-1 truncate border border-green-200">
                                 {badgeCategories[member.badgeCategory]?.name}
                               </span>
                               <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs block truncate border border-orange-200">
@@ -1453,7 +1453,7 @@ const ProjectCompletionPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <Link 
                       to="/my-groups"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-sm"
+                      className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-sm"
                     >
                       View My Groups
                     </Link>

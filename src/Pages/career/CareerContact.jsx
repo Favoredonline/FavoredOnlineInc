@@ -118,8 +118,8 @@ const CareerContact = () => {
               
               {/* Animated Badge */}
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-blue-500 rounded-full animate-ping"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
+                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-green-500 rounded-full animate-ping"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         letterSpacing: '0.1em'
@@ -135,20 +135,20 @@ const CareerContact = () => {
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 Access Your{' '}
-                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700">
+                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-orange-500 to-green-700">
                   ProjectX Career Path
                 </span>
               </h1>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
               
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 md:mb-16 text-gray-800 max-w-5xl mx-auto leading-relaxed font-light px-4"
                  style={{
                    fontFamily: '"Inter", sans-serif'
                  }}>
-                Connect with <span className="text-blue-600 font-semibold">ProjectX learning opportunities</span> where you can prove your expertise through 
+                Connect with <span className="text-green-600 font-semibold">ProjectX learning opportunities</span> where you can prove your expertise through 
                 <span className="text-orange-600 font-semibold"> real project completions</span> and earn validated TechTalent badges from 
-                <span className="text-blue-600 font-semibold"> Novice to Expert levels</span>.
+                <span className="text-green-600 font-semibold"> Novice to Expert levels</span>.
               </p>
 
               {/* HERO SUBTITLE: AI Career Navigator */}
@@ -156,7 +156,7 @@ const CareerContact = () => {
                  style={{
                    fontFamily: '"Inter", sans-serif'
                  }}>
-                Featuring an <span className="font-bold text-blue-600">AI-powered Career Navigator</span> — personalized pathways, curated resources,
+                Featuring an <span className="font-bold text-green-600">AI-powered Career Navigator</span> — personalized pathways, curated resources,
                 career tips, and interview prep so <span className="font-semibold text-orange-600">learners from any background</span> can transition into tech.
               </p>
             </div>
@@ -167,14 +167,14 @@ const CareerContact = () => {
             <div className="bg-white border-2 border-gray-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
               
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 p-6 sm:p-8 md:p-12 text-white">
+              <div className="bg-gradient-to-r from-green-600 via-purple-600 to-orange-600 p-6 sm:p-8 md:p-12 text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6" 
                     style={{
                       fontFamily: '"Inter", sans-serif'
                     }}>
                     How Our Platform Validates Skills
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light leading-relaxed" 
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 font-light leading-relaxed" 
                    style={{
                      fontFamily: '"Inter", sans-serif'
                    }}>
@@ -198,7 +198,7 @@ const CareerContact = () => {
                      }}>
                     Our talents grow from <span className="text-yellow-600 font-semibold">Novice to Expert</span> through hands-on experience. 
                     Each TechTalent badge represents not just technical skills, but also proven soft skills like 
-                    <span className="text-blue-600 font-semibold"> communication, problem-solving, and collaboration</span>.
+                    <span className="text-green-600 font-semibold"> communication, problem-solving, and collaboration</span>.
                   </p>
                 </div>
                 
@@ -226,11 +226,11 @@ const CareerContact = () => {
                     { 
                       level: "Beginners", 
                       projects: "3-7", 
-                      color: "from-blue-500 to-cyan-600", 
+                      color: "from-green-500 to-cyan-600", 
                       icon: "🎯",
                       skills: ["Core development skills", "Team participation", "Best practices", "Documentation"],
-                      bgColor: "from-blue-50 to-cyan-100",
-                      borderColor: "border-blue-300"
+                      bgColor: "from-green-50 to-cyan-100",
+                      borderColor: "border-green-300"
                     },
                     { 
                       level: "Novice", 
@@ -268,7 +268,7 @@ const CareerContact = () => {
                           {badge.skills.map((skill, idx) => (
                             <li key={idx} 
                                 className="flex items-start text-gray-700 text-sm sm:text-base">
-                              <span className="text-blue-600 mr-2 sm:mr-3 text-xs flex-shrink-0 mt-1">
+                              <span className="text-green-600 mr-2 sm:mr-3 text-xs flex-shrink-0 mt-1">
                                 ✓
                               </span>
                               <span className="font-medium">{skill}</span>
@@ -294,7 +294,7 @@ const CareerContact = () => {
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 Why ProjectX{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-orange-500 to-green-700">
                   Learning
                 </span>{' '}
                 Stands Out
@@ -307,19 +307,19 @@ const CareerContact = () => {
                   icon: "🎯",
                   title: "Real-World Experience",
                   description: "Our talents have completed actual ProjectX initiatives, not just theoretical exercises. Each TechTalent badge represents hands-on problem-solving experience.",
-                  gradient: "from-blue-500 to-orange-500"
+                  gradient: "from-green-500 to-orange-500"
                 },
                 {
                   icon: "🤝",
                   title: "Proven Soft Skills",
                   description: "Through collaborative ProjectX work, they've developed essential skills: communication, teamwork, analytical thinking, and professional interaction.",
-                  gradient: "from-orange-500 to-blue-600"
+                  gradient: "from-orange-500 to-green-600"
                 },
                 {
                   icon: "📈",
                   title: "Continuous Growth",
                   description: "Our learning progression system ensures ongoing skill development. You're joining a platform committed to continuous improvement.",
-                  gradient: "from-blue-500 to-purple-600"
+                  gradient: "from-green-500 to-purple-600"
                 },
                 {
                   icon: "✅",
@@ -331,13 +331,13 @@ const CareerContact = () => {
                   icon: "🏆",
                   title: "Industry-Ready",
                   description: "From day one, they understand professional workflows, code quality standards, and project delivery expectations through ProjectX training.",
-                  gradient: "from-orange-500 to-blue-600"
+                  gradient: "from-orange-500 to-green-600"
                 },
                 {
                   icon: "🔄",
                   title: "Adaptable & Reliable",
                   description: "Multi-project experience has taught them to adapt to different technologies, teams, and project requirements efficiently.",
-                  gradient: "from-blue-500 to-orange-600"
+                  gradient: "from-green-500 to-orange-600"
                 }
               ].map((feature, index) => (
                 <div key={index} 
@@ -376,7 +376,7 @@ const CareerContact = () => {
 
           {/* AI Career Navigator Section */}
           <section className="mb-16 sm:mb-24 md:mb-32">
-            <div className="bg-gradient-to-br from-blue-50 to-orange-50 border-2 border-blue-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden p-6 sm:p-8 md:p-12">
+            <div className="bg-gradient-to-br from-green-50 to-orange-50 border-2 border-green-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden p-6 sm:p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3" 
@@ -407,14 +407,14 @@ const CareerContact = () => {
 
                   <div className="flex flex-wrap gap-4">
                     <Link to="/career/navigator" 
-                          className="inline-flex items-center bg-gradient-to-r from-blue-600 to-orange-600 text-white px-5 py-3 rounded-full font-bold shadow-lg transition-transform transform hover:scale-105"
+                          className="inline-flex items-center bg-gradient-to-r from-green-600 to-orange-600 text-white px-5 py-3 rounded-full font-bold shadow-lg transition-transform transform hover:scale-105"
                           aria-label="Open Career Navigator">
                       Try the Navigator
                       <span className="ml-2">🤖</span>
                     </Link>
 
                     <Link to="/projects" 
-                          className="inline-flex items-center border-2 border-blue-600 text-blue-600 px-5 py-3 rounded-full font-semibold hover:bg-blue-50"
+                          className="inline-flex items-center border-2 border-green-600 text-green-600 px-5 py-3 rounded-full font-semibold hover:bg-green-50"
                           aria-label="Explore Projects">
                       Explore Projects
                     </Link>
@@ -439,14 +439,14 @@ const CareerContact = () => {
             <div className="bg-white border-2 border-gray-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
               
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700 p-6 sm:p-8 md:p-12 text-white">
+              <div className="bg-gradient-to-r from-green-600 via-orange-500 to-green-700 p-6 sm:p-8 md:p-12 text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6" 
                     style={{
                       fontFamily: '"Inter", sans-serif'
                     }}>
                   Get Support
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl text-blue-100 font-light leading-relaxed" 
+                <p className="text-base sm:text-lg md:text-xl text-green-100 font-light leading-relaxed" 
                    style={{
                      fontFamily: '"Inter", sans-serif'
                    }}>
@@ -482,7 +482,7 @@ const CareerContact = () => {
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                         placeholder="Your first name"
                       />
                     </div>
@@ -497,7 +497,7 @@ const CareerContact = () => {
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                         placeholder="Your last name"
                       />
                     </div>
@@ -515,7 +515,7 @@ const CareerContact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -532,7 +532,7 @@ const CareerContact = () => {
                       value={formData.contactNumber}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -549,7 +549,7 @@ const CareerContact = () => {
                       onChange={handleInputChange}
                       required
                       rows="6"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-50 border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
                       placeholder="Please provide details about your question or issue..."
                     ></textarea>
                   </div>
@@ -559,7 +559,7 @@ const CareerContact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl ${
+                      className={`bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl ${
                         isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
                     >
@@ -586,14 +586,14 @@ const CareerContact = () => {
             <div className="bg-white border-2 border-gray-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500">
               
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700 p-6 sm:p-8 md:p-12 text-white">
+              <div className="bg-gradient-to-r from-green-600 via-orange-500 to-green-700 p-6 sm:p-8 md:p-12 text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6" 
                     style={{
                       fontFamily: '"Inter", sans-serif'
                     }}>
                   🚀 Start Your ProjectX Journey!
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light leading-relaxed" 
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 font-light leading-relaxed" 
                    style={{
                      fontFamily: '"Inter", sans-serif'
                    }}>
@@ -623,7 +623,7 @@ const CareerContact = () => {
                         description: "Progress from Novice to Expert through our structured learning pathway"
                       }
                     ].map((benefit, index) => (
-                      <div key={index} className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-4 sm:p-6 border-2 border-blue-200 shadow-md">
+                      <div key={index} className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-4 sm:p-6 border-2 border-green-200 shadow-md">
                         <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{benefit.icon}</div>
                         <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-2 sm:mb-3"
                             style={{
@@ -642,7 +642,7 @@ const CareerContact = () => {
                   <div className="mb-6 sm:mb-8">
                     <Link
                       to="/projects"
-                      className="group relative inline-block bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700 text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-110 shadow-xl overflow-hidden"
+                      className="group relative inline-block bg-gradient-to-r from-green-600 via-orange-500 to-green-700 text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-110 shadow-xl overflow-hidden"
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         textDecoration: 'none'
@@ -657,9 +657,9 @@ const CareerContact = () => {
                   </div>
 
                   {/* Additional Info */}
-                  <div className="bg-gradient-to-r from-blue-50 to-orange-50 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-blue-200">
+                  <div className="bg-gradient-to-r from-green-50 to-orange-50 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-green-200">
                     <p className="text-gray-700 text-sm sm:text-base md:text-lg">
-                      <span className="font-bold text-blue-600">Ready to Transform Your Career?</span> Join ProjectX and start building real projects, earning TechTalent badges, and creating a portfolio that stands out to employers.
+                      <span className="font-bold text-green-600">Ready to Transform Your Career?</span> Join ProjectX and start building real projects, earning TechTalent badges, and creating a portfolio that stands out to employers.
                     </p>
                   </div>
                 </div>
@@ -701,7 +701,7 @@ const CareerContact = () => {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -709,17 +709,17 @@ const CareerContact = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/about" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/about" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/contact" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/contact" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     Contact
                   </Link>
                 </li>
@@ -728,7 +728,7 @@ const CareerContact = () => {
 
             {/* Support & Legal */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -736,17 +736,17 @@ const CareerContact = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/career/support" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/support" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Support
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/terms" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/terms" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/privacy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Privacy Policy
                   </Link>
                 </li>
@@ -768,7 +768,7 @@ const CareerContact = () => {
 
               {/* Social or Additional Info */}
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl animate-pulse">•</span>
+                <span className="text-green-400 text-lg sm:text-xl animate-pulse">•</span>
                 <span className="text-gray-300 text-sm font-medium">
                   Transforming Careers with AI
                 </span>
@@ -801,12 +801,12 @@ const CareerContact = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
 
         /* Enhanced touch targets for mobile */

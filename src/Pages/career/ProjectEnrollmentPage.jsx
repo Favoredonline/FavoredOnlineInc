@@ -24,7 +24,7 @@ const ProjectEnrollmentPage = () => {
                 <div className="text-5xl sm:text-6xl md:text-7xl mb-4 sm:mb-6">🚀</div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 sm:mb-6">
                   Are You Currently{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                     Enrolled?
                   </span>
                 </h3>
@@ -62,10 +62,10 @@ const ProjectEnrollmentPage = () => {
 
                 {/* NO - Not Enrolled */}
                 <div className="group hover:shadow-lg transition-all duration-300 rounded-2xl">
-                  <div className="bg-blue-50 rounded-2xl p-6 sm:p-8 border border-blue-200 h-full">
+                  <div className="bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-200 h-full">
                     <div className="text-center">
                       <div className="text-4xl sm:text-5xl mb-4 sm:mb-6">🔍</div>
-                      <h4 className="text-xl sm:text-2xl font-black text-gray-900 mb-4 sm:mb-6 group-hover:text-blue-600 transition-colors duration-300">
+                      <h4 className="text-xl sm:text-2xl font-black text-gray-900 mb-4 sm:mb-6 group-hover:text-green-600 transition-colors duration-300">
                         NO, I'm Not Enrolled
                       </h4>
                       <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
@@ -73,7 +73,7 @@ const ProjectEnrollmentPage = () => {
                       </p>
                       <Link
                         to="/projects"
-                        className="inline-flex items-center justify-center w-full px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-black rounded-full text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+                        className="inline-flex items-center justify-center w-full px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-black rounded-full text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
                       >
                         <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -106,7 +106,7 @@ const ProjectEnrollmentPage = () => {
               </div>
 
               {/* Ready to Submit */}
-              <div className="bg-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-blue-200 mb-6 sm:mb-8">
+              <div className="bg-green-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-green-200 mb-6 sm:mb-8">
                 <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 gap-3">
                   <div className="text-3xl sm:text-4xl">📋</div>
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 text-center sm:text-left">
@@ -135,7 +135,7 @@ const ProjectEnrollmentPage = () => {
               {/* Note */}
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 mb-6 sm:mb-8">
                 <p className="text-gray-600 text-sm sm:text-base text-center">
-                  <strong className="text-blue-600">Note:</strong> Make sure all your code, documentation, and project files are uploaded to your assigned repository before submitting.
+                  <strong className="text-green-600">Note:</strong> Make sure all your code, documentation, and project files are uploaded to your assigned repository before submitting.
                 </p>
               </div>
 
@@ -164,7 +164,7 @@ const ProjectEnrollmentPage = () => {
                 <div className="text-5xl sm:text-6xl md:text-7xl mb-4 sm:mb-6">📁</div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 sm:mb-6">
                   Project{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                     Repository
                   </span>
                 </h3>
@@ -174,7 +174,7 @@ const ProjectEnrollmentPage = () => {
               </div>
 
               {/* Find Repository */}
-              <div className="bg-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-blue-200 mb-6 sm:mb-8">
+              <div className="bg-green-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-green-200 mb-6 sm:mb-8">
                 <div className="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-3">
                   <div className="text-3xl sm:text-4xl">🔗</div>
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 text-center sm:text-left">
@@ -189,7 +189,7 @@ const ProjectEnrollmentPage = () => {
                     href="https://github.com/Favored Online"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
+                    className="group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
                   >
                     <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-3 relative flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -202,7 +202,7 @@ const ProjectEnrollmentPage = () => {
 
               {/* Help Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                <div className="bg-blue-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+                <div className="bg-green-50 rounded-xl p-4 sm:p-6 border border-green-200">
                   <div className="flex items-center mb-3">
                     <span className="text-2xl mr-3 flex-shrink-0">❓</span>
                     <h5 className="text-base sm:text-lg font-black text-gray-900">Repository Not Found?</h5>
@@ -234,7 +234,7 @@ const ProjectEnrollmentPage = () => {
                 <div className="text-5xl sm:text-6xl md:text-7xl mb-4 sm:mb-6">🤝</div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 sm:mb-6">
                   Join{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                     Projects
                   </span>
                 </h3>
@@ -244,7 +244,7 @@ const ProjectEnrollmentPage = () => {
               </div>
 
               {/* Two Opportunities */}
-              <div className="bg-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-blue-100 mb-6 sm:mb-8">
+              <div className="bg-green-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-green-100 mb-6 sm:mb-8">
                 <div className="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-3">
                   <div className="text-3xl sm:text-4xl">💡</div>
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 text-center sm:text-left">
@@ -281,7 +281,7 @@ const ProjectEnrollmentPage = () => {
                 <div className="text-center">
                   <Link
                     to="/projects"
-                    className="group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
+                    className="group relative inline-flex items-center px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
                   >
                     <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-3 relative flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -359,7 +359,7 @@ const ProjectEnrollmentPage = () => {
 
               {/* Bottom Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                <div className="bg-blue-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+                <div className="bg-green-50 rounded-xl p-4 sm:p-6 border border-green-200">
                   <h5 className="text-sm sm:text-base font-black text-gray-900 mb-2">📚 Skill Growth</h5>
                   <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                     Learn new technologies and enhance your portfolio with real-world projects.
@@ -371,7 +371,7 @@ const ProjectEnrollmentPage = () => {
                     Work with diverse, talented teams and build lasting professional connections.
                   </p>
                 </div>
-                <div className="bg-blue-50 rounded-xl p-4 sm:p-6 border border-blue-100">
+                <div className="bg-green-50 rounded-xl p-4 sm:p-6 border border-green-100">
                   <h5 className="text-sm sm:text-base font-black text-gray-900 mb-2">💡 Innovation</h5>
                   <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                     Turn your innovative ideas into reality with our supportive ecosystem.
@@ -391,7 +391,7 @@ const ProjectEnrollmentPage = () => {
                 <div className="text-5xl sm:text-6xl md:text-7xl mb-4 sm:mb-6">📊</div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 sm:mb-6">
                   Project{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                     Overview
                   </span>
                 </h3>
@@ -406,9 +406,9 @@ const ProjectEnrollmentPage = () => {
                     icon: '🤝',
                     title: 'Join Projects',
                     description: 'Browse available projects or submit your own project idea to become a product owner.',
-                    bg: 'bg-blue-50',
-                    border: 'border-blue-200',
-                    hoverText: 'group-hover:text-blue-600'
+                    bg: 'bg-green-50',
+                    border: 'border-green-200',
+                    hoverText: 'group-hover:text-green-600'
                   },
                   {
                     icon: '🚀',
@@ -416,7 +416,7 @@ const ProjectEnrollmentPage = () => {
                     description: 'Check your current enrollment status and join your team on Discord.',
                     bg: 'bg-gray-50',
                     border: 'border-gray-200',
-                    hoverText: 'group-hover:text-blue-600'
+                    hoverText: 'group-hover:text-green-600'
                   },
                   {
                     icon: '✅',
@@ -430,9 +430,9 @@ const ProjectEnrollmentPage = () => {
                     icon: '📁',
                     title: 'Project Repository',
                     description: 'Access your GitHub repository for code collaboration and version control.',
-                    bg: 'bg-blue-50',
-                    border: 'border-blue-200',
-                    hoverText: 'group-hover:text-blue-600'
+                    bg: 'bg-green-50',
+                    border: 'border-green-200',
+                    hoverText: 'group-hover:text-green-600'
                   },
                   {
                     icon: '📊',
@@ -478,8 +478,8 @@ const ProjectEnrollmentPage = () => {
           <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
             <div className="text-center mb-6 sm:mb-8 md:mb-10">
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
-                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-blue-500 rounded-full"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm font-black">
+                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-green-500 rounded-full"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm font-black">
                   Project Management Hub
                 </span>
                 <div className="h-2 w-2 sm:h-3 sm:w-3 bg-orange-500 rounded-full"></div>
@@ -487,7 +487,7 @@ const ProjectEnrollmentPage = () => {
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-[0.9] tracking-tight text-gray-900">
                 Project{' '}
-                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500">
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-orange-500">
                   Dashboard
                 </span>
               </h1>
@@ -496,7 +496,7 @@ const ProjectEnrollmentPage = () => {
                 Manage your projects, track progress, and collaborate with your team
               </p>
 
-              <div className="h-1 sm:h-1.5 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full"></div>
+              <div className="h-1 sm:h-1.5 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full"></div>
             </div>
           </div>
         </div>
@@ -510,7 +510,7 @@ const ProjectEnrollmentPage = () => {
           <div className="mb-6 sm:mb-8">
             <Link
               to="/career/dashboard"
-              className="group inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-xl text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-all duration-300"
+              className="group inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-xl text-green-600 bg-green-50 hover:bg-green-100 border border-green-200 transition-all duration-300"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-2 group-hover:-translate-x-1 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -524,7 +524,7 @@ const ProjectEnrollmentPage = () => {
             <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-200 shadow-sm">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 mb-4 sm:mb-6 text-center">
                 Navigate Your{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-orange-500">
                   Projects
                 </span>
               </h2>
@@ -537,7 +537,7 @@ const ProjectEnrollmentPage = () => {
                       onClick={() => setActiveTab(category.id)}
                       className={`px-3 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 min-w-max text-sm sm:text-base ${
                         activeTab === category.id
-                          ? 'bg-gradient-to-r from-blue-600 to-orange-500 text-white shadow-md'
+                          ? 'bg-gradient-to-r from-green-600 to-orange-500 text-white shadow-md'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
                       }`}
                     >

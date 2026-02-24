@@ -12,6 +12,7 @@ import {
 import { db } from '../firebase/config';
 import { toast } from 'react-toastify';
 import MembersDirectory from '../Pages/MembersDirectory';
+import { throttle } from '../utils/throttle';
 
 const DirectoryAccessControl = () => {
   const { currentUser } = useAuth();
@@ -22,9 +23,9 @@ const DirectoryAccessControl = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = throttle((e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    }, 50);
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -322,7 +323,7 @@ const DirectoryAccessControl = () => {
                   </div>
                   <button 
                     onClick={requestManualApproval}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-green-500 to-purple-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold hover:from-green-600 hover:to-purple-600 transition-all duration-300 text-sm sm:text-base"
                   >
                     Request Access
                   </button>

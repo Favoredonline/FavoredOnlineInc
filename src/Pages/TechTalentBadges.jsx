@@ -168,8 +168,8 @@ const TechTalentBadges = () => {
             <div className="max-w-4xl mx-auto text-center">
               
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-blue-500 rounded-full"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black">
+                <div className="h-2 w-2 sm:h-3 sm:w-3 bg-green-500 rounded-full"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black">
                   🚀 Favored Online ProjectX
                 </span>
                 <div className="h-2 w-2 sm:h-3 sm:w-3 bg-orange-500 rounded-full"></div>
@@ -183,19 +183,19 @@ const TechTalentBadges = () => {
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 md:mb-12 leading-[0.9] tracking-tight text-gray-900">
                 Bridge Academia{' '}
-                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500">
+                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-orange-500">
                   to Industry
                 </span>
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8 sm:mb-10 md:mb-12">
-                <span className="text-blue-600 font-semibold">ProjectX</span> empowers students with real-world, project-driven learning. Earn 
-                <span className="text-blue-600 font-semibold"> TechTalent Badges</span> that showcase your skills, achievements, and problem-solving abilities while collaborating on hands-on projects.
+                <span className="text-green-600 font-semibold">ProjectX</span> empowers students with real-world, project-driven learning. Earn 
+                <span className="text-green-600 font-semibold"> TechTalent Badges</span> that showcase your skills, achievements, and problem-solving abilities while collaborating on hands-on projects.
                 <br className="hidden sm:block" /><br className="hidden sm:block" />
                 With our <span className="text-orange-600 font-semibold">AI-powered Career Navigator</span>, learners from any background can transition into tech with personalized insights, curated resources, career tips, and interview prep—turning projects into pathways for future-proof careers.
               </p>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full mb-8 sm:mb-12 md:mb-16"></div>
             </div>
           </section>
 
@@ -209,7 +209,7 @@ const TechTalentBadges = () => {
                   placeholder="Search badge categories by title, description, or skills..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-6 py-4 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-lg"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-6 py-4 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 text-lg"
                 />
               </div>
 
@@ -217,7 +217,7 @@ const TechTalentBadges = () => {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                  className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
                 >
                   {categories.map(category => (
                     <option key={category.value} value={category.value}>
@@ -229,11 +229,11 @@ const TechTalentBadges = () => {
 
               <div className="flex justify-between items-center">
                 <div className="text-gray-600">
-                  <span className="text-blue-600 font-semibold">{filteredBadges.length}</span> TechTalent badge categories found
+                  <span className="text-green-600 font-semibold">{filteredBadges.length}</span> TechTalent badge categories found
                 </div>
                 <button
                   onClick={clearFilters}
-                  className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300"
+                  className="text-green-600 hover:text-green-800 font-semibold transition-colors duration-300"
                 >
                   Clear Filters
                 </button>
@@ -264,10 +264,10 @@ const TechTalentBadges = () => {
                               className="w-12 h-12 mr-4 object-contain"
                             />
                             <div>
-                              <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                              <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-green-600 transition-colors duration-300">
                                 {badge.badgeTitle}
                               </h3>
-                              <p className="text-blue-600 font-semibold text-sm">{badge.subtitle}</p>
+                              <p className="text-green-600 font-semibold text-sm">{badge.subtitle}</p>
                             </div>
                           </div>
                         </div>
@@ -303,7 +303,7 @@ const TechTalentBadges = () => {
                         <div className="text-gray-500 text-sm mb-2">Badge Levels:</div>
                         <div className="flex flex-wrap gap-2">
                           {badge.levels.map((level, index) => {
-                            const colors = ['#f97316', '#3b82f6', '#f59e0b', '#2563eb'];
+                            const colors = ['#f97316', '#22c55e', '#f59e0b', '#16a34a'];
                             return (
                               <span 
                                 key={index}
@@ -323,9 +323,9 @@ const TechTalentBadges = () => {
 
                       <button
                         onClick={() => openBadgeModal(badge)}
-                        className="group/btn relative bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-all duration-500 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
+                        className="group/btn relative bg-gradient-to-r from-green-600 via-green-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold text-sm transition-all duration-500 transform hover:scale-105 shadow-md hover:shadow-lg overflow-hidden"
                       >
-                        <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-orange-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
+                        <span className="absolute inset-0 bg-gradient-to-r from-green-700 via-green-600 to-orange-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
                         <span className="relative flex items-center justify-center">
                           View Badge Details
                           <span className="ml-2 group-hover/btn:translate-x-1 transition-transform text-lg">🏆</span>
@@ -342,7 +342,7 @@ const TechTalentBadges = () => {
           <section className="mt-16">
             <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
               
-              <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-blue-600 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-green-600 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
                 <div className="relative text-center">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6">
                     💡 Become a Product Owner
@@ -368,7 +368,7 @@ const TechTalentBadges = () => {
                         'The Product Owner leads the team and ensures that the Project Manager (or themselves, if acting as both) delivers the project within the given timeline.'
                       ].map((step, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="bg-gradient-to-r from-orange-500 to-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0 mt-1">
+                          <span className="bg-gradient-to-r from-orange-500 to-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0 mt-1">
                             {index + 1}
                           </span>
                           <span className="text-sm sm:text-base leading-relaxed">{step}</span>
@@ -398,7 +398,7 @@ const TechTalentBadges = () => {
                 </div>
 
                 {/* Responsibilities */}
-                <div className="mt-12 bg-blue-50 rounded-2xl p-6 sm:p-8 border border-blue-100">
+                <div className="mt-12 bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-100">
                   <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6">
                     📋 Responsibilities
                   </h3>
@@ -410,7 +410,7 @@ const TechTalentBadges = () => {
                       'Favored Online will also monitor your project timeline, provide light oversight, and may periodically check in to ensure steady progress and team alignment'
                     ].map((responsibility, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-3 text-lg flex-shrink-0 mt-1">•</span>
+                        <span className="text-green-600 mr-3 text-lg flex-shrink-0 mt-1">•</span>
                         <span className="text-sm sm:text-base leading-relaxed">{responsibility}</span>
                       </li>
                     ))}
@@ -432,7 +432,7 @@ const TechTalentBadges = () => {
                         'External tools may not be used for project tracking or submissions unless explicitly approved'
                       ].map((guideline, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="text-blue-600 mr-2 text-sm flex-shrink-0 mt-1">→</span>
+                          <span className="text-green-600 mr-2 text-sm flex-shrink-0 mt-1">→</span>
                           <span>{guideline}</span>
                         </li>
                       ))}
@@ -458,7 +458,7 @@ const TechTalentBadges = () => {
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+                    <div className="bg-green-50 rounded-2xl p-6 border border-green-100">
                       <h4 className="text-xl font-black text-gray-900 mb-3">
                         🤝 Community Values
                       </h4>
@@ -471,7 +471,7 @@ const TechTalentBadges = () => {
                           'Maintain professionalism throughout the project lifecycle'
                         ].map((value, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-2 text-xs flex-shrink-0 mt-1">•</span>
+                            <span className="text-green-600 mr-2 text-xs flex-shrink-0 mt-1">•</span>
                             <span>{value}</span>
                           </li>
                         ))}
@@ -487,12 +487,12 @@ const TechTalentBadges = () => {
           <section className="mt-12 sm:mt-16">
             <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
               
-              <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 p-4 sm:p-6 md:p-8 lg:p-12 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-orange-500 p-4 sm:p-6 md:p-8 lg:p-12 text-white relative overflow-hidden">
                 <div className="relative text-center">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6 leading-tight">
                     📋 Project Manager Tips & Best Practices
                   </h2>
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light leading-relaxed max-w-4xl mx-auto px-2 sm:px-4">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 font-light leading-relaxed max-w-4xl mx-auto px-2 sm:px-4">
                     Master the art of project management with proven strategies and best practices for leading successful teams.
                   </p>
                 </div>
@@ -507,8 +507,8 @@ const TechTalentBadges = () => {
                   </h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                    <div className="bg-blue-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 lg:p-6 border border-blue-100 hover:border-blue-200 transition-all duration-300">
-                      <div className="text-blue-600 text-xl sm:text-2xl mb-2 sm:mb-3">📅</div>
+                    <div className="bg-green-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 lg:p-6 border border-green-100 hover:border-green-200 transition-all duration-300">
+                      <div className="text-green-600 text-xl sm:text-2xl mb-2 sm:mb-3">📅</div>
                       <h4 className="text-lg sm:text-xl font-black text-gray-900 mb-2 sm:mb-3">
                         Weekly Planning & Reporting
                       </h4>
@@ -527,8 +527,8 @@ const TechTalentBadges = () => {
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 lg:p-6 border border-blue-100 hover:border-blue-200 transition-all duration-300 sm:col-span-2 lg:col-span-1">
-                      <div className="text-blue-600 text-xl sm:text-2xl mb-2 sm:mb-3">🤝</div>
+                    <div className="bg-green-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-5 lg:p-6 border border-green-100 hover:border-green-200 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                      <div className="text-green-600 text-xl sm:text-2xl mb-2 sm:mb-3">🤝</div>
                       <h4 className="text-lg sm:text-xl font-black text-gray-900 mb-2 sm:mb-3">
                         Team Member Support
                       </h4>
@@ -547,7 +547,7 @@ const TechTalentBadges = () => {
 
                   <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
                     
-                    <div className="bg-blue-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-blue-100 hover:border-blue-200 transition-all duration-300">
+                    <div className="bg-green-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-green-100 hover:border-green-200 transition-all duration-300">
                       <h4 className="text-lg sm:text-xl lg:text-2xl font-black text-gray-900 mb-4 sm:mb-6">
                         💬 Communication & Coordination
                       </h4>
@@ -558,7 +558,7 @@ const TechTalentBadges = () => {
                           'Hold regular one-on-ones with team members to address individual concerns'
                         ].map((tip, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-2 sm:mr-3 text-sm sm:text-lg flex-shrink-0 mt-0.5">•</span>
+                            <span className="text-green-600 mr-2 sm:mr-3 text-sm sm:text-lg flex-shrink-0 mt-0.5">•</span>
                             <span className="leading-relaxed">{tip}</span>
                           </li>
                         ))}
@@ -584,7 +584,7 @@ const TechTalentBadges = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-blue-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-blue-100 hover:border-blue-200 transition-all duration-300">
+                    <div className="bg-green-50 rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-green-100 hover:border-green-200 transition-all duration-300">
                       <h4 className="text-lg sm:text-xl lg:text-2xl font-black text-gray-900 mb-4 sm:mb-6">
                         👥 Team Leadership
                       </h4>
@@ -596,7 +596,7 @@ const TechTalentBadges = () => {
                           'Provide constructive feedback regularly, not just during formal reviews'
                         ].map((tip, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-2 sm:mr-3 text-sm sm:text-lg flex-shrink-0 mt-0.5">•</span>
+                            <span className="text-green-600 mr-2 sm:mr-3 text-sm sm:text-lg flex-shrink-0 mt-0.5">•</span>
                             <span className="leading-relaxed">{tip}</span>
                           </li>
                         ))}
@@ -631,7 +631,7 @@ const TechTalentBadges = () => {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200">
-                      <h5 className="text-blue-600 font-semibold mb-2 sm:mb-3 text-sm sm:text-base flex items-center">
+                      <h5 className="text-green-600 font-semibold mb-2 sm:mb-3 text-sm sm:text-base flex items-center">
                         <span className="mr-2">🎯</span>
                         Stay Focused
                       </h5>
@@ -649,7 +649,7 @@ const TechTalentBadges = () => {
                       </p>
                     </div>
                     <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200">
-                      <h5 className="text-blue-600 font-semibold mb-2 sm:mb-3 text-sm sm:text-base flex items-center">
+                      <h5 className="text-green-600 font-semibold mb-2 sm:mb-3 text-sm sm:text-base flex items-center">
                         <span className="mr-2">🛡️</span>
                         Risk Management
                       </h5>
@@ -676,12 +676,12 @@ const TechTalentBadges = () => {
           <section className="mt-16">
             <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
               
-              <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-orange-500 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden">
                 <div className="relative text-center">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6">
                     🎯 Industry Track Overviews
                   </h2>
-                  <p className="text-lg sm:text-xl md:text-2xl text-blue-100 font-light leading-relaxed max-w-4xl mx-auto">
+                  <p className="text-lg sm:text-xl md:text-2xl text-green-100 font-light leading-relaxed max-w-4xl mx-auto">
                     Choose your industry track and work on real-world projects that align with your career goals
                   </p>
                 </div>
@@ -697,7 +697,7 @@ const TechTalentBadges = () => {
                           {track.icon}
                         </div>
 
-                        <h3 className="text-xl font-black text-gray-900 text-center mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                        <h3 className="text-xl font-black text-gray-900 text-center mb-4 group-hover:text-green-600 transition-colors duration-300">
                           {track.name}
                         </h3>
 
@@ -707,7 +707,7 @@ const TechTalentBadges = () => {
 
                         <Link
                           to={`/projects?industry=${track.name.toLowerCase().replace(/\//g, '-').replace(/\s+/g, '-')}`}
-                          className="mt-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 text-center shadow-md hover:shadow-lg"
+                          className="mt-4 bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 text-center shadow-md hover:shadow-lg"
                         >
                           Explore Projects
                         </Link>
@@ -717,20 +717,20 @@ const TechTalentBadges = () => {
                 </div>
 
                 {/* Industry Track Benefits */}
-                <div className="mt-12 bg-blue-50 rounded-2xl p-6 sm:p-8 border border-blue-100">
+                <div className="mt-12 bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-100">
                   <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-6 text-center">
                     🌟 Why Choose an Industry Track?
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
                     <div className="flex items-start">
-                      <span className="text-blue-600 text-2xl mr-4 flex-shrink-0">✓</span>
+                      <span className="text-green-600 text-2xl mr-4 flex-shrink-0">✓</span>
                       <div>
                         <h4 className="text-lg font-bold text-gray-900 mb-2">Focused Career Path</h4>
                         <p className="text-sm leading-relaxed">Build expertise in specific industries that align with your career aspirations and interests</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <span className="text-blue-600 text-2xl mr-4 flex-shrink-0">✓</span>
+                      <span className="text-green-600 text-2xl mr-4 flex-shrink-0">✓</span>
                       <div>
                         <h4 className="text-lg font-bold text-gray-900 mb-2">Real-World Experience</h4>
                         <p className="text-sm leading-relaxed">Work on projects that mirror actual challenges faced by professionals in your chosen industry</p>
@@ -763,21 +763,21 @@ const TechTalentBadges = () => {
                 🚀 Ready to Lead a Project or Earn Your Badges?
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                💡 Have an idea? Take the lead and build something impactful—or join a project, contribute your skills, and earn badges as you grow. Whether you're leading or learning, <span className="text-blue-600 font-semibold">ProjectX gives you the platform to bridge academia to industry and build your future-proof career</span>.
+                💡 Have an idea? Take the lead and build something impactful—or join a project, contribute your skills, and earn badges as you grow. Whether you're leading or learning, <span className="text-green-600 font-semibold">ProjectX gives you the platform to bridge academia to industry and build your future-proof career</span>.
               </p>
               <div className="text-gray-700 text-lg mb-8 font-semibold">
-                <span className="text-orange-600">Submit Your Project</span> or <span className="text-blue-600">Join a Project</span>
+                <span className="text-orange-600">Submit Your Project</span> or <span className="text-green-600">Join a Project</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   to="/projects"
-                  className="bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 text-white px-8 py-4 rounded-full font-black text-lg transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
+                  className="bg-gradient-to-r from-green-600 via-green-500 to-orange-500 text-white px-8 py-4 rounded-full font-black text-lg transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
                 >
                   Join a Project
                 </Link>
                 <Link 
                   to="/submit-project"
-                  className="bg-gradient-to-r from-orange-500 via-orange-600 to-blue-600 text-white px-8 py-4 rounded-full font-black text-lg transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
+                  className="bg-gradient-to-r from-orange-500 via-orange-600 to-green-600 text-white px-8 py-4 rounded-full font-black text-lg transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block"
                 >
                   Submit Your Project
                 </Link>
@@ -803,7 +803,7 @@ const TechTalentBadges = () => {
                   <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">
                     {selectedBadge.badgeTitle}
                   </h2>
-                  <p className="text-blue-600 font-semibold">{selectedBadge.subtitle}</p>
+                  <p className="text-green-600 font-semibold">{selectedBadge.subtitle}</p>
                 </div>
               </div>
               <button
@@ -817,12 +817,12 @@ const TechTalentBadges = () => {
             <div className="space-y-6">
               
               <div>
-                <h3 className="text-blue-600 font-semibold mb-2 text-lg">About This Badge</h3>
+                <h3 className="text-green-600 font-semibold mb-2 text-lg">About This Badge</h3>
                 <p className="text-gray-700 leading-relaxed">{selectedBadge.description}</p>
               </div>
 
               <div>
-                <h3 className="text-blue-600 font-semibold mb-2 text-lg">Key Skills & Expertise</h3>
+                <h3 className="text-green-600 font-semibold mb-2 text-lg">Key Skills & Expertise</h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedBadge.requiredSkills.split(', ').map((skill, index) => (
                     <span 
@@ -836,15 +836,15 @@ const TechTalentBadges = () => {
               </div>
 
               <div>
-                <h3 className="text-blue-600 font-semibold mb-2 text-lg">Badge Goals</h3>
+                <h3 className="text-green-600 font-semibold mb-2 text-lg">Badge Goals</h3>
                 <p className="text-gray-700 leading-relaxed">{selectedBadge.badgeGoals}</p>
               </div>
 
               <div>
-                <h3 className="text-blue-600 font-semibold mb-3 text-lg">Badge Progression Levels</h3>
+                <h3 className="text-green-600 font-semibold mb-3 text-lg">Badge Progression Levels</h3>
                 <div className="space-y-3">
                   {selectedBadge.levels.map((level, index) => {
-                    const colors = ['#f97316', '#3b82f6', '#f59e0b', '#2563eb'];
+                    const colors = ['#f97316', '#22c55e', '#f59e0b', '#16a34a'];
                     const descriptions = [
                       'Entry level - First successful project collaboration',
                       'Experienced - 5+ completed projects',
@@ -877,7 +877,7 @@ const TechTalentBadges = () => {
                 <Link
                   to="/projects"
                   onClick={closeBadgeModal}
-                  className="flex-1 bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold transition-all duration-500 transform hover:scale-105 shadow-md hover:shadow-lg text-center"
+                  className="flex-1 bg-gradient-to-r from-green-600 via-green-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold transition-all duration-500 transform hover:scale-105 shadow-md hover:shadow-lg text-center"
                 >
                   Start Earning This Badge
                 </Link>
@@ -910,26 +910,26 @@ const TechTalentBadges = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6">
                 Quick Links
               </h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Home</Link></li>
-                <li><Link to="/projects" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Projects</Link></li>
-                <li><Link to="/tech-badges" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Tech Badges</Link></li>
-                <li><Link to="/career/contact" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Contact</Link></li>
+                <li><Link to="/" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Home</Link></li>
+                <li><Link to="/projects" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Projects</Link></li>
+                <li><Link to="/tech-badges" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Tech Badges</Link></li>
+                <li><Link to="/career/contact" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Contact</Link></li>
               </ul>
             </div>
 
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6">
                 Support & Legal
               </h4>
               <ul className="space-y-2 sm:space-y-3">
-                <li><Link to="/career/support" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Support</Link></li>
-                <li><Link to="/career/about" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">About</Link></li>
-                <li><Link to="/career/terms" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Terms of Service</Link></li>
-                <li><Link to="/career/privacy" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">Privacy Policy</Link></li>
+                <li><Link to="/career/support" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Support</Link></li>
+                <li><Link to="/career/about" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">About</Link></li>
+                <li><Link to="/career/terms" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Terms of Service</Link></li>
+                <li><Link to="/career/privacy" className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">Privacy Policy</Link></li>
               </ul>
             </div>
           </div>
@@ -940,7 +940,7 @@ const TechTalentBadges = () => {
                 © {new Date().getFullYear()} Favored Online. All rights reserved.
               </p>
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl">•</span>
+                <span className="text-green-400 text-lg sm:text-xl">•</span>
                 <span className="text-gray-400 text-sm font-medium">Transforming Careers with AI</span>
                 <span className="text-orange-400 text-lg sm:text-xl">•</span>
               </div>
@@ -982,7 +982,7 @@ const TechTalentBadges = () => {
         }
 
         input:focus, textarea:focus, select:focus {
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+          box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
         }
         
         select option {

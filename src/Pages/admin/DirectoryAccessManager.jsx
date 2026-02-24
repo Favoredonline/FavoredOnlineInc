@@ -148,7 +148,7 @@ const DirectoryAccessManager = () => {
       return <span className="bg-red-500/20 text-red-400 px-2 py-1 rounded-full text-xs">Expired</span>;
     }
     if (request.accessType === 'manual_approval' && request.approved) {
-      return <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs">Manually Approved</span>;
+      return <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs">Manually Approved</span>;
     }
     if (request.status === 'denied' || request.status === 'revoked') {
       return <span className="bg-red-500/20 text-red-400 px-2 py-1 rounded-full text-xs">Denied</span>;
@@ -187,7 +187,7 @@ const DirectoryAccessManager = () => {
             <div className="text-gray-400 text-sm">Total Requests</div>
           </div>
           <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-            <div className="text-2xl font-bold text-blue-400">
+            <div className="text-2xl font-bold text-green-400">
               {accessRequests.filter(r => r.accessType === 'manual_approval' && !r.approved && r.status !== 'denied').length}
             </div>
             <div className="text-gray-400 text-sm">Pending Approval</div>
@@ -272,7 +272,7 @@ const DirectoryAccessManager = () => {
                       <span className={`px-2 py-1 rounded-full text-xs ${
                         request.accessType === 'paid' 
                           ? 'bg-green-500/20 text-green-400' 
-                          : 'bg-blue-500/20 text-blue-400'
+                          : 'bg-green-500/20 text-green-400'
                       }`}>
                         {request.accessType === 'paid' ? 'Paid' : 'Manual Approval'}
                       </span>

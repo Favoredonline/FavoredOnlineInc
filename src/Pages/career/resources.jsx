@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
+import { throttle } from '../../utils/throttle';
 
 // Video Analysis Data Integration
 const videoAnalysisData = {
@@ -192,9 +193,9 @@ const CareerResourcesHub = () => {
 
   // Mouse tracking for animated background
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = throttle((e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    }, 50);
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -202,15 +203,15 @@ const CareerResourcesHub = () => {
 
   // Resource Card Component
   const ResourceCard = ({ title, provider, type, cost, description, link, skills = [] }) => (
-    <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 border border-white/20">
+    <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1 border border-white/20">
       <div className="flex justify-between items-start mb-4">
         <h4 className="text-lg font-black text-white mb-2" style={{textShadow: '0 0 15px rgba(255,255,255,0.2)'}}>
           {title}
         </h4>
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-          cost === 'Free' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 
+          cost === 'Free' ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 
           cost.includes('$') ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' :
-          'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+          'bg-green-500/20 text-green-300 border border-green-500/30'
         }`}>
           {cost}
         </span>
@@ -233,7 +234,7 @@ const CareerResourcesHub = () => {
           <span className="text-orange-400 font-semibold text-sm block mb-2">Skills Covered:</span>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, idx) => (
-              <span key={idx} className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs border border-blue-500/30">
+              <span key={idx} className="px-2 py-1 bg-green-500/20 text-green-300 rounded-full text-xs border border-green-500/30">
                 {skill}
               </span>
             ))}
@@ -246,7 +247,7 @@ const CareerResourcesHub = () => {
           href={link} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all font-semibold text-sm"
+          className="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-lg hover:from-green-600 hover:to-green-700 transition-all font-semibold text-sm"
         >
           <span className="mr-2">🔗</span>
           Access Resource
@@ -257,20 +258,20 @@ const CareerResourcesHub = () => {
 
   // Enhanced Section Header for Career Guidance
   const CareerInsightsHeader = () => (
-    <div className="bg-gradient-to-r from-blue-600/20 via-orange-600/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-blue-500/30">
+    <div className="bg-gradient-to-r from-green-600/20 via-orange-600/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-green-500/30">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
         <div className="mb-4 lg:mb-0">
           <h3 className="text-2xl font-black text-white mb-2" style={{textShadow: '0 0 20px rgba(255,255,255,0.3)'}}>
             Career Intelligence Dashboard
           </h3>
-          <p className="text-blue-200">
+          <p className="text-green-200">
             Data-driven insights from {videoAnalysisData.project_info.total_videos_analyzed}+ tech career expert videos
           </p>
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
           <div className="bg-white/10 rounded-lg p-3">
-            <div className="text-2xl font-bold text-blue-400">{videoAnalysisData.trending_skills.length}</div>
+            <div className="text-2xl font-bold text-green-400">{videoAnalysisData.trending_skills.length}</div>
             <div className="text-xs text-gray-300">Top Skills</div>
           </div>
           <div className="bg-white/10 rounded-lg p-3">
@@ -278,7 +279,7 @@ const CareerResourcesHub = () => {
             <div className="text-xs text-gray-300">Career Paths</div>
           </div>
           <div className="bg-white/10 rounded-lg p-3">
-            <div className="text-2xl font-bold text-blue-400">{videoAnalysisData.career_advice_patterns.length}</div>
+            <div className="text-2xl font-bold text-green-400">{videoAnalysisData.career_advice_patterns.length}</div>
             <div className="text-xs text-gray-300">Expert Tips</div>
           </div>
           <div className="bg-white/10 rounded-lg p-3">
@@ -295,7 +296,7 @@ const CareerResourcesHub = () => {
           {videoAnalysisData.trending_skills.slice(0, 6).map((skill, idx) => (
             <span 
               key={idx} 
-              className="px-3 py-1 bg-gradient-to-r from-blue-500/30 to-orange-500/30 text-blue-200 rounded-full text-sm border border-blue-500/40"
+              className="px-3 py-1 bg-gradient-to-r from-green-500/30 to-orange-500/30 text-green-200 rounded-full text-sm border border-green-500/40"
               title={`Importance Score: ${skill.importance_score}% | Growth: ${skill.growth_trend}`}
             >
               {skill.name} ({skill.importance_score}%)
@@ -307,15 +308,15 @@ const CareerResourcesHub = () => {
   );
   
   const CertificationCard = ({ name, provider, cost, duration, description, level, link }) => (
-    <div className="bg-gradient-to-br from-orange-500/10 to-blue-500/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-orange-500/20 hover:shadow-orange-500/25 transition-all duration-300">
+    <div className="bg-gradient-to-br from-orange-500/10 to-green-500/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-orange-500/20 hover:shadow-orange-500/25 transition-all duration-300">
       <div className="flex justify-between items-start mb-4">
         <h4 className="text-lg font-black text-white mb-2" style={{textShadow: '0 0 15px rgba(255,255,255,0.2)'}}>
           {name}
         </h4>
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-          level === 'Beginner' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
+          level === 'Beginner' ? 'bg-green-500/20 text-green-300 border border-green-500/30' :
           level === 'Intermediate' ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' :
-          'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+          'bg-green-500/20 text-green-300 border border-green-500/30'
         }`}>
           {level}
         </span>
@@ -1911,7 +1912,7 @@ const CareerResourcesHub = () => {
       <div 
         className="fixed inset-0 opacity-30 pointer-events-none"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), transparent 40%)`
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1), transparent 40%)`
         }}
       />
 
@@ -1921,8 +1922,8 @@ const CareerResourcesHub = () => {
       {/* Main Content - Add top padding to account for fixed header */}
       <div className="pt-20 sm:pt-24">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-orange-500 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-orange-400/20 to-blue-400/20 animate-pulse"></div>
+        <div className="bg-gradient-to-r from-green-500 via-green-600 to-orange-500 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-orange-400/20 to-green-400/20 animate-pulse"></div>
           <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16 relative">
             <div className="text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight" 
@@ -1972,7 +1973,7 @@ const CareerResourcesHub = () => {
               }}
               className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/90 to-transparent z-10 flex items-center justify-center hover:from-black/100 transition-all duration-300 group"
             >
-              <svg className="w-6 h-6 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-gray-400 group-hover:text-green-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -1985,7 +1986,7 @@ const CareerResourcesHub = () => {
               }}
               className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/90 to-transparent z-10 flex items-center justify-center hover:from-black/100 transition-all duration-300 group"
             >
-              <svg className="w-6 h-6 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-gray-400 group-hover:text-green-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -1998,11 +1999,11 @@ const CareerResourcesHub = () => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center px-3 sm:px-4 lg:px-6 py-3 sm:py-4 font-bold transition-all duration-300 border-b-2 whitespace-nowrap text-sm sm:text-base ${
                       activeTab === tab.id
-                        ? 'border-blue-500 text-blue-400 bg-white/10'
-                        : 'border-transparent text-gray-300 hover:text-blue-400 hover:bg-white/5'
+                        ? 'border-green-500 text-green-400 bg-white/10'
+                        : 'border-transparent text-gray-300 hover:text-green-400 hover:bg-white/5'
                     }`}
                     style={{
-                      textShadow: activeTab === tab.id ? '0 0 10px rgba(59, 130, 246, 0.8)' : '1px 1px 2px rgba(0,0,0,0.8)',
+                      textShadow: activeTab === tab.id ? '0 0 10px rgba(34, 197, 94, 0.8)' : '1px 1px 2px rgba(0,0,0,0.8)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -2055,7 +2056,7 @@ const CareerResourcesHub = () => {
                 {activeTab === 'career-guidance' ? (
                   <div className="space-y-8">
                     {/* Career Transition and Planning */}
-                    <div className="bg-gradient-to-br from-blue-600/20 via-orange-600/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-8 border border-blue-500/30">
+                    <div className="bg-gradient-to-br from-green-600/20 via-orange-600/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-8 border border-green-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Career Planning and Transition Strategy
                       </h4>
@@ -2073,7 +2074,7 @@ const CareerResourcesHub = () => {
                     </div>
 
                     {/* High-Demand Skills and Market Analysis */}
-                    <div className="bg-gradient-to-br from-orange-600/20 via-blue-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
+                    <div className="bg-gradient-to-br from-orange-600/20 via-green-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Market-Driven Skill Development
                       </h4>
@@ -2091,7 +2092,7 @@ const CareerResourcesHub = () => {
                     </div>
 
                     {/* Expert-Backed Career Strategies */}
-                    <div className="bg-gradient-to-br from-blue-600/20 via-orange-600/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-8 border border-blue-500/30">
+                    <div className="bg-gradient-to-br from-green-600/20 via-orange-600/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-8 border border-green-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Expert-Validated Success Strategies
                       </h4>
@@ -2109,7 +2110,7 @@ const CareerResourcesHub = () => {
                     </div>
 
                     {/* Level-Specific Action Plans */}
-                    <div className="bg-gradient-to-br from-orange-600/20 via-blue-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
+                    <div className="bg-gradient-to-br from-orange-600/20 via-green-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Progressive Career Development Framework
                       </h4>
@@ -2127,7 +2128,7 @@ const CareerResourcesHub = () => {
                     </div>
 
                     {/* Career Path Analysis */}
-                    <div className="bg-gradient-to-br from-blue-600/20 via-orange-600/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-8 border border-blue-500/30">
+                    <div className="bg-gradient-to-br from-green-600/20 via-orange-600/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-8 border border-green-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Strategic Career Path Selection
                       </h4>
@@ -2145,13 +2146,13 @@ const CareerResourcesHub = () => {
                     </div>
 
                     {/* Key Resources and Next Steps */}
-                    <div className="bg-gradient-to-br from-orange-600/20 via-blue-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
+                    <div className="bg-gradient-to-br from-orange-600/20 via-green-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-8 border border-orange-500/30">
                       <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                         Essential Resources and Immediate Actions
                       </h4>
                       <div className="text-gray-200 leading-relaxed space-y-4">
                         <p>
-                          Start with the foundational video guide <a href="https://youtu.be/m-E6TeNjxj4" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline font-semibold">"Understanding Yourself in Tech"</a> which provides essential framework for career planning and self-assessment. This comprehensive resource covers career transition strategies, skill development priorities, industry trends, and professional growth pathways specifically tailored for tech careers.
+                          Start with the foundational video guide <a href="https://youtu.be/m-E6TeNjxj4" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">"Understanding Yourself in Tech"</a> which provides essential framework for career planning and self-assessment. This comprehensive resource covers career transition strategies, skill development priorities, industry trends, and professional growth pathways specifically tailored for tech careers.
                         </p>
                         <p>
                           Based on our analysis of expert recommendations, your immediate actions should include: conducting honest self-assessment of your strengths and interests, researching market demand for different specializations in your target location, and beginning to test different areas through small projects or internships. Don't try to learn everything at once—focus on 1-2 areas for deep expertise development.
@@ -2207,9 +2208,9 @@ const CareerResourcesHub = () => {
       </div>
 
       {/* Floating elements for visual appeal */}
-      <div className="fixed top-1/4 left-4 w-16 h-16 bg-blue-400/10 rounded-full blur-xl animate-bounce opacity-60 pointer-events-none"></div>
+      <div className="fixed top-1/4 left-4 w-16 h-16 bg-green-400/10 rounded-full blur-xl animate-bounce opacity-60 pointer-events-none"></div>
       <div className="fixed bottom-1/4 right-4 w-24 h-24 bg-orange-400/10 rounded-full blur-xl animate-pulse opacity-60 pointer-events-none"></div>
-      <div className="fixed top-1/2 left-1/4 w-12 h-12 bg-blue-400/10 rounded-full blur-xl animate-ping opacity-60 pointer-events-none"></div>
+      <div className="fixed top-1/2 left-1/4 w-12 h-12 bg-green-400/10 rounded-full blur-xl animate-ping opacity-60 pointer-events-none"></div>
 
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -2236,12 +2237,12 @@ const CareerResourcesHub = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 3px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
       `}</style>
     </div>

@@ -412,7 +412,7 @@ const EventSubmission = () => {
         <Navbar />
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-3 xs:px-4">
           <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
             <p className="text-white text-base xs:text-lg">Checking authentication...</p>
           </div>
         </div>
@@ -430,7 +430,7 @@ const EventSubmission = () => {
         <Navbar />
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-3 xs:px-4">
           <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
             <p className="text-white text-base xs:text-lg">Loading event data...</p>
           </div>
         </div>
@@ -449,8 +449,8 @@ const EventSubmission = () => {
             <section className="relative mb-12 xs:mb-16 sm:mb-20 md:mb-24 pt-6 xs:pt-8 sm:pt-12 md:pt-16">
               <div className="max-w-4xl mx-auto text-center">
                 
-                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg xs:rounded-xl border border-blue-500/20">
-                  <p className="text-blue-300 font-semibold text-xs xs:text-sm sm:text-base">
+                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-lg xs:rounded-xl border border-green-500/20">
+                  <p className="text-green-300 font-semibold text-xs xs:text-sm sm:text-base">
                     {isEditMode 
                       ? `Editing your event - make your changes and save!`
                       : `Welcome, ${currentUser.displayName || currentUser.email}! Create your event - it will be published instantly!`}
@@ -458,34 +458,34 @@ const EventSubmission = () => {
                 </div>
                 
                 <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-4 mb-4 xs:mb-5 sm:mb-6 md:mb-8 animate-pulse">
-                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping shadow-lg" 
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'}}></div>
-                  <span className="text-blue-300 uppercase tracking-widest text-[10px] xs:text-xs sm:text-sm md:text-base font-black" 
+                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping shadow-lg" 
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)'}}></div>
+                  <span className="text-green-300 uppercase tracking-widest text-[10px] xs:text-xs sm:text-sm md:text-base font-black" 
                         style={{
-                          textShadow: '0 0 20px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.9)',
+                          textShadow: '0 0 20px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.9)',
                           fontFamily: '"Inter", sans-serif',
                           letterSpacing: '0.1em'
                         }}>
                     Host Your Tech Event
                   </span>
-                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping shadow-lg" 
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'}}></div>
+                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping shadow-lg" 
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)'}}></div>
                 </div>
                 
                 <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 xs:mb-5 sm:mb-6 md:mb-8 lg:mb-12 leading-[0.9] tracking-tight"
                     style={{
                       fontFamily: '"Inter", sans-serif',
-                      background: 'linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #ffffff 100%)',
+                      background: 'linear-gradient(135deg, #ffffff 0%, #dcfce7 50%, #ffffff 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(59, 130, 246, 0.2)',
+                      textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(34, 197, 94, 0.2)',
                       filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))'
                     }}>
                   {isEditMode ? 'Edit Your' : 'Submit Your'}{' '}
-                  <span className="block mt-1 xs:mt-2 sm:mt-3 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-500"
+                  <span className="block mt-1 xs:mt-2 sm:mt-3 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-400 to-cyan-500"
                         style={{
                           textShadow: 'none',
-                          filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))',
+                          filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.5))',
                           animation: 'glow 2s ease-in-out infinite alternate'
                         }}>
                     Tech Event
@@ -498,11 +498,11 @@ const EventSubmission = () => {
                      fontFamily: '"Inter", sans-serif'
                    }}>
                   Share your expertise through workshops, webinars, and talks. 
-                  <span className="text-blue-300 font-semibold"> Your event will be published instantly</span> and visible to the community.
+                  <span className="text-green-300 font-semibold"> Your event will be published instantly</span> and visible to the community.
                 </p>
                 
-                <div className="h-1 xs:h-1.5 sm:h-2 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-blue-400 to-cyan-500 mx-auto rounded-full shadow-2xl mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-16"
-                     style={{boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)'}}></div>
+                <div className="h-1 xs:h-1.5 sm:h-2 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-green-400 to-cyan-500 mx-auto rounded-full shadow-2xl mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+                     style={{boxShadow: '0 0 40px rgba(34, 197, 94, 0.6)'}}></div>
               </div>
             </section>
 
@@ -564,7 +564,7 @@ const EventSubmission = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
                       <div className="lg:col-span-2">
-                        <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                        <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                           Event Title *
                         </label>
                         <input
@@ -573,13 +573,13 @@ const EventSubmission = () => {
                           value={formData.eventTitle}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                           placeholder="Enter your event title (e.g., Modern React Development Workshop)"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                        <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                           Event Type *
                         </label>
                         <select
@@ -587,7 +587,7 @@ const EventSubmission = () => {
                           value={formData.eventType}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                         >
                           <option value="">Select event type</option>
                           <option value="workshop">Workshop</option>
@@ -598,7 +598,7 @@ const EventSubmission = () => {
                       </div>
 
                       <div>
-                        <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                        <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                           Format *
                         </label>
                         <select
@@ -606,7 +606,7 @@ const EventSubmission = () => {
                           value={formData.format}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                         >
                           <option value="">Select format</option>
                           <option value="online">Online</option>
@@ -617,7 +617,7 @@ const EventSubmission = () => {
                     </div>
 
                     <div className="bg-white/5 p-4 xs:p-5 sm:p-6 rounded-lg xs:rounded-xl border border-white/10">
-                      <h3 className="text-blue-300 font-semibold text-base xs:text-lg mb-3 xs:mb-4 flex items-center gap-2">
+                      <h3 className="text-green-300 font-semibold text-base xs:text-lg mb-3 xs:mb-4 flex items-center gap-2">
                         <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -635,7 +635,7 @@ const EventSubmission = () => {
                             onChange={handleInputChange}
                             required
                             min={getMinDate()}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                           />
                         </div>
 
@@ -649,7 +649,7 @@ const EventSubmission = () => {
                             value={formData.startTime}
                             onChange={handleInputChange}
                             required
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                           />
                         </div>
                       </div>
@@ -674,7 +674,7 @@ const EventSubmission = () => {
                             onChange={handleInputChange}
                             required
                             min={formData.startDate || getMinDate()}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                           />
                         </div>
 
@@ -688,7 +688,7 @@ const EventSubmission = () => {
                             value={formData.endTime}
                             onChange={handleInputChange}
                             required
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                           />
                         </div>
                       </div>
@@ -720,7 +720,7 @@ const EventSubmission = () => {
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Event Description *
                       </label>
                       <textarea
@@ -729,13 +729,13 @@ const EventSubmission = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
                         placeholder="Provide a detailed description of your event..."
                       />
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Learning Objectives
                       </label>
                       <textarea
@@ -743,13 +743,13 @@ const EventSubmission = () => {
                         value={formData.learningObjectives}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
                         placeholder="What will attendees learn?"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Prerequisites & Requirements
                       </label>
                       <textarea
@@ -757,13 +757,13 @@ const EventSubmission = () => {
                         value={formData.requirements}
                         onChange={handleInputChange}
                         rows={3}
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
                         placeholder="Any prerequisites or materials needed..."
                       />
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Topics & Tags
                       </label>
                       <input
@@ -771,13 +771,13 @@ const EventSubmission = () => {
                         name="tags"
                         value={formData.tags}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                         placeholder="React, JavaScript, Frontend, API (comma-separated)"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Maximum Attendees (Optional)
                       </label>
                       <input
@@ -786,7 +786,7 @@ const EventSubmission = () => {
                         value={formData.maxAttendees}
                         onChange={handleInputChange}
                         min="1"
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                         placeholder="Leave empty for unlimited attendees"
                       />
                       <p className="text-gray-400 text-xs xs:text-sm mt-2">Set a maximum number of attendees or leave empty for unlimited</p>
@@ -804,7 +804,7 @@ const EventSubmission = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
                       <div>
-                        <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                        <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                           Your Name *
                         </label>
                         <input
@@ -813,13 +813,13 @@ const EventSubmission = () => {
                           value={formData.organizerName}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                           placeholder="Enter your full name"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                        <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                           Contact Email *
                         </label>
                         <input
@@ -828,14 +828,14 @@ const EventSubmission = () => {
                           value={formData.organizerEmail}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                           placeholder="your.email@example.com"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Your Bio & Expertise
                       </label>
                       <textarea
@@ -843,7 +843,7 @@ const EventSubmission = () => {
                         value={formData.organizerBio}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
+                        className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
                         placeholder="Tell attendees about your background and expertise..."
                       />
                     </div>
@@ -859,7 +859,7 @@ const EventSubmission = () => {
                     </h2>
 
                     <div>
-                      <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                      <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                         Meeting URL (Google Meet / Zoom)
                       </label>
                       <input
@@ -867,7 +867,7 @@ const EventSubmission = () => {
                         name="meetingUrl"
                         value={formData.meetingUrl}
                         onChange={handleMeetingUrlChange}
-                        className={`w-full bg-white/10 backdrop-blur-sm border ${urlError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base`}
+                        className={`w-full bg-white/10 backdrop-blur-sm border ${urlError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base`}
                         placeholder="https://meet.google.com/abc-defg-hij"
                       />
                       {urlError && (
@@ -897,7 +897,7 @@ const EventSubmission = () => {
                   </div>
 
                   <div>
-                    <label className="block text-blue-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
+                    <label className="block text-green-300 font-semibold mb-2 xs:mb-3 text-sm xs:text-base sm:text-lg">
                       Additional Information
                     </label>
                     <textarea
@@ -905,7 +905,7 @@ const EventSubmission = () => {
                       value={formData.additionalInfo}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
+                      className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 resize-vertical text-sm xs:text-base"
                       placeholder="Any additional details or special notes..."
                     />
                   </div>
@@ -965,13 +965,13 @@ const EventSubmission = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting || urlError || dateError}
-                      className="group relative bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-600 text-white px-8 xs:px-10 sm:px-12 py-4 xs:py-5 sm:py-6 rounded-full font-black text-base xs:text-lg sm:text-xl transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[56px]"
+                      className="group relative bg-gradient-to-r from-green-500 via-green-600 to-cyan-600 text-white px-8 xs:px-10 sm:px-12 py-4 xs:py-5 sm:py-6 rounded-full font-black text-base xs:text-lg sm:text-xl transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none min-h-[56px]"
                       style={{
-                        boxShadow: '0 0 40px rgba(59, 130, 246, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
+                        boxShadow: '0 0 40px rgba(34, 197, 94, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
                         fontFamily: '"Inter", sans-serif'
                       }}
                     >
-                      <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-400 via-green-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                       <span className="relative flex items-center justify-center gap-2">
                         {isSubmitting ? (
                           <>
@@ -1005,19 +1005,19 @@ const EventSubmission = () => {
           @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
           
           @keyframes glow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
-            50% { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.8)); }
           }
           
           * { font-family: 'Inter', sans-serif; }
           
           ::-webkit-scrollbar { width: 8px; }
           ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
-          ::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.5); border-radius: 4px; }
-          ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.7); }
+          ::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.5); border-radius: 4px; }
+          ::-webkit-scrollbar-thumb:hover { background: rgba(34, 197, 94, 0.7); }
 
           input:focus, textarea:focus, select:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
           }
           
           select option {

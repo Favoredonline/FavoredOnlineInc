@@ -45,12 +45,12 @@
   }
   
   /* Keep the colors for the content */
-  .text-blue-700, .text-blue-800, .text-blue-600 {
-    color: #1d4ed8 !important; /* Ensure blue text prints dark enough */
+  .text-green-700, .text-green-800, .text-green-600 {
+    color: #15803d !important; /* Ensure blue text prints dark enough */
   }
   
   /* Ensure the progress bars are visible in print */
-  .bg-blue-600, .bg-green-500, .bg-purple-500 {
+  .bg-green-600, .bg-green-500, .bg-purple-500 {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;
@@ -82,8 +82,8 @@
 }
 
 /* Special class for html2pdf export */
-.exporting .bg-blue-50 {
-  background-color: #eff6ff !important;
+.exporting .bg-green-50 {
+  background-color: #f0fdf4 !important;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
 }
@@ -93,7 +93,7 @@
 }
 
 /* Make bullet points more pronounced */
-.text-blue-600.mr-2 {
+.text-green-600.mr-2 {
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -102,7 +102,7 @@
 .skills-gap-item {
   margin-bottom: 1rem;
   padding-left: 1rem;
-  border-left: 2px solid #dbeafe;
+  border-left: 2px solid #dcfce7;
 }
 
 /* Skeleton animation */
@@ -135,7 +135,7 @@
 
 /* Specific style for skills gap headings */
 .skills-heading {
-  color: #1e40af; /* blue-800 */
+  color: #166534; /* green-800 */
   font-weight: bold;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;

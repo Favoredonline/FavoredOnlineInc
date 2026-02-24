@@ -27,8 +27,8 @@ const CareerAbout = () => {
               
               {/* Animated Badge */}
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-blue-500 rounded-full animate-ping"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
+                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-green-500 rounded-full animate-ping"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         letterSpacing: '0.1em'
@@ -44,12 +44,12 @@ const CareerAbout = () => {
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 About{' '}
-                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700">
+                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-500 to-green-700">
                   Favored Online
                 </span>
               </h1>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
             </div>
           </section>
 
@@ -85,12 +85,12 @@ const CareerAbout = () => {
                   <span className="text-orange-600 font-semibold">ProjectX</span> bridges the gap between academia and industry by empowering students with real-world, project-driven learning. Earn <span className="text-orange-600 font-semibold">TechTalent Badges</span> that demonstrate your skills, achievements, and problem-solving abilities while collaborating on hands-on projects.
                 </p>
                 
-                <div className="bg-gradient-to-r from-blue-50 to-orange-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border-2 border-blue-200 transform hover:scale-105 transition-transform duration-500">
+                <div className="bg-gradient-to-r from-green-50 to-orange-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border-2 border-green-200 transform hover:scale-105 transition-transform duration-500">
                   <p className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-relaxed font-light text-center" 
                      style={{
                        fontFamily: '"Inter", sans-serif'
                      }}>
-                    With our <span className="text-blue-600 font-semibold">Smart Career Navigator</span>, learners from diverse backgrounds can develop tech skills through personalized insights, curated resources, career guidance, and interview preparation—turning projects into pathways for growing tech careers.
+                    With our <span className="text-green-600 font-semibold">Smart Career Navigator</span>, learners from diverse backgrounds can develop tech skills through personalized insights, curated resources, career guidance, and interview preparation—turning projects into pathways for growing tech careers.
                   </p>
                 </div>
 
@@ -98,9 +98,9 @@ const CareerAbout = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
                   
                   {/* Real-World Projects */}
-                  <div className="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-blue-300 shadow-lg transform hover:scale-105 transition-all duration-500">
+                  <div className="group bg-gradient-to-br from-green-50 to-green-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-green-300 shadow-lg transform hover:scale-105 transition-all duration-500">
                     <div className="text-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white text-lg sm:text-xl font-bold mx-auto mb-4 sm:mb-6 shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-600 to-green-700 rounded-full flex items-center justify-center text-white text-lg sm:text-xl font-bold mx-auto mb-4 sm:mb-6 shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
                         BUILD
                       </div>
                       <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-3 sm:mb-4" 
@@ -134,9 +134,9 @@ const CareerAbout = () => {
                   </div>
 
                   {/* Smart Career Navigator */}
-                  <div className="group bg-gradient-to-br from-blue-50 to-orange-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-blue-300 shadow-lg transform hover:scale-105 transition-all duration-500">
+                  <div className="group bg-gradient-to-br from-green-50 to-orange-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-green-300 shadow-lg transform hover:scale-105 transition-all duration-500">
                     <div className="text-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full flex items-center justify-center text-white text-lg sm:text-xl font-bold mx-auto mb-4 sm:mb-6 shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-600 to-orange-600 rounded-full flex items-center justify-center text-white text-lg sm:text-xl font-bold mx-auto mb-4 sm:mb-6 shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
                         GUIDE
                       </div>
                       <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-3 sm:mb-4" 
@@ -189,7 +189,7 @@ const CareerAbout = () => {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -197,17 +197,17 @@ const CareerAbout = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/about" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/about" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/contact" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Contact
                   </Link>
                 </li>
@@ -216,7 +216,7 @@ const CareerAbout = () => {
 
             {/* Support & Legal */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -224,17 +224,17 @@ const CareerAbout = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/career/support" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/support" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Support
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/terms" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/terms" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/privacy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Privacy Policy
                   </Link>
                 </li>
@@ -256,7 +256,7 @@ const CareerAbout = () => {
 
               {/* Social or Additional Info */}
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl animate-pulse">•</span>
+                <span className="text-green-400 text-lg sm:text-xl animate-pulse">•</span>
                 <span className="text-gray-300 text-sm font-medium">
                   Transforming Careers with AI
                 </span>
@@ -289,12 +289,12 @@ const CareerAbout = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
 
         /* Enhanced touch targets for mobile */

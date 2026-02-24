@@ -151,7 +151,7 @@ const TestDailyDigest = () => {
               <button 
                 onClick={testDebugMode}
                 disabled={loading}
-                className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors disabled:opacity-50"
+                className="bg-green-600 hover:bg-green-700 text-white p-3 rounded-lg transition-colors disabled:opacity-50"
               >
                 🐛 Test Debug Mode
               </button>

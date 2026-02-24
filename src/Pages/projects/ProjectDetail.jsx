@@ -187,7 +187,7 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-base sm:text-lg">Loading project...</p>
         </div>
       </div>
@@ -202,7 +202,7 @@ const ProjectDetail = () => {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{error || 'Project not found'}</h2>
           <button 
             onClick={() => navigate('/projects')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
           >
             Back to Projects
           </button>
@@ -225,7 +225,7 @@ const ProjectDetail = () => {
           <div className="mb-6 sm:mb-8">
             <button 
               onClick={() => navigate('/projects')}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to Projects
@@ -234,7 +234,7 @@ const ProjectDetail = () => {
 
           {/* Project Banner */}
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm mb-6 sm:mb-8">
-            <div className="relative h-48 sm:h-64 md:h-80 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+            <div className="relative h-48 sm:h-64 md:h-80 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl sm:text-7xl md:text-8xl mb-3 sm:mb-4 opacity-60">
                   {getIndustryIcon(project.industryTrack)}
@@ -246,7 +246,7 @@ const ProjectDetail = () => {
 
               {/* Status Badges */}
               <div className="absolute top-4 right-4 flex flex-col gap-2">
-                <div className="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold shadow-sm">
+                <div className="bg-green-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold shadow-sm">
                   ✓ VERIFIED
                 </div>
                 {isProjectOwner(project) && (
@@ -308,8 +308,8 @@ const ProjectDetail = () => {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     {project.startDate && (
-                      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6">
-                        <h3 className="text-blue-700 font-bold text-base sm:text-lg mb-2">Start Date</h3>
+                      <div className="bg-green-50 border border-green-200 rounded-xl p-4 sm:p-6">
+                        <h3 className="text-green-700 font-bold text-base sm:text-lg mb-2">Start Date</h3>
                         <p className="text-gray-900 font-bold text-lg sm:text-xl mb-1">
                           {formatDateAsText(project.startDate)}
                         </p>
@@ -317,7 +317,7 @@ const ProjectDetail = () => {
                           const days = calculateDaysUntilStart(project.startDate);
                           if (days !== null && days > 0) {
                             return (
-                              <p className="text-blue-600 text-xs sm:text-sm font-medium">
+                              <p className="text-green-600 text-xs sm:text-sm font-medium">
                                 In {days} day{days !== 1 ? 's' : ''}
                               </p>
                             );
@@ -349,7 +349,7 @@ const ProjectDetail = () => {
                     {project.requiredSkills.split(',').map((skill, index) => (
                       <span 
                         key={index} 
-                        className="bg-blue-100 text-blue-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm border border-blue-200"
+                        className="bg-green-100 text-green-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm border border-green-200"
                       >
                         {skill.trim()}
                       </span>
@@ -367,13 +367,13 @@ const ProjectDetail = () => {
                   <div className="space-y-4 sm:space-y-6">
                     {project.projectGoals && (
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-blue-600 mb-2 sm:mb-3">Project Goals</h3>
+                        <h3 className="text-base sm:text-lg font-bold text-green-600 mb-2 sm:mb-3">Project Goals</h3>
                         <p className="text-gray-700 leading-relaxed text-sm sm:text-base whitespace-pre-line">{project.projectGoals}</p>
                       </div>
                     )}
                     {project.additionalInfo && (
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-blue-600 mb-2 sm:mb-3">Additional Notes</h3>
+                        <h3 className="text-base sm:text-lg font-bold text-green-600 mb-2 sm:mb-3">Additional Notes</h3>
                         <p className="text-gray-700 leading-relaxed text-sm sm:text-base whitespace-pre-line">{project.additionalInfo}</p>
                       </div>
                     )}
@@ -410,7 +410,7 @@ const ProjectDetail = () => {
                   {project.startDate && (
                     <div className="flex justify-between items-start gap-2 border-b border-gray-200 pb-2">
                       <span className="text-gray-600 text-xs sm:text-sm">Start Date:</span>
-                      <span className="text-blue-600 font-semibold text-xs sm:text-sm text-right">
+                      <span className="text-green-600 font-semibold text-xs sm:text-sm text-right">
                         {formatDateAsText(project.startDate)}
                       </span>
                     </div>
@@ -446,7 +446,7 @@ const ProjectDetail = () => {
                       <span className="text-gray-600 text-xs sm:text-sm block mb-2">Project URL:</span>
                       <button
                         onClick={() => handleProjectUrlClick(project.projectUrl)}
-                        className="text-blue-600 hover:text-blue-700 transition-colors text-xs sm:text-sm font-medium break-all text-left"
+                        className="text-green-600 hover:text-green-700 transition-colors text-xs sm:text-sm font-medium break-all text-left"
                       >
                         {project.projectUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                         <span className="ml-1">↗</span>
@@ -470,7 +470,7 @@ const ProjectDetail = () => {
                       className={`block w-full text-center ${
                         hasApplied 
                           ? 'bg-gray-400 cursor-not-allowed' 
-                          : 'bg-blue-600 hover:bg-blue-700'
+                          : 'bg-green-600 hover:bg-green-700'
                       } text-white px-6 py-3 sm:py-4 rounded-lg font-bold transition-colors text-sm sm:text-base ${
                         hasApplied ? 'pointer-events-none' : ''
                       }`}

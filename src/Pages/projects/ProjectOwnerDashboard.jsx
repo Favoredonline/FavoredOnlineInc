@@ -255,7 +255,7 @@ const ProjectOwnerDashboard = () => {
           {/* Page Header */}
           <section className="text-center mb-8 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-3 sm:mb-4">
-              My <span className="text-blue-600">Projects</span>
+              My <span className="text-green-600">Projects</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600">Manage your projects and team applications</p>
           </section>
@@ -265,7 +265,7 @@ const ProjectOwnerDashboard = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
                 <p className="text-gray-600 text-xs sm:text-sm font-medium mb-1">Total Projects</p>
-                <p className="text-2xl sm:text-3xl font-black text-blue-600">{myProjects.length}</p>
+                <p className="text-2xl sm:text-3xl font-black text-green-600">{myProjects.length}</p>
               </div>
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
                 <p className="text-gray-600 text-xs sm:text-sm font-medium mb-1">Active Teams</p>
@@ -273,7 +273,7 @@ const ProjectOwnerDashboard = () => {
               </div>
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
                 <p className="text-gray-600 text-xs sm:text-sm font-medium mb-1">Applications</p>
-                <p className="text-2xl sm:text-3xl font-black text-blue-600">{myProjects.reduce((sum, p) => sum + (p.pendingApplications || 0), 0)}</p>
+                <p className="text-2xl sm:text-3xl font-black text-green-600">{myProjects.reduce((sum, p) => sum + (p.pendingApplications || 0), 0)}</p>
               </div>
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
                 <p className="text-gray-600 text-xs sm:text-sm font-medium mb-1">Team Members</p>
@@ -290,7 +290,7 @@ const ProjectOwnerDashboard = () => {
                 <p className="text-gray-600 mb-6 sm:mb-8">Submit your first project to start building your team!</p>
                 <Link 
                   to="/submit-project"
-                  className="inline-block bg-gradient-to-r from-orange-600 to-blue-600 hover:from-orange-700 hover:to-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all text-sm sm:text-base"
+                  className="inline-block bg-gradient-to-r from-orange-600 to-green-600 hover:from-orange-700 hover:to-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all text-sm sm:text-base"
                 >
                   Submit Your First Project
                 </Link>
@@ -326,7 +326,7 @@ const ProjectCard = ({ project, currentUser }) => {
               {project.status}
             </span>
             {project.pendingApplications > 0 && !isCompleted && (
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap">
                 {project.pendingApplications} app{project.pendingApplications !== 1 ? 's' : ''}
               </span>
             )}
@@ -381,8 +381,8 @@ const ProjectCard = ({ project, currentUser }) => {
           </div>
         </div>
       ) : (
-        <div className="mb-4 sm:mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-          <h4 className="text-blue-700 font-semibold text-sm sm:text-base">Group Created</h4>
+        <div className="mb-4 sm:mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <h4 className="text-green-700 font-semibold text-sm sm:text-base">Group Created</h4>
           <p className="text-gray-700 text-xs sm:text-sm mt-1">Your collaboration group was created. Applications available soon.</p>
         </div>
       )}
@@ -391,7 +391,7 @@ const ProjectCard = ({ project, currentUser }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
         <Link 
           to={`/projects/${project.id}`} 
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
+          className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
         >
           View Details
         </Link>
@@ -419,7 +419,7 @@ const ProjectCard = ({ project, currentUser }) => {
         <div className="space-y-3 sm:space-y-4">
           <button 
             onClick={() => setShowApplications(!showApplications)} 
-            className="w-full bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-semibold transition-all flex items-center justify-between text-sm"
+            className="w-full bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-semibold transition-all flex items-center justify-between text-sm"
           >
             <span>Manage Applications ({project.pendingApplications})</span>
             <span className={`transition-transform ${showApplications ? 'rotate-180' : ''}`}>▼</span>
@@ -725,13 +725,13 @@ const ProjectApplicationManager = ({ projectId, groupData, currentUser }) => {
             <div className="flex-1 min-w-0">
               <h4 className="font-bold text-gray-900 text-sm sm:text-base truncate">{app.applicantName}</h4>
               <p className="text-gray-600 text-xs sm:text-sm truncate">{app.applicantEmail}</p>
-              <p className="text-blue-600 text-xs sm:text-sm">Role: {app.interestedRole || 'Developer'}</p>
+              <p className="text-green-600 text-xs sm:text-sm">Role: {app.interestedRole || 'Developer'}</p>
               {app.availableStart && (
                 <p className="text-gray-500 text-xs">Available: {new Date(app.availableStart).toLocaleDateString()}</p>
               )}
             </div>
             <span className={`px-2 py-1 rounded text-xs font-semibold whitespace-nowrap ${
-              app.status === 'submitted' ? 'bg-blue-100 text-blue-700' :
+              app.status === 'submitted' ? 'bg-green-100 text-green-700' :
               app.status === 'under_review' ? 'bg-orange-100 text-orange-700' :
               'bg-gray-100 text-gray-700'
             }`}>
@@ -752,7 +752,7 @@ const ProjectApplicationManager = ({ projectId, groupData, currentUser }) => {
                 href={app.portfolio} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-blue-600 hover:text-blue-800 underline text-xs sm:text-sm break-all"
+                className="text-green-600 hover:text-green-800 underline text-xs sm:text-sm break-all"
               >
                 View Portfolio →
               </a>

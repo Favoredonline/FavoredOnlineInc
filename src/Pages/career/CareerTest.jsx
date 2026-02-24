@@ -9,16 +9,17 @@ import googleFormService from '../../services/googleFormService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import { useAuth } from '../../context/AuthContext';
+import { throttle } from '../../utils/throttle';
 
 // Option 1: Remove the icon since it's not being used
 const EnhancedFormSection = React.memo(({ title, children }) => (
   <div className="bg-gradient-to-br from-black/30 via-gray-900/30 to-black/30 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-500 group">
     <div className="flex items-center mb-6 sm:mb-8">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl md:text-3xl mr-3 sm:mr-4 md:mr-6 shadow-2xl transform group-hover:rotate-12 transition-transform duration-500">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl md:text-3xl mr-3 sm:mr-4 md:mr-6 shadow-2xl transform group-hover:rotate-12 transition-transform duration-500">
         {/* Icon removed - or add a default icon here */}
         ✓
       </div>
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white group-hover:text-blue-300 transition-colors duration-500" 
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white group-hover:text-green-300 transition-colors duration-500" 
           style={{
             textShadow: '0 0 20px rgba(255,255,255,0.3), 2px 2px 4px rgba(0,0,0,0.9)',
             fontFamily: '"Inter", sans-serif'
@@ -98,9 +99,9 @@ const CareerTest = () => {
 
   // Mouse tracking effect
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = throttle((e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    }, 50);
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -635,7 +636,7 @@ const CareerTest = () => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {options.map(option => (
-          <div key={option.value} className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-blue-400/50 transition-all duration-300 group backdrop-blur-sm">
+          <div key={option.value} className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-green-400/50 transition-all duration-300 group backdrop-blur-sm">
             <input
               type="checkbox"
               id={`${fieldName}-${option.value}`}
@@ -643,12 +644,12 @@ const CareerTest = () => {
               value={option.value}
               checked={formData[fieldName].includes(option.value)}
               onChange={() => handleCheckboxChange(fieldName, option.value)}
-              className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded bg-white/80"
+              className="mr-3 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded bg-white/80"
               required={required && formData[fieldName].length === 0}
             />
             <label 
               htmlFor={`${fieldName}-${option.value}`}
-              className="text-sm font-medium text-white cursor-pointer flex-1 group-hover:text-blue-300 transition-colors duration-300"
+              className="text-sm font-medium text-white cursor-pointer flex-1 group-hover:text-green-300 transition-colors duration-300"
               style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
             >
               {option.label}
@@ -660,9 +661,9 @@ const CareerTest = () => {
   }, [formData, handleCheckboxChange]);
 
   // Enhanced input styling
-  const inputClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition-all duration-300 hover:border-white/40 text-white placeholder-gray-300 font-medium";
-  const textareaClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition-all duration-300 hover:border-white/40 text-white placeholder-gray-300 font-medium resize-none";
-  const selectClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition-all duration-300 hover:border-white/40 text-white font-medium";
+  const inputClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-300 hover:border-white/40 text-white placeholder-gray-300 font-medium";
+  const textareaClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-300 hover:border-white/40 text-white placeholder-gray-300 font-medium resize-none";
+  const selectClassName = "w-full p-4 border-2 border-white/20 bg-white/10 backdrop-blur-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-300 hover:border-white/40 text-white font-medium";
 
   // Memoize options arrays to prevent re-creation on every render
 const toolsOptions = useMemo(() => [
@@ -848,18 +849,18 @@ const toolsOptions = useMemo(() => [
         <div 
           className="fixed inset-0 opacity-30 pointer-events-none"
           style={{
-            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), transparent 40%)`
+            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1), transparent 40%)`
           }}
         />
         
         <div className="bg-gradient-to-br from-black/50 via-gray-900/50 to-black/50 backdrop-blur-2xl p-12 rounded-3xl shadow-2xl border border-white/20 text-center transform animate-pulse">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-transparent mx-auto mb-6 shadow-2xl"
-               style={{filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8))'}}></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-green-500 border-t-transparent mx-auto mb-6 shadow-2xl"
+               style={{filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.8))'}}></div>
           <p className="text-white text-xl font-semibold mb-2" 
              style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
             {aiAnalyzing ? "AI is analyzing your career path..." : "Loading your career assessment..."}
           </p>
-          <p className="text-blue-300 text-sm" 
+          <p className="text-green-300 text-sm" 
              style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
             This may take a few moments
           </p>
@@ -874,7 +875,7 @@ const toolsOptions = useMemo(() => [
       <div 
         className="fixed inset-0 opacity-30 pointer-events-none"
         style={{
-          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1), transparent 40%)`
+          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1), transparent 40%)`
         }}
       />
 
@@ -889,18 +890,18 @@ const toolsOptions = useMemo(() => [
             <div className="text-center mb-8 sm:mb-12">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4" 
                   style={{
-                    background: 'linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #ffffff 100%)',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #dcfce7 50%, #ffffff 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(59, 130, 246, 0.2)',
+                    textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(34, 197, 94, 0.2)',
                     filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))',
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 Career{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-orange-500"
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-400 to-orange-500"
                       style={{
                         textShadow: 'none',
-                        filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))',
+                        filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.5))',
                         animation: 'glow 2s ease-in-out infinite alternate'
                       }}>
                   Assessment
@@ -939,15 +940,15 @@ const toolsOptions = useMemo(() => [
             <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 sm:mb-12 border border-white/20 shadow-2xl">
               <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                 <div className="flex items-center">
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 shadow-2xl"
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'}}>
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 shadow-2xl"
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)'}}>
                     <span className="font-black">1</span>
                   </div>
                   <span className="font-bold text-white text-lg" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>Career Assessment</span>
                 </div>
                 <div className="flex-1 mx-4 h-3 bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full w-1/3 shadow-lg animate-pulse"
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.6)'}}></div>
+                  <div className="h-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full w-1/3 shadow-lg animate-pulse"
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.6)'}}></div>
                 </div>
                 <div className="flex items-center opacity-60">
                   <div className="bg-white/20 text-gray-400 rounded-full w-12 h-12 flex items-center justify-center mr-4">
@@ -1579,9 +1580,9 @@ const toolsOptions = useMemo(() => [
                 <div className="text-center">
                   <div className="text-sm text-gray-300 mb-8" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
                     By continuing, you agree to our{' '}
-                    <a href="/terms" className="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300">Terms of Service</a>
+                    <a href="/terms" className="text-green-400 hover:text-green-300 font-medium transition-colors duration-300">Terms of Service</a>
                     {' '}and acknowledge you've read our{' '}
-                    <a href="/privacy" className="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300">Privacy Policy</a>.
+                    <a href="/privacy" className="text-green-400 hover:text-green-300 font-medium transition-colors duration-300">Privacy Policy</a>.
                   </div>
                   
                   <button 
@@ -1589,9 +1590,9 @@ const toolsOptions = useMemo(() => [
                     disabled={loading || aiAnalyzing}
                     onClick={handleButtonClick}
                     onTouchStart={handleButtonClick}
-                    className="relative bg-gradient-to-r from-blue-500 via-blue-500 to-orange-600 disabled:from-gray-500 disabled:via-gray-600 disabled:to-gray-700 text-white px-12 py-6 rounded-2xl font-black text-xl transition-all duration-300 shadow-2xl w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="relative bg-gradient-to-r from-green-500 via-green-500 to-orange-600 disabled:from-gray-500 disabled:via-gray-600 disabled:to-gray-700 text-white px-12 py-6 rounded-2xl font-black text-xl transition-all duration-300 shadow-2xl w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
                       fontFamily: '"Inter", sans-serif',
                       minHeight: '64px',
                       touchAction: 'manipulation',
@@ -1622,8 +1623,8 @@ const toolsOptions = useMemo(() => [
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
         
         @keyframes glow {
-          0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
-          50% { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
+          0%, 100% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5)); }
+          50% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.8)); }
         }
         
         @keyframes fadeIn {
@@ -1649,12 +1650,12 @@ const toolsOptions = useMemo(() => [
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
 
         /* Mobile-specific fixes */
@@ -1687,7 +1688,7 @@ const toolsOptions = useMemo(() => [
         /* Focus states for accessibility */
         input:focus, textarea:focus, select:focus {
           outline: none;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+          box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
         }
 
         /* Enhanced hover effects */
@@ -1699,7 +1700,7 @@ const toolsOptions = useMemo(() => [
           transform: scale(1.25);
         }
 
-        .group:hover .group-hover\:text-blue-300 {
+        .group:hover .group-hover\:text-green-300 {
           color: rgb(147 197 253);
         }
       `}</style>

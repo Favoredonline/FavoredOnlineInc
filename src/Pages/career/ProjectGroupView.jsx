@@ -102,7 +102,7 @@ const LinkInsertModal = ({ isOpen, onClose, onInsert }) => {
                 type="text"
                 value={linkText}
                 onChange={(e) => setLinkText(e.target.value)}
-                className="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base"
+                className="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 text-sm sm:text-base"
                 placeholder="Display text for the link"
                 maxLength={100}
               />
@@ -119,7 +119,7 @@ const LinkInsertModal = ({ isOpen, onClose, onInsert }) => {
                 type="url"
                 value={linkUrl}
                 onChange={(e) => setLinkUrl(e.target.value)}
-                className="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base"
+                className="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 text-sm sm:text-base"
                 placeholder="https://example.com"
                 required
               />
@@ -133,7 +133,7 @@ const LinkInsertModal = ({ isOpen, onClose, onInsert }) => {
             <button
               onClick={handleInsert}
               disabled={!linkUrl.trim()}
-              className="bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+              className="bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
             >
               Insert Link
             </button>
@@ -157,7 +157,7 @@ const renderContentWithLinks = (content) => {
   const processedContent = content.replace(urlRegex, (url) => {
     if (validateUrl(url)) {
       const displayText = url.length > 50 ? url.substring(0, 47) + '...' : url;
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline transition-colors font-medium">${displayText}</a>`;
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-800 underline transition-colors font-medium">${displayText}</a>`;
     }
     return url;
   });
@@ -220,7 +220,7 @@ const LikesPreview = ({ post, onOpenModal, previewUsers = [] }) => {
         {previewUsers.slice(0, 3).map((user, index) => (
           <div
             key={user?.uid || index}
-            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full border-2 border-white group-hover:border-gray-100 transition-colors overflow-hidden bg-gradient-to-r from-blue-500 to-orange-500 flex items-center justify-center shadow-sm"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full border-2 border-white group-hover:border-gray-100 transition-colors overflow-hidden bg-gradient-to-r from-green-500 to-orange-500 flex items-center justify-center shadow-sm"
             style={{ zIndex: 10 - index }}
           >
             {user?.photoURL ? (
@@ -284,14 +284,14 @@ const LikesModal = ({ postId, isOpen, onClose, likesData, likeCount }) => {
         <div className="overflow-y-auto max-h-[60vh] sm:max-h-80">
           {users.length === 0 ? (
             <div className="p-4 sm:p-6 text-center">
-              <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-blue-500 mx-auto mb-3 sm:mb-4"></div>
+              <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-green-500 mx-auto mb-3 sm:mb-4"></div>
               <p className="text-gray-400 text-sm">Loading users...</p>
             </div>
           ) : (
             <div className="p-2 sm:p-3 md:p-4 space-y-2 sm:space-y-3">
               {users.map((user, index) => (
                 <div key={user.uid || index} className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gradient-to-r from-green-500 to-orange-500 flex items-center justify-center flex-shrink-0">
                     {user.photoURL ? (
                       <img 
                         src={user.photoURL} 
@@ -959,7 +959,7 @@ const ProjectGroupView = () => {
       case 'completing':
         return 'bg-orange-50 text-orange-700 border-orange-200';
       case 'completed':
-        return 'bg-blue-50 text-blue-700 border-blue-200';
+        return 'bg-green-50 text-green-700 border-green-200';
       default:
         return 'bg-gray-50 text-gray-600 border-gray-200';
     }
@@ -991,7 +991,7 @@ const ProjectGroupView = () => {
         </h3>
         <button
           onClick={() => setShowRepositoryInfo(!showRepositoryInfo)}
-          className="text-blue-600 hover:text-blue-700 transition-colors text-base sm:text-lg p-1 min-w-[32px] min-h-[32px] flex items-center justify-center"
+          className="text-green-600 hover:text-green-700 transition-colors text-base sm:text-lg p-1 min-w-[32px] min-h-[32px] flex items-center justify-center"
         >
           {showRepositoryInfo ? '▼' : '▶'}
         </button>
@@ -1012,7 +1012,7 @@ const ProjectGroupView = () => {
       {showRepositoryInfo && (
         <div className="space-y-3 sm:space-y-4 text-sm">
           <div className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4">
-            <h4 className="text-blue-700 font-semibold mb-2 text-sm sm:text-base">Repository Requirements</h4>
+            <h4 className="text-green-700 font-semibold mb-2 text-sm sm:text-base">Repository Requirements</h4>
             <ul className="text-gray-600 space-y-1 sm:space-y-2 text-xs sm:text-sm">
               <li>All project code must be submitted to the Favored Online repository</li>
               <li>Code must be well-documented with clear README files</li>
@@ -1037,16 +1037,16 @@ const ProjectGroupView = () => {
               <p className="text-orange-700 font-semibold text-xs sm:text-sm">Email to:</p>
               <a
                 href="mailto:info.favoredonline@gmail.com"
-                className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-xs sm:text-sm break-all"
+                className="text-green-600 hover:text-green-700 font-semibold transition-colors text-xs sm:text-sm break-all"
               >
                 info.favoredonline@gmail.com
               </a>
             </div>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
-            <h4 className="text-blue-700 font-semibold mb-2 text-sm sm:text-base">Repository Setup</h4>
-            <p className="text-blue-600 text-xs sm:text-sm">
+          <div className="bg-green-50 border border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
+            <h4 className="text-green-700 font-semibold mb-2 text-sm sm:text-base">Repository Setup</h4>
+            <p className="text-green-600 text-xs sm:text-sm">
               A Favored Online representative will contact you within 2-3 business days after receiving your 
               submission to set up your project repository and provide access credentials.
             </p>
@@ -1085,13 +1085,13 @@ const ProjectGroupView = () => {
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
+            <div className="bg-green-50 border border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
-                <h4 className="text-blue-700 font-semibold text-sm sm:text-base">Badge Levels</h4>
+                <h4 className="text-green-700 font-semibold text-sm sm:text-base">Badge Levels</h4>
                 <Link 
                   to="/tech-badges" 
                   target="_blank"
-                  className="text-blue-600 hover:text-blue-700 font-semibold text-xs sm:text-sm transition-colors mt-1 sm:mt-0"
+                  className="text-green-600 hover:text-green-700 font-semibold text-xs sm:text-sm transition-colors mt-1 sm:mt-0"
                 >
                   Full Guide &rarr;
                 </Link>
@@ -1102,12 +1102,12 @@ const ProjectGroupView = () => {
                   <div className="text-orange-600 font-semibold">Novice</div>
                   <div className="text-gray-500">First project</div>
                 </div>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-2">
-                  <div className="text-blue-600 font-semibold">Beginners</div>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-2">
+                  <div className="text-green-600 font-semibold">Beginners</div>
                   <div className="text-gray-500">5+ projects</div>
                 </div>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-2">
-                  <div className="text-blue-600 font-semibold">Intermediate</div>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-2">
+                  <div className="text-green-600 font-semibold">Intermediate</div>
                   <div className="text-gray-500">10+ projects</div>
                 </div>
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-2">
@@ -1117,8 +1117,8 @@ const ProjectGroupView = () => {
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
-              <h4 className="text-blue-700 font-semibold mb-2 text-sm sm:text-base">Completion Checklist</h4>
+            <div className="bg-green-50 border border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
+              <h4 className="text-green-700 font-semibold mb-2 text-sm sm:text-base">Completion Checklist</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-gray-600 text-xs sm:text-sm">
                 <div>&#9744; Code in repository</div>
                 <div>&#9744; Documentation complete</div>
@@ -1136,7 +1136,7 @@ const ProjectGroupView = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-gray-900 text-center p-4">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-500 mx-auto mb-4"></div>
           <p className="text-sm sm:text-base text-gray-600">Loading project group...</p>
         </div>
       </div>
@@ -1151,7 +1151,7 @@ const ProjectGroupView = () => {
           <p className="text-gray-600 mb-6 text-sm sm:text-base">You don't have permission to view this project group.</p>
           <Link 
             to="/my-groups" 
-            className="bg-gradient-to-r from-blue-600 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-blue-700 hover:to-orange-600 transition-all duration-300 inline-block text-sm sm:text-base min-h-[44px]"
+            className="bg-gradient-to-r from-green-600 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-green-700 hover:to-orange-600 transition-all duration-300 inline-block text-sm sm:text-base min-h-[44px]"
           >
             &larr; My Groups
           </Link>
@@ -1176,7 +1176,7 @@ const ProjectGroupView = () => {
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-3 sm:mb-4 leading-tight">{group?.projectTitle}</h1>
                   <p className="text-gray-600 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 line-clamp-3">{group?.description}</p>
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
-                    <span className="text-xs sm:text-sm bg-blue-50 text-blue-700 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full border border-blue-200 font-medium">
+                    <span className="text-xs sm:text-sm bg-green-50 text-green-700 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full border border-green-200 font-medium">
                       {members.length} members
                     </span>
                     <span className="text-xs sm:text-sm bg-orange-50 text-orange-700 px-2 sm:px-3 md:px-4 py-1 sm:py-2 rounded-full border border-orange-200 font-medium">
@@ -1199,7 +1199,7 @@ const ProjectGroupView = () => {
                       {group?.status === 'active' && (
                         <Link 
                           to={`/groups/${groupId}/complete`}
-                          className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-orange-600 hover:to-blue-700 transition-all duration-300 text-center shadow-md text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+                          className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-orange-600 hover:to-green-700 transition-all duration-300 text-center shadow-md text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                         >
                           Complete Project
                         </Link>
@@ -1208,7 +1208,7 @@ const ProjectGroupView = () => {
                       {group?.status === 'completing' && (
                         <Link 
                           to={`/groups/${groupId}/complete`}
-                          className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-orange-600 hover:to-blue-700 transition-all duration-300 text-center shadow-md animate-pulse text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+                          className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-orange-600 hover:to-green-700 transition-all duration-300 text-center shadow-md animate-pulse text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                         >
                           Continue Completion
                         </Link>
@@ -1226,8 +1226,8 @@ const ProjectGroupView = () => {
                   )}
 
                   {userMembership?.role !== 'admin' && group?.status === 'completed' && (
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4 text-center">
-                      <div className="text-blue-700 font-semibold text-sm sm:text-base">Project Completed!</div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4 text-center">
+                      <div className="text-green-700 font-semibold text-sm sm:text-base">Project Completed!</div>
                       <div className="text-gray-500 text-xs sm:text-sm mt-1">Check your dashboard for badges</div>
                     </div>
                   )}
@@ -1235,7 +1235,7 @@ const ProjectGroupView = () => {
                   {canUserInteract() && (
                     <button
                       onClick={() => setShowNewPostForm(!showNewPostForm)}
-                      className="bg-gradient-to-r from-blue-600 to-orange-500 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-blue-700 hover:to-orange-600 transition-all duration-300 shadow-md text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+                      className="bg-gradient-to-r from-green-600 to-orange-500 text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-green-700 hover:to-orange-600 transition-all duration-300 shadow-md text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                     >
                       + New Post
                     </button>
@@ -1267,11 +1267,11 @@ const ProjectGroupView = () => {
                       to={getMemberProfileUrl(member)}
                       className="flex items-center space-x-2 sm:space-x-3 hover:bg-gray-50 rounded-lg p-2 transition-colors cursor-pointer group min-h-[44px]"
                     >
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm md:text-base flex-shrink-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-green-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm md:text-base flex-shrink-0">
                         {member.userName?.charAt(0).toUpperCase() || member.userEmail?.charAt(0).toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors truncate text-sm sm:text-base">
+                        <p className="font-medium text-gray-900 group-hover:text-green-600 transition-colors truncate text-sm sm:text-base">
                           {member.userName || member.userEmail}
                         </p>
                         <div className="flex items-center text-gray-500 text-xs sm:text-sm">
@@ -1287,7 +1287,7 @@ const ProjectGroupView = () => {
                           )}
                         </div>
                       </div>
-                      <div className="text-gray-400 group-hover:text-blue-600 transition-colors text-sm">
+                      <div className="text-gray-400 group-hover:text-green-600 transition-colors text-sm">
                         &rarr;
                       </div>
                     </Link>
@@ -1296,7 +1296,7 @@ const ProjectGroupView = () => {
 
                 {(group?.status === 'completing' || group?.status === 'completed') && (
                   <div className="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl border border-gray-200">
-                    <h4 className="text-blue-700 font-semibold mb-3 flex items-center text-sm sm:text-base">
+                    <h4 className="text-green-700 font-semibold mb-3 flex items-center text-sm sm:text-base">
                       {group?.status === 'completed' ? 'Project Completed!' : 'Completion in Progress'}
                     </h4>
                     
@@ -1304,7 +1304,7 @@ const ProjectGroupView = () => {
                       <div className="space-y-2 text-xs sm:text-sm text-gray-600">
                         <div className="flex items-center justify-between">
                           <span>Team Members:</span>
-                          <span className="text-blue-600 font-semibold">{members.length}</span>
+                          <span className="text-green-600 font-semibold">{members.length}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span>Badges Awarded:</span>
@@ -1312,7 +1312,7 @@ const ProjectGroupView = () => {
                         </div>
                         <div className="flex items-center justify-between">
                           <span>Certificate:</span>
-                          <span className="text-blue-600 font-semibold">Generated</span>
+                          <span className="text-green-600 font-semibold">Generated</span>
                         </div>
                       </div>
                     ) : (
@@ -1321,7 +1321,7 @@ const ProjectGroupView = () => {
                         {userMembership?.role === 'admin' && (
                           <Link
                             to={`/groups/${groupId}/complete`}
-                            className="inline-block mt-3 text-blue-600 hover:text-blue-700 font-semibold"
+                            className="inline-block mt-3 text-green-600 hover:text-green-700 font-semibold"
                           >
                             Continue Evaluation &rarr;
                           </Link>
@@ -1346,7 +1346,7 @@ const ProjectGroupView = () => {
                       <select
                         value={newPost.type}
                         onChange={(e) => setNewPost({...newPost, type: e.target.value})}
-                        className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
+                        className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
                       >
                         <option value="discussion">Discussion</option>
                         <option value="announcement">Announcement</option>
@@ -1361,7 +1361,7 @@ const ProjectGroupView = () => {
                         type="text"
                         value={newPost.title}
                         onChange={(e) => setNewPost({...newPost, title: e.target.value})}
-                        className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
+                        className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
                         placeholder="Enter post title..."
                         maxLength={100}
                         required
@@ -1376,7 +1376,7 @@ const ProjectGroupView = () => {
                       value={newPost.content}
                       onChange={(value) => setNewPost({...newPost, content: value})}
                       placeholder="Share your thoughts, updates, or questions... Paste URLs directly - they will become clickable links!"
-                      className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 h-20 sm:h-24 md:h-32 resize-vertical text-sm sm:text-base"
+                      className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 h-20 sm:h-24 md:h-32 resize-vertical text-sm sm:text-base"
                       maxLength={2000}
                       required
                     />
@@ -1385,7 +1385,7 @@ const ProjectGroupView = () => {
                       <button
                         type="submit"
                         disabled={!newPost.title.trim() || !newPost.content.trim()}
-                        className="bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+                        className="bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                       >
                         Publish Post
                       </button>
@@ -1408,7 +1408,7 @@ const ProjectGroupView = () => {
               <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 {postsLoading ? (
                   <div className="text-center py-6 sm:py-8">
-                    <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-blue-500 mx-auto mb-3 sm:mb-4"></div>
+                    <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-green-500 mx-auto mb-3 sm:mb-4"></div>
                     <p className="text-gray-500 text-sm sm:text-base">Loading posts...</p>
                   </div>
                 ) : posts.length === 0 ? (
@@ -1418,7 +1418,7 @@ const ProjectGroupView = () => {
                     {canUserInteract() && (
                       <button
                         onClick={() => setShowNewPostForm(true)}
-                        className="bg-gradient-to-r from-blue-600 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-blue-700 hover:to-orange-600 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
+                        className="bg-gradient-to-r from-green-600 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-green-700 hover:to-orange-600 transition-all duration-300 text-sm sm:text-base min-h-[44px]"
                       >
                         Create First Post
                       </button>
@@ -1430,7 +1430,7 @@ const ProjectGroupView = () => {
                       {/* Post Header */}
                       <div className="flex items-start justify-between mb-3 sm:mb-4">
                         <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                          <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-green-500 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                             {post.authorPhoto ? (
                               <img src={post.authorPhoto} alt="" className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full" />
                             ) : (
@@ -1473,7 +1473,7 @@ const ProjectGroupView = () => {
                           {canEditPost(post) && canUserInteract() && (
                             <button
                               onClick={() => startEditingPost(post)}
-                              className="bg-blue-50 hover:bg-blue-100 text-blue-600 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 border border-blue-200 min-h-[32px]"
+                              className="bg-green-50 hover:bg-green-100 text-green-600 px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 border border-green-200 min-h-[32px]"
                               title="Edit post"
                             >
                               <span className="hidden sm:inline">Edit</span>
@@ -1498,7 +1498,7 @@ const ProjectGroupView = () => {
                             <select
                               value={editPostData.type}
                               onChange={(e) => setEditPostData({...editPostData, type: e.target.value})}
-                              className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 text-gray-900 focus:border-blue-500 focus:outline-none text-sm sm:text-base min-h-[44px]"
+                              className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 text-gray-900 focus:border-green-500 focus:outline-none text-sm sm:text-base min-h-[44px]"
                             >
                               <option value="discussion">Discussion</option>
                               <option value="announcement">Announcement</option>
@@ -1513,7 +1513,7 @@ const ProjectGroupView = () => {
                               type="text"
                               value={editPostData.title}
                               onChange={(e) => setEditPostData({...editPostData, title: e.target.value})}
-                              className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none text-sm sm:text-base min-h-[44px]"
+                              className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none text-sm sm:text-base min-h-[44px]"
                               placeholder="Enter post title..."
                               maxLength={100}
                             />
@@ -1527,7 +1527,7 @@ const ProjectGroupView = () => {
                             value={editPostData.content}
                             onChange={(value) => setEditPostData({...editPostData, content: value})}
                             placeholder="Share your thoughts, updates, or questions..."
-                            className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none h-20 sm:h-24 md:h-32 resize-vertical text-sm sm:text-base"
+                            className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none h-20 sm:h-24 md:h-32 resize-vertical text-sm sm:text-base"
                             maxLength={2000}
                             required
                           />
@@ -1536,7 +1536,7 @@ const ProjectGroupView = () => {
                             <button
                               onClick={() => handleEditPost(post.id)}
                               disabled={!editPostData.title.trim() || !editPostData.content.trim()}
-                              className="bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-sm min-h-[44px] flex items-center justify-center"
+                              className="bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-sm min-h-[44px] flex items-center justify-center"
                             >
                               Save Changes
                             </button>
@@ -1603,7 +1603,7 @@ const ProjectGroupView = () => {
                                 <div key={reply.id} className="bg-gray-50 rounded-lg p-2 sm:p-3 border border-gray-200">
                                   <div className="flex items-start justify-between mb-2">
                                     <div className="flex items-center space-x-2 flex-1 min-w-0">
-                                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-green-500 to-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                                         {reply.authorName?.charAt(0)?.toUpperCase() || '?'}
                                       </div>
                                       <div className="min-w-0 flex-1">
@@ -1620,7 +1620,7 @@ const ProjectGroupView = () => {
                                     {canEditReply(reply) && (
                                       <button
                                         onClick={() => startEditingReply(reply)}
-                                        className="text-gray-400 hover:text-blue-600 transition-colors text-xs flex-shrink-0 min-w-[32px] min-h-[32px] flex items-center justify-center"
+                                        className="text-gray-400 hover:text-green-600 transition-colors text-xs flex-shrink-0 min-w-[32px] min-h-[32px] flex items-center justify-center"
                                         title="Edit reply"
                                       >
                                         &#9998;
@@ -1634,7 +1634,7 @@ const ProjectGroupView = () => {
                                         value={editReplyContent}
                                         onChange={setEditReplyContent}
                                         placeholder="Edit your reply..."
-                                        className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none text-sm h-16 sm:h-20 resize-vertical"
+                                        className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none text-sm h-16 sm:h-20 resize-vertical"
                                         maxLength={1000}
                                       />
                                       <div className="flex items-center justify-between">
@@ -1642,7 +1642,7 @@ const ProjectGroupView = () => {
                                           <button
                                             onClick={() => handleEditReply(reply.id)}
                                             disabled={!editReplyContent.trim()}
-                                            className="bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 py-1 rounded text-xs font-semibold transition-all duration-300 min-h-[32px]"
+                                            className="bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 py-1 rounded text-xs font-semibold transition-all duration-300 min-h-[32px]"
                                           >
                                             Save
                                           </button>
@@ -1671,7 +1671,7 @@ const ProjectGroupView = () => {
                                 value={replyContent}
                                 onChange={setReplyContent}
                                 placeholder="Write your reply..."
-                                className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 h-16 sm:h-20 md:h-24 resize-vertical text-sm sm:text-base"
+                                className="w-full bg-gray-50 border border-gray-300 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-gray-900 placeholder-gray-400 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 h-16 sm:h-20 md:h-24 resize-vertical text-sm sm:text-base"
                                 maxLength={1000}
                               />
                               <div className="flex items-center justify-between">
@@ -1679,7 +1679,7 @@ const ProjectGroupView = () => {
                                   <button
                                     onClick={() => handleSubmitReply(post.id)}
                                     disabled={!replyContent.trim()}
-                                    className="bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 min-h-[36px] flex items-center justify-center"
+                                    className="bg-gradient-to-r from-green-600 to-orange-500 hover:from-green-700 hover:to-orange-600 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 min-h-[36px] flex items-center justify-center"
                                   >
                                     Reply
                                   </button>
@@ -1702,7 +1702,7 @@ const ProjectGroupView = () => {
                                 setEditingReply(null);
                                 setEditReplyContent('');
                               }}
-                              className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-300 min-h-[32px] flex items-center"
+                              className="text-green-600 hover:text-green-700 text-sm font-medium transition-colors duration-300 min-h-[32px] flex items-center"
                             >
                               Reply to this post
                             </button>
@@ -1719,7 +1719,7 @@ const ProjectGroupView = () => {
                           {canEditPost(post) && canUserInteract() && editingPost !== post.id && (
                             <button
                               onClick={() => startEditingPost(post)}
-                              className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center space-x-1 min-h-[32px]"
+                              className="text-green-600 hover:text-green-700 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center space-x-1 min-h-[32px]"
                             >
                               <span className="hidden sm:inline">Edit Post</span>
                             </button>
@@ -1727,7 +1727,7 @@ const ProjectGroupView = () => {
                         </div>
                         <Link 
                           to={`/groups/${groupId}/posts/${post.id}`}
-                          className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center min-h-[32px]"
+                          className="text-green-600 hover:text-green-700 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center min-h-[32px]"
                         >
                           <span className="hidden sm:inline">View Discussion</span>
                           <span className="sm:hidden">View</span>
@@ -1760,14 +1760,14 @@ const ProjectGroupView = () => {
         }
 
         .text-gray-700 a[href], .whitespace-pre-wrap a[href] {
-          color: #2563eb !important;
+          color: #16a34a !important;
           text-decoration: underline;
           transition: color 0.3s ease;
           font-weight: 500;
         }
 
         .text-gray-700 a[href]:hover, .whitespace-pre-wrap a[href]:hover {
-          color: #1d4ed8 !important;
+          color: #15803d !important;
         }
 
         .whitespace-pre-wrap a {

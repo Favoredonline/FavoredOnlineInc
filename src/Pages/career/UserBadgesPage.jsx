@@ -34,9 +34,9 @@ const UserBadgesPage = () => {
     'quality-assurance': {
       id: 'techqa',
       name: 'TechQA Badges',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'from-green-50 to-green-100',
+      borderColor: 'border-green-200',
       image: '/Images/TechQA.png'
     },
     'development': {
@@ -58,9 +58,9 @@ const UserBadgesPage = () => {
     'design': {
       id: 'techarchs',
       name: 'TechArchs Badges',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'from-blue-50 to-blue-100',
-      borderColor: 'border-blue-200',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'from-green-50 to-green-100',
+      borderColor: 'border-green-200',
       image: '/Images/TechArchs.png'
     },
     'security': {
@@ -252,7 +252,7 @@ const UserBadgesPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm sm:text-base">Loading your achievements...</p>
         </div>
       </div>
@@ -272,12 +272,12 @@ const UserBadgesPage = () => {
           {/* Hero Section */}
           <section className="mb-8 sm:mb-12 text-center">
             <div className="mb-4 sm:mb-6">
-              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-bold border border-blue-200">
+              <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold border border-green-200">
                 🏆 ProjectX Achievements
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6">
-              My <span className="text-blue-600">Badges</span> & <span className="text-orange-600">Certificates</span>
+              My <span className="text-green-600">Badges</span> & <span className="text-orange-600">Certificates</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
               Your professional achievements from Favored Online ProjectX - where projects power careers
@@ -302,8 +302,8 @@ const UserBadgesPage = () => {
 
           {/* Summary Statistics */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-4 sm:p-6">
-              <div className="text-3xl sm:text-4xl font-black text-blue-600 mb-2">{userBadges.length}</div>
+            <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-4 sm:p-6">
+              <div className="text-3xl sm:text-4xl font-black text-green-600 mb-2">{userBadges.length}</div>
               <div className="text-gray-700 text-xs sm:text-sm font-semibold">Total Badges</div>
             </div>
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-xl p-4 sm:p-6">
@@ -354,7 +354,7 @@ const UserBadgesPage = () => {
               onClick={() => setSelectedFilter('all')}
               className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base ${
                 selectedFilter === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-green-600 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -368,7 +368,7 @@ const UserBadgesPage = () => {
                   onClick={() => setSelectedFilter(category)}
                   className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base ${
                     selectedFilter === category
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -393,7 +393,7 @@ const UserBadgesPage = () => {
                 </p>
                 <Link
                   to="/projects"
-                  className="inline-block bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-6 sm:px-8 py-3 rounded-xl font-bold transition-all text-sm sm:text-base"
+                  className="inline-block bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-6 sm:px-8 py-3 rounded-xl font-bold transition-all text-sm sm:text-base"
                 >
                   Join a Project
                 </Link>
@@ -483,7 +483,7 @@ const UserBadgesPage = () => {
                     </div>
                     <button
                       onClick={() => downloadCertificate(certificate)}
-                      className="w-full bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-4 py-2.5 sm:py-3 rounded-xl font-bold transition-all text-xs sm:text-sm"
+                      className="w-full bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-4 py-2.5 sm:py-3 rounded-xl font-bold transition-all text-xs sm:text-sm"
                     >
                       📥 Download Certificate
                     </button>

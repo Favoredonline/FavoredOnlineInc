@@ -195,8 +195,8 @@ const ProjectApplicationForm = ({ projectId, projectData, onClose, currentUser }
         </div>
 
         {/* Project Info */}
-        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg sm:rounded-xl">
-          <h3 className="text-blue-400 font-semibold mb-2 text-sm sm:text-base">📋 Applying to:</h3>
+        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-500/10 border border-green-500/20 rounded-lg sm:rounded-xl">
+          <h3 className="text-green-400 font-semibold mb-2 text-sm sm:text-base">📋 Applying to:</h3>
           <p className="text-white font-medium text-sm sm:text-base">{projectData.projectTitle}</p>
           <p className="text-gray-300 text-xs sm:text-sm">by {projectData.contactName || projectData.companyName}</p>
           <div className="mt-2 text-xs sm:text-sm text-gray-400 flex flex-wrap gap-2 sm:gap-4">
@@ -422,7 +422,7 @@ const ProjectInfoCard = ({ project, onApply }) => {
         <p className="text-gray-300 mb-4 text-sm sm:text-base">{project.projectDescription}</p>
         
         <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-          <span className="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs sm:text-sm">
+          <span className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs sm:text-sm">
             {project.projectType}
           </span>
           <span className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs sm:text-sm">
@@ -435,10 +435,10 @@ const ProjectInfoCard = ({ project, onApply }) => {
       </div>
 
       {/* NEW: Application routing info */}
-      <div className="mb-4 p-2.5 sm:p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+      <div className="mb-4 p-2.5 sm:p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
         <div className="flex items-center mb-1.5 sm:mb-2">
-          <span className="text-blue-400 mr-2 text-sm sm:text-base">📬</span>
-          <h4 className="text-blue-300 font-semibold text-xs sm:text-sm">Application Process</h4>
+          <span className="text-green-400 mr-2 text-sm sm:text-base">📬</span>
+          <h4 className="text-green-300 font-semibold text-xs sm:text-sm">Application Process</h4>
         </div>
         <div className="text-gray-300 text-xs sm:text-sm space-y-0.5">
           <p><strong>Reviewed by:</strong> {project.contactName || project.companyName}</p>

@@ -220,7 +220,7 @@ const ProjectEditView = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm sm:text-base">Loading project data...</p>
         </div>
       </div>
@@ -236,7 +236,7 @@ const ProjectEditView = () => {
           <p className="text-gray-600 mb-6">{error || 'Project not found or access denied.'}</p>
           <Link 
             to="/projects/owner-dashboard"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             Back to My Projects
           </Link>
@@ -259,7 +259,7 @@ const ProjectEditView = () => {
           <div className="mb-6 sm:mb-8">
             <Link 
               to={`/projects/${projectId}`}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to Project Details
@@ -269,7 +269,7 @@ const ProjectEditView = () => {
           {/* Hero Section */}
           <section className="mb-8 sm:mb-12 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-3 sm:mb-4">
-              Edit <span className="text-blue-600">Project</span>
+              Edit <span className="text-green-600">Project</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600">
               Update your project details
@@ -300,7 +300,7 @@ const ProjectEditView = () => {
                         value={formData.projectTitle}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         placeholder="Enter your project title"
                       />
                     </div>
@@ -316,7 +316,7 @@ const ProjectEditView = () => {
                           value={formData.industryTrack}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         >
                           <option value="">Select industry</option>
                           {industryTracks.map(track => (
@@ -336,7 +336,7 @@ const ProjectEditView = () => {
                           value={formData.timeline}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         >
                           <option value="">Select timeline</option>
                           <option value="1-week">1 Week</option>
@@ -362,10 +362,10 @@ const ProjectEditView = () => {
                           onChange={handleInputChange}
                           min={getTodayDateString()}
                           required
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         />
                         {formData.startDate && (
-                          <p className="text-blue-600 text-xs sm:text-sm mt-1">
+                          <p className="text-green-600 text-xs sm:text-sm mt-1">
                             {formatDateForDisplay(formData.startDate)}
                           </p>
                         )}
@@ -382,7 +382,7 @@ const ProjectEditView = () => {
                           onChange={handleInputChange}
                           min={formData.startDate || getTodayDateString()}
                           required
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         />
                         {formData.endDate && (
                           <p className="text-orange-600 text-xs sm:text-sm mt-1">
@@ -394,8 +394,8 @@ const ProjectEditView = () => {
 
                     {/* Duration Display */}
                     {formData.startDate && formData.endDate && getProjectDuration() && (
-                      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                        <p className="text-blue-800 font-semibold text-sm sm:text-base">
+                      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <p className="text-green-800 font-semibold text-sm sm:text-base">
                           Duration: {getProjectDuration()}
                         </p>
                       </div>
@@ -411,7 +411,7 @@ const ProjectEditView = () => {
                           name="experienceLevel"
                           value={formData.experienceLevel}
                           onChange={handleInputChange}
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         >
                           <option value="">Select level</option>
                           <option value="junior-level">Junior</option>
@@ -429,7 +429,7 @@ const ProjectEditView = () => {
                           name="maxTeamSize"
                           value={formData.maxTeamSize}
                           onChange={handleInputChange}
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         >
                           <option value="2">2 members</option>
                           <option value="3">3 members</option>
@@ -453,7 +453,7 @@ const ProjectEditView = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y text-sm sm:text-base"
                         placeholder="Describe your project in detail..."
                       />
                     </div>
@@ -469,7 +469,7 @@ const ProjectEditView = () => {
                         onChange={handleInputChange}
                         required
                         rows={3}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y text-sm sm:text-base"
                         placeholder="List required skills"
                       />
                     </div>
@@ -484,7 +484,7 @@ const ProjectEditView = () => {
                         value={formData.projectGoals}
                         onChange={handleInputChange}
                         rows={3}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y text-sm sm:text-base"
                         placeholder="What are your project goals?"
                       />
                     </div>
@@ -500,7 +500,7 @@ const ProjectEditView = () => {
                           name="contactName"
                           value={formData.contactName}
                           onChange={handleInputChange}
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                           placeholder="Your name"
                         />
                       </div>
@@ -515,7 +515,7 @@ const ProjectEditView = () => {
                           value={formData.contactEmail}
                           onChange={handleInputChange}
                           required
-                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                          className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                           placeholder="your.email@example.com"
                         />
                       </div>
@@ -531,7 +531,7 @@ const ProjectEditView = () => {
                         name="companyName"
                         value={formData.companyName}
                         onChange={handleInputChange}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 text-sm sm:text-base"
                         placeholder="Company or organization name"
                       />
                     </div>
@@ -546,7 +546,7 @@ const ProjectEditView = () => {
                         value={formData.additionalInfo}
                         onChange={handleInputChange}
                         rows={3}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y text-sm sm:text-base"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y text-sm sm:text-base"
                         placeholder="Any additional details..."
                       />
                     </div>
@@ -558,7 +558,7 @@ const ProjectEditView = () => {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+                    className="flex-1 bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
                   >
                     {saving ? (
                       <span className="flex items-center justify-center">

@@ -240,7 +240,7 @@ const MyEvents = () => {
         <Navbar />
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-3 xs:px-4">
           <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
             <p className="text-white text-base xs:text-lg">Loading your events...</p>
           </div>
         </div>
@@ -264,14 +264,14 @@ const MyEvents = () => {
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black mb-3 xs:mb-4"
                   style={{
                     fontFamily: '"Inter", sans-serif',
-                    background: 'linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #ffffff 100%)',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #dcfce7 50%, #ffffff 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     textShadow: '0 0 40px rgba(255,255,255,0.3)',
                     filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))'
                   }}>
                 My{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-400 to-cyan-500">
                   Events
                 </span>
               </h1>
@@ -284,7 +284,7 @@ const MyEvents = () => {
                   onClick={() => setActiveTab('hosted')}
                   className={`px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded-lg xs:rounded-xl font-bold transition-all min-h-[44px] text-sm xs:text-base ${
                     activeTab === 'hosted'
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg active:scale-95'
+                      ? 'bg-gradient-to-r from-green-500 to-cyan-600 text-white shadow-lg active:scale-95'
                       : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                   }`}
                 >
@@ -297,7 +297,7 @@ const MyEvents = () => {
                   onClick={() => setActiveTab('registered')}
                   className={`px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded-lg xs:rounded-xl font-bold transition-all min-h-[44px] text-sm xs:text-base ${
                     activeTab === 'registered'
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg active:scale-95'
+                      ? 'bg-gradient-to-r from-green-500 to-cyan-600 text-white shadow-lg active:scale-95'
                       : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                   }`}
                 >
@@ -322,7 +322,7 @@ const MyEvents = () => {
                     onClick={() => setSortBy('newest')}
                     className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg font-medium transition-all text-xs xs:text-sm min-h-[44px] ${
                       sortBy === 'newest'
-                        ? 'bg-blue-500 text-white active:bg-blue-600'
+                        ? 'bg-green-500 text-white active:bg-green-600'
                         : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                     }`}
                   >
@@ -332,7 +332,7 @@ const MyEvents = () => {
                     onClick={() => setSortBy('oldest')}
                     className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg font-medium transition-all text-xs xs:text-sm min-h-[44px] ${
                       sortBy === 'oldest'
-                        ? 'bg-blue-500 text-white active:bg-blue-600'
+                        ? 'bg-green-500 text-white active:bg-green-600'
                         : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                     }`}
                   >
@@ -342,7 +342,7 @@ const MyEvents = () => {
                     onClick={() => setSortBy('upcoming')}
                     className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg font-medium transition-all text-xs xs:text-sm min-h-[44px] ${
                       sortBy === 'upcoming'
-                        ? 'bg-blue-500 text-white active:bg-blue-600'
+                        ? 'bg-green-500 text-white active:bg-green-600'
                         : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                     }`}
                   >
@@ -353,7 +353,7 @@ const MyEvents = () => {
                       onClick={() => setSortBy('attendees')}
                       className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg font-medium transition-all text-xs xs:text-sm min-h-[44px] ${
                         sortBy === 'attendees'
-                          ? 'bg-blue-500 text-white active:bg-blue-600'
+                          ? 'bg-green-500 text-white active:bg-green-600'
                           : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
                       }`}
                     >
@@ -367,7 +367,7 @@ const MyEvents = () => {
             <section>
               {loading ? (
                 <div className="text-center py-12 xs:py-14 sm:py-16">
-                  <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
                   <p className="text-white text-base xs:text-lg">Loading your events...</p>
                 </div>
               ) : displayEvents.length === 0 ? (
@@ -386,7 +386,7 @@ const MyEvents = () => {
                   {activeTab === 'hosted' ? (
                     <Link
                       to="/events/submit"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-6 xs:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl font-bold hover:from-blue-600 hover:to-cyan-700 active:scale-95 transition-all min-h-[56px] text-sm xs:text-base"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-cyan-600 text-white px-6 xs:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl font-bold hover:from-green-600 hover:to-cyan-700 active:scale-95 transition-all min-h-[56px] text-sm xs:text-base"
                     >
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -396,7 +396,7 @@ const MyEvents = () => {
                   ) : (
                     <Link
                       to="/events"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-6 xs:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl font-bold hover:from-blue-600 hover:to-cyan-700 active:scale-95 transition-all min-h-[56px] text-sm xs:text-base"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-cyan-600 text-white px-6 xs:px-8 py-3 xs:py-4 rounded-lg xs:rounded-xl font-bold hover:from-green-600 hover:to-cyan-700 active:scale-95 transition-all min-h-[56px] text-sm xs:text-base"
                     >
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -413,11 +413,11 @@ const MyEvents = () => {
                     return (
                       <div
                         key={event.id}
-                        className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-white/20 hover:border-blue-400/40 transition-all"
+                        className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-white/20 hover:border-green-400/40 transition-all"
                       >
                         <div className="mb-3 xs:mb-4">
                           <div className="flex items-center gap-1.5 xs:gap-2 mb-2 flex-wrap">
-                            <span className="px-2 xs:px-2.5 sm:px-3 py-0.5 xs:py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs xs:text-sm font-semibold">
+                            <span className="px-2 xs:px-2.5 sm:px-3 py-0.5 xs:py-1 bg-green-500/20 text-green-300 rounded-full text-xs xs:text-sm font-semibold">
                               {formatEventType(event.eventType)}
                             </span>
                             <span className={`px-2 xs:px-2.5 sm:px-3 py-0.5 xs:py-1 ${statusBadge.color} ${statusBadge.textColor} rounded-full text-xs xs:text-sm font-semibold`}>
@@ -464,7 +464,7 @@ const MyEvents = () => {
                           <div className="flex gap-2">
                             <Link
                               to={`/events/edit/${event.id}`}
-                              className="flex-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold text-center transition-all min-h-[44px] flex items-center justify-center gap-1.5 text-xs xs:text-sm"
+                              className="flex-1 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold text-center transition-all min-h-[44px] flex items-center justify-center gap-1.5 text-xs xs:text-sm"
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -505,7 +505,7 @@ const MyEvents = () => {
                                 href={event.meetingUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold text-center transition-all min-h-[44px] flex items-center justify-center gap-2 text-xs xs:text-sm"
+                                className="flex-1 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-lg font-semibold text-center transition-all min-h-[44px] flex items-center justify-center gap-2 text-xs xs:text-sm"
                               >
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -538,8 +538,8 @@ const MyEvents = () => {
 
           ::-webkit-scrollbar { width: 8px; }
           ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
-          ::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.5); border-radius: 4px; }
-          ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.7); }
+          ::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.5); border-radius: 4px; }
+          ::-webkit-scrollbar-thumb:hover { background: rgba(34, 197, 94, 0.7); }
 
           @media (min-width: 375px) {
             .xs\\:inline { display: inline; }

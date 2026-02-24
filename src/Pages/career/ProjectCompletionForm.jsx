@@ -297,7 +297,7 @@ const ProjectCompletionForm = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm sm:text-base">Loading project details...</p>
         </div>
       </div>
@@ -332,7 +332,7 @@ const ProjectCompletionForm = () => {
           {/* Hero Section */}
           <section className="mb-8 sm:mb-12 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 sm:mb-6">
-              Complete <span className="text-blue-600">Project</span>
+              Complete <span className="text-green-600">Project</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 mb-2">{groupData.projectTitle}</p>
             <p className="text-sm sm:text-base text-gray-600">Submit your completed project for admin review</p>
@@ -341,10 +341,10 @@ const ProjectCompletionForm = () => {
           {/* Process Steps */}
           <section className="mb-8 sm:mb-12">
             <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <h3 className="text-blue-600 font-bold text-lg sm:text-xl mb-4 sm:mb-6">📋 Completion Process</h3>
+              <h3 className="text-green-600 font-bold text-lg sm:text-xl mb-4 sm:mb-6">📋 Completion Process</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                  <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
                   <div>
                     <h4 className="text-gray-900 font-semibold text-sm sm:text-base">Submit for Review</h4>
                     <p className="text-gray-600 text-xs sm:text-sm">Share project URL and details</p>
@@ -411,7 +411,7 @@ const ProjectCompletionForm = () => {
                   )}
                   <p><strong>Project URL:</strong></p>
                   <a href={existingSubmission.projectReview?.projectUrl} target="_blank" rel="noopener noreferrer" 
-                     className="text-blue-600 hover:text-blue-700 underline break-all block">
+                     className="text-green-600 hover:text-green-700 underline break-all block">
                     {existingSubmission.projectReview?.projectUrl}
                   </a>
                 </div>
@@ -470,9 +470,9 @@ const ProjectCompletionForm = () => {
                       </div>
                     </div>
 
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-6">
-                      <h4 className="text-blue-800 font-bold text-base sm:text-lg mb-3">📧 Auto-Notifications</h4>
-                      <div className="text-blue-700 text-sm space-y-1">
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-4 sm:p-6 mb-6">
+                      <h4 className="text-green-800 font-bold text-base sm:text-lg mb-3">📧 Auto-Notifications</h4>
+                      <div className="text-green-700 text-sm space-y-1">
                         <p>• Admins receive automatic email notification</p>
                         <p>• You'll get confirmation when reviewed</p>
                       </div>
@@ -500,7 +500,7 @@ const ProjectCompletionForm = () => {
                       value={projectReviewForm.projectUrl}
                       onChange={handleProjectReviewFormChange}
                       required
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                       placeholder="https://your-project.com"
                     />
                   </div>
@@ -514,7 +514,7 @@ const ProjectCompletionForm = () => {
                       name="demoUrl"
                       value={projectReviewForm.demoUrl}
                       onChange={handleProjectReviewFormChange}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                       placeholder="https://your-app.vercel.app"
                     />
                   </div>
@@ -529,7 +529,7 @@ const ProjectCompletionForm = () => {
                       value={projectReviewForm.repositoryUrl}
                       onChange={handleProjectReviewFormChange}
                       required
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                       placeholder="https://github.com/username/repository"
                     />
                   </div>
@@ -544,7 +544,7 @@ const ProjectCompletionForm = () => {
                       onChange={handleProjectReviewFormChange}
                       required
                       rows={4}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y"
                       placeholder="Describe what your team built..."
                     />
                   </div>
@@ -556,7 +556,7 @@ const ProjectCompletionForm = () => {
                       value={projectReviewForm.keyFeatures}
                       onChange={handleProjectReviewFormChange}
                       rows={3}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-y"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 resize-y"
                       placeholder="• Feature 1&#10;• Feature 2"
                     />
                   </div>
@@ -568,7 +568,7 @@ const ProjectCompletionForm = () => {
                       name="technologiesUsed"
                       value={projectReviewForm.technologiesUsed}
                       onChange={handleProjectReviewFormChange}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                       placeholder="React, Node.js, MongoDB, etc."
                     />
                   </div>
@@ -579,7 +579,7 @@ const ProjectCompletionForm = () => {
                       name="projectStatus"
                       value={projectReviewForm.projectStatus}
                       onChange={handleProjectReviewFormChange}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
                     >
                       <option value="completed">✅ Completed</option>
                       <option value="mostly-completed">🔸 Mostly Completed</option>
@@ -588,9 +588,9 @@ const ProjectCompletionForm = () => {
                   </div>
 
                   {/* Team Summary */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6">
-                    <h4 className="text-blue-800 font-bold mb-3">👥 Team Summary</h4>
-                    <div className="text-blue-700 text-sm">
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 sm:p-6">
+                    <h4 className="text-green-800 font-bold mb-3">👥 Team Summary</h4>
+                    <div className="text-green-700 text-sm">
                       <p><strong>Team Size:</strong> {teamMembers.length} members</p>
                       <p className="mt-2"><strong>Members:</strong></p>
                       <ul className="ml-4 mt-2 space-y-1">
@@ -606,7 +606,7 @@ const ProjectCompletionForm = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center justify-center">

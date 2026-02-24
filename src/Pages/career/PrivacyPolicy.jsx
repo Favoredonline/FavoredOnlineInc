@@ -36,8 +36,8 @@ const PrivacyPolicy = () => {
               
               {/* Animated Badge */}
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-blue-500 rounded-full animate-ping"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
+                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-green-500 rounded-full animate-ping"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         letterSpacing: '0.1em'
@@ -53,12 +53,12 @@ const PrivacyPolicy = () => {
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 Privacy{' '}
-                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700">
+                <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-orange-500 to-green-700">
                   Policy
                 </span>
               </h1>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
             </div>
           </section>
 
@@ -72,11 +72,11 @@ const PrivacyPolicy = () => {
                     style={{
                       fontFamily: '"Inter", sans-serif'
                     }}>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-orange-500 to-blue-700">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-orange-500 to-green-700">
                     Favored Online ProjectX
                   </span>
                 </h2>
-                <p className="text-sm sm:text-base text-blue-600 font-medium italic mb-4">
+                <p className="text-sm sm:text-base text-green-600 font-medium italic mb-4">
                   Where Projects Power Careers
                 </p>
                 <p className="text-lg sm:text-xl text-gray-700 font-medium">
@@ -91,10 +91,10 @@ const PrivacyPolicy = () => {
                 </p>
                 
                 {/* Updated Platform Features Badge */}
-                <div className="bg-gradient-to-r from-blue-50 to-orange-50 p-4 sm:p-6 rounded-xl border-2 border-blue-200 mb-6">
+                <div className="bg-gradient-to-r from-green-50 to-orange-50 p-4 sm:p-6 rounded-xl border-2 border-green-200 mb-6">
                   <div className="flex items-center">
                     <div>
-                      <h3 className="text-blue-700 font-bold text-lg sm:text-xl mb-2">ProjectX: Complete Career Development Platform</h3>
+                      <h3 className="text-green-700 font-bold text-lg sm:text-xl mb-2">ProjectX: Complete Career Development Platform</h3>
                       <p className="text-gray-800 text-sm sm:text-base">
                         ProjectX empowers students with <strong>TechTalent Badges</strong> that showcase skills and achievements, an <strong>AI-powered Career Navigator</strong> for personalized career guidance, and hands-on project experiences that turn learning into career opportunities. Our platform currently offers these core services for free, with potential premium features for advanced career services.
                       </p>
@@ -108,7 +108,7 @@ const PrivacyPolicy = () => {
                 
                 {/* Section 1 - Updated for ProjectX */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     1. Information We Collect
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
                           "GitHub, LinkedIn, or portfolio links (if provided for career development)"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -143,7 +143,7 @@ const PrivacyPolicy = () => {
                           "Code contributions and project portfolio submissions"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -160,7 +160,7 @@ const PrivacyPolicy = () => {
                           "Job market research queries and career transition goals"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -176,7 +176,7 @@ const PrivacyPolicy = () => {
                           "Project collaboration patterns and team interaction data"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -191,8 +191,8 @@ const PrivacyPolicy = () => {
                       </p>
                     </div>
                     
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <p className="text-blue-800 text-sm sm:text-base font-medium">
+                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                      <p className="text-green-800 text-sm sm:text-base font-medium">
                         <strong>Future Premium Features:</strong> If we introduce advanced career services or premium mentorship programs, we may collect additional information such as payment data, detailed career history, or enhanced profile information. Any such changes would be clearly communicated and require your consent.
                       </p>
                     </div>
@@ -201,7 +201,7 @@ const PrivacyPolicy = () => {
 
                 {/* Section 2 - Updated for ProjectX */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     2. How We Use Your Information
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -218,7 +218,7 @@ const PrivacyPolicy = () => {
                           "Provide access to personalized student dashboards and career profiles"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -235,7 +235,7 @@ const PrivacyPolicy = () => {
                           "Generate portfolio showcases that demonstrate real-world capabilities"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -253,7 +253,7 @@ const PrivacyPolicy = () => {
                           "Match students with relevant projects based on career interests"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -270,7 +270,7 @@ const PrivacyPolicy = () => {
                           "Enhance matching algorithms for team formation and project assignments"
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-3 mt-1">•</span>
+                            <span className="text-green-600 mr-3 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -278,8 +278,8 @@ const PrivacyPolicy = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <p className="text-blue-800 text-sm sm:text-base font-medium">
+                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-green-800 text-sm sm:text-base font-medium">
                       <strong>Future Use:</strong> If we introduce premium career services such as advanced mentorship, personalized career coaching, or industry connections, we may use data to provide these enhanced services, process payments, or deliver premium features. Any new uses would be clearly disclosed and require appropriate consent.
                     </p>
                   </div>
@@ -287,7 +287,7 @@ const PrivacyPolicy = () => {
 
                 {/* Section 3 - Updated */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     3. Data Sharing and Disclosure
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -306,7 +306,7 @@ const PrivacyPolicy = () => {
 
                 {/* Section 4 - Updated */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     4. Data Security
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -321,7 +321,7 @@ const PrivacyPolicy = () => {
                       "Backup and recovery systems to prevent data loss"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-3 mt-1">•</span>
+                        <span className="text-green-600 mr-3 mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -333,7 +333,7 @@ const PrivacyPolicy = () => {
 
                 {/* Section 5 - Updated */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     5. Your Rights
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -351,7 +351,7 @@ const PrivacyPolicy = () => {
                       "Request human review of any AI-generated career recommendations"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-3 mt-1">•</span>
+                        <span className="text-green-600 mr-3 mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -401,7 +401,7 @@ const PrivacyPolicy = () => {
                   }
                 ].map((section) => (
                   <div key={section.number} className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                    <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                       {section.number}. {section.title}
                     </h3>
                     <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
@@ -424,8 +424,8 @@ const PrivacyPolicy = () => {
 
               {/* Last Updated */}
               <div className="mt-8 sm:mt-12 text-center">
-                <div className="bg-gradient-to-r from-blue-50 to-orange-50 p-4 sm:p-6 rounded-xl border-2 border-blue-200">
-                  <p className="text-blue-700 font-semibold text-base sm:text-lg">
+                <div className="bg-gradient-to-r from-green-50 to-orange-50 p-4 sm:p-6 rounded-xl border-2 border-green-200">
+                  <p className="text-green-700 font-semibold text-base sm:text-lg">
                     Last updated: {getCurrentDate()}
                   </p>
                   <p className="text-gray-700 text-sm mt-2">
@@ -470,7 +470,7 @@ const PrivacyPolicy = () => {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -478,17 +478,17 @@ const PrivacyPolicy = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/about" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/about" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/contact" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Contact
                   </Link>
                 </li>
@@ -497,7 +497,7 @@ const PrivacyPolicy = () => {
 
             {/* Support & Legal */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -505,17 +505,17 @@ const PrivacyPolicy = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/career/support" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/support" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Support
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/terms" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/terms" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/privacy" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/privacy" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     Privacy Policy
                   </Link>
                 </li>
@@ -537,7 +537,7 @@ const PrivacyPolicy = () => {
 
               {/* Social or Additional Info */}
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl animate-pulse">•</span>
+                <span className="text-green-400 text-lg sm:text-xl animate-pulse">•</span>
                 <span className="text-gray-300 text-sm font-medium">
                   Transforming Careers with AI
                 </span>
@@ -570,12 +570,12 @@ const PrivacyPolicy = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
 
         /* Enhanced touch targets for mobile */

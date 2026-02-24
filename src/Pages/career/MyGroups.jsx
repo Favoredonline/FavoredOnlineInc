@@ -76,7 +76,7 @@ const MyGroups = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'active':
-        return 'bg-blue-50 text-blue-700 border-blue-200';
+        return 'bg-green-50 text-green-700 border-green-200';
       case 'completing':
         return 'bg-orange-50 text-orange-700 border-orange-200';
       case 'completed':
@@ -105,7 +105,7 @@ const MyGroups = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-base sm:text-lg">Loading your groups...</p>
         </div>
       </div>
@@ -126,7 +126,7 @@ const MyGroups = () => {
           <div className="mb-6 sm:mb-8">
             <button 
               onClick={() => navigate('/dashboard')}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to Dashboard
@@ -153,7 +153,7 @@ const MyGroups = () => {
             {isProjectOwner && (
               <Link 
                 to="/projects/owner-dashboard" 
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
+                className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
               >
                 Project Dashboard
                 <span className="ml-2">→</span>
@@ -169,7 +169,7 @@ const MyGroups = () => {
 
             <Link 
               to="/submit-project"
-              className="inline-flex items-center justify-center border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base"
+              className="inline-flex items-center justify-center border-2 border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base"
             >
               Submit New Project
             </Link>
@@ -191,7 +191,7 @@ const MyGroups = () => {
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <Link 
                       to="/projects" 
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
+                      className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
                     >
                       Browse Projects
                     </Link>
@@ -213,13 +213,13 @@ const MyGroups = () => {
                     <div className="text-gray-700 font-semibold text-sm sm:text-base">Total Groups</div>
                   </div>
                   <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">
+                    <div className="text-4xl sm:text-5xl font-black text-green-600 mb-2">
                       {userGroups.filter(g => g.userRole === 'admin').length}
                     </div>
                     <div className="text-gray-700 font-semibold text-sm sm:text-base">Groups I Lead</div>
                   </div>
                   <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">
+                    <div className="text-4xl sm:text-5xl font-black text-green-600 mb-2">
                       {userGroups.filter(g => g.status === 'active').length}
                     </div>
                     <div className="text-gray-700 font-semibold text-sm sm:text-base">Active Projects</div>
@@ -234,7 +234,7 @@ const MyGroups = () => {
 
                 {/* Project Manager Tools Banner */}
                 {isProjectOwner && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-sm">
+                  <div className="bg-green-50 border border-green-200 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-sm">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                       <div className="flex-1">
                         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 flex items-center">
@@ -246,7 +246,7 @@ const MyGroups = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Link 
                           to="/projects/owner-dashboard" 
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-center text-sm sm:text-base shadow-sm"
+                          className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors text-center text-sm sm:text-base shadow-sm"
                         >
                           Project Dashboard
                         </Link>
@@ -263,7 +263,7 @@ const MyGroups = () => {
                       className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
                     >
                       {/* Group Header Banner */}
-                      <div className="relative h-32 sm:h-40 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                      <div className="relative h-32 sm:h-40 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
                         <div className="text-5xl sm:text-6xl opacity-60">
                           {group.projectTitle.charAt(0).toUpperCase()}
                         </div>
@@ -283,7 +283,7 @@ const MyGroups = () => {
 
                       {/* Group Content */}
                       <div className="p-6">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 hover:text-green-600 transition-colors">
                           {group.projectTitle}
                         </h3>
                         <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 line-clamp-3">
@@ -306,7 +306,7 @@ const MyGroups = () => {
                         <div className="space-y-3">
                           <Link 
                             to={`/groups/${group.id}`}
-                            className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-4 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
+                            className="block w-full bg-green-600 hover:bg-green-700 text-white text-center px-4 py-3 rounded-lg font-bold transition-colors text-sm sm:text-base shadow-sm"
                           >
                             View Group →
                           </Link>

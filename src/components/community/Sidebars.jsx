@@ -31,7 +31,7 @@ export const UserQuickLinksSidebar = ({ currentUser, onNavigate, isMobile = fals
       title: 'Projects',
       description: 'Submit & join projects',
       path: '/projects',
-      gradient: 'from-blue-500 to-indigo-600'
+      gradient: 'from-green-500 to-indigo-600'
     }
   ];
 
@@ -271,9 +271,9 @@ export const FollowSuggestionsSidebar = ({ currentUser, isMobile = false }) => {
       },
       newcomer: { 
         label: 'Newcomer', 
-        color: 'text-blue-400', 
-        bg: 'bg-blue-500/20', 
-        border: 'border-blue-500/30',
+        color: 'text-green-400', 
+        bg: 'bg-green-500/20', 
+        border: 'border-green-500/30',
       }
     };
     return statusInfo[userStatus] || statusInfo.newcomer;
@@ -312,8 +312,8 @@ export const FollowSuggestionsSidebar = ({ currentUser, isMobile = false }) => {
               <div className="text-[10px] xs:text-xs text-orange-300">Following</div>
             </div>
             <div>
-              <div className="text-base xs:text-lg font-bold text-blue-400">{userCounts.followers}</div>
-              <div className="text-[10px] xs:text-xs text-blue-300">Followers</div>
+              <div className="text-base xs:text-lg font-bold text-green-400">{userCounts.followers}</div>
+              <div className="text-[10px] xs:text-xs text-green-300">Followers</div>
             </div>
           </div>
         </div>
@@ -366,7 +366,7 @@ export const FollowSuggestionsSidebar = ({ currentUser, isMobile = false }) => {
                       </div>
                       
                       {user.followerCount > 0 && (
-                        <div className="text-[10px] xs:text-xs text-blue-400">
+                        <div className="text-[10px] xs:text-xs text-green-400">
                           {user.followerCount} followers
                         </div>
                       )}

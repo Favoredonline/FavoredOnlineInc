@@ -38,15 +38,15 @@ const TermsService = () => {
               
               {/* Animated Badge */}
               <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping"></div>
-                <span className="text-blue-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
+                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping"></div>
+                <span className="text-green-600 uppercase tracking-widest text-xs sm:text-sm md:text-lg font-black" 
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         letterSpacing: '0.1em'
                       }}>
                   Our Service Terms & Guidelines
                 </span>
-                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping"></div>
+                <div className="h-2 w-2 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping"></div>
               </div>
               
               {/* Main Title */}
@@ -55,12 +55,12 @@ const TermsService = () => {
                     fontFamily: '"Inter", sans-serif'
                   }}>
                 Terms of{' '}
-                <span className="block mt-2 sm:mt-4 text-blue-600">
+                <span className="block mt-2 sm:mt-4 text-green-600">
                   Service
                 </span>
               </h1>
               
-              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-blue-400 to-cyan-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
+              <div className="h-1 sm:h-2 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-green-400 to-cyan-500 mx-auto rounded-full shadow-lg mb-8 sm:mb-12 md:mb-16"></div>
             </div>
           </section>
 
@@ -99,7 +99,7 @@ const TermsService = () => {
                 
                 {/* Section 1 - Eligibility */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     1. Eligibility
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
@@ -109,7 +109,7 @@ const TermsService = () => {
 
                 {/* Section 2 - User Responsibilities */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     2. User Responsibilities
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -124,7 +124,7 @@ const TermsService = () => {
                       "Understand that participation is voluntary, educational in nature, and part of a structured learning journey"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-3 mt-1">•</span>
+                        <span className="text-green-600 mr-3 mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -136,7 +136,7 @@ const TermsService = () => {
 
                 {/* Section 3 - Platform Use and Conduct */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     3. Platform Use and Conduct
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -164,7 +164,7 @@ const TermsService = () => {
 
                 {/* Section 4 - Intellectual Property */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     4. Intellectual Property
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
@@ -174,7 +174,7 @@ const TermsService = () => {
 
                 {/* Section 5 - Platform Services */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     5. Platform Services
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4">
@@ -190,7 +190,7 @@ const TermsService = () => {
                       "Community support and mentorship opportunities"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-3 mt-1">✓</span>
+                        <span className="text-green-600 mr-3 mt-1">✓</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -202,7 +202,7 @@ const TermsService = () => {
 
                 {/* Section 6 - Volunteer Projects and Intellectual Property */}
                 <div className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                     6. Volunteer Projects and Intellectual Property
                   </h3>
                   
@@ -262,7 +262,7 @@ const TermsService = () => {
                   }
                 ].map((section) => (
                   <div key={section.number} className="bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-xl">
-                    <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">
                       {section.number}. {section.title}
                     </h3>
                     <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
@@ -274,8 +274,8 @@ const TermsService = () => {
 
               {/* Last Updated */}
               <div className="mt-8 sm:mt-12 text-center">
-                <div className="bg-blue-50 border border-blue-200 p-4 sm:p-6 rounded-xl">
-                  <p className="text-blue-700 font-semibold text-base sm:text-lg">
+                <div className="bg-green-50 border border-green-200 p-4 sm:p-6 rounded-xl">
+                  <p className="text-green-700 font-semibold text-base sm:text-lg">
                     Last updated: {getCurrentDate()}
                   </p>
                 </div>
@@ -317,7 +317,7 @@ const TermsService = () => {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -325,17 +325,17 @@ const TermsService = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/about" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/about" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/contact" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Contact
                   </Link>
                 </li>
@@ -344,7 +344,7 @@ const TermsService = () => {
 
             {/* Support & Legal */}
             <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-black text-blue-400 mb-4 sm:mb-6"
+              <h4 className="text-lg sm:text-xl font-black text-green-400 mb-4 sm:mb-6"
                   style={{
                     fontFamily: '"Inter", sans-serif'
                   }}>
@@ -352,17 +352,17 @@ const TermsService = () => {
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link to="/career/support" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/support" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Support
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/terms" className="text-blue-400 font-bold transition-colors duration-300 text-sm sm:text-base">
+                  <Link to="/career/terms" className="text-green-400 font-bold transition-colors duration-300 text-sm sm:text-base">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="/career/privacy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base font-medium">
+                  <Link to="/career/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm sm:text-base font-medium">
                     Privacy Policy
                   </Link>
                 </li>
@@ -384,7 +384,7 @@ const TermsService = () => {
 
               {/* Social or Additional Info */}
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="text-blue-400 text-lg sm:text-xl animate-pulse">•</span>
+                <span className="text-green-400 text-lg sm:text-xl animate-pulse">•</span>
                 <span className="text-gray-300 text-sm font-medium">
                   Fair Terms & Transparent Guidelines
                 </span>
@@ -417,12 +417,12 @@ const TermsService = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(34, 197, 94, 0.5);
           border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(34, 197, 94, 0.7);
         }
 
         /* Enhanced touch targets for mobile */

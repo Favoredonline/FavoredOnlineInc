@@ -399,7 +399,7 @@ const EventsListing = () => {
         <Navbar />
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center px-3 xs:px-4">
           <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
             <p className="text-white text-base xs:text-lg">
               {authLoading ? 'Checking authentication...' : 'Loading tech events...'}
             </p>
@@ -424,40 +424,40 @@ const EventsListing = () => {
             <section className="relative mb-12 xs:mb-16 sm:mb-20 md:mb-24 pt-6 xs:pt-8 sm:pt-12 md:pt-16">
               <div className="max-w-4xl mx-auto text-center">
                 
-                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg xs:rounded-xl border border-blue-500/20">
-                  <p className="text-blue-300 font-semibold text-xs xs:text-sm sm:text-base">
+                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-lg xs:rounded-xl border border-green-500/20">
+                  <p className="text-green-300 font-semibold text-xs xs:text-sm sm:text-base">
                     Welcome, {currentUser.displayName || currentUser.email}! Discover and register for amazing tech events.
                   </p>
                 </div>
                 
                 <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-4 mb-4 xs:mb-5 sm:mb-6 md:mb-8 animate-pulse">
-                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping shadow-lg" 
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'}}></div>
-                  <span className="text-blue-300 uppercase tracking-widest text-[10px] xs:text-xs sm:text-sm md:text-base font-black" 
+                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping shadow-lg" 
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)'}}></div>
+                  <span className="text-green-300 uppercase tracking-widest text-[10px] xs:text-xs sm:text-sm md:text-base font-black" 
                         style={{
-                          textShadow: '0 0 20px rgba(59, 130, 246, 0.8), 2px 2px 4px rgba(0,0,0,0.9)',
+                          textShadow: '0 0 20px rgba(34, 197, 94, 0.8), 2px 2px 4px rgba(0,0,0,0.9)',
                           fontFamily: '"Inter", sans-serif'
                         }}>
                     Favored Online Events
                   </span>
-                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-blue-400 rounded-full animate-ping shadow-lg" 
-                       style={{boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'}}></div>
+                  <div className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 bg-green-400 rounded-full animate-ping shadow-lg" 
+                       style={{boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)'}}></div>
                 </div>
                 
                 <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 xs:mb-5 sm:mb-6 md:mb-8 lg:mb-12 leading-[0.9] tracking-tight"
                     style={{
                       fontFamily: '"Inter", sans-serif',
-                      background: 'linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #ffffff 100%)',
+                      background: 'linear-gradient(135deg, #ffffff 0%, #dcfce7 50%, #ffffff 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(59, 130, 246, 0.2)',
+                      textShadow: '0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(34, 197, 94, 0.2)',
                       filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))'
                     }}>
                   Discover Tech{' '}
-                  <span className="block mt-1 xs:mt-2 sm:mt-3 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-500"
+                  <span className="block mt-1 xs:mt-2 sm:mt-3 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-400 to-cyan-500"
                         style={{
                           textShadow: 'none',
-                          filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))',
+                          filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.5))',
                           animation: 'glow 2s ease-in-out infinite alternate'
                         }}>
                     Events
@@ -470,11 +470,11 @@ const EventsListing = () => {
                      fontFamily: '"Inter", sans-serif'
                    }}>
                   Join workshops, webinars, and talks from tech professionals. 
-                  <span className="text-blue-300 font-semibold"> Register instantly</span> and grow your skills.
+                  <span className="text-green-300 font-semibold"> Register instantly</span> and grow your skills.
                 </p>
                 
-                <div className="h-1 xs:h-1.5 sm:h-2 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-blue-400 to-cyan-500 mx-auto rounded-full shadow-2xl mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-16"
-                     style={{boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)'}}></div>
+                <div className="h-1 xs:h-1.5 sm:h-2 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-green-400 to-cyan-500 mx-auto rounded-full shadow-2xl mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+                     style={{boxShadow: '0 0 40px rgba(34, 197, 94, 0.6)'}}></div>
               </div>
             </section>
 
@@ -491,7 +491,7 @@ const EventsListing = () => {
                       placeholder="Search events by title, description, or topics..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl pl-10 xs:pl-12 pr-4 xs:pr-5 sm:pr-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-sm xs:text-base"
+                      className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl pl-10 xs:pl-12 pr-4 xs:pr-5 sm:pr-6 py-3 xs:py-3.5 sm:py-4 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-sm xs:text-base"
                     />
                   </div>
                 </div>
@@ -501,7 +501,7 @@ const EventsListing = () => {
                   <select
                     value={selectedFilters.eventType}
                     onChange={(e) => handleFilterChange('eventType', e.target.value)}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                   >
                     <option value="">All Event Types</option>
                     <option value="workshop">Workshops</option>
@@ -513,7 +513,7 @@ const EventsListing = () => {
                   <select
                     value={selectedFilters.format}
                     onChange={(e) => handleFilterChange('format', e.target.value)}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                   >
                     <option value="">All Formats</option>
                     <option value="online">Online</option>
@@ -524,7 +524,7 @@ const EventsListing = () => {
                   <select
                     value={selectedFilters.timeframe}
                     onChange={(e) => handleFilterChange('timeframe', e.target.value)}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
+                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all duration-300 text-xs xs:text-sm sm:text-base"
                   >
                     <option value="">All Timeframes</option>
                     <option value="this-week">This Week</option>
@@ -535,11 +535,11 @@ const EventsListing = () => {
 
                 <div className="flex justify-between items-center text-xs xs:text-sm sm:text-base">
                   <div className="text-gray-300">
-                    <span className="text-blue-300 font-semibold">{filteredEvents.length}</span> events found
+                    <span className="text-green-300 font-semibold">{filteredEvents.length}</span> events found
                   </div>
                   <button
                     onClick={clearFilters}
-                    className="text-blue-300 hover:text-white font-semibold transition-colors duration-300 min-h-[44px] px-3 xs:px-4 py-2 rounded-lg hover:bg-white/5 active:bg-white/10"
+                    className="text-green-300 hover:text-white font-semibold transition-colors duration-300 min-h-[44px] px-3 xs:px-4 py-2 rounded-lg hover:bg-white/5 active:bg-white/10"
                   >
                     Clear Filters
                   </button>
@@ -550,7 +550,7 @@ const EventsListing = () => {
             <section>
               {loading ? (
                 <div className="text-center py-12 xs:py-14 sm:py-16 md:py-20">
-                  <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
                   <p className="text-gray-300 text-base xs:text-lg sm:text-xl">Loading events...</p>
                 </div>
               ) : filteredEvents.length === 0 ? (
@@ -567,9 +567,9 @@ const EventsListing = () => {
                   </p>
                   <button 
                     onClick={() => navigate('/events/submit')}
-                    className="bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-600 text-white px-6 xs:px-8 sm:px-10 md:px-12 py-3 xs:py-4 rounded-full font-bold text-sm xs:text-base sm:text-lg transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl min-h-[56px] flex items-center gap-2 mx-auto"
+                    className="bg-gradient-to-r from-green-500 via-green-600 to-cyan-600 text-white px-6 xs:px-8 sm:px-10 md:px-12 py-3 xs:py-4 rounded-full font-bold text-sm xs:text-base sm:text-lg transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl min-h-[56px] flex items-center gap-2 mx-auto"
                     style={{
-                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+                      boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
                     }}
                   >
@@ -594,7 +594,7 @@ const EventsListing = () => {
                           <div className="mb-4 xs:mb-5 sm:mb-6">
                             <div className="flex items-start justify-between mb-3 xs:mb-4">
                               <div className="flex items-center mb-2">
-                                <span className="bg-white/10 text-blue-300 px-2 xs:px-2.5 sm:px-3 py-1 xs:py-1.5 rounded-full text-xs xs:text-sm font-medium border border-white/20">
+                                <span className="bg-white/10 text-green-300 px-2 xs:px-2.5 sm:px-3 py-1 xs:py-1.5 rounded-full text-xs xs:text-sm font-medium border border-white/20">
                                   {formatEventType(event.eventType)}
                                 </span>
                               </div>
@@ -610,7 +610,7 @@ const EventsListing = () => {
                               </div>
                             </div>
                             
-                            <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-black text-white group-hover:text-blue-300 transition-colors duration-300" 
+                            <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-black text-white group-hover:text-green-300 transition-colors duration-300" 
                                 style={{
                                   textShadow: '0 0 15px rgba(255,255,255,0.2), 2px 2px 4px rgba(0,0,0,0.8)',
                                   fontFamily: '"Inter", sans-serif'
@@ -635,7 +635,7 @@ const EventsListing = () => {
                           </div>
 
                           <div className="mb-3 xs:mb-4 p-3 xs:p-4 bg-white/5 rounded-lg xs:rounded-xl border border-white/10">
-                            <div className="text-blue-300 font-semibold text-xs xs:text-sm mb-1 flex items-center gap-1.5">
+                            <div className="text-green-300 font-semibold text-xs xs:text-sm mb-1 flex items-center gap-1.5">
                               <svg className="w-3 h-3 xs:w-4 xs:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                               </svg>
@@ -712,9 +712,9 @@ const EventsListing = () => {
                               <button
                                 onClick={() => applyToAttendEvent(event)}
                                 disabled={applyingToEvent[event.id] || isEventFull}
-                                className="w-full bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-600 hover:scale-105 active:scale-95 disabled:from-gray-500 disabled:to-gray-600 disabled:scale-100 text-white px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg font-bold transition-all duration-300 shadow-xl flex items-center justify-center gap-2 min-h-[44px] text-sm xs:text-base"
+                                className="w-full bg-gradient-to-r from-green-500 via-green-600 to-cyan-600 hover:scale-105 active:scale-95 disabled:from-gray-500 disabled:to-gray-600 disabled:scale-100 text-white px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg font-bold transition-all duration-300 shadow-xl flex items-center justify-center gap-2 min-h-[44px] text-sm xs:text-base"
                                 style={{
-                                  boxShadow: '0 0 20px rgba(59, 130, 246, 0.4)',
+                                  boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)',
                                   fontFamily: '"Inter", sans-serif'
                                 }}
                               >
@@ -766,7 +766,7 @@ const EventsListing = () => {
                             {isRegistered && event.meetingUrl && (
                               <button
                                 onClick={() => window.open(event.meetingUrl, '_blank')}
-                                className="w-full bg-blue-600/20 hover:bg-blue-600/30 active:bg-blue-600/40 text-blue-300 px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg font-semibold transition-all duration-300 border border-blue-500/30 flex items-center justify-center gap-2 min-h-[44px] text-sm xs:text-base"
+                                className="w-full bg-green-600/20 hover:bg-green-600/30 active:bg-green-600/40 text-green-300 px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg font-semibold transition-all duration-300 border border-green-500/30 flex items-center justify-center gap-2 min-h-[44px] text-sm xs:text-base"
                               >
                                 <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -798,9 +798,9 @@ const EventsListing = () => {
                 </p>
                 <button 
                   onClick={() => navigate('/events/submit')}
-                  className="bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-600 text-white px-8 xs:px-10 sm:px-12 py-3 xs:py-4 sm:py-5 rounded-full font-black text-base xs:text-lg sm:text-xl transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl min-h-[56px] inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-green-500 via-green-600 to-cyan-600 text-white px-8 xs:px-10 sm:px-12 py-3 xs:py-4 sm:py-5 rounded-full font-black text-base xs:text-lg sm:text-xl transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl min-h-[56px] inline-flex items-center gap-2"
                   style={{
-                    boxShadow: '0 0 40px rgba(59, 130, 246, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
+                    boxShadow: '0 0 40px rgba(34, 197, 94, 0.4), 0 20px 40px rgba(0,0,0,0.3)',
                     fontFamily: '"Inter", sans-serif'
                   }}
                 >
@@ -818,8 +818,8 @@ const EventsListing = () => {
           @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
           
           @keyframes glow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
-            50% { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.8)); }
           }
           
           * { font-family: 'Inter', sans-serif; }
@@ -840,11 +840,11 @@ const EventsListing = () => {
 
           ::-webkit-scrollbar { width: 8px; }
           ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
-          ::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.5); border-radius: 4px; }
-          ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.7); }
+          ::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.5); border-radius: 4px; }
+          ::-webkit-scrollbar-thumb:hover { background: rgba(34, 197, 94, 0.7); }
 
           input:focus, textarea:focus, select:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
           }
           
           select option {

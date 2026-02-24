@@ -331,8 +331,8 @@ const PostHub = () => {
   };
 
   const renderCategoryFields = () => {
-    const inputClass = "w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base";
-    const labelClass = "block text-blue-400 font-semibold mb-2 text-sm xs:text-base";
+    const inputClass = "w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base";
+    const labelClass = "block text-green-400 font-semibold mb-2 text-sm xs:text-base";
 
     switch (formData.category) {
       case 'job':
@@ -501,7 +501,7 @@ const PostHub = () => {
         <Navbar />
         <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#000000' }}>
           <div className="bg-gradient-to-br from-black/40 via-gray-900/40 to-black/40 backdrop-blur-2xl rounded-xl xs:rounded-2xl p-6 xs:p-7 sm:p-8 border border-white/20 text-center">
-            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 border-b-2 border-green-400 mx-auto mb-4"></div>
             <p className="text-white text-base xs:text-lg">{authLoading ? 'Checking authentication...' : 'Loading...'}</p>
           </div>
         </div>
@@ -520,8 +520,8 @@ const PostHub = () => {
             {/* Hero Section */}
             <section className="relative mb-8 xs:mb-10 sm:mb-12 pt-6 xs:pt-8 sm:pt-12">
               <div className="max-w-3xl mx-auto text-center">
-                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-lime-500/10 to-green-500/10 rounded-lg xs:rounded-xl border border-blue-500/20">
-                  <p className="text-blue-400 font-semibold text-xs xs:text-sm sm:text-base">
+                <div className="mb-4 xs:mb-5 sm:mb-6 p-3 xs:p-4 bg-gradient-to-r from-lime-500/10 to-green-500/10 rounded-lg xs:rounded-xl border border-green-500/20">
+                  <p className="text-green-400 font-semibold text-xs xs:text-sm sm:text-base">
                     Welcome, {currentUser.displayName || currentUser.email}! Share an opportunity with the community.
                   </p>
                 </div>
@@ -536,7 +536,7 @@ const PostHub = () => {
                       filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9))'
                     }}>
                   Post an{' '}
-                  <span className="block mt-1 xs:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-orange-500">
+                  <span className="block mt-1 xs:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-500 to-orange-500">
                     Opportunity
                   </span>
                 </h1>
@@ -565,7 +565,7 @@ const PostHub = () => {
                           onClick={() => setFormData(prev => ({ ...prev, category: cat.id }))}
                           className={`p-3 xs:p-4 rounded-lg xs:rounded-xl border-2 transition-all duration-300 text-left min-h-[44px] active:scale-95 ${
                             formData.category === cat.id
-                              ? 'border-blue-400 bg-lime-400/20 shadow-lg scale-105'
+                              ? 'border-green-400 bg-lime-400/20 shadow-lg scale-105'
                               : 'border-white/20 bg-white/5 hover:bg-white/10 active:bg-white/15'
                           }`}
                         >
@@ -583,40 +583,40 @@ const PostHub = () => {
                         <h2 className="text-xl xs:text-2xl font-bold text-white">Basic Information</h2>
                         
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Title *</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Title *</label>
                           <input
                             type="text"
                             name="title"
                             value={formData.title}
                             onChange={handleInputChange}
                             required
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base"
                             placeholder="Enter opportunity title"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Description *</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Description *</label>
                           <textarea
                             name="description"
                             value={formData.description}
                             onChange={handleInputChange}
                             required
                             rows="5"
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none resize-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none resize-none text-sm xs:text-base"
                             placeholder="Provide a detailed description..."
                           />
                         </div>
 
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">External Link (Where to Apply) *</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">External Link (Where to Apply) *</label>
                           <input
                             type="url"
                             name="externalLink"
                             value={formData.externalLink}
                             onChange={handleUrlChange}
                             required
-                            className={`w-full bg-white/10 border ${urlError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base`}
+                            className={`w-full bg-white/10 border ${urlError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base`}
                             placeholder="https://example.com/apply"
                           />
                           {urlError && (
@@ -630,37 +630,37 @@ const PostHub = () => {
                         </div>
 
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Company/Organization (Optional)</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Company/Organization (Optional)</label>
                           <input
                             type="text"
                             name="companyName"
                             value={formData.companyName}
                             onChange={handleInputChange}
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base"
                             placeholder="Enter company or organization name"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Tags</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Tags</label>
                           <input
                             type="text"
                             name="tags"
                             value={formData.tags}
                             onChange={handleInputChange}
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base"
                             placeholder="React, JavaScript, Remote (comma-separated)"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Requirements</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Requirements</label>
                           <textarea
                             name="requirements"
                             value={formData.requirements}
                             onChange={handleInputChange}
                             rows="3"
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none resize-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none resize-none text-sm xs:text-base"
                             placeholder="Any specific requirements or qualifications..."
                           />
                         </div>
@@ -675,39 +675,39 @@ const PostHub = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
                           <div>
-                            <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Your Name *</label>
+                            <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Your Name *</label>
                             <input
                               type="text"
                               name="posterName"
                               value={formData.posterName}
                               onChange={handleInputChange}
                               required
-                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base"
                               placeholder="Enter your name"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Your Email *</label>
+                            <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Your Email *</label>
                             <input
                               type="email"
                               name="posterEmail"
                               value={formData.posterEmail}
                               onChange={handleInputChange}
                               required
-                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base"
                               placeholder="your.email@example.com"
                             />
                           </div>
 
                           <div className="md:col-span-2">
-                            <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Your Phone (Optional)</label>
+                            <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Your Phone (Optional)</label>
                             <input
                               type="tel"
                               name="posterPhone"
                               value={formData.posterPhone}
                               onChange={handlePhoneChange}
-                              className={`w-full bg-white/10 border ${phoneError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none text-sm xs:text-base`}
+                              className={`w-full bg-white/10 border ${phoneError ? 'border-red-500' : 'border-white/20'} rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none text-sm xs:text-base`}
                               placeholder="+1 (555) 123-4567"
                             />
                             {phoneError && (
@@ -727,12 +727,12 @@ const PostHub = () => {
                         <h2 className="text-xl xs:text-2xl font-bold text-white">Post Expiration</h2>
                         
                         <div>
-                          <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">When should this post expire?</label>
+                          <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">When should this post expire?</label>
                           <select
                             name="expirationOption"
                             value={formData.expirationOption}
                             onChange={handleInputChange}
-                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                            className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none text-sm xs:text-base"
                           >
                             {expirationOptions.map(opt => (
                               <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -742,7 +742,7 @@ const PostHub = () => {
 
                         {formData.expirationOption === 'custom' && (
                           <div>
-                            <label className="block text-blue-400 font-semibold mb-2 text-sm xs:text-base">Select Expiration Date *</label>
+                            <label className="block text-green-400 font-semibold mb-2 text-sm xs:text-base">Select Expiration Date *</label>
                             <input
                               type="date"
                               name="customExpirationDate"
@@ -750,7 +750,7 @@ const PostHub = () => {
                               onChange={handleInputChange}
                               required
                               min={getMinDate()}
-                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-blue-400 focus:outline-none text-sm xs:text-base"
+                              className="w-full bg-white/10 border border-white/20 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2.5 xs:py-3 text-white focus:border-green-400 focus:outline-none text-sm xs:text-base"
                             />
                           </div>
                         )}
@@ -805,7 +805,7 @@ const PostHub = () => {
           }
           
           ::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
+            background: rgba(34, 197, 94, 0.5);
             border-radius: 4px;
           }
 

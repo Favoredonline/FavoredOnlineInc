@@ -216,7 +216,7 @@ const Hub = () => {
       case 'job':
         return (
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
-            {post.jobType && <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded">{post.jobType}</span>}
+            {post.jobType && <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded">{post.jobType}</span>}
             {post.location && <span className="bg-white/10 text-gray-300 px-2 py-1 rounded truncate max-w-[150px]">{post.location}</span>}
             {post.salaryRange && <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded hidden sm:inline-block">{post.salaryRange}</span>}
           </div>
@@ -268,7 +268,7 @@ const Hub = () => {
         <Navbar />
         <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#000000' }}>
           <div className="glass-card-responsive max-w-sm text-center bg-gray-900 border border-white/20 rounded-xl p-6">
-            <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-500 mx-auto mb-4"></div>
             <p className="text-white text-base sm:text-lg">Loading Hub...</p>
           </div>
         </div>
@@ -287,8 +287,8 @@ const Hub = () => {
           {/* Hero Section */}
           <section className="mb-8 sm:mb-10">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                <p className="text-blue-400 font-semibold text-sm sm:text-base">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+                <p className="text-green-400 font-semibold text-sm sm:text-base">
                   Welcome, {isMobile ? (currentUser.displayName?.split(' ')[0] || 'User') : (currentUser.displayName || currentUser.email)}! Discover opportunities in tech.
                 </p>
               </div>
@@ -320,7 +320,7 @@ const Hub = () => {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg font-semibold text-sm lg:text-base transition-all ${
                       selectedCategory === cat.id
-                        ? 'bg-blue-500 text-white shadow-md'
+                        ? 'bg-green-500 text-white shadow-md'
                         : 'bg-white/10 text-gray-300 hover:bg-white/20'
                     }`}
                   >
@@ -337,7 +337,7 @@ const Hub = () => {
                       onClick={() => setSelectedCategory(cat.id)}
                       className={`px-3 py-1.5 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
                         selectedCategory === cat.id
-                          ? 'bg-blue-500 text-white'
+                          ? 'bg-green-500 text-white'
                           : 'bg-white/10 text-gray-300'
                       }`}
                     >
@@ -358,13 +358,13 @@ const Hub = () => {
                   placeholder={isMobile ? "Search..." : "Search by title, company, or tags..."}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="input-responsive bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20"
+                  className="input-responsive bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-green-400 focus:ring-2 focus:ring-green-400/20"
                 />
                 
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="input-responsive bg-white/10 border border-white/20 rounded-lg text-white focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20"
+                  className="input-responsive bg-white/10 border border-white/20 rounded-lg text-white focus:border-green-400 focus:ring-2 focus:ring-green-400/20"
                 >
                   <option value="newest">Newest First</option>
                   <option value="oldest">Oldest First</option>
@@ -375,7 +375,7 @@ const Hub = () => {
               
               <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-sm">
                 <span className="text-gray-300">
-                  <span className="text-blue-400 font-semibold">{filteredPosts.length}</span> {isMobile ? 'found' : 'opportunities found'}
+                  <span className="text-green-400 font-semibold">{filteredPosts.length}</span> {isMobile ? 'found' : 'opportunities found'}
                 </span>
                 {(searchQuery || selectedCategory !== 'all') && (
                   <button
@@ -383,7 +383,7 @@ const Hub = () => {
                       setSearchQuery('');
                       setSelectedCategory('all');
                     }}
-                    className="text-blue-400 hover:text-blue-300 font-semibold touch-target text-left"
+                    className="text-green-400 hover:text-green-300 font-semibold touch-target text-left"
                   >
                     Clear Filters
                   </button>
@@ -421,7 +421,7 @@ const Hub = () => {
                   
                   return (
                     <div key={post.id} className="group">
-                      <div className={`bg-white/5 backdrop-blur-sm border rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 h-full flex flex-col ${
+                      <div className={`bg-white/5 backdrop-blur-sm border rounded-xl p-4 sm:p-6 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300 h-full flex flex-col ${
                         isClosed ? 'border-white/10 opacity-75' : 'border-white/20'
                       }`}>
                         
@@ -441,7 +441,7 @@ const Hub = () => {
                             <div className="flex gap-1">
                               <button
                                 onClick={() => navigate(`/hub/edit/${post.id}`)}
-                                className="text-blue-400 hover:text-blue-300 px-1.5 sm:px-2 py-1 text-xs sm:text-sm font-semibold"
+                                className="text-green-400 hover:text-green-300 px-1.5 sm:px-2 py-1 text-xs sm:text-sm font-semibold"
                               >
                                 {isMobile ? 'Ed' : 'Edit'}
                               </button>
@@ -542,12 +542,12 @@ const Hub = () => {
           }
           
           ::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
+            background: rgba(34, 197, 94, 0.5);
             border-radius: 4px;
           }
           
           ::-webkit-scrollbar-thumb:hover {
-            background: rgba(59, 130, 246, 0.7);
+            background: rgba(34, 197, 94, 0.7);
           }
 
           select option {

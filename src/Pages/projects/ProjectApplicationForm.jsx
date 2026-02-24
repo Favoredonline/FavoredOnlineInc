@@ -343,7 +343,7 @@ const ProjectApplicationForm = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading project details...</p>
         </div>
       </div>
@@ -371,7 +371,7 @@ const ProjectApplicationForm = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/projects"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-colors"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-bold transition-colors"
               >
                 Browse Other Projects
               </Link>
@@ -409,7 +409,7 @@ const ProjectApplicationForm = () => {
             <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
               <Link 
                 to="/projects" 
-                className="text-gray-700 hover:text-blue-600 font-semibold text-sm lg:text-base transition-colors"
+                className="text-gray-700 hover:text-green-600 font-semibold text-sm lg:text-base transition-colors"
               >
                 Back to Projects
               </Link>
@@ -450,7 +450,7 @@ const ProjectApplicationForm = () => {
       <section 
         className="pt-24 sm:pt-32 pb-12 sm:pb-16"
         style={{
-          background: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1e40af 100%)'
+          background: 'linear-gradient(135deg, #1e3a5f 0%, #16a34a 50%, #166534 100%)'
         }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -458,7 +458,7 @@ const ProjectApplicationForm = () => {
             
             {/* Project Badge */}
             <div className="inline-block mb-6 bg-white/20 backdrop-blur-md rounded-xl px-6 py-3 border border-white/30">
-              <p className="text-blue-100 font-semibold text-sm sm:text-base">
+              <p className="text-green-100 font-semibold text-sm sm:text-base">
                 Applying to: <span className="text-white font-bold">{project.projectTitle}</span>
               </p>
             </div>
@@ -468,7 +468,7 @@ const ProjectApplicationForm = () => {
               Apply to Join This Team
             </h1>
 
-            <p className="text-lg sm:text-xl text-blue-50 mb-8">
+            <p className="text-lg sm:text-xl text-green-50 mb-8">
               Show your skills and motivation to join this exciting project
             </p>
           </div>
@@ -510,7 +510,7 @@ const ProjectApplicationForm = () => {
               </div>
               <div className="mt-4">
                 <p className="text-gray-600 text-sm mb-2">Required Skills</p>
-                <p className="text-blue-600">{project.requiredSkills}</p>
+                <p className="text-green-600">{project.requiredSkills}</p>
               </div>
             </div>
           </section>
@@ -521,12 +521,12 @@ const ProjectApplicationForm = () => {
               
               {/* Success Message */}
               {submitStatus === 'success' && (
-                <div className="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-xl">
+                <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-xl">
                   <div className="flex items-start">
-                    <div className="text-blue-600 text-2xl mr-4">✅</div>
+                    <div className="text-green-600 text-2xl mr-4">✅</div>
                     <div>
-                      <h3 className="text-blue-900 font-bold text-lg mb-2">Application Submitted!</h3>
-                      <p className="text-blue-800">The project owner will review your application and contact you soon.</p>
+                      <h3 className="text-green-900 font-bold text-lg mb-2">Application Submitted!</h3>
+                      <p className="text-green-800">The project owner will review your application and contact you soon.</p>
                     </div>
                   </div>
                 </div>
@@ -566,7 +566,7 @@ const ProjectApplicationForm = () => {
                         value={formData.applicantName}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -596,7 +596,7 @@ const ProjectApplicationForm = () => {
                         value={formData.interestedRole}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                         placeholder="e.g., Frontend Developer, Designer"
                       />
                     </div>
@@ -610,7 +610,7 @@ const ProjectApplicationForm = () => {
                         name="hoursPerWeek"
                         value={formData.hoursPerWeek}
                         onChange={handleInputChange}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                       >
                         <option value="">Select availability</option>
                         <option value="5-10">5-10 hours</option>
@@ -632,7 +632,7 @@ const ProjectApplicationForm = () => {
                         value={formData.availableStart}
                         onChange={handleInputChange}
                         min={getTodayDateString()}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                       />
                     </div>
 
@@ -645,7 +645,7 @@ const ProjectApplicationForm = () => {
                         name="preferredContact"
                         value={formData.preferredContact}
                         onChange={handleInputChange}
-                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                        className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                       >
                         <option value="email">Email</option>
                         <option value="phone">Phone</option>
@@ -665,7 +665,7 @@ const ProjectApplicationForm = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all resize-y"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all resize-y"
                       placeholder="Describe your relevant experience for this project..."
                     />
                   </div>
@@ -681,7 +681,7 @@ const ProjectApplicationForm = () => {
                       onChange={handleInputChange}
                       required
                       rows={3}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all resize-y"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all resize-y"
                       placeholder="List your relevant skills and technologies..."
                     />
                   </div>
@@ -696,7 +696,7 @@ const ProjectApplicationForm = () => {
                       name="portfolio"
                       value={formData.portfolio}
                       onChange={handleInputChange}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all"
                       placeholder="https://your-portfolio.com"
                     />
                   </div>
@@ -712,16 +712,16 @@ const ProjectApplicationForm = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all resize-y"
+                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200 transition-all resize-y"
                       placeholder="Explain your motivation and what you can contribute to this project..."
                     />
                   </div>
                 </div>
 
                 {/* Tips */}
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                  <h3 className="text-blue-900 font-bold text-base sm:text-lg mb-4">Application Tips</h3>
-                  <ul className="text-blue-800 space-y-2 text-sm">
+                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                  <h3 className="text-green-900 font-bold text-base sm:text-lg mb-4">Application Tips</h3>
+                  <ul className="text-green-800 space-y-2 text-sm">
                     <li>• Be specific about your relevant experience and skills</li>
                     <li>• Explain how you can contribute to the project's success</li>
                     <li>• Include links to your portfolio or previous work if available</li>
@@ -735,7 +735,7 @@ const ProjectApplicationForm = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">

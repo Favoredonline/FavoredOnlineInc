@@ -197,13 +197,13 @@ const CareerHome = () => {
                 <>
                   <Link
                     to="/dashboard"
-                    className="text-gray-700 hover:text-blue-600 font-semibold text-sm lg:text-base transition-colors"
+                    className="text-gray-700 hover:text-green-600 font-semibold text-sm lg:text-base transition-colors"
                   >
                     Dashboard
                   </Link>
                   <Link
                     to="/hub"
-                    className="text-gray-700 hover:text-blue-600 font-semibold text-sm lg:text-base transition-colors"
+                    className="text-gray-700 hover:text-green-600 font-semibold text-sm lg:text-base transition-colors"
                   >
                     Hub
                   </Link>
@@ -231,7 +231,7 @@ const CareerHome = () => {
               ) : (
                 <button
                   onClick={() => navigate('/login')}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-colors"
+                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold text-sm transition-colors"
                 >
                   Get Started
                 </button>
@@ -256,7 +256,7 @@ const CareerHome = () => {
               ) : (
                 <button
                   onClick={() => navigate('/login')}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-sm"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold text-sm"
                 >
                   Login
                 </button>
@@ -293,7 +293,7 @@ const CareerHome = () => {
             <div className="w-full sm:w-[85%] md:w-[70%] lg:w-[60%] xl:w-[55%] 2xl:w-[50%] text-white">
 
               <div className="mb-6 sm:mb-8">
-                <span className="inline-block text-blue-100 font-semibold text-sm sm:text-base px-4 py-2 bg-blue-600/30 backdrop-blur-sm rounded-full border border-blue-400/30">
+                <span className="inline-block text-green-100 font-semibold text-sm sm:text-base px-4 py-2 bg-green-600/30 backdrop-blur-sm rounded-full border border-green-400/30">
                   Where Learning Meets Real-World Experience
                 </span>
               </div>
@@ -307,8 +307,8 @@ const CareerHome = () => {
               </div>
 
               <div className="flex flex-col gap-6 max-w-xl">
-                <p className="text-base sm:text-lg md:text-xl text-blue-50 leading-relaxed">
-                  Join <span className="font-semibold text-blue-200">ProjectX</span> by Favored Online —
+                <p className="text-base sm:text-lg md:text-xl text-green-50 leading-relaxed">
+                  Join <span className="font-semibold text-green-200">ProjectX</span> by Favored Online —
                   build industry-ready skills through hands-on collaboration,
                   earn <span className="font-semibold text-orange-300">TechTalent Badges</span>,
                   and get AI-powered career guidance tailored to your goals.
@@ -323,7 +323,7 @@ const CareerHome = () => {
                   ].map((item, i) => (
                     <div key={i} className="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 border border-white/20">
                       <div className="font-bold text-white text-sm">{item.label}</div>
-                      <div className="text-blue-100 text-xs">{item.sub}</div>
+                      <div className="text-green-100 text-xs">{item.sub}</div>
                     </div>
                   ))}
                 </div>
@@ -331,7 +331,7 @@ const CareerHome = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={handleStartTest}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-lg hover:shadow-xl"
+                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-lg hover:shadow-xl"
                   >
                     Start Your Journey →
                   </button>
@@ -343,10 +343,10 @@ const CareerHome = () => {
                   </button>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-blue-100 text-sm">
-                  <div className="flex items-center gap-2"><span className="text-blue-300">✓</span><span>No Experience Required</span></div>
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-green-100 text-sm">
+                  <div className="flex items-center gap-2"><span className="text-green-300">✓</span><span>No Experience Required</span></div>
                   <div className="flex items-center gap-2"><span className="text-orange-300">✓</span><span>Industry-Recognized Badges</span></div>
-                  <div className="flex items-center gap-2"><span className="text-blue-300">✓</span><span>AI Career Navigator</span></div>
+                  <div className="flex items-center gap-2"><span className="text-green-300">✓</span><span>AI Career Navigator</span></div>
                   <div className="flex items-center gap-2"><span className="text-green-300">✓</span><span>Free Opportunity Listings</span></div>
                 </div>
               </div>
@@ -363,7 +363,7 @@ const CareerHome = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                How <span className="text-blue-600">ProjectX</span> Works
+                How <span className="text-green-600">ProjectX</span> Works
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                 Your journey from learner to professional in three simple steps
@@ -379,9 +379,9 @@ const CareerHome = () => {
                 ].map((item, index) => (
                   <div key={index} className="relative">
                     {index < 2 && (
-                      <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent"></div>
+                      <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-green-200 to-transparent"></div>
                     )}
-                    <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all h-full">
+                    <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-green-300 hover:shadow-lg transition-all h-full">
                       <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-${item.color}-600 text-white font-black text-xl mb-4`}>
                         {item.step}
                       </div>
@@ -398,10 +398,10 @@ const CareerHome = () => {
         {/* =========================================== */}
         {/* OPPORTUNITY HUB SECTION                     */}
         {/* =========================================== */}
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 relative overflow-hidden">
+        <section className="py-16 sm:py-24 bg-gradient-to-br from-gray-900 via-green-950 to-gray-900 relative overflow-hidden">
           {/* Decorative background elements */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+            <div className="absolute top-10 left-10 w-64 h-64 bg-green-500 rounded-full blur-3xl"></div>
             <div className="absolute bottom-10 right-10 w-80 h-80 bg-orange-500 rounded-full blur-3xl"></div>
           </div>
 
@@ -411,7 +411,7 @@ const CareerHome = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
                 The <span className="bg-gradient-to-r from-orange-400 to-yellow-300 text-transparent bg-clip-text">Opportunity Hub</span>
               </h2>
-              <p className="text-blue-200 text-base sm:text-lg max-w-3xl mx-auto">
+              <p className="text-green-200 text-base sm:text-lg max-w-3xl mx-auto">
                 One place to discover and share everything that moves your career forward.
                 Find jobs, paid gigs, projects, scholarships, events, and internships —{' '}
                 <span className="font-bold text-white">all in one place.</span>
@@ -429,7 +429,7 @@ const CareerHome = () => {
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
                       {opp.type}
                     </h3>
-                    <p className="text-blue-200 text-sm leading-relaxed">
+                    <p className="text-green-200 text-sm leading-relaxed">
                       {opp.description}
                     </p>
                   </div>
@@ -471,8 +471,8 @@ const CareerHome = () => {
                 { name: "TechGuard", image: "/Images/TechGuard.png", title: "Security & DevOps" }
               ].map((badge, index) => (
                 <div key={index} className="group">
-                  <div className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all text-center">
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-3 sm:p-4 rounded-xl mb-3 sm:mb-4 mx-auto w-fit">
+                  <div className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-green-400 hover:shadow-lg transition-all text-center">
+                    <div className="bg-gradient-to-br from-green-50 to-green-100 p-3 sm:p-4 rounded-xl mb-3 sm:mb-4 mx-auto w-fit">
                       <img src={badge.image} alt={badge.name} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                     </div>
                     <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">{badge.name}</h3>
@@ -498,7 +498,7 @@ const CareerHome = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                Why Choose <span className="text-blue-600">ProjectX?</span>
+                Why Choose <span className="text-green-600">ProjectX?</span>
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                 Everything you need to go from where you are to where you want to be
@@ -507,7 +507,7 @@ const CareerHome = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
               {PROJECT_BENEFITS.map((benefit, index) => (
-                <div key={index} className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all">
+                <div key={index} className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-green-300 hover:shadow-lg transition-all">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
                   <p className="text-orange-600 text-sm font-semibold mb-3">{benefit.subtitle}</p>
                   <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
@@ -522,7 +522,7 @@ const CareerHome = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                Pick Your <span className="text-blue-600">Industry Focus</span>
+                Pick Your <span className="text-green-600">Industry Focus</span>
               </h2>
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                 Choose from 21 industry tracks and build expertise in your field
@@ -534,10 +534,10 @@ const CareerHome = () => {
                 <button
                   key={track.id}
                   onClick={() => handleIndustryTrackClick(track.name)}
-                  className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all text-center group"
+                  className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-green-400 hover:shadow-lg transition-all text-center group"
                 >
                   <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{track.icon}</div>
-                  <h3 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-green-600 transition-colors">
                     {track.name}
                   </h3>
                 </button>
@@ -551,7 +551,7 @@ const CareerHome = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                Common <span className="text-blue-600">Questions</span>
+                Common <span className="text-green-600">Questions</span>
               </h2>
               <p className="text-gray-600 text-base sm:text-lg">
                 Everything you need to know about ProjectX and the Opportunity Hub
@@ -567,7 +567,7 @@ const CareerHome = () => {
                   >
                     <div className="flex justify-between items-start gap-4">
                       <h3 className="font-bold text-sm sm:text-base text-gray-900">{faq.question}</h3>
-                      <span className={`text-blue-600 text-xl transition-transform ${expandedFAQ === index ? 'rotate-180' : ''}`}>⌄</span>
+                      <span className={`text-green-600 text-xl transition-transform ${expandedFAQ === index ? 'rotate-180' : ''}`}>⌄</span>
                     </div>
                     <div className={`overflow-hidden transition-all ${expandedFAQ === index ? 'max-h-96 mt-4' : 'max-h-0'}`}>
                       <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
@@ -580,7 +580,7 @@ const CareerHome = () => {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-blue-100">
+        <section className="py-16 sm:py-24 bg-gradient-to-br from-green-50 to-green-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
@@ -593,7 +593,7 @@ const CareerHome = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleStartTest}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-colors"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-colors"
                 >
                   Get Started Free →
                 </button>

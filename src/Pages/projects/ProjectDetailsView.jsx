@@ -260,7 +260,7 @@ const ProjectDetailsView = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm sm:text-base">Loading project details...</p>
         </div>
       </div>
@@ -276,7 +276,7 @@ const ProjectDetailsView = () => {
           <p className="text-gray-600 mb-6 text-sm sm:text-base">{error || 'The project you are looking for does not exist.'}</p>
           <Link 
             to="/projects"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             ← Back to Projects
           </Link>
@@ -299,7 +299,7 @@ const ProjectDetailsView = () => {
           <div className="mb-6 sm:mb-8">
             <Link 
               to={isProjectOwner ? "/projects/owner-dashboard" : "/projects"}
-              className="flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm sm:text-base"
+              className="flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base"
             >
               <span className="mr-2">←</span>
               Back to {isProjectOwner ? "My Projects" : "All Projects"}
@@ -321,7 +321,7 @@ const ProjectDetailsView = () => {
                       {project.status === 'active' ? '✓ Active' : project.status}
                     </span>
                     
-                    <span className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs sm:text-sm font-semibold border border-blue-200 flex items-center">
+                    <span className="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs sm:text-sm font-semibold border border-green-200 flex items-center">
                       <span className="mr-1.5">{getIndustryIcon(project.industryTrack)}</span>
                       <span className="hidden sm:inline">{getIndustryLabel(project.industryTrack)}</span>
                       <span className="sm:hidden">{getIndustryLabel(project.industryTrack).split('/')[0]}</span>
@@ -360,7 +360,7 @@ const ProjectDetailsView = () => {
                     <>
                       <Link 
                         to="/projects/owner-dashboard"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-colors text-center text-sm sm:text-base"
+                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-bold transition-colors text-center text-sm sm:text-base"
                       >
                         📊 Manage Project
                       </Link>
@@ -385,7 +385,7 @@ const ProjectDetailsView = () => {
                     ) : (
                       <Link 
                         to={`/projects/${projectId}/apply`}
-                        className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-bold transition-all text-center text-sm sm:text-base"
+                        className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-bold transition-all text-center text-sm sm:text-base"
                       >
                         Apply to Join →
                       </Link>
@@ -393,7 +393,7 @@ const ProjectDetailsView = () => {
                   ) : (
                     <Link 
                       to="/login"
-                      className="bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-bold transition-all text-center text-sm sm:text-base"
+                      className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-bold transition-all text-center text-sm sm:text-base"
                     >
                       Login to Apply
                     </Link>
@@ -425,7 +425,7 @@ const ProjectDetailsView = () => {
                     {project.requiredSkills.split(',').map((skill, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-xs sm:text-sm font-medium border border-blue-200"
+                        className="px-3 py-1.5 bg-green-100 text-green-700 rounded-lg text-xs sm:text-sm font-medium border border-green-200"
                       >
                         {skill.trim()}
                       </span>
@@ -446,7 +446,7 @@ const ProjectDetailsView = () => {
 
               {/* Related Events */}
               {relatedEvents.length > 0 && (
-                <div className="bg-gradient-to-br from-orange-50 to-blue-50 border border-orange-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <div className="bg-gradient-to-br from-orange-50 to-green-50 border border-orange-200 rounded-2xl p-6 sm:p-8 shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                     <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center mb-3 sm:mb-0">
                       📅 <span className="ml-2">Related Events</span>
@@ -485,7 +485,7 @@ const ProjectDetailsView = () => {
                         <div className="flex flex-col sm:flex-row gap-2">
                           <button
                             onClick={() => addToGoogleCalendar(event)}
-                            className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm border border-blue-200"
+                            className="flex-1 bg-green-100 hover:bg-green-200 text-green-700 px-4 py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm border border-green-200"
                           >
                             📅 Add to Calendar
                           </button>
@@ -574,7 +574,7 @@ const ProjectDetailsView = () => {
                   {!isProjectOwner && currentUser && (
                     <a 
                       href={`mailto:${project.contactEmail}?subject=Interest in ${project.projectTitle}`}
-                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
+                      className="block w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
                     >
                       📧 Contact Owner
                     </a>
@@ -584,7 +584,7 @@ const ProjectDetailsView = () => {
 
               {/* Events Count */}
               {relatedEvents.length > 0 && (
-                <div className="bg-gradient-to-br from-orange-50 to-blue-50 border border-orange-200 rounded-2xl p-6 shadow-sm">
+                <div className="bg-gradient-to-br from-orange-50 to-green-50 border border-orange-200 rounded-2xl p-6 shadow-sm">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
                     📅 <span className="ml-2">Events</span>
                   </h3>
@@ -609,7 +609,7 @@ const ProjectDetailsView = () => {
                     <p className="text-gray-600 text-sm mb-4">View detailed statistics</p>
                     <Link 
                       to="/projects/owner-dashboard"
-                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
+                      className="block w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-center text-sm"
                     >
                       View Dashboard
                     </Link>
