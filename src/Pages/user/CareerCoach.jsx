@@ -6,8 +6,9 @@ import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 
 // ─── GOOGLE FORM CONFIG ───────────────────────────────────────────────────────
+// The form action from the actual <form> tag in Google Forms HTML
 const FORM_ACTION_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
+  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
 
 // Map chatbot field keys → Google Form entry IDs
 const FORM_FIELD_MAP = {
@@ -446,28 +447,31 @@ const ReviewCard = ({ data }) => {
   );
 };
 
-// ─── SUBMIT TO GOOGLE FORM ────────────────────────────────────────────────────
-// Uses the EXACT same pattern as SimpleChatbot.jsx:
-//   1. Create hidden iframe with name='hidden_iframe'
-//   2. Create form targeting that iframe
-//   3. Add hidden inputs for each field
-//   4. form.submit()
-//   5. Clean up after 2 seconds
-const submitToGoogleForm = async (data) => {
-  try {
+// ─── GOOGLE FORM SUBMISSION ───────────────────────────────────────────────────
+// Uses the same hidden iframe + form.submit() pattern as CareerContact.jsx
+// and CareerDashboard.jsx — which are confirmed working.
+function submitToGoogleForm(data) {
+  return new Promise((resolve) => {
+    // 1. Create hidden iframe first (must exist before form targets it)
+    const iframe = document.createElement('iframe');
+    iframe.name = 'hidden_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // 2. Build form targeting that iframe
     const form = document.createElement('form');
     form.action = FORM_ACTION_URL;
     form.method = 'POST';
     form.target = 'hidden_iframe';
-    form.style.display = 'none';
 
+    // 3. Add all user-entered fields
     const fields = {
-      [FORM_FIELD_MAP.firstName]:      data.firstName || '',
-      [FORM_FIELD_MAP.lastName]:       data.lastName || '',
-      [FORM_FIELD_MAP.email]:          data.email || '',
-      [FORM_FIELD_MAP.phone]:          data.phone || '',
+      [FORM_FIELD_MAP.firstName]:      data.firstName      || '',
+      [FORM_FIELD_MAP.lastName]:       data.lastName       || '',
+      [FORM_FIELD_MAP.email]:          data.email          || '',
+      [FORM_FIELD_MAP.phone]:          data.phone          || '',
       [FORM_FIELD_MAP.lookingForward]: data.lookingForward || '',
-      [FORM_FIELD_MAP.willingToPay]:   data.willingToPay || '',
+      [FORM_FIELD_MAP.willingToPay]:   data.willingToPay   || '',
     };
 
     Object.entries(fields).forEach(([name, value]) => {
@@ -478,22 +482,19 @@ const submitToGoogleForm = async (data) => {
       form.appendChild(input);
     });
 
-    const iframe = document.createElement('iframe');
-    iframe.name = 'hidden_iframe';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
+    // 4. Append form, submit, then clean up
     document.body.appendChild(form);
-
     form.submit();
 
     setTimeout(() => {
-      document.body.removeChild(form);
-      document.body.removeChild(iframe);
-    }, 2000);
-  } catch (error) {
-    console.error('Form submission error:', error);
-  }
-};
+      try {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      } catch (_) { /* already removed */ }
+      resolve(true);
+    }, 1000);
+  });
+}
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 const CareerCoach = () => {
@@ -583,6 +584,7 @@ const CareerCoach = () => {
     setStarted(true);
     const data = { ...formData };
     let idx = 1;
+    // Skip steps already prefilled from auth
     while (
       idx < STEPS.length &&
       STEPS[idx].type === 'input' &&
@@ -627,12 +629,14 @@ const CareerCoach = () => {
     [stepIndex, formData, goToStep],
   );
 
-  // ── Submit using same method as SimpleChatbot ──
+  // ── Submit via hidden iframe ──
   const submitForm = useCallback(async () => {
     setIsSubmitting(true);
-    
-    await submitToGoogleForm(formData);
-    
+    try {
+      await submitToGoogleForm(formData);
+    } catch (err) {
+      console.error('Form submission error:', err);
+    }
     setIsSubmitting(false);
     setSubmitted(true);
     setShowReviewCard(false);
@@ -693,6 +697,7 @@ const CareerCoach = () => {
 
     if (isTyping || !currentStep) return null;
 
+    // ── Text input ──
     if (currentStep.type === 'input') {
       const sharedInputStyle = {
         ...S.inputField,
@@ -771,6 +776,7 @@ const CareerCoach = () => {
       );
     }
 
+    // ── Multiple choice ──
     if (currentStep.type === 'choice') {
       return (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 200px), 1fr))', gap: 8 }}>
@@ -781,6 +787,7 @@ const CareerCoach = () => {
       );
     }
 
+    // ── Review submit ──
     if (currentStep.type === 'review') {
       return (
         <button
@@ -814,6 +821,7 @@ const CareerCoach = () => {
       );
     }
 
+    // ── Success ──
     if (currentStep.type === 'success') {
       return (
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -869,11 +877,13 @@ const CareerCoach = () => {
           overflow: 'hidden', position: 'relative',
         }}
       >
+        {/* Ambient blobs */}
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }} aria-hidden="true">
           <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '45vw', height: '45vw', background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
           <div style={{ position: 'absolute', bottom: '-10%', right: '-8%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%)', borderRadius: '50%' }} />
         </div>
 
+        {/* Center column */}
         <div
           style={{
             position: 'relative', zIndex: 1,
@@ -885,7 +895,7 @@ const CareerCoach = () => {
             boxSizing: 'border-box',
           }}
         >
-          {/* HEADER */}
+          {/* ─ HEADER ─ */}
           <div style={{ flexShrink: 0, paddingTop: 'clamp(12px, 3vw, 20px)', paddingBottom: 12 }}>
             <button
               onClick={() => navigate('/dashboard')}
@@ -932,7 +942,7 @@ const CareerCoach = () => {
             <div style={{ ...S.divider, marginTop: 14 }} />
           </div>
 
-          {/* MESSAGES */}
+          {/* ─ MESSAGES ─ */}
           <div
             ref={chatRef}
             className="cc-chat"
@@ -952,7 +962,7 @@ const CareerCoach = () => {
             <div ref={bottomRef} style={{ height: 4 }} />
           </div>
 
-          {/* INPUT ZONE */}
+          {/* ─ INPUT ZONE ─ */}
           <div style={{ ...S.inputZone, flexShrink: 0, paddingTop: 12, paddingBottom: 'clamp(12px, 4vw, 24px)' }}>
             {renderInput()}
           </div>
