@@ -1,4 +1,4 @@
-// src/components/community/Sidebars.jsx - Favored Online Sidebar Components - FULLY RESPONSIVE
+// src/components/community/Sidebars.jsx 
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
