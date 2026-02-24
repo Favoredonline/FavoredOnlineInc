@@ -447,52 +447,85 @@ const ReviewCard = ({ data }) => {
   );
 };
 
-// ─── GOOGLE FORM SUBMISSION ───────────────────────────────────────────────────
-// Uses the same hidden iframe + form.submit() pattern as CareerContact.jsx
-// and CareerDashboard.jsx — which are confirmed working.
+// ─── GOOGLE FORM SUBMISSION (FIXED - uses multiple methods for reliability) ──
 function submitToGoogleForm(data) {
   return new Promise((resolve) => {
-    // 1. Create hidden iframe first (must exist before form targets it)
-    const iframe = document.createElement('iframe');
-    iframe.name = 'hidden_iframe';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
+    // Build the URL-encoded form body
+    const formBody = new URLSearchParams();
+    formBody.append(FORM_FIELD_MAP.firstName,      data.firstName      || '');
+    formBody.append(FORM_FIELD_MAP.lastName,       data.lastName       || '');
+    formBody.append(FORM_FIELD_MAP.email,          data.email          || '');
+    formBody.append(FORM_FIELD_MAP.phone,          data.phone          || '');
+    formBody.append(FORM_FIELD_MAP.lookingForward, data.lookingForward || '');
+    formBody.append(FORM_FIELD_MAP.willingToPay,   data.willingToPay   || '');
 
-    // 2. Build form targeting that iframe
-    const form = document.createElement('form');
-    form.action = FORM_ACTION_URL;
-    form.method = 'POST';
-    form.target = 'hidden_iframe';
-
-    // 3. Add all user-entered fields
-    const fields = {
-      [FORM_FIELD_MAP.firstName]:      data.firstName      || '',
-      [FORM_FIELD_MAP.lastName]:       data.lastName       || '',
-      [FORM_FIELD_MAP.email]:          data.email          || '',
-      [FORM_FIELD_MAP.phone]:          data.phone          || '',
-      [FORM_FIELD_MAP.lookingForward]: data.lookingForward || '',
-      [FORM_FIELD_MAP.willingToPay]:   data.willingToPay   || '',
-    };
-
-    Object.entries(fields).forEach(([name, value]) => {
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
+    // ── METHOD 1: fetch with no-cors (fire-and-forget, most reliable) ──
+    // Google Forms accepts POST with URL-encoded body.
+    // no-cors means we can't read the response, but the request still goes through.
+    fetch(FORM_ACTION_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formBody.toString(),
+    }).catch((err) => {
+      console.warn('fetch submission failed, falling back to iframe:', err);
     });
 
-    // 4. Append form, submit, then clean up
-    document.body.appendChild(form);
-    form.submit();
+    // ── METHOD 2: hidden iframe + form (backup) ──
+    // This runs in parallel as a fallback.
+    try {
+      // Create a unique iframe name to avoid collisions
+      const iframeName = `hidden_iframe_${Date.now()}`;
 
-    setTimeout(() => {
-      try {
-        document.body.removeChild(form);
-        document.body.removeChild(iframe);
-      } catch (_) { /* already removed */ }
-      resolve(true);
-    }, 1000);
+      const iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.id = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.action = FORM_ACTION_URL;
+      form.method = 'POST';
+      form.target = iframeName;
+      // Ensure the form does not navigate the page
+      form.style.display = 'none';
+
+      // Add all fields as hidden inputs
+      const fields = {
+        [FORM_FIELD_MAP.firstName]:      data.firstName      || '',
+        [FORM_FIELD_MAP.lastName]:       data.lastName       || '',
+        [FORM_FIELD_MAP.email]:          data.email          || '',
+        [FORM_FIELD_MAP.phone]:          data.phone          || '',
+        [FORM_FIELD_MAP.lookingForward]: data.lookingForward || '',
+        [FORM_FIELD_MAP.willingToPay]:   data.willingToPay   || '',
+      };
+
+      Object.entries(fields).forEach(([name, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Clean up after a delay
+      setTimeout(() => {
+        try {
+          document.body.removeChild(form);
+          document.body.removeChild(iframe);
+        } catch (_) { /* already removed */ }
+      }, 3000);
+    } catch (err) {
+      console.warn('iframe submission failed:', err);
+    }
+
+    // Resolve after a short delay to allow submission to complete
+    setTimeout(() => resolve(true), 1500);
   });
 }
 
@@ -629,7 +662,7 @@ const CareerCoach = () => {
     [stepIndex, formData, goToStep],
   );
 
-  // ── Submit via hidden iframe ──
+  // ── Submit via fetch + hidden iframe (dual approach for reliability) ──
   const submitForm = useCallback(async () => {
     setIsSubmitting(true);
     try {
