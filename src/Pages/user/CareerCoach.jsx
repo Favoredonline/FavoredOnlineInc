@@ -23,7 +23,6 @@ const FIELD_IDS = {
 
 const CareerCoach = () => {
   const navigate = useNavigate();
-  const { currentUser } = useAuth();
   const formRef = useRef(null);
 
   const [firstName, setFirstName] = useState('');
@@ -102,47 +101,16 @@ const CareerCoach = () => {
         [FIELD_IDS.willingToPay]:   willingToPay,
       };
 
-      // METHOD 1: fetch with no-cors (primary - most reliable)
+      // Submit via fetch (single request, no iframe)
       const formBody = new URLSearchParams();
       Object.entries(fields).forEach(([k, v]) => formBody.append(k, v));
 
-      fetch(FORM_URL, {
+      await fetch(FORM_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formBody.toString(),
-      }).catch(() => {});
-
-      // METHOD 2: hidden iframe backup (runs in parallel)
-      const iframeName = 'hidden_iframe_' + Date.now();
-      const iframe = document.createElement('iframe');
-      iframe.name = iframeName;
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-
-      const form = document.createElement('form');
-      form.action = FORM_URL;
-      form.method = 'POST';
-      form.target = iframeName;
-      form.style.display = 'none';
-
-      Object.entries(fields).forEach(([name, value]) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
       });
-
-      document.body.appendChild(form);
-      form.submit();
-
-      setTimeout(() => {
-        try { document.body.removeChild(form); document.body.removeChild(iframe); } catch (_) {}
-      }, 3000);
-
-      // Show success after delay
-      await new Promise((r) => setTimeout(r, 1500));
 
       setFormStatus({
         message: `🎉 Application submitted successfully, ${firstName}! Check your email at ${email} for next steps. We'll send you a coaching document with full session pricing. The $50 application fee will be credited toward your sessions.`,
