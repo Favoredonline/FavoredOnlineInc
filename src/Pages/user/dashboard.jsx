@@ -577,6 +577,13 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         path: '/members-directory',
         stats: 'Browse Members',
         gradient: 'from-purple-500 to-purple-600'
+      },
+      {
+        title: 'Career Coach',
+        description: 'Get personalized 1-on-1 career coaching from experienced professionals. Apply now with a $50 application fee (credited toward your sessions).',
+        path: '/career-coach',
+        stats: '1-on-1 Coaching',
+        gradient: 'from-green-500 to-emerald-600'
       }
     ],
     companies: [
