@@ -205,7 +205,7 @@ const CareerHome = () => {
                     to="/hub"
                     className="text-gray-700 hover:text-blue-600 font-semibold text-sm lg:text-base transition-colors"
                   >
-                    Opportunity Hub
+                    Hub
                   </Link>
 
                   <div className="flex items-center space-x-3 bg-gray-50 rounded-full px-3 py-2 border border-gray-200">
