@@ -35,7 +35,6 @@ const Hub = () => {
     { id: 'all', label: 'All', color: 'gray' },
     { id: 'job', label: 'Jobs', color: 'blue' },
     { id: 'project', label: 'Projects', color: 'green' },
-    { id: 'event', label: 'Events', color: 'purple' },
     { id: 'course', label: 'Courses', color: 'orange' },
     { id: 'internship', label: 'Internships', color: 'teal' },
     { id: 'program', label: 'Programs', color: 'pink' },
@@ -73,7 +72,6 @@ const Hub = () => {
           createdAt: data.createdAt?.toDate(),
           updatedAt: data.updatedAt?.toDate(),
           expiresAt: data.expiresAt?.toDate(),
-          eventDate: data.eventDate?.toDate(),
           courseStartDate: data.courseStartDate?.toDate(),
           applicationDeadline: data.applicationDeadline?.toDate()
         };
@@ -223,12 +221,6 @@ const Hub = () => {
             {post.salaryRange && <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded hidden sm:inline-block">{post.salaryRange}</span>}
           </div>
         );
-      case 'event':
-        return post.eventDate && (
-          <div className="text-xs text-purple-300">
-            {post.eventDate.toLocaleDateString()} {!isMobile && post.eventTime && `at ${post.eventTime}`}
-          </div>
-        );
       case 'course':
         return (
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
@@ -306,7 +298,7 @@ const Hub = () => {
               </h1>
 
               <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 px-4">
-                {isMobile ? 'Opportunities for Tech Professionals' : 'Jobs • Projects • Events • Courses • Internships • Programs • Scholarships'}
+                {isMobile ? 'Opportunities for Tech Professionals' : 'Jobs • Projects • Courses • Internships • Programs • Scholarships'}
               </p>
               
               <button 
