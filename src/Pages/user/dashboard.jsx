@@ -436,13 +436,15 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     };
   }, [sidebarOpen]);
 
+  // ─── SIDEBAR ITEMS: Career Coach added after Community ───
   const sidebarItems = useMemo(() => [
     { id: 'achievements', label: 'Tech Badges' },
     { id: 'learning', label: 'Career' },
     { id: 'hub', label: 'Hub' },
     { id: 'events', label: 'Events' },
     { id: 'projects', label: 'Projects' },
-    { id: 'community', label: 'Community' }
+    { id: 'community', label: 'Community' },
+    { id: 'career-coach', label: 'Career Coach' }
   ], []);
 
   const badgeCategories = useMemo(() => ({
@@ -454,6 +456,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     'security': { name: 'TechGuard', color: 'text-red-400' }
   }), []);
 
+  // ─── DASHBOARD CARDS: Career Coach removed from community array ───
   const dashboardCards = useMemo(() => ({
     achievements: [
       {
@@ -577,13 +580,6 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         path: '/members-directory',
         stats: 'Browse Members',
         gradient: 'from-purple-500 to-purple-600'
-      },
-      {
-        title: 'Career Coach',
-        description: 'Get personalized 1-on-1 career coaching from experienced professionals. Apply now with a $50 application fee (credited toward your sessions).',
-        path: '/career-coach',
-        stats: '1-on-1 Coaching',
-        gradient: 'from-green-500 to-emerald-600'
       }
     ],
     companies: [
@@ -778,9 +774,14 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
   }, [navigate, onNavigate]);
 
   const handleSidebarItemClick = useCallback((item) => {
+    // Career Coach navigates directly to its page instead of rendering inline
+    if (item.id === 'career-coach') {
+      handleCardClick('/career-coach');
+      return;
+    }
     setActiveSection(item.id);
     setSidebarOpen(false);
-  }, []);
+  }, [handleCardClick]);
 
   const handleAccountDeleted = useCallback(() => {
     navigate('/');
