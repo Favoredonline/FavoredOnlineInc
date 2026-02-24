@@ -29,10 +29,6 @@ const PostHub = () => {
     jobType: '',
     salaryRange: '',
     location: '',
-    eventDate: '',
-    eventTime: '',
-    eventLocation: '',
-    eventType: '',
     coursePrice: '',
     courseDuration: '',
     courseStartDate: '',
@@ -57,7 +53,6 @@ const PostHub = () => {
   const categories = [
     { id: 'job', label: 'Job', description: 'Full-time, part-time, or contract positions' },
     { id: 'project', label: 'Project', description: 'Freelance or paid project work' },
-    { id: 'event', label: 'Event', description: 'Workshops, conferences, meetups' },
     { id: 'course', label: 'Course', description: 'Online courses and training' },
     { id: 'internship', label: 'Internship', description: 'Internship opportunities' },
     { id: 'program', label: 'Program', description: 'Training programs and bootcamps' },
@@ -171,11 +166,6 @@ const PostHub = () => {
       errors.push('Please select a custom expiration date');
     }
 
-    if (formData.category === 'event') {
-      if (!formData.eventDate) errors.push('Event date is required');
-      if (!formData.eventTime) errors.push('Event time is required');
-    }
-
     if (formData.category === 'scholarship' && formData.applicationDeadline) {
       const deadline = new Date(formData.applicationDeadline);
       if (deadline <= new Date()) {
@@ -253,13 +243,6 @@ const PostHub = () => {
           submissionData.location = formData.location.trim() || null;
           break;
 
-        case 'event':
-          submissionData.eventDate = formData.eventDate ? new Date(formData.eventDate) : null;
-          submissionData.eventTime = formData.eventTime || null;
-          submissionData.eventLocation = formData.eventLocation.trim() || null;
-          submissionData.eventType = formData.eventType || null;
-          break;
-
         case 'course':
           submissionData.coursePrice = formData.coursePrice || null;
           submissionData.courseDuration = formData.courseDuration.trim() || null;
@@ -312,10 +295,6 @@ const PostHub = () => {
         jobType: '',
         salaryRange: '',
         location: '',
-        eventDate: '',
-        eventTime: '',
-        eventLocation: '',
-        eventType: '',
         coursePrice: '',
         courseDuration: '',
         courseStartDate: '',
@@ -381,41 +360,6 @@ const PostHub = () => {
               <div className="md:col-span-2">
                 <label className={labelClass}>Location</label>
                 <input type="text" name="location" value={formData.location} onChange={handleInputChange} className={inputClass} placeholder="e.g., Remote, New York, NY" />
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'event':
-        return (
-          <div className="space-y-4 xs:space-y-5 sm:space-y-6">
-            <h3 className="text-lg xs:text-xl font-bold text-white">Event Details</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
-              <div>
-                <label className={labelClass}>Event Date *</label>
-                <input type="date" name="eventDate" value={formData.eventDate} onChange={handleInputChange} required min={getMinDate()} className={inputClass} />
-              </div>
-
-              <div>
-                <label className={labelClass}>Event Time *</label>
-                <input type="time" name="eventTime" value={formData.eventTime} onChange={handleInputChange} required className={inputClass} />
-              </div>
-
-              <div>
-                <label className={labelClass}>Location/Platform</label>
-                <input type="text" name="eventLocation" value={formData.eventLocation} onChange={handleInputChange} className={inputClass} placeholder="e.g., Online, Zoom, NYC" />
-              </div>
-
-              <div>
-                <label className={labelClass}>Event Type</label>
-                <select name="eventType" value={formData.eventType} onChange={handleInputChange} className={inputClass}>
-                  <option value="">Select type</option>
-                  <option value="conference">Conference</option>
-                  <option value="workshop">Workshop</option>
-                  <option value="meetup">Meetup</option>
-                  <option value="webinar">Webinar</option>
-                </select>
               </div>
             </div>
           </div>
@@ -599,7 +543,7 @@ const PostHub = () => {
 
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed px-2" 
                    style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
-                  Share jobs, projects, events, courses, internships, programs, or scholarships
+                  Share jobs, projects, courses, internships, programs, or scholarships
                 </p>
               </div>
             </section>
