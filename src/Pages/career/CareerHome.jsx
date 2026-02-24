@@ -60,44 +60,32 @@ const OPPORTUNITY_TYPES = [
   {
     type: "Jobs",
     icon: "💼",
-    color: "blue",
-    description: "Full-time, part-time, and contract positions from companies actively hiring tech talent.",
-    tag: "Paid"
+    description: "Full-time, part-time, and contract positions from companies actively hiring tech talent."
   },
   {
     type: "Paid Opportunities",
     icon: "💵",
-    color: "green",
-    description: "Freelance gigs, consulting work, and paid projects you can take on while building your skills.",
-    tag: "Paid"
+    description: "Freelance gigs, consulting work, and paid projects you can take on while building your skills."
   },
   {
     type: "Projects",
     icon: "🛠️",
-    color: "purple",
-    description: "Collaborate on open projects, build your portfolio, and gain real-world experience.",
-    tag: "Free"
+    description: "Collaborate on open projects, build your portfolio, and gain real-world experience."
   },
   {
     type: "Scholarships",
     icon: "🎓",
-    color: "orange",
-    description: "Funding opportunities for bootcamps, courses, and degree programs in tech.",
-    tag: "Free"
+    description: "Funding opportunities for bootcamps, courses, and degree programs in tech."
   },
   {
     type: "Events",
     icon: "📅",
-    color: "pink",
-    description: "Hackathons, workshops, networking meetups, webinars, and career fairs — virtual and in-person.",
-    tag: "Free"
+    description: "Hackathons, workshops, networking meetups, webinars, and career fairs — virtual and in-person."
   },
   {
     type: "Internships",
     icon: "🏢",
-    color: "teal",
-    description: "Short-term placements with companies looking for emerging tech talent to train and hire.",
-    tag: "Paid"
+    description: "Short-term placements with companies looking for emerging tech talent to train and hire."
   }
 ];
 
@@ -153,14 +141,7 @@ const FAQs = [
   }
 ];
 
-const colorMap = {
-  blue: { bg: 'bg-blue-50', border: 'border-blue-200', icon: 'bg-blue-100 text-blue-600', badge: 'bg-blue-100 text-blue-700', hover: 'hover:border-blue-400' },
-  green: { bg: 'bg-green-50', border: 'border-green-200', icon: 'bg-green-100 text-green-600', badge: 'bg-green-100 text-green-700', hover: 'hover:border-green-400' },
-  purple: { bg: 'bg-purple-50', border: 'border-purple-200', icon: 'bg-purple-100 text-purple-600', badge: 'bg-purple-100 text-purple-700', hover: 'hover:border-purple-400' },
-  orange: { bg: 'bg-orange-50', border: 'border-orange-200', icon: 'bg-orange-100 text-orange-600', badge: 'bg-orange-100 text-orange-700', hover: 'hover:border-orange-400' },
-  pink: { bg: 'bg-pink-50', border: 'border-pink-200', icon: 'bg-pink-100 text-pink-600', badge: 'bg-pink-100 text-pink-700', hover: 'hover:border-pink-400' },
-  teal: { bg: 'bg-teal-50', border: 'border-teal-200', icon: 'bg-teal-100 text-teal-600', badge: 'bg-teal-100 text-teal-700', hover: 'hover:border-teal-400' }
-};
+
 
 const CareerHome = () => {
   const navigate = useNavigate();
@@ -186,14 +167,6 @@ const CareerHome = () => {
   const handleOpportunityHub = () => {
     if (currentUser) {
       navigate('/opportunity-hub');
-    } else {
-      navigate('/login');
-    }
-  };
-
-  const handlePostOpportunity = () => {
-    if (currentUser) {
-      navigate('/opportunity-hub/post');
     } else {
       navigate('/login');
     }
@@ -448,45 +421,30 @@ const CareerHome = () => {
 
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <div className="text-center mb-4">
+            <div className="text-center mb-10 sm:mb-14">
               <span className="inline-block text-orange-300 font-semibold text-sm px-4 py-2 bg-orange-500/20 rounded-full border border-orange-400/30 mb-4">
                 🆕 New Feature
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
                 The <span className="bg-gradient-to-r from-orange-400 to-yellow-300 text-transparent bg-clip-text">Opportunity Hub</span>
               </h2>
-              <p className="text-blue-200 text-base sm:text-lg max-w-3xl mx-auto mb-2">
+              <p className="text-blue-200 text-base sm:text-lg max-w-3xl mx-auto">
                 One place to discover and share everything that moves your career forward.
-                Post or find jobs, paid gigs, projects, scholarships, events, and internships —{' '}
-                <span className="font-bold text-white">completely free.</span>
+                Find jobs, paid gigs, projects, scholarships, events, and internships —{' '}
+                <span className="font-bold text-white">all in one place.</span>
               </p>
-            </div>
-
-            {/* Free posting callout banner */}
-            <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
-              <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/10 border border-orange-400/30 rounded-2xl p-4 sm:p-6 text-center backdrop-blur-sm">
-                <p className="text-white font-semibold text-sm sm:text-base">
-                  🎉 <span className="text-orange-300">Any member can post for free</span> — no fees, no paywalls, no catch.
-                  Help your community by sharing opportunities you know about.
-                </p>
-              </div>
             </div>
 
             {/* Opportunity type cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto mb-12 sm:mb-16">
-              {OPPORTUNITY_TYPES.map((opp, index) => {
-                const c = colorMap[opp.color];
-                return (
+              {OPPORTUNITY_TYPES.map((opp, index) => (
                   <div
                     key={index}
                     className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 rounded-2xl p-6 transition-all group cursor-pointer"
                     onClick={handleOpportunityHub}
                   >
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="mb-4">
                       <div className="text-4xl">{opp.icon}</div>
-                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${opp.tag === 'Paid' ? 'bg-green-500/20 text-green-300 border border-green-400/30' : 'bg-blue-500/20 text-blue-300 border border-blue-400/30'}`}>
-                        {opp.tag === 'Paid' ? '💵 Can be Paid' : '✓ Always Free'}
-                      </span>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
                       {opp.type}
@@ -495,23 +453,16 @@ const CareerHome = () => {
                       {opp.description}
                     </p>
                   </div>
-                );
-              })}
+              ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* CTA Button */}
+            <div className="text-center flex justify-center">
               <button
                 onClick={handleOpportunityHub}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-lg hover:shadow-orange-500/30 hover:shadow-xl"
               >
                 Browse Opportunities →
-              </button>
-              <button
-                onClick={handlePostOpportunity}
-                className="bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all"
-              >
-                + Post an Opportunity Free
               </button>
             </div>
           </div>
@@ -649,54 +600,34 @@ const CareerHome = () => {
           </div>
         </section>
 
-        {/* Final CTA — dual emphasis */}
+        {/* Final CTA */}
         <section className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-blue-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                  Ready to Launch Your <span className="text-orange-600">Tech Career?</span>
-                </h2>
-                <p className="text-lg sm:text-xl text-gray-700">
-                  Join thousands of students transforming their careers through real-world projects
-                </p>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">
+                Ready to Launch Your <span className="text-orange-600">Tech Career?</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 sm:mb-10">
+                Join thousands of students transforming their careers through real-world projects
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleStartTest}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-colors"
+                >
+                  Get Started Free →
+                </button>
+                <button
+                  onClick={handleViewProjects}
+                  className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-colors border-2 border-gray-300"
+                >
+                  View Live Projects
+                </button>
               </div>
 
-              {/* Two CTA cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-                {/* ProjectX card */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all text-center">
-                  <div className="text-4xl mb-4">🚀</div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-3">ProjectX</h3>
-                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Get your AI career assessment, join real projects, earn TechTalent Badges, and connect with a career coach.
-                  </p>
-                  <button
-                    onClick={handleStartTest}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-base transition-colors"
-                  >
-                    Get Started Free →
-                  </button>
-                </div>
-
-                {/* Opportunity Hub card */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-xl transition-all text-center">
-                  <div className="text-4xl mb-4">🌐</div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-3">Opportunity Hub</h3>
-                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Browse or post jobs, paid gigs, scholarships, projects, events, and internships — 100% free for everyone.
-                  </p>
-                  <button
-                    onClick={handleOpportunityHub}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-base transition-colors"
-                  >
-                    Explore Opportunities →
-                  </button>
-                </div>
-              </div>
-
-              <p className="text-center text-gray-600 text-sm">
-                No credit card required • Start building immediately • Post opportunities for free
+              <p className="mt-6 text-gray-600 text-sm">
+                No credit card required • Start building immediately
               </p>
             </div>
           </div>
