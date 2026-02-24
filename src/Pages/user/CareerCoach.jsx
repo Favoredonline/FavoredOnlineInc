@@ -6,9 +6,9 @@ import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 
 // ─── GOOGLE FORM CONFIG ───────────────────────────────────────────────────────
-// Form Response URL (the public /e/ URL + /formResponse)
+// The form action from the actual <form> tag in Google Forms HTML
 const FORM_ACTION_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
+  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdW_rYRPNVLycQnMq9FsB5TNCfBg5dlrff1E59tH7rWf3nnOg/formResponse';
 
 // Map chatbot field keys → Google Form entry IDs
 const FORM_FIELD_MAP = {
@@ -143,9 +143,6 @@ const S = {
   reviewHeader: {
     backgroundColor: 'rgba(249,115,22,0.10)',
     borderBottom: '1px solid rgba(255,255,255,0.08)',
-  },
-  reviewRow: {
-    borderBottom: '1px solid rgba(255,255,255,0.06)',
   },
   feeNotice: {
     backgroundColor: 'rgba(249,115,22,0.09)',
@@ -367,7 +364,6 @@ const ReviewCard = ({ data }) => {
           <div
             key={label}
             style={{
-              ...S.reviewRow,
               display: 'flex',
               gap: 12,
               padding: '9px 14px',
@@ -451,42 +447,58 @@ const ReviewCard = ({ data }) => {
   );
 };
 
-// ─── RELIABLE GOOGLE FORM SUBMISSION VIA HIDDEN IFRAME + FORM POST ────────────
-// fetch('...', { mode: 'no-cors' }) can silently fail — the browser sends the
-// request but the opaque response makes it impossible to know if it succeeded.
-// A real <form> POST into a hidden <iframe> mirrors exactly what the browser
-// does when you click "Submit" on a Google Form, so it always works.
+// ─── GOOGLE FORM SUBMISSION (hidden iframe + real form POST) ──────────────────
+// This exactly replicates what happens when you click Submit on the actual
+// Google Form, including ALL required hidden fields.
 function submitToGoogleForm(data) {
   return new Promise((resolve) => {
-    // 1. Hidden iframe to absorb the response page
+    // 1. Hidden iframe to absorb the Google response page
     const iframeName = `__gf_iframe_${Date.now()}`;
     const iframe = document.createElement('iframe');
     iframe.name = iframeName;
     iframe.style.display = 'none';
     document.body.appendChild(iframe);
 
-    // 2. Real <form> targeting the iframe
+    // 2. Build a real <form> targeting that iframe
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = FORM_ACTION_URL;
     form.target = iframeName;
     form.style.display = 'none';
 
-    // 3. Populate hidden inputs from the mapping
-    Object.entries(FORM_FIELD_MAP).forEach(([field, entryId]) => {
+    // Helper to add hidden inputs
+    const addField = (name, value) => {
       const input = document.createElement('input');
       input.type = 'hidden';
-      input.name = entryId;
-      input.value = data[field] || '';
+      input.name = name;
+      input.value = value;
       form.appendChild(input);
+    };
+
+    // 3. Add all user-entered fields
+    Object.entries(FORM_FIELD_MAP).forEach(([field, entryId]) => {
+      addField(entryId, data[field] || '');
     });
+
+    // 4. Add the radio button sentinel field (required by Google Forms
+    //    for multiple-choice / radio questions)
+    addField('entry.1735599415_sentinel', '');
+
+    // 5. Add ALL required Google Forms hidden fields
+    //    (extracted from the actual form HTML)
+    const fbzx = String(Date.now()) + String(Math.floor(Math.random() * 1000000));
+    addField('fvv', '1');
+    addField('partialResponse', `[null,null,"${fbzx}"]`);
+    addField('pageHistory', '0');
+    addField('fbzx', fbzx);
+    addField('submissionTimestamp', String(Date.now()));
 
     document.body.appendChild(form);
 
-    // 4. Submit
+    // 6. Submit
     form.submit();
 
-    // 5. Clean up after Google's confirmation page loads
+    // 7. Clean up after Google's confirmation page loads in iframe
     setTimeout(() => {
       try {
         document.body.removeChild(form);
@@ -495,7 +507,7 @@ function submitToGoogleForm(data) {
         /* already removed */
       }
       resolve(true);
-    }, 2500);
+    }, 3000);
   });
 }
 
@@ -632,7 +644,7 @@ const CareerCoach = () => {
     [stepIndex, formData, goToStep],
   );
 
-  // ── Submit via hidden iframe (reliable cross-origin Google Form POST) ──
+  // ── Submit via hidden iframe ──
   const submitForm = useCallback(async () => {
     setIsSubmitting(true);
     try {
@@ -869,7 +881,6 @@ const CareerCoach = () => {
         .cc-chat::-webkit-scrollbar { width: 3px; }
         .cc-chat::-webkit-scrollbar-track { background: transparent; }
         .cc-chat::-webkit-scrollbar-thumb { background: rgba(249,115,22,0.3); border-radius: 3px; }
-        .cc-placeholder::placeholder { color: #4b5563; }
         @media (max-width: 380px) { .cc-online-label { display: none; } }
       `}</style>
 
@@ -976,7 +987,7 @@ const CareerCoach = () => {
   );
 };
 
-// ── Choice button (extracted to avoid re-render jitter) ──
+// ── Choice button ──
 const ChoiceButton = ({ choice, onClick }) => {
   const [hovered, setHovered] = useState(false);
   return (
