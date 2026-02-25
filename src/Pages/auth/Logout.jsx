@@ -16,7 +16,7 @@ const Logout = () => {
   const navigate = useNavigate();
 
   // External home URL
-  const externalHomeUrl = 'https://careers.favoredonline.com';
+  const externalHomeUrl = '/';
 
   // Mouse tracking for animated background
   useEffect(() => {
@@ -136,7 +136,7 @@ const Logout = () => {
                 ) : (
                   <>
                     Signing{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-red-400 to-pink-500"
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500"
                           style={{
                             textShadow: 'none',
                             filter: 'drop-shadow(0 0 20px rgba(255, 69, 0, 0.5))',

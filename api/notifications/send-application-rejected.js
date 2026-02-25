@@ -149,7 +149,7 @@ module.exports = async function handler(req, res) {
               <div style="background: #fff3e0; border: 1px solid #ff9800; padding: 20px; border-radius: 8px; margin: 30px 0;">
                 <h3 style="color: #e65100; margin-top: 0;">Next Steps</h3>
                 <div style="text-align: center;">
-                  <a href="https://careers.favoredonline.com/projects" class="button">
+                  <a href="https://www.favoredonline.com/projects" class="button">
                     Explore More Projects
                   </a>
                 </div>
@@ -214,7 +214,7 @@ KEEP MOVING FORWARD!
 - Use our AI-powered Career Navigator for personalized guidance
 
 NEXT STEPS:
-Explore More Projects: https://careers.favoredonline.com/projects
+Explore More Projects: https://www.favoredonline.com/projects
 
 TIPS FOR FUTURE APPLICATIONS:
 - Tailor your application to each specific project

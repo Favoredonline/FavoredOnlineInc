@@ -290,7 +290,7 @@ const AdminEmailTester = () => {
           <button
             onClick={testAllEmails}
             disabled={isLoading || !testEmail}
-            className="bg-gradient-to-r from-purple-600 to-green-600 hover:from-purple-700 hover:to-green-700 disabled:from-gray-600 disabled:to-gray-700 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 disabled:cursor-not-allowed flex items-center"
+            className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-green-700 hover:to-green-700 disabled:from-gray-600 disabled:to-gray-700 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 disabled:cursor-not-allowed flex items-center"
           >
             {isLoading ? (
               <>

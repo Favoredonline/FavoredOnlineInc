@@ -69,7 +69,7 @@ module.exports = async function handler(req, res) {
     await transporter.verify();
     console.log('✅ Transporter verified successfully');
 
-    const badgeAssignmentUrl = `https://careers.favoredonline.com/career/project-completion/${groupId}`;
+    const badgeAssignmentUrl = `https://www.favoredonline.com/career/project-completion/${groupId}`;
     const emailSubject = `Project Approved: Ready to Award TechTalent Badges - "${projectTitle}"`;
     
     console.log('📧 Sending project approval email to:', projectOwnerEmail);

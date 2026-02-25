@@ -152,7 +152,7 @@ module.exports = async function handler(req, res) {
               <h2>Congratulations, ${memberData.memberName || 'Team Member'}!</h2>
               
               <div class="badge-showcase">
-                <img src="https://careers.favoredonline.com${badgeInfo.image}" 
+                <img src="https://www.favoredonline.com${badgeInfo.image}" 
                      alt="${badgeInfo.name}" 
                      class="badge-image"
                      onerror="this.style.display='none';" />
@@ -172,7 +172,7 @@ module.exports = async function handler(req, res) {
               
               <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #E5E7EB;">
                 <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                  <img src="https://careers.favoredonline.com${badgeInfo.image}" 
+                  <img src="https://www.favoredonline.com${badgeInfo.image}" 
                        alt="${badgeInfo.name}" 
                        style="width: 40px; height: 40px; margin-right: 12px; border-radius: 6px; flex-shrink: 0;" 
                        onerror="this.style.display='none';" />
@@ -234,7 +234,7 @@ module.exports = async function handler(req, res) {
               </div>
               
               <div style="text-align: center; margin: 30px 0;">
-                <a href="https://careers.favoredonline.com/" class="button">
+                <a href="https://www.favoredonline.com/" class="button">
                   View Your Badge Collection
                 </a>
               </div>
@@ -296,7 +296,7 @@ MAXIMIZE YOUR BADGE VALUE:
 - Share your achievement with your professional network
 - Continue building your badge collection with future projects
 
-View your complete badge collection: https://careers.favoredonline.com/
+View your complete badge collection: https://www.favoredonline.com/
 
 Congratulations on this well-deserved recognition! Keep building your skills and earning more badges to advance your tech career.
 

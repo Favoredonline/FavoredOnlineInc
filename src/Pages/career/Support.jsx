@@ -424,7 +424,7 @@ const Support = () => {
                 {
                   title: "Bug Reports",
                   description: "Found a technical issue? Report bugs, glitches, or unexpected behavior to help us improve your experience.",
-                  gradient: "from-red-500 to-pink-500",
+                  gradient: "from-red-500 to-red-600",
                   bgHover: "hover:bg-red-50"
                 },
                 {
@@ -454,8 +454,8 @@ const Support = () => {
                 {
                   title: "Feature Requests",
                   description: "Have ideas for new features or improvements? Share your suggestions to help us build a better platform.",
-                  gradient: "from-indigo-500 to-green-500",
-                  bgHover: "hover:bg-indigo-50"
+                  gradient: "from-green-500 to-green-500",
+                  bgHover: "hover:bg-green-50"
                 }
               ].map((category, index) => (
                 <div key={index} 

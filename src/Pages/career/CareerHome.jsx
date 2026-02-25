@@ -88,7 +88,7 @@ const SAMPLE_TALENT = [
     badges: ["TechArchs Lv.3", "TechLeads Lv.1"],
     skills: ["Figma", "Webflow", "Framer", "Design Systems"],
     rate: "$50/hr",
-    color: "from-blue-500 to-blue-600"
+    color: "from-green-600 to-green-700"
   }
 ];
 
@@ -410,7 +410,7 @@ const CareerHome = () => {
               {BADGE_TRACKS.map((badge, i) => (
                 <div key={i} onClick={handleBadgesClick} className="bg-white rounded-xl p-5 border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all text-center group cursor-pointer">
                   <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-3 rounded-xl mb-3 mx-auto w-fit">
-                    <img src={badge.image} alt={badge.name} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
+                    <img src={badge.image} alt={badge.name} loading="lazy" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                   </div>
                   <h4 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors">{badge.name}</h4>
                   <span className="text-xs text-gray-500">{badge.title}</span>
@@ -506,7 +506,7 @@ const CareerHome = () => {
             {[
               { step: "1", title: "Discover Your Path", desc: "Take our AI-powered assessment to identify your strengths, interests, and the perfect tech career path — no experience required.", accent: "bg-green-500" },
               { step: "2", title: "Build Real Solutions", desc: "Join industry-aligned projects on ProjectX, collaborate with real teams, and create portfolio-worthy work that employers value.", accent: "bg-orange-500" },
-              { step: "3", title: "Earn & Get Hired", desc: "Gain TechTalent Badges as you progress, showcase verified skills, and connect with employers looking for proven talent.", accent: "bg-blue-500" }
+              { step: "3", title: "Earn & Get Hired", desc: "Gain TechTalent Badges as you progress, showcase verified skills, and connect with employers looking for proven talent.", accent: "bg-green-600" }
             ].map((item, i) => (
               <div key={i} className="relative">
                 {i < 2 && <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-200 to-transparent z-0" />}
@@ -571,7 +571,7 @@ const CareerHome = () => {
                     <h3 className="font-bold text-sm sm:text-base text-gray-900">{faq.question}</h3>
                     <span className={`text-green-600 text-xl transition-transform flex-shrink-0 ${expandedFAQ === index ? 'rotate-180' : ''}`}>⌄</span>
                   </div>
-                  <div className={`overflow-hidden transition-all duration-300 ${expandedFAQ === index ? 'max-h-96 mt-4' : 'max-h-0'}`}>
+                  <div className={`overflow-hidden transition-all duration-300 ${expandedFAQ === index ? 'max-h-[600px] mt-4' : 'max-h-0'}`}>
                     <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 </button>

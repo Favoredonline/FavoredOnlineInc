@@ -149,19 +149,19 @@ const SERVICES = [
 const FAQs = [
   {
     question: "What does Favored Online do?",
-    answer: "Favored Online is a digital innovation organization that builds cutting-edge technology solutions for businesses and empowers the next generation of tech professionals. We build and transform web and mobile applications into intelligent systems, and we provide AI-powered career guidance to help professionals transition into and grow within the tech industry."
+    answer: "Favored Online builds cutting-edge technology solutions for businesses. We transform web and mobile applications into intelligent systems using AI, automation, and data-driven architecture. We also run a career platform for tech professionals — explore it from our homepage."
   },
   {
     question: "How is Favored Online different from other development companies?",
-    answer: "Many companies build websites and mobile applications. We design intelligent systems that automate, analyze, and evolve. We also go beyond building — we empower people through our career development platform, helping professionals discover their ideal tech career path with AI-powered assessments and personalized guidance."
+    answer: "We don't just build websites — we design intelligent systems that automate, analyze, and evolve. Every engagement starts with strategy, and our solutions are built to scale with your business."
   },
   {
     question: "How does your consultation and project process work?",
-    answer: "We start every engagement with a consultation fee. This covers your discovery session, initial scoping, and a custom proposal outlining our services, how we operate, project timelines, and transparent pricing. If you move forward and build with us, the fee is credited toward your project — it's part of your investment, not an extra charge. If you choose not to proceed, the consultation fee is non-refundable. For full details on our process, refund policy, pricing structure, and intellectual property terms, please review our Terms of Service at favoredonline.com/terms."
+    answer: "We start every engagement with a consultation fee. This covers your discovery session, initial scoping, and a custom proposal outlining our services, how we operate, project timelines, and transparent pricing. If you move forward and build with us, the fee is credited toward your project — it's part of your investment, not an extra charge. If you choose not to proceed, the consultation fee is non-refundable. For full details on our process, refund policy, pricing structure, and intellectual property terms, please review our Terms of Service at favoredonline.com/solutions/terms."
   },
   {
     question: "Is the consultation fee refundable?",
-    answer: "The consultation fee is strictly non-refundable. It compensates our team for the dedicated time and expertise invested in your discovery session and custom proposal preparation. However, if you choose to build with us, this fee is applied as a credit toward your total project cost. We encourage you to read our full Terms of Service at favoredonline.com/terms before proceeding, so you have complete clarity on our policies."
+    answer: "The consultation fee is strictly non-refundable. It compensates our team for the dedicated time and expertise invested in your discovery session and custom proposal preparation. However, if you choose to build with us, this fee is applied as a credit toward your total project cost. We encourage you to read our full Terms of Service at favoredonline.com/solutions/terms before proceeding, so you have complete clarity on our policies."
   },
   {
     question: "Can you integrate AI into my existing platform?",
@@ -176,8 +176,8 @@ const FAQs = [
     answer: "We partner with forward-thinking organizations across multiple sectors including financial services, healthcare, education, e-commerce, professional services, growth-stage startups, enterprise teams, and research organizations."
   },
   {
-    question: "Where can I find career guidance, tech career resources, or career assessments?",
-    answer: "All career-related services are available on our dedicated career platform at careers.favoredonline.com. This includes our ProjectX program where you work on real-world projects with teams, earn industry-recognized TechTalent Badges, get AI-powered career assessments and personalized learning roadmaps, attend tech events, join community networking, and more. You can also request a dedicated career coach for one-on-one personalized guidance. Whether you're transitioning into tech or leveling up your skills, visit careers.favoredonline.com to get started for free."
+    question: "Do you offer career guidance or tech training?",
+    answer: "Yes! Our career platform offers real-world projects, TechTalent Badges, AI-powered assessments, personalized roadmaps, and one-on-one career coaching. Head to our homepage and click 'Earn Your Badges' to get started for free."
   },
   {
     question: "Will I be working with real people or just AI?",
@@ -189,11 +189,11 @@ const FAQs = [
   },
   {
     question: "Do you provide ongoing support?",
-    answer: "Absolutely. Our commitment extends beyond launch. We provide reliable ongoing support, maintenance, optimization, and updates to ensure your intelligent systems continue to perform and evolve as your business grows. Support terms are outlined in your individual Project Agreement — for more details, see our Terms of Service at favoredonline.com/terms."
+    answer: "Absolutely. Our commitment extends beyond launch. We provide reliable ongoing support, maintenance, optimization, and updates to ensure your intelligent systems continue to perform and evolve as your business grows. Support terms are outlined in your individual Project Agreement — for more details, see our Terms of Service at favoredonline.com/solutions/terms."
   },
   {
     question: "Where can I review your full policies, pricing structure, and legal terms?",
-    answer: "All of our engagement policies — including the consultation fee structure, refund terms, how we price projects, intellectual property ownership, and our full operating process — are documented in our Terms of Service. We strongly encourage every prospective client to read it before starting a consultation. You can access it at favoredonline.com/terms or by clicking the Terms of Service link in the footer of this page."
+    answer: "All of our engagement policies — including the consultation fee structure, refund terms, how we price projects, intellectual property ownership, and our full operating process — are documented in our Terms of Service. We strongly encourage every prospective client to read it before starting a consultation. You can access it at favoredonline.com/solutions/terms or by clicking the Terms of Service link in the footer of this page."
   }
 ];
 
@@ -215,32 +215,7 @@ const OUTCOMES = [
   "Sustainable competitive advantage"
 ];
 
-const CAREER_FEATURES = [
-  {
-    title: "Real-World Projects (ProjectX)",
-    description: "Join ProjectX and work on actual industry projects with real teams. Build your portfolio, gain hands-on experience, and develop industry-ready skills."
-  },
-  {
-    title: "TechTalent Badges",
-    description: "Earn industry-recognized TechTalent Badges as you progress through specialized tracks and showcase your growing expertise."
-  },
-  {
-    title: "AI Career Assessment",
-    description: "Take our AI-powered assessment to discover your ideal tech career path based on your skills, experience, and goals."
-  },
-  {
-    title: "Career Coach (On Request)",
-    description: "Request a dedicated career coach for one-on-one personalized guidance, mentorship, and support on your tech journey."
-  },
-  {
-    title: "Personalized Roadmaps",
-    description: "Get a custom learning roadmap tailored to your timeline, current skills, and target role in tech."
-  },
-  {
-    title: "Community & Events",
-    description: "Connect with fellow professionals, attend tech events and workshops, collaborate on projects, and grow your network."
-  }
-];
+// Career features removed — career content lives on the main careers platform
 
 // Lazy loading image component
 const LazyImage = ({ src, alt, className }) => {
@@ -561,55 +536,6 @@ const CareerHome = () => {
           })}
         </section>
 
-        {/* ===== CAREER DEVELOPMENT SECTION ===== */}
-        <section className="w-full px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 md:mb-32 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-black to-emerald-950/10 -z-10"></div>
-          <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center bg-green-500/20 backdrop-blur-xl rounded-full px-5 py-2 border border-green-400/30 mb-6">
-              <span className="text-green-300 font-bold text-sm sm:text-base" style={{ fontFamily: '"Inter", sans-serif' }}>
-                 Empowering Tech Professionals
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6"
-                style={{ fontFamily: '"Inter", sans-serif' }}>
-              Launch & Grow Your{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-green-300">Tech Career</span>
-            </h2>
-            <p className="text-gray-200 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-               style={{ fontFamily: '"Inter", sans-serif' }}>
-              Whether you're transitioning into tech or leveling up your skills, our AI-powered career platform gives you the guidance, tools, and community to succeed.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full max-w-6xl mx-auto mb-10 sm:mb-14">
-            {CAREER_FEATURES.map((feature, index) => (
-              <div key={index} className="group transform hover:scale-105 transition-all duration-300">
-                <div className="bg-gradient-to-br from-green-950/30 via-gray-900/40 to-emerald-950/30 backdrop-blur-2xl rounded-xl p-5 sm:p-6 md:p-8 border border-green-500/20 shadow-xl hover:border-orange-400/40 transition-all duration-300 h-full flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-black mb-2 text-white group-hover:text-orange-400 transition-colors"
-                      style={{ fontFamily: '"Inter", sans-serif' }}>{feature.title}</h3>
-                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed flex-grow"
-                     style={{ fontFamily: '"Inter", sans-serif' }}>{feature.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a href="/"
-              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl transition-all duration-300 transform hover:scale-105 sm:hover:scale-110 shadow-2xl overflow-hidden hover:shadow-orange-500/50"
-              style={{ boxShadow: "0 10px 50px rgba(249, 115, 22, 0.4), 0 0 30px rgba(249, 115, 22, 0.2)", fontFamily: '"Inter", sans-serif' }}>
-              <span className="relative drop-shadow-lg">Explore Career Platform</span>
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-green-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-            </a>
-            <p className="text-gray-400 text-sm sm:text-base mt-4" style={{ fontFamily: '"Inter", sans-serif' }}>
-              Free to join — 1,000+ professionals empowered since 2018
-            </p>
-          </div>
-        </section>
-
         {/* ===== BUSINESS OUTCOMES ===== */}
         <section className="w-full px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
           <div className="text-center mb-8 sm:mb-12">
@@ -791,7 +717,7 @@ const CareerHome = () => {
                     <h3 className="font-bold text-base sm:text-lg md:text-xl text-white pr-4" style={{ fontFamily: '"Inter", sans-serif' }}>{faq.question}</h3>
                     <span className={`transform transition-transform text-xl text-orange-400 flex-shrink-0 ${expandedFAQ === index ? 'rotate-180' : ''}`}>⌄</span>
                   </div>
-                  <div className={`overflow-hidden transition-all duration-300 ${expandedFAQ === index ? 'max-h-96 mt-3' : 'max-h-0'}`}>
+                  <div className={`overflow-hidden transition-all duration-300 ${expandedFAQ === index ? 'max-h-[600px] mt-3' : 'max-h-0'}`}>
                     <p className="text-gray-200 leading-relaxed text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif' }}>{faq.answer}</p>
                     {/* Terms of Service nudge on relevant FAQ items */}
                     {(index === 2 || index === 3 || index === 10 || index === 11) && expandedFAQ === index && (

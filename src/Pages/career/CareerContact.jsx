@@ -167,7 +167,7 @@ const CareerContact = () => {
             <div className="bg-white border-2 border-gray-200 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
               
               {/* Header */}
-              <div className="bg-gradient-to-r from-green-600 via-purple-600 to-orange-600 p-6 sm:p-8 md:p-12 text-white">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-orange-600 p-6 sm:p-8 md:p-12 text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6" 
                     style={{
                       fontFamily: '"Inter", sans-serif'
@@ -217,11 +217,11 @@ const CareerContact = () => {
                     { 
                       level: "Intermediate", 
                       projects: "8-14", 
-                      color: "from-purple-500 to-indigo-600", 
+                      color: "from-green-500 to-green-600", 
                       icon: "⭐",
                       skills: ["Independent development", "Cross-functional collaboration", "Code optimization", "Quality assurance"],
-                      bgColor: "from-purple-50 to-indigo-100",
-                      borderColor: "border-purple-300"
+                      bgColor: "from-green-50 to-green-100",
+                      borderColor: "border-green-300"
                     },
                     { 
                       level: "Beginners", 
@@ -319,13 +319,13 @@ const CareerContact = () => {
                   icon: "📈",
                   title: "Continuous Growth",
                   description: "Our learning progression system ensures ongoing skill development. You're joining a platform committed to continuous improvement.",
-                  gradient: "from-green-500 to-purple-600"
+                  gradient: "from-green-500 to-green-600"
                 },
                 {
                   icon: "✅",
                   title: "Validated Expertise",
                   description: "Every skill claim is backed by completed ProjectX deliverables. No guesswork - you see exactly what they've accomplished.",
-                  gradient: "from-purple-500 to-orange-600"
+                  gradient: "from-green-500 to-orange-600"
                 },
                 {
                   icon: "🏆",

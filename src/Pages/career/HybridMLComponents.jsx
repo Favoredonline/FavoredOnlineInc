@@ -28,11 +28,11 @@ export const MLEnhancedCareerCard = ({
   const animatedValue = animatedValues?.[`path-${index}`] || animatedScore;
   
   const colorClasses = [
-    'from-purple-500 to-pink-500',
+    'from-green-500 to-orange-500',
     'from-green-500 to-cyan-500', 
     'from-green-500 to-teal-500',
     'from-orange-500 to-red-500',
-    'from-indigo-500 to-purple-500'
+    'from-green-500 to-orange-500'
   ];
   const colorClass = colorClasses[index % colorClasses.length];
   
@@ -40,7 +40,7 @@ export const MLEnhancedCareerCard = ({
     const badgeStyles = {
       green: 'bg-green-100 text-green-800 border-green-200',
       blue: 'bg-green-100 text-green-800 border-green-200',
-      purple: 'bg-purple-100 text-purple-800 border-purple-200',
+      green: 'bg-green-100 text-green-800 border-green-200',
       orange: 'bg-orange-100 text-orange-800 border-orange-200',
       teal: 'bg-teal-100 text-teal-800 border-teal-200'
     };
@@ -157,7 +157,7 @@ export const MLEnhancedCareerCard = ({
               )}
               {path.mlConfidence && path.mlConfidence > 0.7 && (
                 <span 
-                  className="px-2 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full text-xs font-medium border border-purple-200"
+                  className="px-2 py-1 bg-gradient-to-r from-green-100 to-orange-100 text-green-700 rounded-full text-xs font-medium border border-green-200"
                   aria-label={`ML Match: ${Math.round(path.mlConfidence * 100)} percent`}
                 >
                   🤖 {Math.round(path.mlConfidence * 100)}% ML Match
@@ -230,7 +230,7 @@ export const MLEnhancedCareerCard = ({
               {Math.round(animatedValue)}%
             </div>
             {path.hybridScore && path.hybridScore !== (path.originalScore || path.match) && (
-              <div className="text-xs text-purple-600 font-medium">
+              <div className="text-xs text-orange-600 font-medium">
                 AI: {path.hybridScore}%
               </div>
             )}
@@ -257,8 +257,8 @@ export const MLEnhancedCareerCard = ({
           {path.hybridScore && path.hybridScore !== (path.originalScore || path.match) && (
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-medium text-purple-600">🤖 AI-Enhanced Score</span>
-                <span className="text-xs text-purple-500">{path.hybridScore}/100</span>
+                <span className="text-xs font-medium text-orange-600">🤖 AI-Enhanced Score</span>
+                <span className="text-xs text-orange-500">{path.hybridScore}/100</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3" role="progressbar" aria-valuenow={path.hybridScore} aria-valuemin="0" aria-valuemax="100">
                 <div
@@ -298,7 +298,7 @@ export const MLEnhancedCareerCard = ({
           
           <div className="flex gap-2">
             {path.recommendationType?.startsWith('ml') && (
-              <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+              <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                 ML Discovery
               </span>
             )}
@@ -359,7 +359,7 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
   
   if (isLoading) {
     return (
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg mb-8 animate-pulse">
+      <div className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8 shadow-lg mb-8 animate-pulse">
         <div className="flex items-center mb-6">
           <div className="w-12 h-12 bg-gray-300 rounded-full mr-3"></div>
           <div>
@@ -395,7 +395,7 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
   }
   
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg mb-8" role="region" aria-labelledby="ml-insights-title">
+    <div className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8 shadow-lg mb-8" role="region" aria-labelledby="ml-insights-title">
       <div className="flex items-center mb-6">
         <span className="text-3xl mr-3" aria-hidden="true">🤖</span>
         <div>
@@ -412,7 +412,7 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
             <h4 className="font-semibold text-gray-800">Career Pattern</h4>
           </div>
           <p className="text-sm text-gray-600 mb-2">Detected transition type:</p>
-          <p className="font-medium text-purple-700">
+          <p className="font-medium text-green-700">
             {mlInsights.dominantPattern?.replace('_', ' to ').toUpperCase() || 'Unique Path'}
           </p>
           <div className="mt-2">
@@ -422,7 +422,7 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={Math.round((mlInsights.patternConfidence || 0.75) * 100)} aria-valuemin="0" aria-valuemax="100">
               <div 
-                className="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full transition-all duration-1000"
+                className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-1000"
                 style={{ width: `${(mlInsights.patternConfidence || 0.75) * 100}%` }}
               />
             </div>
@@ -478,9 +478,9 @@ export const MLInsightsDashboard = ({ mlInsights, userData, isLoading = false })
       </div>
       
       {/* Method Explanation */}
-      <div className="mt-6 p-4 bg-white bg-opacity-60 rounded-lg border border-purple-200">
-        <h5 className="font-medium text-purple-800 mb-2">🔬 How AI Analysis Works:</h5>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-purple-700">
+      <div className="mt-6 p-4 bg-white bg-opacity-60 rounded-lg border border-green-200">
+        <h5 className="font-medium text-green-800 mb-2">🔬 How AI Analysis Works:</h5>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-green-700">
           <div>
             <strong>Pattern Recognition:</strong> Analyzes successful career transitions from similar backgrounds
           </div>
@@ -592,13 +592,13 @@ export const HybridRecommendationsDisplay = ({
             <span className="text-sm font-medium text-green-700">Rule-Based Analysis</span>
           </div>
           <div className="text-gray-400" aria-hidden="true">+</div>
-          <div className="flex items-center px-4 py-2 bg-purple-100 rounded-full">
-            <span className="w-3 h-3 bg-purple-500 rounded-full mr-2" aria-hidden="true"></span>
-            <span className="text-sm font-medium text-purple-700">Machine Learning</span>
+          <div className="flex items-center px-4 py-2 bg-green-100 rounded-full">
+            <span className="w-3 h-3 bg-green-500 rounded-full mr-2" aria-hidden="true"></span>
+            <span className="text-sm font-medium text-green-700">Machine Learning</span>
           </div>
           <div className="text-gray-400" aria-hidden="true">=</div>
-          <div className="flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-purple-100 rounded-full">
-            <span className="w-3 h-3 bg-gradient-to-r from-green-500 to-purple-500 rounded-full mr-2" aria-hidden="true"></span>
+          <div className="flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-orange-100 rounded-full">
+            <span className="w-3 h-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full mr-2" aria-hidden="true"></span>
             <span className="text-sm font-medium text-gray-700">Hybrid Intelligence</span>
           </div>
         </div>
@@ -617,11 +617,11 @@ export const HybridRecommendationsDisplay = ({
             </div>
             <div className="text-sm text-green-700">Smart Matches</div>
           </div>
-          <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
-            <div className="text-2xl font-bold text-purple-600" aria-label={`${adjacent.length} related options`}>
+          <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+            <div className="text-2xl font-bold text-orange-600" aria-label={`${adjacent.length} related options`}>
               {adjacent.length}
             </div>
-            <div className="text-sm text-purple-700">Related Options</div>
+            <div className="text-sm text-green-700">Related Options</div>
           </div>
           <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
             <div className="text-2xl font-bold text-orange-600" aria-label={`${mlDiscovered.length} ML discoveries`}>
@@ -804,7 +804,7 @@ export const HybridRecommendationsDisplay = ({
           </p>
           <button 
             onClick={() => navigate('/career/test')}
-            className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 py-3 rounded-lg hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-lg hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             aria-label="Complete career assessment to get recommendations"
           >
             Complete Career Assessment
@@ -829,7 +829,7 @@ export const HybridRecommendationsDisplay = ({
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-purple-600 mb-2">Machine Learning Enhancement (40%)</h4>
+            <h4 className="font-semibold text-orange-600 mb-2">Machine Learning Enhancement (40%)</h4>
             <ul className="text-sm text-gray-600 space-y-1" role="list">
               <li role="listitem">• Similar profile analysis (15%)</li>
               <li role="listitem">• Career clustering patterns (15%)</li>

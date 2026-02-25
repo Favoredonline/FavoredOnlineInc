@@ -25,13 +25,13 @@ export const UserQuickLinksSidebar = ({ currentUser, onNavigate, isMobile = fals
       title: 'My Career',
       description: 'Learning resources & AI guidance',
       path: '/career/dashboard',
-      gradient: 'from-purple-500 to-pink-600'
+      gradient: 'from-green-500 to-green-600'
     },
     {
       title: 'Projects',
       description: 'Submit & join projects',
       path: '/projects',
-      gradient: 'from-green-500 to-indigo-600'
+      gradient: 'from-green-500 to-green-600'
     }
   ];
 

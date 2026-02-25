@@ -538,7 +538,7 @@ const EventSubmission = () => {
                 )}
 
                 {submitStatus === 'error' && (
-                  <div className="mb-6 xs:mb-7 sm:mb-8 p-4 xs:p-5 sm:p-6 bg-gradient-to-r from-red-500/20 to-pink-500/20 border border-red-500/30 rounded-lg xs:rounded-xl backdrop-blur-sm">
+                  <div className="mb-6 xs:mb-7 sm:mb-8 p-4 xs:p-5 sm:p-6 bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 rounded-lg xs:rounded-xl backdrop-blur-sm">
                     <div className="flex items-start gap-3 xs:gap-4">
                       <svg className="w-5 h-5 xs:w-6 xs:h-6 text-red-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

@@ -222,8 +222,8 @@ const MembersDirectory = () => {
     },
     'leadership': { 
       name: 'TechLeads', 
-      color: 'text-purple-400', 
-      bgColor: 'from-purple-500/20 to-purple-600/20',
+      color: 'text-orange-400', 
+      bgColor: 'from-orange-500/20 to-orange-600/20',
       skills: ['Project Management', 'Leadership', 'Strategic Planning', 'Team Coordination']
     },
     'design': { 
@@ -811,9 +811,9 @@ const MembersDirectory = () => {
                   <div className="text-2xl font-bold text-yellow-300">{members.filter(m => m.badges > 0).length}</div>
                   <div className="text-sm text-yellow-100">Badge Holders</div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl p-4 border border-purple-500/30">
-                  <div className="text-2xl font-bold text-purple-300">{members.filter(m => m.isActive).length}</div>
-                  <div className="text-sm text-purple-100">Recently Active</div>
+                <div className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 backdrop-blur-sm rounded-xl p-4 border border-orange-500/30">
+                  <div className="text-2xl font-bold text-orange-300">{members.filter(m => m.isActive).length}</div>
+                  <div className="text-sm text-orange-100">Recently Active</div>
                 </div>
               </div>
             </div>
@@ -924,7 +924,7 @@ const MembersDirectory = () => {
 
                 <button
                   onClick={clearFilters}
-                  className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-3 rounded-xl font-semibold hover:from-red-600 hover:to-pink-600 transition-all duration-300"
+                  className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300"
                 >
                   Clear All
                 </button>
@@ -1035,7 +1035,7 @@ const MembersDirectory = () => {
                           <div className="flex gap-2">
                             <button
                               onClick={() => openMemberModal(member)}
-                              className="flex-1 bg-gradient-to-r from-green-500 to-purple-500 text-white px-3 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-purple-600 transition-all duration-300 text-xs"
+                              className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 text-xs"
                             >
                               View Details
                             </button>
@@ -1078,7 +1078,7 @@ const MembersDirectory = () => {
                           className={`flex items-center px-4 py-2 rounded-xl font-semibold transition-all duration-300 ${
                             currentPage === 1
                               ? 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
-                              : 'bg-gradient-to-r from-green-500 to-purple-500 text-white hover:from-green-600 hover:to-purple-600 transform hover:scale-105'
+                              : 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 transform hover:scale-105'
                           }`}
                         >
                           ← Previous
@@ -1133,7 +1133,7 @@ const MembersDirectory = () => {
                           className={`flex items-center px-4 py-2 rounded-xl font-semibold transition-all duration-300 ${
                             currentPage === totalPages
                               ? 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
-                              : 'bg-gradient-to-r from-green-500 to-purple-500 text-white hover:from-green-600 hover:to-purple-600 transform hover:scale-105'
+                              : 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 transform hover:scale-105'
                           }`}
                         >
                           Next →

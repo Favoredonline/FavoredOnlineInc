@@ -255,7 +255,7 @@ function App() {
                 <Route path="*" element={
                   <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
                     <div className="glass-card-responsive max-w-md w-full text-center bg-white">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center">
                         <span className="text-3xl sm:text-4xl font-bold text-white">404</span>
                       </div>
                       <h1 className="heading-h2 text-gray-900 mb-3 sm:mb-4">Page Not Found</h1>

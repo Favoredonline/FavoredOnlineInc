@@ -149,7 +149,7 @@ const CommunityGuidelines = () => {
   const guidelines = [
     { color: 'green-400', title: 'Be Respectful', description: 'Treat all members with kindness and professionalism' },
     { color: 'orange-400', title: 'Share Knowledge', description: 'Help others learn and grow in their tech journey' },
-    { color: 'purple-400', title: 'Stay On Topic', description: 'Keep discussions relevant to tech and career development' },
+    { color: 'orange-400', title: 'Stay On Topic', description: 'Keep discussions relevant to tech and career development' },
     { color: 'green-400', title: 'Build Together', description: 'Collaborate and support each other\'s success' }
   ];
 
@@ -444,14 +444,15 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
     { id: 'events', label: 'Events' },
     { id: 'projects', label: 'Projects' },
     { id: 'community', label: 'Community' },
-    { id: 'career-coach', label: 'Career Coach' }
+    { id: 'career-coach', label: 'Career Coach' },
+    { id: 'hire-us', label: 'Hire Us' }
   ], []);
 
   const badgeCategories = useMemo(() => ({
     'mentorship': { name: 'TechMO', color: 'text-yellow-400' },
     'quality-assurance': { name: 'TechQA', color: 'text-green-400' },
     'development': { name: 'TechDev', color: 'text-green-400' },
-    'leadership': { name: 'TechLeads', color: 'text-purple-400' },
+    'leadership': { name: 'TechLeads', color: 'text-orange-400' },
     'design': { name: 'TechArchs', color: 'text-orange-400' },
     'security': { name: 'TechGuard', color: 'text-red-400' }
   }), []);
@@ -519,7 +520,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Discover and register for tech workshops, webinars, and conferences',
         path: '/events',
         stats: 'Explore All',
-        gradient: 'from-purple-500 to-purple-600'
+        gradient: 'from-green-500 to-green-600'
       },
       {
         title: 'Create Event',
@@ -579,7 +580,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
         description: 'Discover and connect with Favored Online members in your field',
         path: '/members-directory',
         stats: 'Browse Members',
-        gradient: 'from-purple-500 to-purple-600'
+        gradient: 'from-green-600 to-green-700'
       }
     ],
     companies: [
@@ -774,6 +775,11 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
       handleCardClick('/career-coach');
       return;
     }
+    // Hire Us navigates to the digital solutions page
+    if (item.id === 'hire-us') {
+      handleCardClick('/solutions');
+      return;
+    }
     setActiveSection(item.id);
     setSidebarOpen(false);
   }, [handleCardClick]);
@@ -805,7 +811,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
       events: {
         title: 'Tech Events',
         description: 'Discover, register, and host tech events, workshops, and conferences.',
-        gradientColors: 'from-purple-300 via-purple-400 to-pink-500',
+        gradientColors: 'from-green-300 via-green-400 to-orange-400',
         cards: dashboardCards.events
       },
       projects: {
@@ -828,7 +834,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
           <SectionHeader 
             title="Community Hub"
             description="Connect, collaborate, and grow with the Favored Online community."
-            gradientColors="from-green-300 via-purple-400 to-green-500"
+            gradientColors="from-green-300 via-orange-400 to-green-500"
           />
           
           <CommunityStats />
@@ -841,7 +847,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
 
           <CommunityGuidelines />
 
-          <div className="bg-gradient-to-r from-green-500/10 to-purple-500/10 rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-green-500/30 text-center">
+          <div className="bg-gradient-to-r from-green-500/10 to-orange-500/10 rounded-lg xs:rounded-xl p-4 xs:p-5 sm:p-6 border border-green-500/30 text-center">
             <p className="text-base xs:text-lg sm:text-xl font-bold text-white mb-3 xs:mb-4" 
                style={{textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>
               Ready to join the conversation?
@@ -992,7 +998,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
 
           <div className="p-2 xs:p-3 sm:p-4 mt-auto border-t border-gray-200 space-y-1 xs:space-y-2">
             <a
-              href="https://careers.favoredonline.com/career/support"
+              href="/career/support"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center px-2 xs:px-3 sm:px-4 py-2.5 xs:py-3 sm:py-4 text-left rounded-lg xs:rounded-xl min-h-[52px] transition-all duration-200 text-gray-700 hover:bg-gray-100 active:bg-gray-200 hover:text-gray-900"
@@ -1021,7 +1027,7 @@ const UserDashboard = ({ currentUser, onNavigate }) => {
             {process.env.NODE_ENV === 'development' && (
               <button
                 onClick={() => setShowPWADebug(!showPWADebug)}
-                className="w-full bg-purple-600 text-white px-2 py-2 rounded-lg text-xs font-medium min-h-[40px] shadow-lg hover:bg-purple-700 active:bg-purple-800 transition-colors"
+                className="w-full bg-gray-600 text-white px-2 py-2 rounded-lg text-xs font-medium min-h-[40px] shadow-lg hover:bg-gray-700 active:bg-gray-800 transition-colors"
                 title="Toggle PWA Debug (Ctrl+Shift+D)"
                 aria-label="Toggle PWA Debug panel"
               >

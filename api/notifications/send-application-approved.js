@@ -67,8 +67,8 @@ module.exports = async function handler(req, res) {
     const projectTitle = projectData?.projectTitle || applicationData.projectTitle || 'Project';
     const groupId = projectData?.groupId;
     const groupUrl = groupId 
-      ? `https://careers.favoredonline.com/groups/${groupId}` 
-      : 'https://careers.favoredonline.com/my-groups';
+      ? `https://www.favoredonline.com/groups/${groupId}` 
+      : 'https://www.favoredonline.com/my-groups';
     
     const emailSubject = `Application Approved: Welcome to ${projectTitle}`;
     

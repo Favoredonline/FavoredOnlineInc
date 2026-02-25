@@ -323,7 +323,7 @@ const DirectoryAccessControl = () => {
                   </div>
                   <button 
                     onClick={requestManualApproval}
-                    className="w-full bg-gradient-to-r from-green-500 to-purple-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold hover:from-green-600 hover:to-purple-600 transition-all duration-300 text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold hover:from-green-600 hover:to-green-700 transition-all duration-300 text-sm sm:text-base"
                   >
                     Request Access
                   </button>

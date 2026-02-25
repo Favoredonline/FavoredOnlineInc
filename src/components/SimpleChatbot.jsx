@@ -86,10 +86,10 @@ const SimpleChatbot = () => {
           addBotMessage("You can also request a dedicated career coach for one-on-one personalized mentorship and guidance.");
         }, 1500);
         setTimeout(() => {
-          addBotMessage("Explore everything at: https://careers.favoredonline.com");
+          addBotMessage("Explore everything at: /career/dashboard (or click 'Earn Your Badges' on our homepage)");
         }, 3000);
         setTimeout(() => {
-          addBotMessage("Or take the free AI Career Assessment now: https://careers.favoredonline.com/career/test");
+          addBotMessage("Or take the free AI Career Assessment now: /career/test");
         }, 4500);
         setTimeout(() => {
           addBotMessage("If you have any business-related inquiries, feel free to start a new chat anytime. Best of luck on your tech journey! 🚀");

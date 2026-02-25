@@ -150,7 +150,7 @@ module.exports = async function handler(req, res) {
                   Review this application and decide whether to approve or reject it.
                   The applicant is waiting to hear from you!
                 </p>
-                <a href="https://careers.favoredonline.com/projects/owner-dashboard" class="button">
+                <a href="https://www.favoredonline.com/projects/owner-dashboard" class="button">
                   Review Application Now
                 </a>
               </div>
@@ -216,7 +216,7 @@ MOTIVATION:
 ACTION REQUIRED:
 Review this application and decide whether to approve or reject it. The applicant is waiting to hear from you!
 
-Review Application: https://careers.favoredonline.com/projects/owner-dashboard
+Review Application: https://www.favoredonline.com/projects/owner-dashboard
 
 TIPS FOR REVIEWING:
 - Review their experience and skills carefully

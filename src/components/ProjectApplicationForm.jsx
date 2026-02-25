@@ -428,7 +428,7 @@ const ProjectInfoCard = ({ project, onApply }) => {
           <span className="px-2 sm:px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs sm:text-sm">
             {project.timeline}
           </span>
-          <span className="px-2 sm:px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs sm:text-sm">
+          <span className="px-2 sm:px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs sm:text-sm">
             {project.experienceLevel}
           </span>
         </div>

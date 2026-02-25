@@ -288,7 +288,7 @@ const MarketTrendsSection = ({ marketTrends, careerPaths }) => {
           {industries.length > 0 && (
             <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
               {industries.map((industry, indIndex) => (
-                <span key={indIndex} className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm break-all">
+                <span key={indIndex} className="px-2 sm:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm break-all">
                   {industry}
                 </span>
               ))}
@@ -595,7 +595,7 @@ const MarketTrendsSection = ({ marketTrends, careerPaths }) => {
           {industries.length > 0 && (
             <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
               {industries.map((industry, indIndex) => (
-                <span key={indIndex} className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm break-all">
+                <span key={indIndex} className="px-2 sm:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm break-all">
                   {industry}
                 </span>
               ))}

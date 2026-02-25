@@ -276,7 +276,7 @@ const AdminDashboard = () => {
           rejectionReason: reason,
           rejectionDate: new Date().toISOString(),
           adminEmail: currentUser.email,
-          resubmissionUrl: `https://careers.favoredonline.com/groups/${completionData.groupId}`
+          resubmissionUrl: `/groups/${completionData.groupId}`
         };
         
         console.log('📧 Sending rejection email notification...');

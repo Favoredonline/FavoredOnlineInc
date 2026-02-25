@@ -37,7 +37,7 @@ const Hub = () => {
     { id: 'project', label: 'Projects', color: 'green' },
     { id: 'course', label: 'Courses', color: 'orange' },
     { id: 'internship', label: 'Internships', color: 'teal' },
-    { id: 'program', label: 'Programs', color: 'pink' },
+    { id: 'program', label: 'Programs', color: 'orange' },
     { id: 'scholarship', label: 'Scholarships', color: 'yellow' }
   ];
 
@@ -253,7 +253,7 @@ const Hub = () => {
       case 'program':
         return (
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-xs">
-            {post.programDuration && <span className="bg-pink-500/20 text-pink-300 px-2 py-1 rounded">{post.programDuration}</span>}
+            {post.programDuration && <span className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded">{post.programDuration}</span>}
             {post.programCost && <span className="bg-green-500/20 text-green-300 px-2 py-1 rounded hidden sm:inline-block">{post.programCost}</span>}
           </div>
         );

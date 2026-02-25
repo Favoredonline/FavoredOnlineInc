@@ -50,9 +50,9 @@ const UserBadgesPage = () => {
     'leadership': {
       id: 'techleads',
       name: 'TechLeads Badges',
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'from-purple-50 to-purple-100',
-      borderColor: 'border-purple-200',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'from-green-50 to-green-100',
+      borderColor: 'border-green-200',
       image: '/Images/TechLeads.png'
     },
     'design': {
@@ -310,8 +310,8 @@ const UserBadgesPage = () => {
               <div className="text-3xl sm:text-4xl font-black text-orange-600 mb-2">{certificates.length}</div>
               <div className="text-gray-700 text-xs sm:text-sm font-semibold">Certificates</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-4 sm:p-6">
-              <div className="text-3xl sm:text-4xl font-black text-purple-600 mb-2">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-xl p-4 sm:p-6">
+              <div className="text-3xl sm:text-4xl font-black text-orange-600 mb-2">
                 {badgeStats.filter(stat => stat.totalCount > 0).length}
               </div>
               <div className="text-gray-700 text-xs sm:text-sm font-semibold">Categories</div>

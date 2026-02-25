@@ -365,7 +365,7 @@ const ProjectCompletionForm = () => {
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
+                  <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
                   <div>
                     <h4 className="text-gray-900 font-semibold text-sm sm:text-base">Award Badges</h4>
                     <p className="text-gray-600 text-xs sm:text-sm">Recognize team contributions</p>

@@ -197,7 +197,7 @@ const DirectoryAccessManager = () => {
             <div className="text-gray-400 text-sm">Active Subscriptions</div>
           </div>
           <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-            <div className="text-2xl font-bold text-purple-400">
+            <div className="text-2xl font-bold text-orange-400">
               ${(activeSubscriptions.length * 29.99).toFixed(2)}
             </div>
             <div className="text-gray-400 text-sm">Monthly Revenue</div>

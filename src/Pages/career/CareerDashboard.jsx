@@ -1419,7 +1419,7 @@ useEffect(() => {
 
   const ActionCard = ({ step, index }) => {
     const priorityColors = {
-      high: 'from-red-500/20 to-pink-500/20 border-red-500/30',
+      high: 'from-red-500/20 to-red-500/20 border-red-500/30',
       medium: 'from-green-500/20 to-orange-500/20 border-green-500/30',
       low: 'from-gray-500/20 to-gray-600/20 border-gray-500/30'
     };
@@ -1454,7 +1454,7 @@ useEffect(() => {
                   {step.timeline}
                 </p>
                 {step.personalized && (
-                  <span className="px-2 sm:px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold border border-purple-500/30 backdrop-blur-sm w-fit">
+                  <span className="px-2 sm:px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs font-bold border border-orange-500/30 backdrop-blur-sm w-fit">
                     AI-Generated
                   </span>
                 )}
@@ -1693,7 +1693,7 @@ const submitFeedback = (e) => {
                   <span className="hidden sm:inline">Timeline: </span>{userData.transitionTimeline}
                 </div>
               )}
-              <div className="bg-purple-400 bg-opacity-30 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full border border-purple-300 backdrop-blur-sm" 
+              <div className="bg-orange-400 bg-opacity-30 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full border border-green-300 backdrop-blur-sm" 
                    style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                 AI Powered
               </div>
@@ -2009,7 +2009,7 @@ const submitFeedback = (e) => {
                                   {phase.timeline}
                                 </p>
                               </div>
-                              <span className="px-3 sm:px-4 py-1 sm:py-2 bg-purple-500/20 text-purple-300 rounded-full text-xs sm:text-sm font-bold border border-purple-500/30 backdrop-blur-sm mt-2 sm:mt-0">
+                              <span className="px-3 sm:px-4 py-1 sm:py-2 bg-orange-500/20 text-orange-300 rounded-full text-xs sm:text-sm font-bold border border-orange-500/30 backdrop-blur-sm mt-2 sm:mt-0">
                                 AI Generated
                               </span>
                             </div>
@@ -2145,7 +2145,7 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generateMarketInsights}
                     disabled={generatingInsights || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-green-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg lg:text-xl hover:from-green-600 hover:to-green-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
                       boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2169,8 +2169,8 @@ const submitFeedback = (e) => {
             ) : (
               <div className="space-y-6 lg:space-y-8">
                 {/* Market insights header */}
-                <div className="bg-gradient-to-r from-green-500 to-purple-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-purple-400/20 to-green-400/20 animate-pulse"></div>
+                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-500/20 to-green-400/20 animate-pulse"></div>
                   <div className="relative text-center">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4" 
                         style={{
@@ -2195,7 +2195,7 @@ const submitFeedback = (e) => {
                 <div className="text-center mt-6 lg:mt-8 px-4">
                   <button
                     onClick={downloadMarketInsights}
-                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-green-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
                       boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2357,7 +2357,7 @@ const submitFeedback = (e) => {
                   <button
                     onClick={generateCareerLearningPlan}
                     disabled={generatingLearning || careerRecommendations.length === 0}
-                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base lg:text-lg hover:from-green-600 hover:to-purple-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
+                    className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base lg:text-lg hover:from-green-600 hover:to-green-700 transition-all transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-2xl"
                     style={{
                       boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2434,7 +2434,7 @@ const submitFeedback = (e) => {
                             </p>
                             <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
                               {resource.skills.slice(0, 3).map((skill, skillIdx) => (
-                                <span key={skillIdx} className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium border border-purple-500/30 backdrop-blur-sm">
+                                <span key={skillIdx} className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs font-medium border border-orange-500/30 backdrop-blur-sm">
                                   {skill}
                                 </span>
                               ))}
@@ -2485,7 +2485,7 @@ const submitFeedback = (e) => {
                 <div className="text-center mt-6 sm:mt-8">
                   <button
                     onClick={downloadLearningPlan}
-                    className="bg-gradient-to-r from-green-500 to-purple-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-purple-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
+                    className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:from-green-600 hover:to-green-700 transition-all font-bold text-sm sm:text-base lg:text-lg inline-flex items-center space-x-2 sm:space-x-3 shadow-2xl transform hover:scale-105"
                     style={{
                       boxShadow: '0 0 40px rgba(34, 197, 94, 0.4)',
                       fontFamily: '"Inter", sans-serif'
@@ -2659,7 +2659,7 @@ const submitFeedback = (e) => {
 
                 {/* Preparation Tips */}
                 {interviewQuestions.preparationTips && (
-                  <div className="mt-8 p-6 bg-gradient-to-r from-green-500/10 to-purple-500/10 rounded-2xl border border-green-500/20 backdrop-blur-sm">
+                  <div className="mt-8 p-6 bg-gradient-to-r from-green-500/10 to-orange-500/10 rounded-2xl border border-green-500/20 backdrop-blur-sm">
                     <h4 className="font-black text-white mb-4" 
                         style={{
                           textShadow: '0 0 15px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.9)',
@@ -2684,7 +2684,7 @@ const submitFeedback = (e) => {
 
                 {/* Common Mistakes */}
                 {interviewQuestions.commonMistakes && (
-                  <div className="mt-6 p-6 bg-gradient-to-r from-red-500/10 to-pink-500/10 rounded-2xl border border-red-500/20 backdrop-blur-sm">
+                  <div className="mt-6 p-6 bg-gradient-to-r from-red-500/10 to-red-600/10 rounded-2xl border border-red-500/20 backdrop-blur-sm">
                     <h4 className="font-black text-white mb-4" 
                         style={{
                           textShadow: '0 0 15px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.9)',
@@ -2852,7 +2852,7 @@ const submitFeedback = (e) => {
 
       {/* Success Indicators */}
       {careerRecommendations.length > 0 && (
-        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm shadow-2xl z-40 border border-purple-500/30 max-w-[calc(100vw-8rem)] sm:max-w-none">
+        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-gradient-to-r from-orange-500/20 to-orange-600/20 backdrop-blur-sm text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm shadow-2xl z-40 border border-orange-500/30 max-w-[calc(100vw-8rem)] sm:max-w-none">
           <div className="font-bold" 
                style={{
                  textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
@@ -2882,7 +2882,7 @@ const submitFeedback = (e) => {
       {/* Floating Elements for Enhanced Visual Appeal */}
       <div className="fixed top-1/4 left-2 sm:left-4 lg:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-green-400/10 rounded-full blur-xl animate-bounce opacity-60 pointer-events-none"></div>
       <div className="fixed bottom-1/4 right-2 sm:right-4 lg:right-10 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-orange-400/10 rounded-full blur-xl animate-pulse opacity-60 pointer-events-none"></div>
-      <div className="fixed top-1/2 left-1/4 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-purple-400/10 rounded-full blur-xl animate-ping opacity-60 pointer-events-none"></div>
+      <div className="fixed top-1/2 left-1/4 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-orange-400/10 rounded-full blur-xl animate-ping opacity-60 pointer-events-none"></div>
 
       {/* Custom Styles */}
       <style jsx>{`
