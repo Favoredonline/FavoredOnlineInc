@@ -51,6 +51,11 @@ import EventsListing from './Pages/events/EventsListing';
 import EventSubmission from './Pages/events/EventSubmission';
 import MyEvents from './Pages/events/MyEvents';
 
+// Digital Solutions Pages
+import DigitalSolutionsHome from './Pages/digital/DigitalSolutionsHome';
+import DigitalTermsOfService from './Pages/digital/DigitalTermsOfService';
+import DigitalPrivacyPolicy from './Pages/digital/DigitalPrivacyPolicy';
+
 try {
   require('./services/googleFormService');
 } catch (e) {
@@ -162,6 +167,13 @@ function App() {
                 <Route path="/talent-directory" element={<MembersDirectory />} />
                 <Route path="/find-talent" element={<MembersDirectory />} />
                 <Route path="/members-directory" element={<MembersDirectory />} />
+
+                {/* Digital Solutions Pages */}
+                <Route path="/solutions" element={<DigitalSolutionsHome />} />
+                <Route path="/solutions/terms" element={<DigitalTermsOfService />} />
+                <Route path="/solutions/privacy" element={<DigitalPrivacyPolicy />} />
+                <Route path="/digital-solutions" element={<DigitalSolutionsHome />} />
+                <Route path="/services" element={<DigitalSolutionsHome />} />
 
                 <Route path="/hub" element={<BasicProtectedRoute><Hub /></BasicProtectedRoute>} />
                 <Route path="/hub/post" element={<BasicProtectedRoute><PostHub /></BasicProtectedRoute>} />
