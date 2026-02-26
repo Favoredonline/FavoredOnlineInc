@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import SimpleChatbot from '../../components/SimpleChatbot';
 
 // Constants - Updated from brand document
@@ -311,67 +312,8 @@ const CareerHome = () => {
       />
 
       {/* Header - full width */}
-      <header className="fixed top-0 left-0 right-0 z-50 w-full"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.98) 0%, rgba(15,23,42,0.95) 50%, rgba(0,0,0,0.98) 100%)',
-                backdropFilter: 'blur(10px)',
-                borderBottom: '1px solid rgba(34, 197, 94, 0.2)'
-              }}>
-        <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-5">
-          <div className="flex items-center justify-between">
-            <button onClick={handleGoHome} className="flex items-center group">
-              <LazyImage
-                src="/Images/512X512.png"
-                alt="Favored Online Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl"
-              />
-            </button>
+          <Navbar />
 
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-10">
-              <button onClick={handleGoHome}
-                className="text-white/90 hover:text-green-400 font-semibold transition-all duration-300 relative group text-base lg:text-lg">
-                Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <a href="/"
-                className="text-white/90 hover:text-green-400 font-semibold transition-all duration-300 relative group text-base lg:text-lg">
-                Careers
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <button onClick={handleContactUs}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/25">
-                Contact Us
-              </button>
-            </nav>
-
-            <div className="md:hidden">
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white hover:text-green-400 focus:outline-none p-2 rounded-lg bg-black/30 backdrop-blur-sm border border-white/20 transition-all duration-300"
-                aria-label="Toggle menu">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 rounded-2xl"
-                 style={{background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)'}}>
-              <div className="flex flex-col space-y-3 p-4">
-                <button onClick={() => { handleGoHome(); setMobileMenuOpen(false); }}
-                  className="text-white hover:text-green-400 font-semibold text-base text-left">Home</button>
-                <a href="/"
-                  className="text-white hover:text-green-400 font-semibold text-base text-left">Careers</a>
-                <button onClick={() => { handleContactUs(); setMobileMenuOpen(false); }}
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center justify-center shadow-xl">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="flex-grow w-full pt-16 sm:pt-20 md:pt-24">
