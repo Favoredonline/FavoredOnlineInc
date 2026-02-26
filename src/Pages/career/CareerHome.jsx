@@ -1,4 +1,4 @@
-// src/Pages/career/CareerHome.jsx - Merged: Digital Solutions
+// src/Pages/career/CareerHome.jsx - Merged: Digital Solutions + Talent Marketplace + Badge System
 
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';

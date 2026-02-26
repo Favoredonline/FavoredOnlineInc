@@ -1,6 +1,6 @@
-import { put, del } from '@vercel/blob';
+const { put, del } = require('@vercel/blob');
 
-export const config = {
+const config = {
   api: {
     bodyParser: {
       sizeLimit: '10mb',
@@ -8,7 +8,7 @@ export const config = {
   },
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Handle UPLOAD
   if (req.method === 'POST') {
     try {
@@ -72,3 +72,5 @@ export default async function handler(req, res) {
   // Method not allowed
   return res.status(405).json({ error: 'Method not allowed' });
 }
+
+module.exports.config = config;
