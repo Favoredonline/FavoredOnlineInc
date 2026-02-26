@@ -1,14 +1,16 @@
 const { put, del } = require('@vercel/blob');
 
-const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '10mb',
-    },
-  },
-};
-
+// Vercel Serverless Function handler
 module.exports = async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Handle UPLOAD
   if (req.method === 'POST') {
     try {
@@ -17,18 +19,23 @@ module.exports = async function handler(req, res) {
         console.error('BLOB_READ_WRITE_TOKEN is not configured');
         return res.status(500).json({ 
           error: 'Storage not configured', 
-          message: 'Blob storage token is missing. Please configure BLOB_READ_WRITE_TOKEN in environment variables.' 
+          message: 'BLOB_READ_WRITE_TOKEN environment variable is missing.' 
         });
       }
 
-      const { filename, contentType, fileData, originalName, size } = req.body;
+      const { filename, contentType, fileData } = req.body || {};
 
       if (!filename || !fileData) {
-        return res.status(400).json({ error: 'Missing required fields' });
+        return res.status(400).json({ 
+          error: 'Missing required fields',
+          message: 'filename and fileData are required'
+        });
       }
 
       // Convert base64 back to buffer
       const buffer = Buffer.from(fileData, 'base64');
+
+      console.log(`Uploading: ${filename}, size: ${buffer.length} bytes, type: ${contentType}`);
 
       // Upload to Vercel Blob
       const blob = await put(filename, buffer, {
@@ -36,6 +43,8 @@ module.exports = async function handler(req, res) {
         token: process.env.BLOB_READ_WRITE_TOKEN,
         contentType: contentType || 'image/jpeg',
       });
+
+      console.log(`Upload success: ${blob.url}`);
 
       // Return success response
       return res.status(200).json({
@@ -46,13 +55,11 @@ module.exports = async function handler(req, res) {
         uploadedAt: blob.uploadedAt
       });
     } catch (error) {
-      console.error('Upload error:', error.message, error.stack);
+      console.error('Upload error:', error.message);
+      console.error('Stack:', error.stack);
       return res.status(500).json({ 
         error: 'Upload failed', 
-        message: error.message,
-        hint: error.message.includes('token') || error.message.includes('unauthorized') 
-          ? 'Check that BLOB_READ_WRITE_TOKEN is valid and the Blob Store is connected to this project.'
-          : undefined
+        message: error.message
       });
     }
   }
@@ -60,13 +67,12 @@ module.exports = async function handler(req, res) {
   // Handle DELETE
   if (req.method === 'DELETE') {
     try {
-      const { url } = req.body;
+      const { url } = req.body || {};
 
       if (!url) {
         return res.status(400).json({ error: 'Missing URL' });
       }
 
-      // Delete from Vercel Blob
       await del(url, {
         token: process.env.BLOB_READ_WRITE_TOKEN,
       });
@@ -81,8 +87,14 @@ module.exports = async function handler(req, res) {
     }
   }
 
-  // Method not allowed
   return res.status(405).json({ error: 'Method not allowed' });
-}
+};
 
-module.exports.config = config;
+// Vercel serverless function config - increase body size limit for image uploads
+module.exports.config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+};
