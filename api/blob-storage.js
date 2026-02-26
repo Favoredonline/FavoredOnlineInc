@@ -12,6 +12,15 @@ module.exports = async function handler(req, res) {
   // Handle UPLOAD
   if (req.method === 'POST') {
     try {
+      // Check for BLOB_READ_WRITE_TOKEN
+      if (!process.env.BLOB_READ_WRITE_TOKEN) {
+        console.error('BLOB_READ_WRITE_TOKEN is not configured');
+        return res.status(500).json({ 
+          error: 'Storage not configured', 
+          message: 'Blob storage token is missing. Please configure BLOB_READ_WRITE_TOKEN in environment variables.' 
+        });
+      }
+
       const { filename, contentType, fileData, originalName, size } = req.body;
 
       if (!filename || !fileData) {
@@ -37,10 +46,13 @@ module.exports = async function handler(req, res) {
         uploadedAt: blob.uploadedAt
       });
     } catch (error) {
-      console.error('Upload error:', error);
+      console.error('Upload error:', error.message, error.stack);
       return res.status(500).json({ 
         error: 'Upload failed', 
-        message: error.message 
+        message: error.message,
+        hint: error.message.includes('token') || error.message.includes('unauthorized') 
+          ? 'Check that BLOB_READ_WRITE_TOKEN is valid and the Blob Store is connected to this project.'
+          : undefined
       });
     }
   }
