@@ -70,7 +70,7 @@ export default function Books() {
             <a href={TOOLKIT.url} className="btn btn-lime" target="_blank" rel="noopener noreferrer">Download free</a>
           </div>
           <p className="small mt-lg">
-            All books are sold and delivered through our <a href={STORE_URL} target="_blank" rel="noopener noreferrer">Selar store</a>.
+            All books are sold and delivered through our <a href={STORE_URL} target="_blank" rel="noopener noreferrer">store</a>.
             Want AI working inside your own business? <Link to="/ai-solutions" className="link-arrow">See our AI services</Link>.
           </p>
         </div>

@@ -9,8 +9,8 @@ export default function Home() {
         <div className="hero-intro">
           <h1>Books to grow your tech career. AI to grow your business.</h1>
           <p className="lede">
-            Favored Online publishes practical guides for people building a career in tech, and designs AI
-            systems that help businesses work faster and serve customers better.
+            Favored Online educates people building a career in tech through practical books and resources,
+            and designs AI systems that help businesses work faster and serve customers better.
           </p>
         </div>
 

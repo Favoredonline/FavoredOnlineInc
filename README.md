@@ -2,7 +2,7 @@
 
 A focused rebuild of favoredonline.com around two things:
 
-1. **Books**: the *Career Path in Tech* series and the free AI Business Growth Toolkit, sold through Selar (https://selar.com/m/favoredonline)
+1. **Books**: the *Career Path in Tech* series and the free AI Business Growth Toolkit, sold through our online store (currently Selar)
 2. **AI solutions for businesses**: services, process, FAQ and a consultation request form
 
 ## Pages

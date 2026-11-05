@@ -2,7 +2,6 @@
 // updated without touching the page layouts.
 
 export const STORE_URL = 'https://selar.com/m/favoredonline';
-export const CONTACT_EMAIL = 'info.favoredonline@gmail.com';
 
 // Pre-order pricing ends on launch day. After this date the site
 // automatically switches to regular prices and "Buy" wording.

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SERVICES, PROCESS, FAQS, CONSULTATION_FEE, CONTACT_EMAIL, TOOLKIT } from '../data/content';
+import { SERVICES, PROCESS, FAQS, CONSULTATION_FEE, TOOLKIT } from '../data/content';
 import { ContactForm } from '../components/Parts';
 
 export default function AISolutions() {
@@ -78,9 +78,6 @@ export default function AISolutions() {
             <p className="lede">
               Tell us about your business and what you want to improve. We reply by email within 24 hours to
               schedule your session.
-            </p>
-            <p className="small">
-              Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
             </p>
           </div>
           <ContactForm />

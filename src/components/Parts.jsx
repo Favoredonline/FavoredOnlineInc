@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
-  isPreorder, launchLabel, SOCIALS, CONTACT_EMAIL, STORE_URL, GOOGLE_FORM, CONSULTATION_FEE,
+  isPreorder, launchLabel, SOCIALS, STORE_URL, GOOGLE_FORM, CONSULTATION_FEE,
 } from '../data/content';
 
 export function Header() {
@@ -48,7 +48,7 @@ export function Footer() {
             <ul>
               <li><Link to="/books">Career Path in Tech</Link></li>
               <li><Link to="/books#toolkit">Free AI toolkit</Link></li>
-              <li><a href={STORE_URL} target="_blank" rel="noopener noreferrer">Selar store</a></li>
+              <li><a href={STORE_URL} target="_blank" rel="noopener noreferrer">Store</a></li>
             </ul>
           </div>
           <div>
@@ -57,7 +57,6 @@ export function Footer() {
               <li><Link to="/ai-solutions">Services</Link></li>
               <li><Link to="/ai-solutions#process">How we work</Link></li>
               <li><Link to="/ai-solutions#contact">Book a consultation</Link></li>
-              <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
             </ul>
           </div>
           <div>
@@ -114,7 +113,7 @@ export function Price({ item }) {
   );
 }
 
-export const buyLabel = () => (isPreorder() ? 'Pre-order on Selar' : 'Buy on Selar');
+export const buyLabel = () => (isPreorder() ? 'Pre-order now' : 'Buy now');
 export const preorderLine = () =>
   isPreorder() ? `Pre-order price until launch day, ${launchLabel}.` : 'Out now as PDF and EPUB.';
 
@@ -145,7 +144,7 @@ export function ContactForm() {
       setStatus('sent');
     } catch {
       setStatus('idle');
-      setError(`Your request didn't send. Check your connection and try again, or email ${CONTACT_EMAIL}.`);
+      setError(`Your request didn't send. Check your connection and try again`);
     }
   }
 
