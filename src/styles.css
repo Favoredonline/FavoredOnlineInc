@@ -308,3 +308,12 @@ section.block { padding: clamp(64px, 9vw, 120px) 0; }
 .mt-lg { margin-top: clamp(40px, 6vw, 72px); }
 .footer-top a { overflow-wrap: anywhere; }
 @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+
+/* Books-only hero */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; padding: clamp(40px, 7vw, 88px) 0 0; }
+.hero h1 { max-width: 13ch; }
+.hero .lede { max-width: 52ch; }
+.hero-art { background: var(--moss); border-radius: var(--r-lg); padding: clamp(24px, 4vw, 44px) clamp(20px, 4vw, 40px) clamp(28px, 4vw, 44px); }
+.hero-art .fan { height: clamp(280px, 32vw, 380px); margin: 0; }
+.hero-art .fan .cover { width: clamp(140px, 17vw, 200px); }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
