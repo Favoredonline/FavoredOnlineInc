@@ -1,6 +1,8 @@
+// src/components/Parts.jsx
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { isPreorder, launchLabel, SOCIALS, STORE_URL, BOOKS, BUNDLE } from '../data/content';
+import { isPreorder, launchLabel, SOCIALS, STORE_URL, BOOKS, BUNDLE, COMING_SOON } from '../data/content';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -21,9 +23,7 @@ export function Header() {
         <nav id="nav" className={`nav ${open ? 'open' : ''}`} aria-label="Main">
           <a href="/#books">The books</a>
           <a href="/#about">About</a>
-          <a href={BUNDLE.url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">
-            {isPreorder() ? 'Pre-order the series' : 'Get the series'}
-          </a>
+          <BuyButton url={BUNDLE.url} label={isPreorder() ? 'Pre-order the series' : 'Get the series'} />
         </nav>
       </div>
     </header>
@@ -45,18 +45,20 @@ export function Footer() {
           <div>
             <h4>Career Path in Tech</h4>
             <ul>
-              <li><a href={BUNDLE.url} target="_blank" rel="noopener noreferrer">The complete series</a></li>
+              <li><a href="/#books">The complete series</a></li>
               {BOOKS.map((b) => (
-                <li key={b.id}><a href={b.url} target="_blank" rel="noopener noreferrer">Book {b.number}: {b.name}</a></li>
+                <li key={b.id}><a href={`/#${b.id}`}>Book {b.number}: {b.name}</a></li>
               ))}
             </ul>
           </div>
-          <div>
-            <h4>Shop</h4>
-            <ul>
-              <li><a href={STORE_URL} target="_blank" rel="noopener noreferrer">Store</a></li>
-            </ul>
-          </div>
+          {!COMING_SOON && (
+            <div>
+              <h4>Shop</h4>
+              <ul>
+                <li><a href={STORE_URL} target="_blank" rel="noopener noreferrer">Store</a></li>
+              </ul>
+            </div>
+          )}
           <div>
             <h4>Follow</h4>
             <ul>
@@ -96,7 +98,16 @@ export function Cover({ src, title, label, eager }) {
   );
 }
 
+// Shows "Coming soon" while COMING_SOON is true; otherwise links to the store.
+export function BuyButton({ url, label }) {
+  if (COMING_SOON) return <span className="btn btn-soon">Coming soon</span>;
+  return (
+    <a href={url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">{label || buyLabel()}</a>
+  );
+}
+
 export function Price({ item }) {
+  if (COMING_SOON) return null;
   const pre = isPreorder();
   return (
     <span className="price">
@@ -108,4 +119,4 @@ export function Price({ item }) {
 
 export const buyLabel = () => (isPreorder() ? 'Pre-order now' : 'Buy now');
 export const preorderLine = () =>
-  isPreorder() ? `Pre-order price until launch day, ${launchLabel}.` : 'Out now as PDF and EPUB.';
+  COMING_SOON ? 'Coming soon as PDF and EPUB.' : isPreorder() ? `Pre-order price until launch day, ${launchLabel}.` : 'Out now as PDF and EPUB.';
