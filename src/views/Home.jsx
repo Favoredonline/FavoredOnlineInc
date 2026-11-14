@@ -1,5 +1,7 @@
-import { BOOKS, BUNDLE, STORE_URL, isPreorder } from '../data/content';
-import { Cover, Price, buyLabel, preorderLine } from '../components/Parts';
+// src/views/Home.jsx
+
+import { BOOKS, BUNDLE, STORE_URL, isPreorder, COMING_SOON } from '../data/content';
+import { Cover, Price, BuyButton, preorderLine } from '../components/Parts';
 
 export default function Home() {
   const pre = isPreorder();
@@ -15,10 +17,8 @@ export default function Home() {
               of AI.
             </p>
             <div className="btn-row">
-              <a href={BUNDLE.url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">
-                {pre ? 'Pre-order the series' : 'Get the series'}
-              </a>
-              <span className="small sans">All three books for <Price item={BUNDLE} /></span>
+              <BuyButton url={BUNDLE.url} label={pre ? 'Pre-order the series' : 'Get the series'} />
+              {!COMING_SOON && <span className="small sans">All three books for <Price item={BUNDLE} /></span>}
             </div>
             <p className="small sans" style={{ marginTop: 14 }}>{preorderLine()}</p>
           </div>
@@ -36,17 +36,17 @@ export default function Home() {
         <div className="bundle">
           <Cover src={BUNDLE.cover} title={`${BUNDLE.title}: ${BUNDLE.subtitle}`} label="Complete series" />
           <div>
-            {pre && <span className="note">Pre-order saves ${BUNDLE.separatePrice - BUNDLE.preorderPrice}</span>}
+            {pre && !COMING_SOON && <span className="note">Pre-order saves ${BUNDLE.separatePrice - BUNDLE.preorderPrice}</span>}
             <h2 id="bundle-h" style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)' }}>The complete series</h2>
             <p className="measure">{BUNDLE.blurb}</p>
             <ul className="facts">
               <li>3 books</li>
               <li>About {BUNDLE.pages} pages</li>
               <li>{BUNDLE.formats}</li>
-              <li>${BUNDLE.separatePrice} if bought separately</li>
+              {!COMING_SOON && <li>${BUNDLE.separatePrice} if bought separately</li>}
             </ul>
             <div className="btn-row">
-              <a href={BUNDLE.url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">{buyLabel()}</a>
+              <BuyButton url={BUNDLE.url} />
               <Price item={BUNDLE} />
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
                     {b.topics.map((t) => <li key={t}>{t}</li>)}
                   </ul>
                   <div className="meta">
-                    <a href={b.url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">{buyLabel()}</a>
+                    <BuyButton url={b.url} />
                     <Price item={b} />
                     <span className="small">{b.pages}-page PDF + EPUB, worksheets and glossary</span>
                   </div>
@@ -103,10 +103,10 @@ export default function Home() {
               practical and honest about how AI is changing the job market.
             </p>
             <div className="btn-row" style={{ marginTop: 24 }}>
-              <a href={BUNDLE.url} className="btn btn-ink" target="_blank" rel="noopener noreferrer">
-                {pre ? 'Pre-order the series' : 'Get the series'}
-              </a>
-              <a href={STORE_URL} className="btn btn-line" target="_blank" rel="noopener noreferrer">Visit the store</a>
+              <BuyButton url={BUNDLE.url} label={pre ? 'Pre-order the series' : 'Get the series'} />
+              {!COMING_SOON && (
+                <a href={STORE_URL} className="btn btn-line" target="_blank" rel="noopener noreferrer">Visit the store</a>
+              )}
             </div>
           </div>
         </div>
