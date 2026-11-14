@@ -1,3 +1,5 @@
+/* src/styles.css */
+
 :root {
   --paper: #f5f7ee;
   --moss: #e3ebd3;
@@ -317,3 +319,6 @@ section.block { padding: clamp(64px, 9vw, 120px) 0; }
 .hero-art .fan { height: clamp(280px, 32vw, 380px); margin: 0; }
 .hero-art .fan .cover { width: clamp(140px, 17vw, 200px); }
 @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
+
+/* "Coming soon" stand-in for buy buttons */
+.btn-soon { background: var(--lime); color: var(--pine); cursor: default; }
