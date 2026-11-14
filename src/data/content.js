@@ -1,5 +1,11 @@
+// src/data/content.js
+
 // All site content lives here, so prices, links and services can be
 // updated without touching the page layouts.
+
+// While true, the site shows "Coming soon" instead of prices and buy links.
+// Set to false when the books are ready to sell.
+export const COMING_SOON = true;
 
 export const STORE_URL = 'https://selar.com/m/favoredonline';
 
